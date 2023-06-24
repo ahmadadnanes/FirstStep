@@ -114,6 +114,27 @@ nav .links ul li a:hover{
     padding-left: 25px;
 }
 
+.normal-bar {
+    display: none;
+}
+.normal-bar a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    border-radius: 7px;
+}
+
+.normal-bar a:hover{
+    background-color: aquamarine;
+}
+@media (min-width: 992px) {
+    .drop-down{
+        display: none;
+    }
+    .normal-bar{
+        display: block;
+    }
+}
 
 
 /* end - header */
@@ -249,23 +270,5 @@ footer .container h3{
     padding: 15px;
     padding-left: 50px;
 }
-.normal-bar {
-    display: none;
-}
-.normal-bar a {
-    text-decoration: none;
-    color: black;
-    padding: 10px;
-    background-color: white;
-    border-radius: 7px;
-    border: solid black 1px;
-}
-@media (min-width: 992px) {
-    .drop-down{
-        display: none;
-    }
-    .normal-bar{
-        display: block;
-    }
-}
+
 /* end - footer */
