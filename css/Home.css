@@ -115,6 +115,7 @@ nav .links ul li a:hover{
 
 /* start - scroll up */
 .up{
+    display: none;
     position: fixed;
     bottom: 20px;
     right: 20px;
