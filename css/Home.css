@@ -63,9 +63,6 @@ nav .links{
     position: relative;
 }
 
-nav .links:hover ul{
-    display: block;
-}
 nav .links .icon{
     width: 30px;
     display: flex;
@@ -87,6 +84,7 @@ nav .links ul{
     top: calc(100% + 15px);
     background-color: white;
     display: none;
+    z-index: 100;
 }
 
 nav .links ul ::before{
@@ -114,3 +112,129 @@ nav .links ul li a:hover{
 
 
 /* end - header */
+
+/* start - scroll up */
+.up{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 4px;
+    
+}
+
+/* end - scroll up */
+
+/* start - landing */
+
+section .container{
+    text-align: center;
+    background-image: url(../img/hands.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 75vh;
+    position: relative;
+}
+
+section .container .intro{
+    position: absolute;
+    left: 50% ;
+    top: 50%;
+    transform: translate(-50%,-50%) ;
+    width: 320px;
+    max-width: 100%;
+}
+
+ section .container h1{
+    color: aquamarine;
+    font-size: 50px;
+}
+
+ section .container p{
+    color: white;
+    font-size: 25px;
+}
+
+/* end - landing */
+
+
+/* start - article */
+article{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+article .container h1{
+    color: bisque;
+    font-size: 50px;
+    text-align: center;
+}
+
+article .container p{
+    color: white;
+    font-size: 25px;
+}
+/* end - article */
+
+
+/* start - services */
+.services{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.services .container .card-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(300px,1fr));
+    grid-gap: 20px;
+
+}
+
+.services .container .card-container .card{
+    background-color: white;
+    border-radius: 10px;
+}
+
+.services .container .card-container .card h5{
+    text-align: center;
+}
+
+.services .container  .card-container .card p{
+    color: black;
+    text-align: center;
+    font-size: 15px;
+}
+
+.services .container .card-container .card .button-container{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.services .container .card-container .card button{
+    background-color: green;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+/* end - services */
+
+/* start - footer */
+footer .footer_ul{
+    display:flex;
+    justify-content: center;
+    list-style: none;
+    
+}
+footer .footer_ul li{
+    padding: 15px;
+}
+footer .footer_ul li i{
+    font-size: 25px;
+    color: black;
+}
+
+footer .container h2{
+    text-align: center;
+    padding: 15px;
+    padding-left: 50px;
+}
+
+/* end - footer */
