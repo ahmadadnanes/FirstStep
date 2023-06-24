@@ -124,6 +124,7 @@ nav .links ul li a:hover{
     bottom: 20px;
     right: 20px;
     border-radius: 4px;
+    display: none;
     
 }
 
