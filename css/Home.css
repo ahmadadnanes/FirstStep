@@ -237,4 +237,10 @@ footer .container h2{
     padding-left: 50px;
 }
 
+footer .container h3{
+    text-align: center;
+    padding: 15px;
+    padding-left: 50px;
+}
+
 /* end - footer */

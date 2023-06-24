@@ -146,9 +146,10 @@
                 <h2>Follow Me</h2>
                 <ul class="footer_ul">
                     <li><a href="https://www.linkedin.com/in/ahmad-istaitieh-64a635248/"><i class="fa-brands fa-linkedin"></i></a></li>
-                    <li><a href="\https://www.facebook.com/?stype=lo&jlou=AffCAbb7HN2ETi8Re2muQut4E0m1QvMNTdcnODEyKN4RvE7ttRuvaOdle6admyXwScXb0dUrqhBpt0q6jC8_kOJtkjsi59GgRAiW9QNcKQ0tug&smuh=36750&lh=Ac-cLaqNrwZm3jR6"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100002178974914"><i class=" fa-brands fa-facebook"></i></a></li>
                     <li><a href="https://github.com/ahmadadnanes"><i class="fa-brands fa-github"></i></a></li>
                 </ul>
+                <h3>Made With <span>&#10084;</span> By ahmad adnan</h3>
             </div>
         </footer>
         <!-- end footer -->
