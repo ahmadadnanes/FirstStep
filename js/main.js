@@ -12,8 +12,8 @@ button.onclick = function(){
 
 let btn = document.querySelector("button");
 
-window.onscroll = scrollbtn;
 window.onload = scrollbtn;
+window.onscroll = scrollbtn;
 function scrollbtn(){
     if(window.scrollY >= 100){
         btn.style.display = "block";
