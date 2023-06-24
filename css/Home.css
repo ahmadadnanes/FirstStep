@@ -145,12 +145,12 @@ section .container .intro{
     max-width: 100%;
 }
 
- section .container h1{
+section .container h1{
     color: aquamarine;
     font-size: 50px;
 }
 
- section .container p{
+section .container p{
     color: white;
     font-size: 25px;
 }
@@ -243,5 +243,23 @@ footer .container h3{
     padding: 15px;
     padding-left: 50px;
 }
-
+.normal-bar {
+    display: none;
+}
+.normal-bar a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    background-color: white;
+    border-radius: 7px;
+    border: solid black 1px;
+}
+@media (min-width: 992px) {
+    .drop-down{
+        display: none;
+    }
+    .normal-bar{
+        display: block;
+    }
+}
 /* end - footer */
