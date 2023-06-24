@@ -5,6 +5,11 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
+
+html{
+    scroll-behavior: smooth;
+}
+
 .container{
     padding-right: 15px;
     padding-left: 15px;
