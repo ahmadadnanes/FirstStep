@@ -1,0 +1,25 @@
+section{
+    padding: 50px;
+}
+
+section .container .square .half2{
+    padding: 15px;
+}
+section .container .square .half2 input{
+    border-radius: 5px;
+    padding: 10px;
+    border: none;
+}
+section .container .square .half2 button{
+    padding-left:  10px;
+    padding-right: 10px;
+    width: 75px;
+    border-radius: 5px;
+    border: none;
+}
+
+section .container .square .half2 button:hover{
+    cursor: pointer;
+    background-color: aquamarine;
+
+}

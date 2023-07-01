@@ -10,7 +10,7 @@ button.onclick = function(){
     }
 }
 
-let btn = document.querySelector("button");
+let btn = document.querySelector("#up");
 
 window.onload = scrollbtn;
 window.onscroll = scrollbtn;

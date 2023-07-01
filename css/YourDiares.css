@@ -1,0 +1,16 @@
+section{
+    padding: 50px;
+}
+
+section .container .diary_container{
+    border: 2px solid aquamarine;
+    border-radius: 5px;
+}
+
+section .container .diary_container .title{
+    text-align: center;
+}
+
+section .container .diary_container .content{
+    padding: 15px;
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- main css files -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/login.css">
+    <!-- other css files -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/brands.min.css">
+    <link rel="stylesheet" href="css/normal.css">
+    <title>SignUp</title>
+</head>
+<body bgcolor="#DCDCDC">
+    <!-- start header -->
+    <nav>
+        <div class="container">
+            <img src="img/logo-removebg-preview.png" width="90px">
+
+            <div class="normal-bar">
+                <a href="login.html">Login</a>
+            </div>
+            
+            <div class="drop-down">
+                <div class="links">
+                    <span class="icon">
+                        <input type="image" src="img/bars-solid.svg" id="nav_button">
+                    </span>
+
+                    <ul id="nav_ul">
+
+                        <li>
+                            <a href="login.html">Login</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+
+    </nav>
+    <!-- end header -->
+
+    <!-- start scrollup button -->
+    <button class="up" id="up"><i class="fa-solid fa-arrow-up"></i></button>
+    <!-- end scrollup button -->
+
+    <!-- start login -->
+    <section>
+        <div class="container">
+            <div class="square">
+                <div class="half1">
+                    <h2 style="text-align: center;color:#4a916e;">
+                        Be somebody who makes everybody feel like a somebody.
+                    </h2>
+                </div>
+                
+              <div class="half2">
+                <center>
+                    <form action="php/signup.php" method="post" id="form1">
+                        
+    
+                        <div style="margin-bottom:60px;">
+                            <label for="username"></label>
+                            <input type="text" id="username" name="username" required placeholder="Username">
+                            <br><br>
+
+                            <label for="email"></label>
+                            <input type="email" id="email" name="email" required placeholder="Email">
+                            <br><br>
+                        
+                            <label for="password"></label>
+                            <input type="password" id="password" name="password" required placeholder="Password">
+                            <br><br>
+                        </div>
+    
+                        <button class="btnn" type="submit">Login</button>
+                    </form>
+                </center>
+              </div>
+            </div>
+          </div>
+    </section>
+    <!-- end login -->
+
+    <!-- start footer -->
+    <footer>
+        <div class="container" style="background-color: brown;">
+            <h2>Follow Me</h2>
+            <ul class="footer_ul">
+                <li><a href="https://www.linkedin.com/in/ahmad-istaitieh-64a635248/"><i class="fa-brands fa-linkedin"></i></a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=100002178974914"><i class=" fa-brands fa-facebook"></i></a></li>
+                <li><a href="https://github.com/ahmadadnanes"><i class="fa-brands fa-github"></i></a></li>
+            </ul>
+            <h3>Made With <span>&#10084;</span> By ahmad adnan</h3>
+        </div>
+    </footer>
+    <!-- end footer -->
+    
+    <!-- JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

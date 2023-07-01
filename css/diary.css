@@ -1,0 +1,41 @@
+section{
+    padding: 50px;
+}
+
+section .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+section .container .title {
+    padding: 15px;
+}
+
+section .container .content{
+    padding: 15px;
+}
+
+section .container .button{
+    padding: 15px;
+    position: absolute;
+    left: 45%;
+}
+
+section .container .title input{
+    border-radius: 5px;
+    border: none;
+    background-color: lightgoldenrodyellow;
+}
+
+section .container .content textarea{
+    border-radius: 5px;
+    border: none;
+    background-color: lightgoldenrodyellow;
+}
+
+section .container .button button{
+    border-radius: 5px;
+    border: none;
+}
