@@ -2,12 +2,16 @@
 include "php/conn.php";
 session_start();
 $id = "";
-$id = implode($_SESSION["id"]);
-$sql = "SELECT username from users where id = '$id'";
-$result = mysqli_query($conn, $sql);
-$us = mysqli_fetch_assoc($result);
-$user = $us["username"];
-$html = "YourDiares.php?id=$id";
+if ($_SESSION["id"]) {
+    $id = implode($_SESSION["id"]);
+    $sql = "SELECT username from users where id = '$id'";
+    $result = mysqli_query($conn, $sql);
+    $us = mysqli_fetch_assoc($result);
+    $user = $us["username"];
+    $html = "YourDiares.php?id=$id";
+} else {
+    header("Location: login.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -192,7 +196,7 @@ $html = "YourDiares.php?id=$id";
                 <h1>Contact Us</h1>
             </div>
             <div class="contact_form">
-                <form action="php" method="post">
+                <form action="php/contact.php" method="post">
                     <input type="email" name="email" id="email" placeholder="Enter your Email" style="padding-right: 60px;"><br><br>
                     <textarea name="contact" id="contact" cols="30" rows="10"></textarea><br><br>
                     <button type="submit">submit</button>

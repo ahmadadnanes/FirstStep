@@ -2,10 +2,12 @@
 include "php/conn.php";
 session_start();
 $id = "";
-$id = implode($_SESSION["id"]);
-$sql = "SELECT diary_title,diary_content FROM diary WHERe user_id = $id ORDER BY id DESC";
-$result = mysqli_query($conn, $sql);
-$html = "diary.php?id=$id";
+if (isset($_SESSION["id"])) {
+    $id = implode($_SESSION["id"]);
+    $sql = "SELECT diary_title,diary_content FROM diary WHERe user_id = $id ORDER BY id DESC";
+    $result = mysqli_query($conn, $sql);
+    $html = "diary.php?id=$id";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
