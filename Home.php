@@ -153,7 +153,7 @@ $html = "YourDiares.php?id=$id";
                             if you are feeling overwhelming sadness it's free, quick , confidential. and scirnfically validated.
                         </p>
                         <div class="button-container">
-                            <button onclick="location.href='#'">Start</button>
+                            <button onclick="location.href='DEPERSSION TEST.php?id=<?php echo $id ?>'">Start</button>
                         </div>
                     </div>
                 </div>
@@ -163,7 +163,7 @@ $html = "YourDiares.php?id=$id";
                         <h5>Diary</h5>
                         <p>here you can express your feelings</p>
                         <div class="button-container">
-                            <button onclick="location.href='diary.php?id=<?php $id ?>'">Start</button>
+                            <button onclick="location.href='diary.php?id=<?php echo $id ?>'">Start</button>
                         </div>
                     </div>
                 </div>
@@ -173,7 +173,7 @@ $html = "YourDiares.php?id=$id";
                         <h5>Recommended Psychologist</h5>
                         <p> here you can explore most famous Psychologist through the country</p>
                         <div class="button-container">
-                            <button onclick="location.href='#'">Start</button>
+                            <button onclick="location.href='Recomended psy.php'">Start</button>
                         </div>
                     </div>
 
@@ -193,7 +193,7 @@ $html = "YourDiares.php?id=$id";
             </div>
             <div class="contact_form">
                 <form action="php" method="post">
-                    <input type="email" name="email" id="email" placeholder="Enter your Email"><br><br>
+                    <input type="email" name="email" id="email" placeholder="Enter your Email" style="padding-right: 60px;"><br><br>
                     <textarea name="contact" id="contact" cols="30" rows="10"></textarea><br><br>
                     <button type="submit">submit</button>
 
@@ -205,7 +205,7 @@ $html = "YourDiares.php?id=$id";
 
     <!-- start footer -->
     <footer>
-        <div class="container" style="background-color: brown;">
+        <div class="footer_container" style="background-color: brown;">
             <h2>Follow Me</h2>
             <ul class="footer_ul">
                 <li><a href="https://www.linkedin.com/in/ahmad-istaitieh-64a635248/"><i class="fa-brands fa-linkedin"></i></a></li>

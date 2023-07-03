@@ -1,5 +1,5 @@
 /* start - global - rules */
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 *{
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -8,6 +8,10 @@
 
 html{
     scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Poppins' , sans-serif;
 }
 
 a{
@@ -171,13 +175,13 @@ footer .footer_ul li i{
     color: black;
 }
 
-footer .container h2{
+footer .footer_container h2{
     text-align: center;
     padding: 15px;
     padding-left: 50px;
 }
 
-footer .container h3{
+footer .footer_container h3{
     text-align: center;
     padding: 15px;
     padding-left: 50px;

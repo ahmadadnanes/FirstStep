@@ -2,11 +2,18 @@
 include "php/conn.php";
 session_start();
 $id = "";
-$id = implode($_SESSION["id"]);
-$sql = "SELECT username from users where id = '$id'";
-$result = mysqli_query($conn, $sql);
-$us = mysqli_fetch_assoc($result);
-$user = $us["username"];
+if (isset($_SESSION["id"])) {
+    $id = implode($_SESSION["id"]);
+    $sql = "SELECT username from users where id = '$id'";
+    $result = mysqli_query($conn, $sql);
+    $us = mysqli_fetch_assoc($result);
+    $user = $us["username"];
+    $html = "Home.php?id=$id";
+    $html2 = "YourDiares.php?id=$id";
+} else {
+    header("location:login.html");
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,15 +36,13 @@ $user = $us["username"];
     <nav>
         <div class="container">
             <div class="user">
-                <span>
-                    <?php echo $user  ?>
-                </span>
+                <a href="<?php echo $html2 ?>"><?php echo $user ?></a>
             </div>
             <img src="img/logo-removebg-preview.png" width="90px">
 
             <div class="normal-bar">
+                <a href="<?php echo $html ?>">Home</a>
                 <a href="php/logout.php">Logout</a>
-                <a href="#contact">Contact</a>
             </div>
 
             <div class="drop-down">
@@ -49,11 +54,11 @@ $user = $us["username"];
                     <ul id="nav_ul">
 
                         <li>
-                            <a href="php/logout.php">Logout</a>
+                            <a href="<?php echo $html ?>">Home</a>
                         </li>
 
                         <li>
-                            <a href="#contact">Contact</a>
+                            <a href="php/logout.php">Logout</a>
                         </li>
 
                     </ul>
@@ -66,15 +71,19 @@ $user = $us["username"];
     </nav>
     <!-- end header -->
 
+    <!-- start scrollup button -->
+    <button class="up" id="up"><i class="fa-solid fa-arrow-up"></i></button>
+    <!-- end scrollup button -->
+
     <!-- start diary -->
     <section>
         <div class="container">
             <form action="php/save_diary.php" method="post">
                 <div class="title">
-                    <input type="text" name="title" id="title" required placeholder="Enter the title">
+                    <input type="text" name="title" id="title" required placeholder="Enter the title" style="padding-right: 60px;">
                 </div>
                 <div class="content">
-                    <textarea name="content" id="content" cols="30" rows="10" required placeholder="Enter the content">
+                    <textarea name="content" id="content" cols="30" rows="10" required>
                     </textarea>
                 </div>
                 <div class="button">
@@ -89,7 +98,7 @@ $user = $us["username"];
 
     <!-- start footer -->
     <footer>
-        <div class="container" style="background-color: brown;">
+        <div class="footer_container" style="background-color: brown;">
             <h2>Follow Me</h2>
             <ul class="footer_ul">
                 <li><a href="https://www.linkedin.com/in/ahmad-istaitieh-64a635248/"><i class="fa-brands fa-linkedin"></i></a></li>

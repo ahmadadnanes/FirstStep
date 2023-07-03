@@ -1,11 +1,10 @@
 <?php
-include "php/conn.php";
 session_start();
 $id = "";
-$id = implode($_SESSION["id"]);
-$sql = "SELECT diary_title,diary_content FROM diary WHERe user_id = $id ORDER BY id DESC";
-$result = mysqli_query($conn, $sql);
-$html = "diary.php?id=$id";
+if (isset($_SESSION["id"])) {
+    $id = implode($_SESSION["id"]);
+    header("location: Home.php?id=$id");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,14 +12,14 @@ $html = "diary.php?id=$id";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- main css files -->
+    <!-- main css file -->
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/YourDiares.css">
+    <link rel="stylesheet" href="css/login.css">
     <!-- other css files -->
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/brands.min.css">
     <link rel="stylesheet" href="css/normal.css">
-    <title>Your Diares</title>
+    <title>Login</title>
 </head>
 
 <body bgcolor="#DCDCDC">
@@ -30,8 +29,7 @@ $html = "diary.php?id=$id";
             <img src="img/logo-removebg-preview.png" width="90px">
 
             <div class="normal-bar">
-                <a href="php/logout.php">Logout</a>
-                <a href="<?php echo $html ?>">Diary</a>
+                <a href="signup.html">SignUp</a>
             </div>
 
             <div class="drop-down">
@@ -43,8 +41,7 @@ $html = "diary.php?id=$id";
                     <ul id="nav_ul">
 
                         <li>
-                            <a href="php/logout.php">Logout</a>
-                            <a href="<?php echo $html ?>">Diary</a>
+                            <a href="signup.html">SignUp</a>
                         </li>
 
                     </ul>
@@ -61,24 +58,39 @@ $html = "diary.php?id=$id";
     <button class="up" id="up"><i class="fa-solid fa-arrow-up"></i></button>
     <!-- end scrollup button -->
 
-    <!-- start your diares -->
+    <!-- start login -->
     <section>
         <div class="container">
-            <?php while ($row = mysqli_fetch_assoc($result)) {
-                $dt = $row["diary_title"];
-                $dc = $row["diary_content"]; ?>
-                <div class="diary_container">
-                    <div class="title">
-                        <p><?php echo $dt ?></p>
-                    </div>
-                    <div class="content">
-                        <p><?php echo $dc ?></p>
-                    </div>
+            <div class="square">
+                <div class="half1">
+                    <h2 style="text-align: center;color:#4a916e;">
+                        Be somebody who makes everybody feel like a somebody.
+                    </h2>
                 </div>
-            <?php } ?>
+
+                <div class="half2">
+                    <center>
+                        <form action="php/login.php" method="post" id="form1">
+
+
+                            <div style="margin-bottom:60px;">
+                                <label for="email"></label>
+                                <input type="email" id="email" name="email" required placeholder="Email">
+                                <br><br>
+
+                                <label for="password"></label>
+                                <input type="password" id="password" name="password" required placeholder="Password">
+                                <br><br>
+                            </div>
+
+                            <button class="btnn" type="submit">Login</button>
+                        </form>
+                    </center>
+                </div>
+            </div>
         </div>
     </section>
-    <!-- end your diares -->
+    <!-- end login -->
 
     <!-- start footer -->
     <footer>
@@ -93,11 +105,9 @@ $html = "diary.php?id=$id";
         </div>
     </footer>
     <!-- end footer -->
+
+    <!-- JS -->
+    <script src="js/main.js"></script>
 </body>
-<?php
-mysqli_close($conn);
-?>
-<!-- JS -->
-<script src="js/main.js"></script>
 
 </html>

@@ -1,0 +1,32 @@
+body{
+    height: 100vh;
+}
+
+section{
+    padding: 50px;
+}
+
+section .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section .container .form_container {
+    position: relative;
+}
+
+section .container .form_container select{
+    padding-left: 50px;
+    padding-right: 50px;
+    border: none;
+    border-radius: 5px;
+}
+
+section .container .form_container button{
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    margin-left: 48px;
+}
+

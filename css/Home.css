@@ -124,9 +124,9 @@ section:last-of-type .container .contact_form textarea{
 }
 
 section:last-of-type .container .contact_form button{
+   border: none;
    position: absolute;
    left: 45%;
-   border: none;
 }
 
 section:last-of-type .container .contact_form button:hover{

@@ -26,7 +26,7 @@ function checkPass($em, $pass)
         session_start();
         $idrow = mysqli_fetch_assoc($result2);
         $_SESSION["id"] = $idrow;
-        $id = $_SESSION["id"];
+        $id = implode($_SESSION["id"]);
         header("location:../Home.php?id=$id");
     } else {
         echo "wrong password";
