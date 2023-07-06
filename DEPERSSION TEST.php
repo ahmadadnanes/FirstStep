@@ -232,7 +232,7 @@ if (isset($_SESSION["id"])) {
                         <label id="answer"><input type="radio" name="q10" value="2"> Very difficult</label>
                         <label id="answer"><input type="radio" name="q10" value="3"> Extremely difficult</label>
                     </div>
-                    <button id="Next_btn" class="btn " onclick="next()">Next</button>
+                    <button id="Submit_btn" class="btn " onclick="next()">Submit</button>
                 </center>
             </div>
     </section>

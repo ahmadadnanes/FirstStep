@@ -53,7 +53,7 @@ html{
       font-family: 'Times New Roman', Times, serif;
   }
   
-  #Next_btn{
+  #Next_btn , #Submit_btn{
       padding:7px 156px;
       margin-top:40px;
       border-radius: 20px;
@@ -62,7 +62,17 @@ html{
       font-size:20px;
   }
   
-  #Next_btn:hover{
+  #Next_btn:hover , #Submit_btn:hover{
       background-color: #4B7B3F;
       color:#ffffff;
+  }
+
+  .ovelay{
+    position: fixed;
+    background-color : rgba(0,0,0,.7);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
   }

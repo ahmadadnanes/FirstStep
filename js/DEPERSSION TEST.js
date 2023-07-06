@@ -18,6 +18,8 @@ function next(){
 function displayResult(){
   let score = 0;
 
+  document.body.appendChild(div);
+
   for(let i = 1 ; i <= answers.length ; i++){
     score += answers[i];
   }
@@ -41,7 +43,7 @@ function displayResult(){
       }
       a = window.confirm(resultMessage + " " + "Click Ok So We can help you or press no and you will be redirect to the Home page ");
       if (a) {
-            location.href = "../Recomended psy.html";
+            location.href = "../Recomended psy.php";
         } else {
             location.href = "../Home.php";
         }

@@ -9,6 +9,8 @@ if ($_SESSION["id"]) {
     $us = mysqli_fetch_assoc($result);
     $user = $us["username"];
     $html = "YourDiares.php?id=$id";
+} else {
+    header("location: login.php");
 }
 ?>
 <!DOCTYPE html>
