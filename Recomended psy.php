@@ -9,7 +9,7 @@ if (isset($_SESSION["id"])) {
     $us = mysqli_fetch_assoc($result);
     $user = $us["username"];
     $html = "Home.php?id=$id";
-    $html2 = "YourDisres.php?id=$id";
+    $html2 = "YourDiares.php?id=$id";
 } else {
     header("location:login.php");
 }

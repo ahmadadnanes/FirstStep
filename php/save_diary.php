@@ -8,5 +8,5 @@ $content = $_POST["content"];
 $sql = "INSERT INTO diary (user_id,diary_title,diary_content) VALUES ($id,'$title','$content')";
 
 $result = mysqli_query($conn, $sql);
-
+header("location:../YourDiares.php");
 mysqli_close($conn);
