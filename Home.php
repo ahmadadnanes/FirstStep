@@ -101,7 +101,7 @@ if ($_SESSION["id"]) {
 
     <!-- start landing -->
     <section>
-        <div class="container">
+        <div class="intro_container">
             <div class="intro">
                 <h1>
                     First Step

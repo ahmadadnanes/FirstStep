@@ -1,16 +1,16 @@
 
 /* start - landing */
 
-section:first-of-type .container{
+section:first-of-type .intro_container{
     text-align: center;
     background-image: url(../img/hands.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 75vh;
+    height: calc(100vh - 90px);
     position: relative;
 }
 
-section:first-of-type .container .intro{
+section:first-of-type .intro_container .intro{
     position: absolute;
     left: 50% ;
     top: 50%;
@@ -19,12 +19,12 @@ section:first-of-type .container .intro{
     max-width: 100%;
 }
 
-section:first-of-type .container h1{
+section:first-of-type .intro_container h1{
     color: aquamarine;
     font-size: 50px;
 }
 
-section:first-of-type .container p{
+section:first-of-type .intro_container p{
     color: white;
     font-size: 25px;
 }
