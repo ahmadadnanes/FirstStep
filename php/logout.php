@@ -1,5 +1,5 @@
 <?php
-include "conn.php";
+require "conn.php";
 session_start();
 if (isset($_SESSION["id"])) {
     session_unset();

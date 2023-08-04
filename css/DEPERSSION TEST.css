@@ -60,6 +60,7 @@ html{
       background-color:#9BD58B;
       color:#003134;
       font-size:20px;
+      border: none;
   }
   
   #Next_btn:hover , #Submit_btn:hover{

@@ -1,12 +1,11 @@
-body{
-    height: 100vh;
-}
 section{
     padding: 50px;
+    min-height: 100vh;
 }
 
 section .container .diary_container{
-    border: 2px solid aquamarine;
+    border: 2px solid #eee;
+    margin-bottom: 15px;
     border-radius: 5px;
 }
 

@@ -153,7 +153,9 @@ nav .links ul li a:hover{
     position: fixed;
     bottom: 20px;
     right: 20px;
-    border-radius: 4px;
+    width: 30px;
+    height: 30px;
+    border: none;
     display: none;
     
 }
@@ -164,6 +166,7 @@ nav .links ul li a:hover{
 footer .footer_ul{
     display:flex;
     justify-content: center;
+    align-items: center;
     list-style: none;
     
 }
@@ -173,6 +176,7 @@ footer .footer_ul li{
 footer .footer_ul li i{
     font-size: 25px;
     color: black;
+    text-align: center;
 }
 
 footer .footer_container h2{
@@ -185,6 +189,7 @@ footer .footer_container h3{
     text-align: center;
     padding: 15px;
     padding-left: 50px;
+    margin: 0;
 }
 
 /* end - footer */

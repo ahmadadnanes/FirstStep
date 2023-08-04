@@ -1,5 +1,5 @@
 <?php
-include "conn.php";
+require "conn.php";
 session_start();
 $id = implode($_SESSION["id"]);
 $title = $_POST["title"];

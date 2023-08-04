@@ -1,5 +1,5 @@
 <?php
-include "php/conn.php";
+require "php/conn.php";
 session_start();
 $id = "";
 if (isset($_SESSION["id"])) {
@@ -38,10 +38,9 @@ if (isset($_SESSION["id"])) {
             <div class="user">
                 <a href="<?php echo $html2 ?>"><?php echo $user ?></a>
             </div>
-            <img src="img/logo-removebg-preview.png" width="90px">
+            <a href="<?php echo $html ?>"><img src="img/logo-removebg-preview.png" width="90px"></a>
 
             <div class="normal-bar">
-                <a href="<?php echo $html ?>">Home</a>
                 <a href="php/logout.php">Logout</a>
             </div>
 
@@ -52,10 +51,6 @@ if (isset($_SESSION["id"])) {
                     </span>
 
                     <ul id="nav_ul">
-
-                        <li>
-                            <a href="<?php echo $html ?>">Home</a>
-                        </li>
 
                         <li>
                             <a href="php/logout.php">Logout</a>

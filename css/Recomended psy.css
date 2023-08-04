@@ -1,9 +1,6 @@
-body{
-    height: 100vh;
-}
-
 section{
     padding: 50px;
+    min-height: 100vh;
 }
 
 section .container{
@@ -17,10 +14,11 @@ section .container .form_container {
 }
 
 section .container .form_container select{
-    padding-left: 50px;
-    padding-right: 50px;
     border: none;
     border-radius: 5px;
+    padding-left: 50px;
+    padding-right: 50px;
+    height: 50px;
 }
 
 section .container .form_container button{
@@ -28,5 +26,12 @@ section .container .form_container button{
     border-radius: 5px;
     position: absolute;
     margin-left: 48px;
+    width: 100px;
+    height: 40px;
+}
+
+section .container .form_container button:hover{
+    background-color: bisque;
+    cursor: pointer;
 }
 

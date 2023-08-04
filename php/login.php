@@ -1,5 +1,5 @@
 <?php
-include "conn.php";
+require "conn.php";
 $email = trim($_POST["email"]);
 $sql = "SELECT email from users where email like '$email'";
 $result = mysqli_query($conn, $sql);

@@ -1,5 +1,6 @@
 section{
     padding: 50px;
+    min-height: 100vh;
 }
 
 section .container .square .half2{
@@ -16,6 +17,8 @@ section .container .square .half2 button{
     width: 75px;
     border-radius: 5px;
     border: none;
+    width: 100px;
+    height: 40px;
 }
 
 section .container .square .half2 button:hover{

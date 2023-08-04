@@ -1,5 +1,5 @@
 <?php
-include "php/conn.php";
+require "php/conn.php";
 session_start();
 $id = "";
 if (isset($_SESSION["id"])) {
@@ -29,7 +29,7 @@ if (isset($_SESSION["id"])) {
     <!-- start header -->
     <nav>
         <div class="container">
-            <img src="img/logo-removebg-preview.png" width="90px">
+            <a href="<?php echo "Home.php?id=$id" ?>"><img src="img/logo-removebg-preview.png" width="90px"></a>
 
             <div class="normal-bar">
                 <a href="php/logout.php">Logout</a>
@@ -95,11 +95,13 @@ if (isset($_SESSION["id"])) {
         </div>
     </footer>
     <!-- end footer -->
+
+    <!-- JS -->
+    <script src="js/main.js"></script>
+
+    <?php
+    mysqli_close($conn);
+    ?>
 </body>
-<?php
-mysqli_close($conn);
-?>
-<!-- JS -->
-<script src="js/main.js"></script>
 
 </html>

@@ -47,6 +47,13 @@ article .container p{
     color: white;
     font-size: 25px;
 }
+
+@media (max-width:776px) {
+    article .container p{
+        font-size: 20px;
+        text-align: center;
+    }
+}
 /* end - article */
 
 
@@ -65,12 +72,20 @@ article .container p{
 
 .services .container .check h1{
     text-align: center;
+    padding-bottom: 50px;
 
 }
 
 .services .container .card-container .card{
     background-color: white;
     border-radius: 10px;
+}
+
+.services .container .card-container .card img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
 
 .services .container .card-container .card h5{
@@ -90,9 +105,18 @@ article .container p{
 }
 
 .services .container .card-container .card button{
-    background-color: green;
+    background-color: aquamarine;
     border-radius: 5px;
     margin-bottom: 15px;
+    width: 100px;
+    height: 40px;
+    border: none;
+
+}
+
+.services .container .card-container .card button:hover{
+    background-color: bisque;
+    cursor: pointer;
 }
 /* end - services */
 
@@ -104,6 +128,7 @@ section:last-of-type{
 
 section:last-of-type .container .contact{
     text-align: center;
+    padding-bottom: 50px;
 }
 
 section:last-of-type .container .contact_form{
@@ -116,21 +141,27 @@ section:last-of-type .container .contact_form{
 section:last-of-type .container .contact_form input{
     border: none;
     border-radius: 5px;
+    height: 50px;
 }
 
 section:last-of-type .container .contact_form textarea{
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
+
 }
 
 section:last-of-type .container .contact_form button{
    border: none;
    position: absolute;
    left: 45%;
+   width: 90px;
+    height: 40px;
+    border-radius: 5px;
 }
 
 section:last-of-type .container .contact_form button:hover{
     cursor: pointer;
+    background-color: bisque;
 }
 
 /* end - contact */

@@ -1,5 +1,5 @@
 <?php
-include "php/conn.php";
+require "php/conn.php";
 session_start();
 $id = "";
 if ($_SESSION["id"]) {
@@ -38,7 +38,7 @@ if ($_SESSION["id"]) {
                     <a href="<?php echo $html ?>"><?php echo $user  ?></a>
                 </span>
             </div>
-            <img src="img/logo-removebg-preview.png" width="90px">
+            <a href="<?php echo "Home.php?$id" ?>"><img src="img/logo-removebg-preview.png" width="90px"></a>
 
             <div class="normal-bar">
                 <a href="#services">Services</a>
@@ -162,7 +162,7 @@ if ($_SESSION["id"]) {
                     </div>
                 </div>
                 <div class="card">
-                    <img src="img/Diary_img.jpg" alt="..." width="200px">
+                    <img src="img/Diary_img.jpg" alt="..." width="200px" class="diary" height="235px">
                     <div class="card-body">
                         <h5>Diary</h5>
                         <p>here you can express your feelings</p>
@@ -223,6 +223,10 @@ if ($_SESSION["id"]) {
 
     <!-- JS -->
     <script src="js/main.js"></script>
+
+    <?php
+    mysqli_close($conn);
+    ?>
 </body>
 
 </html>

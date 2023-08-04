@@ -1,5 +1,5 @@
 <?php
-include "conn.php";
+require "conn.php";
 
 $username = $_POST["username"];
 $email = $_POST["email"];

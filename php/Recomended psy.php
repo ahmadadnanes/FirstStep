@@ -1,5 +1,5 @@
 <?php
-include "conn.php";
+require "conn.php";
 session_start();
 $gov = $_GET["gov"];
 $sql = "SELECT * FROM psy WHERE gov like '$gov' ORDER BY rating desc";
@@ -15,6 +15,7 @@ $html = "../Home.php?id=$id";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- main css file -->
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/Recomended psy.css">
     <!-- other css files -->
     <link rel="stylesheet" href="../css/all.min.css">
     <link rel="stylesheet" href="../css/brands.min.css">
@@ -27,10 +28,9 @@ $html = "../Home.php?id=$id";
     <!-- start header -->
     <nav>
         <div class="container">
-            <img src="../img/logo-removebg-preview.png" width="90px">
+            <a href="<?php echo $html ?>"><img src="../img/logo-removebg-preview.png" width="90px"></a>
 
             <div class="normal-bar">
-                <a href="<?php echo $html ?>">Home</a>
                 <a href="php/logout.php">Logout</a>
             </div>
 
@@ -41,10 +41,6 @@ $html = "../Home.php?id=$id";
                     </span>
 
                     <ul id="nav_ul">
-
-                        <li>
-                            <a href="<?php echo $html ?>">Home</a>
-                        </li>
 
                         <li>
                             <a href="php/logout.php">Logout</a>
