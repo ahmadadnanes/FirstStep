@@ -9,6 +9,7 @@ html{
 .paragraph{
     font-size: 1.3rem;
     font-weight: bold;
+    text-align: center;
 }
 
 #dep{
@@ -61,6 +62,12 @@ html{
       color:#003134;
       font-size:20px;
       border: none;
+  }
+
+  @media (max-width:600px) {
+    #Next_btn , #Submit_btn{
+      width: 80%;
+    }
   }
   
   #Next_btn:hover , #Submit_btn:hover{
