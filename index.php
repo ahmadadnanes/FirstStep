@@ -73,7 +73,7 @@ if (isset($_SESSION["id"])) {
                         <form action="php/login.php" method="post" id="form1">
 
 
-                            <div style="margin-bottom:60px;">
+                            <div style="margin-bottom:20px;">
                                 <label for="email"></label>
                                 <input type="email" id="email" name="email" required placeholder="Email">
                                 <br><br>
@@ -82,6 +82,8 @@ if (isset($_SESSION["id"])) {
                                 <input type="password" id="password" name="password" required placeholder="Password">
                                 <br><br>
                             </div>
+
+                            <span>Doesn't have an account <a href="signup.html">Signup</a></span><br>
 
                             <button class="btnn" type="submit">Login</button>
                         </form>

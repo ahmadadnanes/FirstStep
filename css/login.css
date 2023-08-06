@@ -23,10 +23,15 @@ section .container .square .half2 button{
     border: none;
     width: 100px;
     height: 40px;
+    margin-top: 10px;
 }
 
 section .container .square .half2 button:hover{
     cursor: pointer;
     background-color: aquamarine;
 
+}
+
+section .container .square .half2 span{
+    color: aquamarine;
 }

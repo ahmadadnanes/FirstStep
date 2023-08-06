@@ -3,9 +3,9 @@ require "conn.php";
 session_start();
 if (isset($_SESSION["id"])) {
     session_unset();
-    header("location: ../login.php");
+    header("location: ../index.php");
 } else {
-    header("location: ../login.php");
+    header("location: ../index.php");
 }
 
 mysqli_close($conn);

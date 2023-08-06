@@ -10,7 +10,7 @@ if ($_SESSION["id"]) {
     $user = $us["username"];
     $html = "YourDiares.php?id=$id";
 } else {
-    header("location: login.php");
+    header("location: index.php");
 }
 ?>
 <!DOCTYPE html>
