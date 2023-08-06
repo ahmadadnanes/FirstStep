@@ -26,6 +26,12 @@ section .container .square .half2 button{
     margin-top: 10px;
 }
 
+@media (max-width: 600px) {
+    input{
+        width: 70%;
+    }
+}
+
 section .container .square .half2 button:hover{
     cursor: pointer;
     background-color: aquamarine;
