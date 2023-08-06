@@ -5,11 +5,15 @@ section{
 
 section .container .square .half2{
     padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgba(1 1 1 /15%);
 }
 section .container .square .half2 input{
     border-radius: 5px;
     padding: 10px;
     border: none;
+    background-color: aquamarine;
 }
 section .container .square .half2 button{
     padding-left:  10px;

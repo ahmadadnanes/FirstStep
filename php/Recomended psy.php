@@ -62,10 +62,10 @@ $html = "../Home.php?id=$id";
                     <th>ID</th>
                     <th>NAME</th>
                     <th>PHONE</th>
-                    <th>LOCATION</th>
-                    <th>WORKHOURS</th>
-                    <th>RATING</th>
-                    <th>GOVERNORATE</th>
+                    <th>LOC</th>
+                    <th>W.H</th>
+                    <th>RATE</th>
+                    <th>GOV</th>
                 </tr>
                 <?php
                 while ($row = mysqli_fetch_assoc($result)) {
