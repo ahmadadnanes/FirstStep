@@ -163,6 +163,11 @@ nav .links ul li a:hover{
 /* end - scroll up */
 
 /* start - footer */
+
+footer{
+    background-color: bisque
+}
+
 footer .footer_ul{
     display:flex;
     justify-content: center;
@@ -174,7 +179,7 @@ footer .footer_ul li{
     padding: 15px;
 }
 footer .footer_ul li i{
-    font-size: 25px;
+    font-size: 40px;
     color: black;
     text-align: center;
 }
@@ -186,6 +191,7 @@ footer .footer_container h2{
 }
 
 footer .footer_container h3{
+    font-size: 20px;
     text-align: center;
     padding: 15px;
     padding-left: 50px;

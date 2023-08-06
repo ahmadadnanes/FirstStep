@@ -10,6 +10,12 @@ section .container {
     position: relative;
 }
 
+section form{
+    background-color: white;
+    box-shadow: rgba(1 1 1 /15%);
+    border-radius: 10px;
+}
+
 section .container .title {
     padding: 15px;
 }
@@ -20,8 +26,7 @@ section .container .content{
 
 section .container .button{
     padding: 15px;
-    position: absolute;
-    left: 43%;
+    margin-left: 200px;
 }
 
 section .container .title input{
@@ -29,11 +34,32 @@ section .container .title input{
     border: none;
     width: 260px;
     height: 40px;
+    margin-left: 100px;
+    background-color: aquamarine;
 }
 
 section .container .content textarea{
     border-radius: 5px;
     border: none;
+    width: 500px;
+    height: 200px;
+    background-color: aquamarine;
+    
+}
+
+@media (max-width:776px){
+    section .container .title input{
+        margin-left: 0px;
+        width: 300px;
+    }
+    section .container .content textarea{
+        width: 300px;
+    }
+
+    section .container .button{
+        margin-left: 100px;
+    }
+
 }
 
 section .container .button button{

@@ -199,7 +199,7 @@ if ($_SESSION["id"]) {
                 <form action="php/contact.php" method="post">
                     <input type="email" name="email" id="email" placeholder="Enter your Email" style="padding-right: 60px;"><br><br>
                     <textarea name="contact" id="contact" cols="30" rows="10"></textarea><br><br>
-                    <button type="submit">submit</button>
+                    <button type="submit">Submit</button>
 
                 </form>
             </div>
@@ -209,7 +209,7 @@ if ($_SESSION["id"]) {
 
     <!-- start footer -->
     <footer>
-        <div class="footer_container" style="background-color: brown;">
+        <div class="footer_container">
             <h2>Follow Me</h2>
             <ul class="footer_ul">
                 <li><a href="https://www.linkedin.com/in/ahmad-istaitieh-64a635248/"><i class="fa-brands fa-linkedin"></i></a></li>

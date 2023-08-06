@@ -46,6 +46,7 @@ article .container h1{
 article .container p{
     color: white;
     font-size: 25px;
+    line-height: 1.5;
 }
 
 @media (max-width:776px) {
@@ -79,6 +80,12 @@ article .container p{
 .services .container .card-container .card{
     background-color: white;
     border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(1 1 1 /15%);
+    transition: 0.5s;
+}
+
+.services .container .card-container .card:hover{
+    transform: scale(1.1);
 }
 
 .services .container .card-container .card img{
@@ -96,6 +103,7 @@ article .container p{
     color: black;
     text-align: center;
     font-size: 15px;
+    line-height: 1.5;
 }
 
 .services .container .card-container .card .button-container{
@@ -136,27 +144,51 @@ section:last-of-type .container .contact_form{
     justify-content: center;
     align-items: center;
     position: relative;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(1 1 1 /15%);
 }
 
 section:last-of-type .container .contact_form input{
     border: none;
     border-radius: 5px;
     height: 50px;
+    margin-left: 100px;
+    background-color: aquamarine;
+    margin-top:20px;
 }
 
 section:last-of-type .container .contact_form textarea{
     border: none;
     border-radius: 10px;
+    width: 500px;
+    height: 200px;
+    background-color: aquamarine;
 
 }
 
+@media (max-width:600px){
+    section:last-of-type .container .contact_form input{
+        margin-left: 0px;
+        width: 300px;
+    }
+    section:last-of-type .container .contact_form textarea{
+        width: 300px;
+    }
+}
+
+@media(min-width:601px){
+    section:last-of-type .container .contact_form button{
+        margin-left: 100px;
+    }
+}
+
 section:last-of-type .container .contact_form button{
-   border: none;
-   position: absolute;
-   left: 45%;
-   width: 90px;
+    border: none;
+    width: 300px;
     height: 40px;
     border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 section:last-of-type .container .contact_form button:hover{
