@@ -18,14 +18,13 @@ function next(){
 function displayResult(){
   let score = 0;
 
-  document.body.appendChild(div);
 
   for(let i = 1 ; i <= answers.length ; i++){
     score += answers[i];
   }
 
   let resultMessage = "";
-      if(score = 0)
+      if(score == 0)
       {
         window.alert("You are good press ok to redierct to the home page");
         location.href = "../Home.php";

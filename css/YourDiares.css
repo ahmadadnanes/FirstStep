@@ -4,13 +4,15 @@ section{
 }
 
 section .container .diary_container{
-    border: 2px solid #eee;
     margin-bottom: 15px;
-    border-radius: 5px;
+    border-radius: 10px;
+    background-color: white ;
+    box-shadow: 0px 5px 15px rgba(1 1 1 / 15%);
 }
 
 section .container .diary_container .title{
     text-align: center;
+    padding-top: 10px;
 }
 
 section .container .diary_container .content{
