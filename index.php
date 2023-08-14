@@ -29,7 +29,7 @@ if (isset($_SESSION["id"])) {
             <img src="img/logo-removebg-preview.png" width="90px">
 
             <div class="normal-bar">
-                <a href="signup.html">SignUp</a>
+                <a href="signup.php">SignUp</a>
             </div>
 
             <div class="drop-down">
