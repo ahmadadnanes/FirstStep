@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
     <link rel="stylesheet" href="css/normal.css">
     <title>SignUp</title>
 </head>
+
 <body bgcolor="#DCDCDC">
     <!-- start header -->
     <nav>
@@ -21,7 +23,7 @@
             <div class="normal-bar">
                 <a href="index.php">Login</a>
             </div>
-            
+
             <div class="drop-down">
                 <div class="links">
                     <span class="icon">
@@ -56,34 +58,42 @@
                         Be somebody who makes everybody feel like a somebody.
                     </h2>
                 </div>
-                
-              <div class="half2">
-                <center>
-                    <form action="php/signup.php" method="post" id="form1">
-                        
-    
-                        <div style="margin-bottom:20px;">
-                            <label for="username"></label>
-                            <input type="text" id="username" name="username" required placeholder="Username">
-                            <br><br>
 
-                            <label for="email"></label>
-                            <input type="email" id="email" name="email" required placeholder="Email">
-                            <br><br>
-                        
-                            <label for="password"></label>
-                            <input type="password" id="password" name="password" required placeholder="Password">
-                            <br><br>
-                        </div>
+                <div class="half2">
+                    <center>
+                        <form action="php/signup.php" method="post" id="form1">
 
-                        <span>if you have an account <a href="index.php">Login</a></span><br>
-    
-                        <button class="btnn" type="submit">SignUp</button>
-                    </form>
-                </center>
-              </div>
+
+                            <div style="margin-bottom:20px;">
+                                <label for="username"></label>
+                                <input type="text" id="username" name="username" required placeholder="Username">
+                                <br><br>
+
+                                <label for="email"></label>
+                                <input type="email" id="email" name="email" required placeholder="Email">
+                                <br><br>
+
+                                <label for="password"></label>
+                                <input type="password" id="password" name="password" required placeholder="Password">
+                                <br><br>
+                            </div>
+
+                            <span>if you have an account <a href="index.php">Login</a></span><br>
+
+                            <button class="btnn" type="submit">SignUp</button>
+                        </form>
+                        <?php
+                        if (isset($_GET["msg"])) { ?>
+                            <div class="error">
+                                <h3><?php echo "this email is already in use" ?></h3>
+                            </div>
+                        <?php
+                        }
+                        ?>
+                    </center>
+                </div>
             </div>
-          </div>
+        </div>
     </section>
     <!-- end login -->
 
@@ -100,8 +110,9 @@
         </div>
     </footer>
     <!-- end footer -->
-    
+
     <!-- JS -->
     <script src="js/main.js"></script>
 </body>
+
 </html>

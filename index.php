@@ -41,7 +41,7 @@ if (isset($_SESSION["id"])) {
                     <ul id="nav_ul">
 
                         <li>
-                            <a href="signup.html">SignUp</a>
+                            <a href="signup.php">SignUp</a>
                         </li>
 
                     </ul>
@@ -87,6 +87,14 @@ if (isset($_SESSION["id"])) {
 
                             <button class="btnn" type="submit">Login</button>
                         </form>
+                        <?php
+                        if (isset($_GET["msg"])) { ?>
+                            <div class="error">
+                                <h3><?php echo "email or password does not exist" ?></h3>
+                            </div>
+                        <?php
+                        }
+                        ?>
                     </center>
                 </div>
             </div>
