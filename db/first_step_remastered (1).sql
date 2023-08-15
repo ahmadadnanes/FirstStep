@@ -37,10 +37,6 @@ CREATE TABLE `contact` (
 -- Dumping data for table `contact`
 --
 
-INSERT INTO `contact` (`id`, `email`, `content`) VALUES
-(1, 'aa264048@gmail.com', 'Hi'),
-(2, 'ahmad-adnan67@hotmail.net', 'Hi8');
-
 -- --------------------------------------------------------
 
 --
@@ -57,12 +53,6 @@ CREATE TABLE `diary` (
 --
 -- Dumping data for table `diary`
 --
-
-INSERT INTO `diary` (`id`, `user_id`, `diary_title`, `diary_content`) VALUES
-(1, 2, 'Hi', '                    hi'),
-(2, 4, 'hi', '       hi             '),
-(3, 4, 'hi3', 'hi2          '),
-(4, 2, 'ahmad', '                    huuoo');
 
 -- --------------------------------------------------------
 
@@ -106,11 +96,6 @@ CREATE TABLE `users` (
 --
 -- Dumping data for table `users`
 --
-
-INSERT INTO `users` (`id`, `username`, `email`, `pass`) VALUES
-(2, 'ahmad', 'aa264048@gmail.com', '20b3435bf7c1e2c2d8f004a64fd9464c'),
-(3, 'ahmad2', 'ahmad-adnan67@hotmail.com', '20b3435bf7c1e2c2d8f004a64fd9464c'),
-(4, 'ayat adnan', 'adnanayat710@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f');
 
 --
 -- Indexes for dumped tables
