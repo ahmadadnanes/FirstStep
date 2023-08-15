@@ -1,3 +1,7 @@
+:root{
+    --main-color : aquamarine;
+    --sec-color : bisque;
+}
 
 /* start - landing */
 
@@ -20,7 +24,7 @@ section:first-of-type .intro_container .intro{
 }
 
 section:first-of-type .intro_container h1{
-    color: aquamarine;
+    color: var(--main-color);
     font-size: 50px;
 }
 
@@ -38,7 +42,7 @@ article{
     padding-bottom: 50px;
 }
 article .container h1{
-    color: bisque;
+    color: var(--sec-color);
     font-size: 50px;
     text-align: center;
 }
@@ -113,7 +117,7 @@ article .container p{
 }
 
 .services .container .card-container .card button{
-    background-color: aquamarine;
+    background-color: var(--main-color);
     border-radius: 5px;
     margin-bottom: 15px;
     width: 100px;
@@ -123,7 +127,7 @@ article .container p{
 }
 
 .services .container .card-container .card button:hover{
-    background-color: bisque;
+    background-color: var(--sec-color);
     cursor: pointer;
 }
 /* end - services */
@@ -154,7 +158,7 @@ section:last-of-type .container .contact_form input{
     border-radius: 5px;
     height: 50px;
     margin-left: 100px;
-    background-color: aquamarine;
+    background-color: var(--main-color);
     margin-top:20px;
 }
 
@@ -163,7 +167,7 @@ section:last-of-type .container .contact_form textarea{
     border-radius: 10px;
     width: 500px;
     height: 200px;
-    background-color: aquamarine;
+    background-color: var(--sec-color);
 
 }
 
@@ -193,7 +197,7 @@ section:last-of-type .container .contact_form button{
 
 section:last-of-type .container .contact_form button:hover{
     cursor: pointer;
-    background-color: bisque;
+    background-color: var(--sec-color);
 }
 
 /* end - contact */

@@ -1,3 +1,8 @@
+:root{
+    --main-color : aquamarine;
+    --sec-color : bisque;
+}
+
 section{
     padding: 50px;
     min-height: 100vh;
@@ -13,7 +18,7 @@ section .container .square .half2 input{
     border-radius: 5px;
     padding: 10px;
     border: none;
-    background-color: aquamarine;
+    background-color: var(--main-color);
 }
 section .container .square .half2 button{
     padding-left:  10px;
@@ -34,10 +39,10 @@ section .container .square .half2 button{
 
 section .container .square .half2 button:hover{
     cursor: pointer;
-    background-color: aquamarine;
+    background-color: var(--main-color);
 
 }
 
 section .container .square .half2 span{
-    color: aquamarine;
+    color: var(--main-color);
 }

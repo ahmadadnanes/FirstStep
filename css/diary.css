@@ -1,3 +1,8 @@
+:root{
+    --main-color : aquamarine;
+    --sec-color : bisque;
+}
+
 section{
     padding: 50px;
     min-height: 100vh;
@@ -35,7 +40,7 @@ section .container .title input{
     width: 260px;
     height: 40px;
     margin-left: 100px;
-    background-color: aquamarine;
+    background-color: maroon;
 }
 
 section .container .content textarea{
@@ -43,7 +48,7 @@ section .container .content textarea{
     border: none;
     width: 500px;
     height: 200px;
-    background-color: aquamarine;
+    background-color: var(--main-color);
     
 }
 
@@ -70,6 +75,6 @@ section .container .button button{
 }
 
 section .container .button button:hover{
-    background-color: bisque;
+    background-color: var(--sec-color);
     cursor: pointer;
 }

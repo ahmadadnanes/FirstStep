@@ -1,3 +1,8 @@
+:root{
+    --main-color : aquamarine;
+    --sec-color : bisque;
+}
+
 section{
     padding: 50px;
     min-height: 100vh;
@@ -32,7 +37,7 @@ section .container .form_container select{
     padding-left: 50px;
     padding-right: 50px;
     height: 50px;
-    background-color: aquamarine;
+    background-color: var(--main-color);
 }
 
 section .container .form_container button{
@@ -44,7 +49,7 @@ section .container .form_container button{
 }
 
 section .container .form_container button:hover{
-    background-color: bisque;
+    background-color: var(--sec-color);
     cursor: pointer;
 }
 
