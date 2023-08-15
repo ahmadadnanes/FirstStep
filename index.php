@@ -83,14 +83,14 @@ if (isset($_SESSION["id"])) {
                                 <br><br>
                             </div>
 
-                            <span>Doesn't have an account <a href="signup.html">Signup</a></span><br>
+                            <span>Doesn't have an account <a href="signup.php">Signup</a></span><br>
 
                             <button class="btnn" type="submit">Login</button>
                         </form>
                         <?php
                         if (isset($_GET["msg"])) { ?>
                             <div class="error">
-                                <h3><?php echo "email or password does not exist" ?></h3>
+                                <h3><?php echo "email or password is wrong please try again" ?></h3>
                             </div>
                         <?php
                         }
