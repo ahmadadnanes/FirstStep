@@ -49,7 +49,7 @@ if ($_SESSION["id"]) {
                 <?php
                 } else {
                 ?>
-                    <a href="login.html">Login</a>
+                    <a href="index.php">Login</a>
                 <?php
                 }
                 ?>
@@ -75,7 +75,7 @@ if ($_SESSION["id"]) {
                             <?php
                             } else {
                             ?>
-                                <a href="login.html">Login</a>
+                                <a href="index.php">Login</a>
                             <?php
                             } ?>
                         </li>
