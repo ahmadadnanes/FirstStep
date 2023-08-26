@@ -40,7 +40,7 @@ section .container .title input{
     width: 260px;
     height: 40px;
     margin-left: 100px;
-    background-color: maroon;
+    background-color: var(--main-color);
 }
 
 section .container .content textarea{

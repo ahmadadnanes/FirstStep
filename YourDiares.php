@@ -84,7 +84,7 @@ if (isset($_SESSION["id"])) {
 
     <!-- start footer -->
     <footer>
-        <div class="footer_container" style="background-color: brown;">
+        <div class="footer_container">
             <h2>Follow Me</h2>
             <ul class="footer_ul">
                 <li><a href="https://www.linkedin.com/in/ahmad-istaitieh-64a635248/"><i class="fa-brands fa-linkedin"></i></a></li>
