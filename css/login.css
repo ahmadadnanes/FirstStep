@@ -35,6 +35,10 @@ section .container .square .half2 button{
     input{
         width: 70%;
     }
+
+    section .container .half1{
+        font-size: 14px;
+    }
 }
 
 section .container .square .half2 button:hover{
