@@ -8,7 +8,7 @@ $error = 1;
 if (mysqli_num_rows($result)) {
     checkPass($email, $pass);
 } else {
-    echo "this email doesn't exist";
+    header("location:../index.php?msg=$error");
 }
 
 
