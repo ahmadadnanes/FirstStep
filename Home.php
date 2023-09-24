@@ -149,7 +149,7 @@ if ($_SESSION["id"]) {
                 <h1>Check our services:</h1>
             </div>
             <div class="card-container">
-                <div class="card">
+                <div class="card serv">
                     <img src="img/depression-test.jpg" alt="..." width="200px">
                     <div class="card-body">
                         <h5>Depression Test</h5>
@@ -161,7 +161,7 @@ if ($_SESSION["id"]) {
                         </div>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card serv">
                     <img src="img/Diary_img.jpg" alt="..." width="200px" class="diary" height="235px">
                     <div class="card-body">
                         <h5>Diary</h5>
@@ -171,7 +171,7 @@ if ($_SESSION["id"]) {
                         </div>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card serv">
                     <img src="img/therapy 1.jpg" alt="..." width="200px">
                     <div class="card-body">
                         <h5>Recommended Psychologist</h5>
@@ -223,6 +223,7 @@ if ($_SESSION["id"]) {
 
     <!-- JS -->
     <script src="js/main.js"></script>
+    <script src="js/Home.js"></script>
 
     <?php
     mysqli_close($conn);
