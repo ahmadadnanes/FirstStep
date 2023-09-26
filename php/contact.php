@@ -10,9 +10,9 @@ $sql = "INSERT INTO contact (email,content) VALUES ('$email','$contact')";
 $result = mysqli_query($conn, $sql);
 
 if ($result) {
-    header("location: ../Home.php?id=$id");
+    header("location: ../index.php?id=$id");
 } else {
-    echo "Error";
+    header("location: ../index.php?msg=1");
 }
 
 mysqli_close($conn);

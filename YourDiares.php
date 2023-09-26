@@ -29,7 +29,7 @@ if (isset($_SESSION["id"])) {
     <!-- start header -->
     <nav>
         <div class="container">
-            <a href="<?php echo "Home.php?id=$id" ?>"><img src="img/logo-removebg-preview.png" width="90px"></a>
+            <a href="<?php echo "index.php?id=$id" ?>"><img src="img/logo-removebg-preview.png" width="90px"></a>
 
             <div class="normal-bar">
                 <a href="php/logout.php">Logout</a>

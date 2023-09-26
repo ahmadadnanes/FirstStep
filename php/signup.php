@@ -17,7 +17,7 @@ if (mysqli_num_rows($result_email) || mysqli_num_rows($result_user)) {
 } else {
     $sql2 = " insert into users(username,email,pass) values ('$username','$email','$password')";
     $result2 = mysqli_query($conn, $sql2);
-    header("location:../index.php");
+    header("location:../login.php");
 }
 
 mysqli_close($conn);

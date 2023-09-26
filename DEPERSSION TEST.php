@@ -11,7 +11,7 @@ if (isset($_SESSION["id"])) {
     $html = "Home.php?id=$id";
     $html2 = "YourDiares.php?id=$id";
 } else {
-    header("location: index.php");
+    header("location: login.php");
 }
 ?>
 <!DOCTYPE html>

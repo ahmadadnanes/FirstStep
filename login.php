@@ -1,17 +1,25 @@
+<?php
+session_start();
+$id = "";
+if (isset($_SESSION["id"])) {
+    $id = implode($_SESSION["id"]);
+    header("location: Home.php?id=$id");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- main css files -->
+    <!-- main css file -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/login.css">
     <!-- other css files -->
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/brands.min.css">
     <link rel="stylesheet" href="css/normal.css">
-    <title>SignUp</title>
+    <title>Login</title>
 </head>
 
 <body bgcolor="#DCDCDC">
@@ -21,7 +29,7 @@
             <a href="index.php"><img src="img/logo-removebg-preview.png" width="90px"></a>
 
             <div class="normal-bar">
-                <a href="login.php">Login</a>
+                <a href="signup.php">SignUp</a>
             </div>
 
             <div class="drop-down">
@@ -33,8 +41,9 @@
                     <ul id="nav_ul">
 
                         <li>
-                            <a href="login.php">Login</a>
+                            <a href="signup.php">SignUp</a>
                         </li>
+
                     </ul>
                 </div>
             </div>
@@ -45,9 +54,9 @@
     </nav>
     <!-- end header -->
 
-    <!-- start scrollUp button -->
+    <!-- start scrollup button -->
     <button class="up" id="up"><i class="fa-solid fa-arrow-up"></i></button>
-    <!-- end scrollUp button -->
+    <!-- end scrollup button -->
 
     <!-- start login -->
     <section>
@@ -61,14 +70,10 @@
 
                 <div class="half2">
                     <center>
-                        <form action="php/signup.php" method="post" id="form1">
+                        <form action="php/login.php" method="post" id="form1">
 
 
                             <div style="margin-bottom:20px;">
-                                <label for="username"></label>
-                                <input type="text" id="username" name="username" required placeholder="Username">
-                                <br><br>
-
                                 <label for="email"></label>
                                 <input type="email" id="email" name="email" required placeholder="Email">
                                 <br><br>
@@ -78,14 +83,14 @@
                                 <br><br>
                             </div>
 
-                            <span>if you have an account <a href="index.php">Login</a></span><br>
+                            <span>Doesn't have an account <a href="signup.php">Signup</a></span><br>
 
-                            <button class="btnn" type="submit">SignUp</button>
+                            <button class="btnn" type="submit">Login</button>
                         </form>
                         <?php
                         if (isset($_GET["msg"])) { ?>
                             <div class="error">
-                                <h3><?php echo "this email or username is already in use" ?></h3>
+                                <h3><?php echo "email or password is wrong please try again" ?></h3>
                             </div>
                         <?php
                         }
