@@ -40,7 +40,7 @@ if (isset($_SESSION["id"])) {
                     </span>
                 </div>
             <?php } ?>
-            <a href="<?php echo "Home.php" ?>"><img src="img/logo-removebg-preview.png" width="90px"></a>
+            <a href="<?php echo "index.php" ?>"><img src="img/logo-removebg-preview.png" width="90px"></a>
 
             <div class="normal-bar">
                 <a href="#services">Services</a>

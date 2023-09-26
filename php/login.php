@@ -8,7 +8,8 @@ $error = 1;
 if (mysqli_num_rows($result)) {
     checkPass($email, $pass);
 } else {
-    header("location:../index.php?msg=$error");
+    header("location:../login.php?msg=$error");
+    exit();
 }
 
 
@@ -28,9 +29,17 @@ function checkPass($em, $pass)
         $idrow = mysqli_fetch_assoc($result2);
         $_SESSION["id"] = $idrow;
         $id = implode($_SESSION["id"]);
-        header("location:../index.php?id=$id");
+        if (isset($_GET["pre"])) {
+            $pre_header = $_GET["pre"];
+            header("location:" . $pre_header);
+            exit();
+        } else {
+            header("location: ../index.php?$id");
+            exit();
+        }
     } else {
         header("location:../login.php?msg=$error");
+        exit();
     }
 }
 

@@ -3,7 +3,10 @@ session_start();
 $id = "";
 if (isset($_SESSION["id"])) {
     $id = implode($_SESSION["id"]);
-    header("location: Home.php?id=$id");
+    header("location: index.php?id=$id");
+    exit();
+} else if (isset($_GET["pre"])) {
+    $pre = $_GET["pre"];
 }
 ?>
 <!DOCTYPE html>
@@ -70,8 +73,10 @@ if (isset($_SESSION["id"])) {
 
                 <div class="half2">
                     <center>
-                        <form action="php/login.php" method="post" id="form1">
-
+                        <form action="<?php if (isset($_GET["pre"])) echo "php/login.php?pre=$pre";
+                                        else {
+                                            echo "php/login.php";
+                                        } ?>" method="post" id="form1">
 
                             <div style="margin-bottom:20px;">
                                 <label for="email"></label>

@@ -9,4 +9,5 @@ $sql = "INSERT INTO diary (user_id,diary_title,diary_content) VALUES ($id,'$titl
 
 $result = mysqli_query($conn, $sql);
 header("location:../YourDiares.php");
+exit();
 mysqli_close($conn);

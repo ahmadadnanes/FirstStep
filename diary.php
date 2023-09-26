@@ -11,7 +11,9 @@ if (isset($_SESSION["id"])) {
     $html = "index.php?id=$id";
     $html2 = "YourDiares.php?id=$id";
 } else {
-    header("location:login.php");
+    $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    header("location:login.php?pre=$actual_link");
+    exit();
 }
 
 ?>
