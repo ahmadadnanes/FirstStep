@@ -8,7 +8,7 @@ if (isset($_SESSION["id"])) {
     $result = mysqli_query($conn, $sql);
     $us = mysqli_fetch_assoc($result);
     $user = $us["username"];
-    $html = "Home.php?id=$id";
+    $html = "index.php?id=$id";
     $html2 = "YourDiares.php?id=$id";
 } else {
     $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
