@@ -1,5 +1,5 @@
 <?php
-require "conn.php";
+include 'classes/class.php';
 session_start();
 if (isset($_SESSION["id"])) {
     session_unset();
@@ -10,4 +10,3 @@ if (isset($_SESSION["id"])) {
     exit();
 }
 
-mysqli_close($conn);

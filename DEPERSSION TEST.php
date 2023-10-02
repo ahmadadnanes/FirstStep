@@ -1,8 +1,5 @@
 <?php
-use php\classes\User;
-
-include "php/classes/User.php";
-require "php/conn.php";
+include 'php/includes/spl.php';
 session_start();
 $id = "";
 if (isset($_SESSION["id"])) {
@@ -256,9 +253,6 @@ if (isset($_SESSION["id"])) {
     <script src="js/main.js"></script>
     <script src="js/DEPERSSION TEST.js"></script>
 
-    <?php
-    mysqli_close($conn);
-    ?>
 </body>
 
 </html>

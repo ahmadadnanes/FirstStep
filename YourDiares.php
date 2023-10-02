@@ -1,11 +1,11 @@
 <?php
-require "php/conn.php";
+include 'php/includes/spl.php';
 session_start();
 $id = "";
 if (isset($_SESSION["id"])) {
     $id = implode($_SESSION["id"]);
     $sql = "SELECT diary_title,diary_content FROM diary WHERe user_id = $id ORDER BY id DESC";
-    $result = mysqli_query($conn, $sql);
+    $result = conn::connect()->execute_query($sql);
     $html = "diary.php?id=$id";
 } else {
     $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -70,7 +70,7 @@ if (isset($_SESSION["id"])) {
     <!-- start your diares -->
     <section>
         <div class="container">
-            <?php while ($row = mysqli_fetch_assoc($result)) {
+            <?php while ($row = $result->fetch_assoc()) {
                 $dt = $row["diary_title"];
                 $dc = $row["diary_content"]; ?>
                 <div class="diary_container">
@@ -102,10 +102,6 @@ if (isset($_SESSION["id"])) {
 
     <!-- JS -->
     <script src="js/main.js"></script>
-
-    <?php
-    mysqli_close($conn);
-    ?>
 </body>
 
 </html>
