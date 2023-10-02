@@ -1,13 +1,14 @@
 <?php
+use php\classes\User;
+
+include "php/classes/User.php";
 require "php/conn.php";
 session_start();
 $id = "";
 if (isset($_SESSION["id"])) {
     $id = implode($_SESSION["id"]);
-    $sql = "SELECT username from users where id = '$id'";
-    $result = mysqli_query($conn, $sql);
-    $us = mysqli_fetch_assoc($result);
-    $user = $us["username"];
+    $a = new User();
+    $user = $a->getUser($id);
     $html = "index.php?id=$id";
     $html2 = "YourDiares.php?id=$id";
 } else {
