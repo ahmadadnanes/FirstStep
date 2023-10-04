@@ -14,7 +14,6 @@ if ($result) {
     header("location: ../index.php?id=$id");
     exit();
 } else {
-    $result->close();
     header("location: ../index.php?msg=1");
     exit();
 }

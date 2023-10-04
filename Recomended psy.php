@@ -92,42 +92,28 @@ if (isset($_SESSION["id"])) {
     <div class="map">
         <div class="container">
             <h1 style="text-align: center;">Your Map</h1>
-            <?php
-            if (isset($_GET["gov"])) {
-                $gov = $_GET["gov"];
-                switch ($gov) {
-                    case "Amman": ?> <div class="mapouter">
-                            <div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=1329&amp;height=1307&amp;hl=en&amp;q=اطباء نفسيين عمان&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://connectionsgame.org/">Connections Puzzle</a></div>
-                        </div>
-                    <?php break;
-                    case "Zarqa": ?> <div class="mapouter">
-                            <div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=1329&amp;height=1307&amp;hl=en&amp;q=اطباء نفسسين  زرقاء&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://connectionsgame.org/">Connections Puzzle</a></div>
-                        <?php break;
-                    case "Irbid": ?> <div class="mapouter">
-                                <div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=1329&amp;height=1307&amp;hl=en&amp;q=اطباء نفسسين  اربد&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://connectionsgame.org/">Connections Puzzle</a></div>
-                        <?php break;
-                } ?>
-                    <?php } ?>
-                            </div>
-                        </div>
-                        <!-- end Recomended psy -->
+            <div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=1329&amp;height=1307&amp;hl=en&amp;q=اطباء نفسيين عمان&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://connectionsgame.org/">Connections Puzzle</a></div>
+        </div>
+    </div>
+    <!-- end Recomended psy -->
 
-                        <!-- start footer -->
-                        <footer>
-                            <div class="footer_container">
-                                <h2>Follow Me</h2>
-                                <ul class="footer_ul">
-                                    <li><a href="https://www.linkedin.com/in/ahmad-istaitieh-64a635248/"><i class="fa-brands fa-linkedin"></i></a></li>
-                                    <li><a href="https://www.facebook.com/profile.php?id=100002178974914"><i class=" fa-brands fa-facebook"></i></a></li>
-                                    <li><a href="https://github.com/ahmadadnanes"><i class="fa-brands fa-github"></i></a></li>
-                                </ul>
-                                <h3>Made With <span>&#10084;</span> By ahmad adnan</h3>
-                            </div>
-                        </footer>
-                        <!-- end footer -->
+    <!-- start footer -->
+    <footer>
+        <div class="footer_container">
+            <h2>Follow Me</h2>
+            <ul class="footer_ul">
+                <li><a href="https://www.linkedin.com/in/ahmad-istaitieh-64a635248/"><i class="fa-brands fa-linkedin"></i></a></li>
+                <li><a href="https://www.facebook.com/profile.php?id=100002178974914"><i class=" fa-brands fa-facebook"></i></a></li>
+                <li><a href="https://github.com/ahmadadnanes"><i class="fa-brands fa-github"></i></a></li>
+            </ul>
+            <h3>Made With <span>&#10084;</span> By ahmad adnan</h3>
+        </div>
+    </footer>
+    <!-- end footer -->
 
-                        <!-- JS -->
-                        <script src="js/main.js"></script>
+    <!-- JS -->
+    <script src="js/main.js"></script>
+    <script src="js/Recomended psy.js"></script>
 
 </body>
 
