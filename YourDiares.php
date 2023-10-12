@@ -5,7 +5,7 @@ $id = "";
 if (isset($_SESSION["id"])) {
     $id = implode($_SESSION["id"]);
     $sql = "SELECT diary_title,diary_content FROM diary WHERe user_id = $id ORDER BY id DESC";
-    $result = conn::connect()->execute_query($sql);
+    $result = connect::conn()->execute_query($sql);
     $html = "diary.php?id=$id";
 } else {
     $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";

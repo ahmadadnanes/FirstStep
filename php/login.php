@@ -1,8 +1,8 @@
 <?php
-include 'classes/class.php';
+include 'classes/connect.php';
 $email = trim($_POST["email"]);
 $sql = "SELECT email from users where email like '$email'";
-$result = conn::connect()->execute_query($sql);
+$result = connect::conn()->execute_query($sql);
 $pass = trim($_POST["password"]);
 $error = 1;
 if (mysqli_num_rows($result)) {
@@ -17,13 +17,13 @@ function checkPass($em, $pass)
 {
     global $error;
     $sql = "SELECT pass from users where email like '$em'";
-    $result = conn::connect()->execute_query($sql);
+    $result = connect::conn()->execute_query($sql);
     $row = $result->fetch_assoc();
     $result->close();
 
     if ($row["pass"] == md5($pass)) {
         $sql2 = "SELECT id from users where email like '$em'";
-        $result2 = conn::connect()->execute_query($sql2);
+        $result2 = connect::conn()->execute_query($sql2);
 
         session_start();
         $idrow = $result2->fetch_assoc();
