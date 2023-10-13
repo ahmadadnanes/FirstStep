@@ -3,7 +3,7 @@ include 'php/includes/spl.php';
 session_start();
 $id = "";
 if (isset($_SESSION["id"])) {
-    $id = implode($_SESSION["id"]);
+    $id = $_SESSION["id"];
     $a = new user();
     $user = $a->getUser($id);
     $html = "YourDiares.php?id=$id";
