@@ -13,12 +13,10 @@ if (user::checkEmail($email)) {
         } else {
             header("location: ../index.php");
         }
-        exit();
     } else {
         header("location:../login.php?msg=$error");
-        exit();
     }
 } else {
     header("location:../login.php?msg=$error");
-    exit();
 }
+exit();

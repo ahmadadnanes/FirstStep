@@ -3,7 +3,7 @@ include 'php/includes/spl.php';
 session_start();
 $id = "";
 if (isset($_SESSION["id"])) {
-    $id = implode($_SESSION["id"]);
+    $id = $_SESSION["id"];
     $sql = "SELECT diary_title,diary_content FROM diary WHERe user_id = $id ORDER BY id DESC";
     $result = connect::conn()->execute_query($sql);
     $html = "diary.php?id=$id";

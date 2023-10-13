@@ -1,5 +1,5 @@
 <?php
-include 'connect.php';
+include_once 'connect.php';
 
 class user extends connect
 {
@@ -46,11 +46,7 @@ class user extends connect
         $result = $sql->get_result();
         $db->close();
 
-        if ($result) {
-            return true;
-        } else {
-            return false;
-        }
+        return $result;
     }
 
     public static function checkPass($em, $pass)

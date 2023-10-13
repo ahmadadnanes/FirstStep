@@ -3,7 +3,7 @@ include 'php/includes/spl.php';
 session_start();
 $id = "";
 if (isset($_SESSION["id"])) {
-    $id = implode($_SESSION["id"]);
+    $id = $_SESSION["id"];
     $a = new user();
     $user = $a->getUser($id);
     $html = "index.php?id=$id";
@@ -73,7 +73,7 @@ if (isset($_SESSION["id"])) {
     <!-- start diary -->
     <section>
         <div class="container">
-            <form action="php/save_diary.php" method="post">
+            <form action="php/diaryController.php" method="post">
                 <div class="title">
                     <input type="text" name="title" id="title" required placeholder="Enter the title" style="padding-right: 60px;">
                 </div>
@@ -108,4 +108,5 @@ if (isset($_SESSION["id"])) {
     <!-- JS -->
     <script src="js/main.js"></script>
 </body>
+
 </html>
