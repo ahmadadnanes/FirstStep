@@ -1,5 +1,5 @@
 <?php
-include 'php/includes/spl.php';
+include 'app/includes/spl.php';
 session_start();
 $id = "";
 if (isset($_SESSION["id"])) {
@@ -38,14 +38,14 @@ if (isset($_SESSION["id"])) {
                     </span>
                 </div>
             <?php } ?>
-            <a href="<?php echo "index.php" ?>"><img src="img/logo-removebg-preview.png" width="90px"></a>
+            <a href="<?php echo "Home.php" ?>"><img src="img/logo-removebg-preview.png" width="90px"></a>
 
             <div class="normal-bar">
                 <a href="#services">Services</a>
                 <?php
                 if (isset($_SESSION["id"])) {
                 ?>
-                    <a href="php/logout.php">Logout</a>
+                    <a href="app/logout.php">Logout</a>
                 <?php
                 } else {
                 ?>
@@ -71,7 +71,7 @@ if (isset($_SESSION["id"])) {
                             <?php
                             if (isset($_SESSION["id"])) {
                             ?>
-                                <a href="php/logout.php">Logout</a>
+                                <a href="app/logout.php">Logout</a>
                             <?php
                             } else {
                             ?>
@@ -203,7 +203,7 @@ if (isset($_SESSION["id"])) {
                 <?php } ?>
             </div>
             <div class="contact_form serv">
-                <form action="php/contact.php" method="post">
+                <form action="app/contact.php" method="post">
                     <input type="email" name="email" id="email" placeholder="Enter your Email" style="padding-right: 60px;"><br><br>
                     <textarea name="contact" id="contact" cols="30" rows="10"></textarea><br><br>
                     <button type="submit">Submit</button>
