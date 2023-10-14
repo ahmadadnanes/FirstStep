@@ -1,14 +1,3 @@
-<?php
-include 'app/includes/spl.php';
-session_start();
-$id = "";
-if (isset($_SESSION["id"])) {
-    $id = $_SESSION["id"];
-    $a = new user();
-    $user = $a->getUser($id);
-    $html = "YourDiares.php?id=$id";
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,12 +5,12 @@ if (isset($_SESSION["id"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- main css file -->
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/Home.css">
+    <link rel="stylesheet" href="/app/resources/css/main.css">
+    <link rel="stylesheet" href="/app/resources/css/Home.css">
     <!-- other css files -->
-    <link rel="stylesheet" href="css/normal.css">
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/brands.min.css">
+    <link rel="stylesheet" href="/app/resources/css/normal.css">
+    <link rel="stylesheet" href="/app/resources/css/all.min.css">
+    <link rel="stylesheet" href="/app/resources/css/brands.min.cssS">
     <title>First Step</title>
 </head>
 
@@ -38,18 +27,18 @@ if (isset($_SESSION["id"])) {
                     </span>
                 </div>
             <?php } ?>
-            <a href="<?php echo "Home.php" ?>"><img src="img/logo-removebg-preview.png" width="90px"></a>
+            <a href="/"><img src="/app/resources/img/logo-removebg-preview.png" width="90px"></a>
 
             <div class="normal-bar">
                 <a href="#services">Services</a>
                 <?php
                 if (isset($_SESSION["id"])) {
                 ?>
-                    <a href="app/logout.php">Logout</a>
+                    <a href="/logout">Logout</a>
                 <?php
                 } else {
                 ?>
-                    <a href="login.php">Login</a>
+                    <a href="/login">Login</a>
                 <?php
                 }
                 ?>
@@ -59,7 +48,7 @@ if (isset($_SESSION["id"])) {
             <div class="drop-down">
                 <div class="links">
                     <span class="icon">
-                        <input type="image" src="img/bars-solid.svg" id="nav_button">
+                        <input type="image" src="/app/resources/img/bars-solid.svg" id="nav_button">
                     </span>
 
                     <ul id="nav_ul">
@@ -71,11 +60,11 @@ if (isset($_SESSION["id"])) {
                             <?php
                             if (isset($_SESSION["id"])) {
                             ?>
-                                <a href="app/logout.php">Logout</a>
+                                <a href="/logout">Logout</a>
                             <?php
                             } else {
                             ?>
-                                <a href="login.php">Login</a>
+                                <a href="/login">Login</a>
                             <?php
                             } ?>
                         </li>
@@ -150,29 +139,29 @@ if (isset($_SESSION["id"])) {
             </div>
             <div class="card-container">
                 <div class="card serv">
-                    <img src="img/depression-test.jpg" alt="..." width="200px">
+                    <img src="/app/resources/img/depression-test.jpg" alt="..." width="200px">
                     <div class="card-body">
                         <h5>Depression Test</h5>
                         <p>
                             if you are feeling overwhelming sadness it's free, quick , confidential. and scientifically validated.
                         </p>
                         <div class="button-container">
-                            <button onclick="location.href='DEPERSSION TEST.php'">Start</button>
+                            <button onclick="location.href='/deperssion'">Start</button>
                         </div>
                     </div>
                 </div>
                 <div class="card serv">
-                    <img src="img/Diary_img.jpg" alt="..." width="200px" class="diary" height="235px">
+                    <img src="/app/resources/img/Diary_img.jpg" alt="..." width="200px" class="diary" height="235px">
                     <div class="card-body">
                         <h5>Diary</h5>
                         <p>here you can express your feelings</p>
                         <div class="button-container">
-                            <button onclick="location.href='diary.php'">Start</button>
+                            <button onclick="location.href='/diary'">Start</button>
                         </div>
                     </div>
                 </div>
                 <div class="card serv">
-                    <img src="img/therapy 1.jpg" alt="..." width="200px">
+                    <img src="/app/resources/img/therapy 1.jpg" alt="..." width="200px">
                     <div class="card-body">
                         <h5>Recommended Psychologist</h5>
                         <p> here you can explore most famous Psychologist through the country</p>
@@ -203,9 +192,9 @@ if (isset($_SESSION["id"])) {
                 <?php } ?>
             </div>
             <div class="contact_form serv">
-                <form action="app/contact.php" method="post">
-                    <input type="email" name="email" id="email" placeholder="Enter your Email" style="padding-right: 60px;"><br><br>
-                    <textarea name="contact" id="contact" cols="30" rows="10"></textarea><br><br>
+                <form action="/contact" method="post">
+                    <input type="email" name="email" id="email" placeholder="Enter your Email" style="padding-right: 60px;" required><br><br>
+                    <textarea name="contact" id="contact" cols="30" rows="10" required></textarea><br><br>
                     <button type="submit">Submit</button>
                 </form>
             </div>
@@ -228,8 +217,8 @@ if (isset($_SESSION["id"])) {
     <!-- end footer -->
 
     <!-- JS -->
-    <script src="js/main.js"></script>
-    <script src="js/Home.js"></script>
+    <script src="/app/resources/js/main.js"></script>
+    <script src="/app/resources/js/Home.js"></script>
 </body>
 
 </html>

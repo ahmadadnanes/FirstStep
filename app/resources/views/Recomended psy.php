@@ -1,12 +1,12 @@
 <?php
-include 'php/includes/spl.php';
+include 'app/includes/spl.php';
 session_start();
 $id = "";
 if (isset($_SESSION["id"])) {
-    $id = $_SESSION["id"];
-    $a = new user();
+    $id = implode($_SESSION["id"]);
+    $a = new User();
     $user = $a->getUser($id);
-    $html = "index.php?id=$id";
+    $html = "Home.php?id=$id";
     $html2 = "YourDiares.php?id=$id";
 } else {
     $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -21,17 +21,18 @@ if (isset($_SESSION["id"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- main css files -->
+    <!-- main css file -->
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/diary.css">
+    <link rel="stylesheet" href="css/Recomended psy.css">
     <!-- other css files -->
+    <link rel="stylesheet" href="css/normal.css">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/brands.min.css">
-    <link rel="stylesheet" href="css/normal.css">
-    <title>Diary</title>
+    <title>Recommended Psychologist</title>
 </head>
 
 <body bgcolor="#DCDCDC">
+
     <!-- start header -->
     <nav>
         <div class="container">
@@ -41,7 +42,7 @@ if (isset($_SESSION["id"])) {
             <a href="<?php echo $html ?>"><img src="img/logo-removebg-preview.png" width="90px"></a>
 
             <div class="normal-bar">
-                <a href="php/logout.php">Logout</a>
+                <a href="app/logout.php">Logout</a>
             </div>
 
             <div class="drop-down">
@@ -51,9 +52,8 @@ if (isset($_SESSION["id"])) {
                     </span>
 
                     <ul id="nav_ul">
-
                         <li>
-                            <a href="php/logout.php">Logout</a>
+                            <a href="app/logout.php">Logout</a>
                         </li>
 
                     </ul>
@@ -70,26 +70,32 @@ if (isset($_SESSION["id"])) {
     <button class="up" id="up"><i class="fa-solid fa-arrow-up"></i></button>
     <!-- end scrollup button -->
 
-    <!-- start diary -->
+    <!-- start Recomended psy -->
     <section>
         <div class="container">
-            <form action="php/diaryController.php" method="post">
-                <div class="title">
-                    <input type="text" name="title" id="title" required placeholder="Enter the title" style="padding-right: 60px;">
-                </div>
-                <div class="content">
-                    <textarea name="content" id="content" cols="30" rows="10" required>
-                    </textarea>
-                </div>
-                <div class="button">
-                    <button>
+            <form action="?" method="get">
+                <div class="form_container">
+                    <label for="gov">Choose a governorate:</label><br><br>
+
+                    <select name="gov" id="gov">
+                        <option value="Amman">Amman</option>
+                        <option value="Zarqa">Zarqa</option>
+                        <option value="Irbid">Irbid</option>
+                    </select><br><br>
+                    <button type="submit">
                         Submit
                     </button>
                 </div>
             </form>
         </div>
     </section>
-    <!-- end diary -->
+    <div class="map">
+        <div class="container">
+            <h1 style="text-align: center;">Your Map</h1>
+            <div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=1329&amp;height=1307&amp;hl=en&amp;q=اطباء نفسيين عمان&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://connectionsgame.org/">Connections Puzzle</a></div>
+        </div>
+    </div>
+    <!-- end Recomended psy -->
 
     <!-- start footer -->
     <footer>
@@ -107,6 +113,9 @@ if (isset($_SESSION["id"])) {
 
     <!-- JS -->
     <script src="js/main.js"></script>
+    <script src="js/Recomended psy.js"></script>
+
 </body>
+
 
 </html>

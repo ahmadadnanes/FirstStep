@@ -1,13 +1,13 @@
 <?php
-include 'classes/contactModel.php';
+include '../Project-2-remasterd/app/classes/contactModel.php';
 
 $email = $_POST["email"];
 $contact = $_POST["contact"];
 
 
 if (contactModel::NewContact($email, $contact)) {
-    header("location: ../index.php");
+    header("location: /");
 } else {
-    header("location: ../index.php?msg=1");
+    header("location: /?msg=1");
 }
 exit();

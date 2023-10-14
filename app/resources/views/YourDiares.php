@@ -1,12 +1,8 @@
 <?php
-include 'php/includes/spl.php';
+include 'app/includes/spl.php';
 session_start();
 $id = "";
 if (isset($_SESSION["id"])) {
-    $id = $_SESSION["id"];
-    $sql = "SELECT diary_title,diary_content FROM diary WHERe user_id = $id ORDER BY id DESC";
-    $result = connect::conn()->execute_query($sql);
-    $html = "diary.php?id=$id";
 } else {
     $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     header("location:login.php?pre=$actual_link");
@@ -33,11 +29,11 @@ if (isset($_SESSION["id"])) {
     <!-- start header -->
     <nav>
         <div class="container">
-            <a href="<?php echo "index.php?id=$id" ?>"><img src="img/logo-removebg-preview.png" width="90px"></a>
+            <a href="<?php echo "Home.php?id=$id" ?>"><img src="img/logo-removebg-preview.png" width="90px"></a>
 
             <div class="normal-bar">
-                <a href="php/logout.php">Logout</a>
-                <a href="<?php echo $html ?>">Diary</a>
+                <a href="app/logout.php">Logout</a>
+                <a href="diary.php">Diary</a>
             </div>
 
             <div class="drop-down">
@@ -49,8 +45,8 @@ if (isset($_SESSION["id"])) {
                     <ul id="nav_ul">
 
                         <li>
-                            <a href="php/logout.php">Logout</a>
-                            <a href="<?php echo $html ?>">Diary</a>
+                            <a href="app/logout.php">Logout</a>
+                            <a href="diary.php">Diary</a>
                         </li>
 
                     </ul>

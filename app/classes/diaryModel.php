@@ -12,4 +12,17 @@ class diaryModel extends connect
         $db->close();
         return true;
     }
+
+    public static function GetDiary($id)
+    {
+        $db = connect::conn();
+        $sql = $db->prepare("SELECT diary_title,diary_content FROM diary WHERe user_id like ? ORDER BY id DESC");
+        $sql->bind_param('s', $id);
+        $sql->execute();
+        $result = $sql->get_result();
+        $diaries = $result;
+
+        $db->close();
+        return $diaries;
+    }
 }

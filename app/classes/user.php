@@ -27,7 +27,7 @@ class user extends connect
         } else {
             // create new user
             $sql2 = $db->prepare("insert into users(username,email,pass) values (?,?,?)");
-            $sql2->bind_param('s', $username, $email, $password);
+            $sql2->bind_param('sss', $username, $email, $password);
             $result2 = $sql2->get_result();
             $db->close();
             if ($result2) {

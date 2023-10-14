@@ -1,13 +1,11 @@
 <?php
-include 'php/includes/spl.php';
+include 'app/includes/spl.php';
 session_start();
 $id = "";
 if (isset($_SESSION["id"])) {
     $id = $_SESSION["id"];
     $a = new user();
     $user = $a->getUser($id);
-    $html = "index.php?id=$id";
-    $html2 = "YourDiares.php?id=$id";
 } else {
     $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     header("location:login.php?pre=$actual_link");
@@ -35,12 +33,12 @@ if (isset($_SESSION["id"])) {
     <nav>
         <div class="container">
             <div class="user">
-                <a href="<?php echo $html2 ?>"><?php echo $user ?></a>
+                <a href="YourDiares.php"><?php echo $user ?></a>
             </div>
-            <a href="<?php echo $html ?>"><img src="img/logo-removebg-preview.png" width="90px"></a>
+            <a href="Home.php"><img src="img/logo-removebg-preview.png" width="90px"></a>
 
             <div class="normal-bar">
-                <a href="php/logout.php">Logout</a>
+                <a href="app/logout.php">Logout</a>
             </div>
 
             <div class="drop-down">
@@ -52,7 +50,7 @@ if (isset($_SESSION["id"])) {
                     <ul id="nav_ul">
 
                         <li>
-                            <a href="php/logout.php">Logout</a>
+                            <a href="app/logout.php">Logout</a>
                         </li>
 
                     </ul>

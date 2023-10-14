@@ -1,52 +1,40 @@
-<?php
-session_start();
-$id = "";
-if (isset($_SESSION["id"])) {
-    $id = implode($_SESSION["id"]);
-    header("location: index.php?id=$id");
-    exit();
-} else if (isset($_GET["pre"])) {
-    $pre = $_GET["pre"];
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- main css file -->
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/login.css">
+    <!-- main css files -->
+    <link rel="stylesheet" href="/app/resources/css/main.css">
+    <link rel="stylesheet" href="/app/resources/css/login.css">
     <!-- other css files -->
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/brands.min.css">
-    <link rel="stylesheet" href="css/normal.css">
-    <title>Login</title>
+    <link rel="stylesheet" href="/app/resources/css/all.min.css">
+    <link rel="stylesheet" href="/app/resources/css/brands.min.css">
+    <link rel="stylesheet" href="/app/resources/css/normal.css">
+    <title>SignUp</title>
 </head>
 
 <body bgcolor="#DCDCDC">
     <!-- start header -->
     <nav>
         <div class="container">
-            <a href="index.php"><img src="img/logo-removebg-preview.png" width="90px"></a>
+            <a href="/"><img src="/app/resources/img/logo-removebg-preview.png" width="90px"></a>
 
             <div class="normal-bar">
-                <a href="signup.php">SignUp</a>
+                <a href="/login">Login</a>
             </div>
 
             <div class="drop-down">
                 <div class="links">
                     <span class="icon">
-                        <input type="image" src="img/bars-solid.svg" id="nav_button">
+                        <input type="image" src="/app/resources/img/bars-solid.svg" id="nav_button">
                     </span>
 
                     <ul id="nav_ul">
 
                         <li>
-                            <a href="signup.php">SignUp</a>
+                            <a href="/login">Login</a>
                         </li>
-
                     </ul>
                 </div>
             </div>
@@ -57,9 +45,9 @@ if (isset($_SESSION["id"])) {
     </nav>
     <!-- end header -->
 
-    <!-- start scrollup button -->
+    <!-- start scrollUp button -->
     <button class="up" id="up"><i class="fa-solid fa-arrow-up"></i></button>
-    <!-- end scrollup button -->
+    <!-- end scrollUp button -->
 
     <!-- start login -->
     <section>
@@ -73,12 +61,14 @@ if (isset($_SESSION["id"])) {
 
                 <div class="half2">
                     <center>
-                        <form action="<?php if (isset($_GET["pre"])) echo "php/login.php?pre=$pre";
-                                        else {
-                                            echo "php/login.php";
-                                        } ?>" method="post" id="form1">
+                        <form action="/signup" method="post" id="form1">
+
 
                             <div style="margin-bottom:20px;">
+                                <label for="username"></label>
+                                <input type="text" id="username" name="username" required placeholder="Username">
+                                <br><br>
+
                                 <label for="email"></label>
                                 <input type="email" id="email" name="email" required placeholder="Email">
                                 <br><br>
@@ -88,14 +78,14 @@ if (isset($_SESSION["id"])) {
                                 <br><br>
                             </div>
 
-                            <span>Doesn't have an account <a href="signup.php">Signup</a></span><br>
+                            <span>if you have an account <a href="/login">Login</a></span><br>
 
-                            <button class="btnn" type="submit">Login</button>
+                            <button class="btnn" type="submit">SignUp</button>
                         </form>
                         <?php
                         if (isset($_GET["msg"])) { ?>
                             <div class="error">
-                                <h3><?php echo "email or password is wrong please try again" ?></h3>
+                                <h3><?php echo "this email or username is already in use" ?></h3>
                             </div>
                         <?php
                         }
@@ -122,7 +112,7 @@ if (isset($_SESSION["id"])) {
     <!-- end footer -->
 
     <!-- JS -->
-    <script src="js/main.js"></script>
+    <script src="/app/resources/js/main.js"></script>
 </body>
 
 </html>
