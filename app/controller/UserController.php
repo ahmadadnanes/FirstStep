@@ -1,5 +1,6 @@
 <?php
 include_once "./app/classes/user.php";
+session_start();
 $error = 1;
 
 function signup()
@@ -11,7 +12,7 @@ function signup()
     $password = md5($_POST["password"]);
 
     if (user::createUser($username, $email, $password)) {
-        header("location:../login.php");
+        header("location:/login");
     } else {
         header("location:/signup/?msg=$error");
     }
@@ -26,16 +27,16 @@ function login()
     $pass = trim($_POST["password"]);
 
     if (user::checkEmail($email)) {
-        $id = user::checkPass($email, $pass);
-        if ($id) {
-            if (isset($_GET["pre"])) {
-                $pre_header = $_GET["pre"];
-                header("location:" . $pre_header);
+        $result = user::checkPass($email, $pass);
+        if ($result) {
+            if (isset($_SERVER["QUERY_STRING"])) {
+                $pre_header = $_SERVER["QUERY_STRING"];
+                header("location: /" . $pre_header);
             } else {
                 header("location: /");
             }
         } else {
-            header("location:/login");
+            header("location:/login/?msg=$error");
         }
     } else {
         header("location:/login/?msg=$error");

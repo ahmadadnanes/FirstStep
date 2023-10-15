@@ -18,7 +18,7 @@
     <!-- start header -->
     <nav>
         <div class="container">
-            <a href="Home.php"><img src="/app/resources/img/logo-removebg-preview.png" width="90px"></a>
+            <a href="/"><img src="/app/resources/img/logo-removebg-preview.png" width="90px"></a>
 
             <div class="normal-bar">
                 <a href="/signup">SignUp</a>
@@ -59,10 +59,10 @@
                         Be somebody who makes everybody feel like a somebody.
                     </h2>
                 </div>
-
                 <div class="half2">
                     <center>
-                        <form action="<?php if (isset($_GET["pre"])) echo "app/login.php?pre=$pre";
+                        <form action="<?php
+                                        if (isset($_SERVER["QUERY_STRING"])) echo "/login/?" . $_SERVER['QUERY_STRING'];
                                         else {
                                             echo "/login";
                                         } ?>" method="post" id="form1">
@@ -111,7 +111,7 @@
     <!-- end footer -->
 
     <!-- JS -->
-    <script src="js/main.js"></script>
+    <script src="app/resources/js/main.js"></script>
 </body>
 
 </html>

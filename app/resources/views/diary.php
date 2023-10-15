@@ -1,19 +1,6 @@
 <?php
 include 'app/includes/spl.php';
-session_start();
-$id = "";
-if (isset($_SESSION["id"])) {
-    $id = $_SESSION["id"];
-    $a = new user();
-    $user = $a->getUser($id);
-    $html = "Home.php?id=$id";
-    $html2 = "YourDiares.php?id=$id";
-} else {
-    $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-    header("location:login.php?pre=$actual_link");
-    exit();
-}
-
+$user = $_SESSION["user"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,12 +9,12 @@ if (isset($_SESSION["id"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- main css files -->
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/diary.css">
+    <link rel="stylesheet" href="/app/resources/css/main.css">
+    <link rel="stylesheet" href="/app/resources/css/diary.css">
     <!-- other css files -->
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/brands.min.css">
-    <link rel="stylesheet" href="css/normal.css">
+    <link rel="stylesheet" href="/app/resources/css/all.min.css">
+    <link rel="stylesheet" href="/app/resources/css/brands.min.css">
+    <link rel="stylesheet" href="/app/resources/css/normal.css">
     <title>Diary</title>
 </head>
 
@@ -36,24 +23,24 @@ if (isset($_SESSION["id"])) {
     <nav>
         <div class="container">
             <div class="user">
-                <a href="<?php echo $html2 ?>"><?php echo $user ?></a>
+                <a href="<?= "/" . $user ?>"><?= $user ?></a>
             </div>
-            <a href="<?php echo $html ?>"><img src="img/logo-removebg-preview.png" width="90px"></a>
+            <a href="/"><img src="/app/resources/img/logo-removebg-preview.png" width="90px"></a>
 
             <div class="normal-bar">
-                <a href="app/logout.php">Logout</a>
+                <a href="/logout">Logout</a>
             </div>
 
             <div class="drop-down">
                 <div class="links">
                     <span class="icon">
-                        <input type="image" src="img/bars-solid.svg" id="nav_button">
+                        <input type="image" src="/app/resources/img/bars-solid.svg" id="nav_button">
                     </span>
 
                     <ul id="nav_ul">
 
                         <li>
-                            <a href="app/logout.php">Logout</a>
+                            <a href="/logout">Logout</a>
                         </li>
 
                     </ul>
@@ -73,7 +60,7 @@ if (isset($_SESSION["id"])) {
     <!-- start diary -->
     <section>
         <div class="container">
-            <form action="php/diaryController.php" method="post">
+            <form action="/diary" method="post">
                 <div class="title">
                     <input type="text" name="title" id="title" required placeholder="Enter the title" style="padding-right: 60px;">
                 </div>
@@ -106,7 +93,7 @@ if (isset($_SESSION["id"])) {
     <!-- end footer -->
 
     <!-- JS -->
-    <script src="js/main.js"></script>
+    <script src="/app/resources/js/main.js"></script>
 </body>
 
 </html>

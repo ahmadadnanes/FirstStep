@@ -70,6 +70,8 @@ class user extends connect
             session_start();
             $idRow = $result2->fetch_assoc();
             $_SESSION["id"] = $idRow['id'];
+            $id = $_SESSION["id"];
+            $_SESSION["user"] = user::getUser($id);
             $db->close();
             return true;
         } else {

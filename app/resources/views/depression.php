@@ -1,16 +1,6 @@
 <?php
 include 'app/includes/spl.php';
-session_start();
-$id = "";
-if (isset($_SESSION["id"])) {
-    $id = $_SESSION["id"];
-    $a = new user();
-    $user = $a->getUser($id);
-} else {
-    $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-    header("location:login.php?pre=$actual_link");
-    exit();
-}
+$user = $_SESSION["user"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,13 +9,13 @@ if (isset($_SESSION["id"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- main css file -->
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/DEPERSSION TEST.css">
+    <link rel="stylesheet" href="/app/resources/css/main.css">
+    <link rel="stylesheet" href="/app/resources/css/DEPERSSION TEST.css">
     <!-- other css files -->
-    <link rel="stylesheet" href="css/normal.css">
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/brands.min.css">
-    <title>Deperssion Test</title>
+    <link rel="stylesheet" href="/app/resources/css/normal.css">
+    <link rel="stylesheet" href="/app/resources/css/all.min.css">
+    <link rel="stylesheet" href="/app/resources/css/brands.min.css">
+    <title>Depression Test</title>
 </head>
 
 <body bgcolor="#DCDCDC">
@@ -35,22 +25,22 @@ if (isset($_SESSION["id"])) {
             <div class="user">
                 <a href="YourDiares.php"><?php echo $user ?></a>
             </div>
-            <a href="Home.php"><img src="img/logo-removebg-preview.png" width="90px"></a>
+            <a href="/"><img src="/app/resources/img/logo-removebg-preview.png" width="90px"></a>
 
             <div class="normal-bar">
-                <a href="app/logout.php">Logout</a>
+                <a href="/logout">Logout</a>
             </div>
 
             <div class="drop-down">
                 <div class="links">
                     <span class="icon">
-                        <input type="image" src="img/bars-solid.svg" id="nav_button">
+                        <input type="image" src="/app/resources/img/bars-solid.svg" id="nav_button">
                     </span>
 
                     <ul id="nav_ul">
 
                         <li>
-                            <a href="app/logout.php">Logout</a>
+                            <a href="/logout">Logout</a>
                         </li>
 
                     </ul>
@@ -248,8 +238,8 @@ if (isset($_SESSION["id"])) {
 
 
     <!-- JS -->
-    <script src="js/main.js"></script>
-    <script src="js/DEPERSSION TEST.js"></script>
+    <script src="/app/resources/js/main.js"></script>
+    <script src="/app/resources/js/DEPERSSION TEST.js"></script>
 
 </body>
 

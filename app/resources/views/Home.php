@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,11 +20,12 @@
     <nav>
         <div class="container">
             <?php
-            if (isset($_SESSION["id"])) {
+            if (isset($_SESSION["user"])) {
+                $user = $_SESSION["user"];
             ?>
                 <div class="user">
                     <span>
-                        <a href="<?php echo $html ?>"><?php echo $user  ?></a>
+                        <a href="<?= '/' . $_SESSION["user"]  ?>"><?php echo $user  ?></a>
                     </span>
                 </div>
             <?php } ?>
@@ -146,7 +148,7 @@
                             if you are feeling overwhelming sadness it's free, quick , confidential. and scientifically validated.
                         </p>
                         <div class="button-container">
-                            <button onclick="location.href='/deperssion'">Start</button>
+                            <button onclick="location.href='/depression'">Start</button>
                         </div>
                     </div>
                 </div>
@@ -166,7 +168,7 @@
                         <h5>Recommended Psychologist</h5>
                         <p> here you can explore most famous Psychologist through the country</p>
                         <div class="button-container">
-                            <button onclick="location.href='Recomended psy.php'">Start</button>
+                            <button onclick="location.href='/psy'">Start</button>
                         </div>
                     </div>
 
