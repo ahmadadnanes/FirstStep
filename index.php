@@ -82,6 +82,15 @@ $router->addRoute('POST', '/diary', function () {
     require "app/controller/DiaryController.php";
 });
 
+$router->addRoute('GET', '/:user', function ($user) {
+    require "app/resources/views/YourDiares.php";
+});
+
+$router->addRoute('GET', '/Your', function () {
+    require "app/resources/views/YourDiares.php";
+});
+
+
 // depression
 
 $router->addRoute('GET', '/depression', function () {
@@ -91,6 +100,10 @@ $router->addRoute('GET', '/depression', function () {
 // psy
 
 $router->addRoute('GET', '/psy', function () {
+    require "app/controller/RecomendedController.php";
+});
+
+$router->addRoute('GET', '/psy/:gov', function ($gov) {
     require "app/resources/views/Recomended.php";
 });
 

@@ -20,7 +20,7 @@ class diaryModel extends connect
         $sql->bind_param('s', $id);
         $sql->execute();
         $result = $sql->get_result();
-        $diaries = $result;
+        $diaries = $result->fetch_all();
 
         $db->close();
         return $diaries;

@@ -53,20 +53,7 @@ section .container .form_container button:hover{
 }
 
 
-.mapouter {
-    position: relative;
-    text-align: right;
-    width: 100%;
-    height: 800px;
-}
-
-.gmap_canvas {
-    overflow: hidden;
-    background: none !important;
-    width: 100%;
-    height: 800px;
-}
-
-.gmap_iframe {
-    height: 800px !important;
+#google-maps-canvas img.text-marker
+{
+    max-width:none!important;background:none!important;
 }

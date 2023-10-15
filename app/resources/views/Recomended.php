@@ -1,19 +1,11 @@
 <?php
-include 'app/includes/spl.php';
-session_start();
-$id = "";
-if (isset($_SESSION["id"])) {
-    $id = $_SESSION["id"];
-    $a = new User();
-    $user = $a->getUser($id);
-    $html = "Home.php?id=$id";
-    $html2 = "YourDiares.php?id=$id";
-} else {
-    $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-    header("location:login.php?pre=$actual_link");
-    exit();
-}
 
+if (isset($_SESSION["user"])) {
+    $user = $_SESSION["user"];
+} else {
+    session_start();
+    $user = $_SESSION["user"];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,12 +29,12 @@ if (isset($_SESSION["id"])) {
     <nav>
         <div class="container">
             <div class="user">
-                <a href="<?php echo $html2 ?>"><?php echo $user ?></a>
+                <a href="<?= '/' . $user ?>"><?= $user ?></a>
             </div>
-            <a href="<?php echo $html ?>"><img src="/app/resources/img/logo-removebg-preview.png" width="90px"></a>
+            <a href="/"><img src="/app/resources/img/logo-removebg-preview.png" width="90px"></a>
 
             <div class="normal-bar">
-                <a href="app/logout.php">Logout</a>
+                <a href="/logout">Logout</a>
             </div>
 
             <div class="drop-down">
@@ -73,11 +65,15 @@ if (isset($_SESSION["id"])) {
     <!-- start Recomended psy -->
     <section>
         <div class="container">
-            <form action="/psy/" method="get">
+            <form action="/psy/" method="get" id="form">
                 <div class="form_container">
                     <label for="gov">Choose a governorate:</label><br><br>
 
                     <select name="gov" id="gov">
+                        <?php
+                        if (isset($_GET["gov"])) { ?>
+                            <option value="<?= $_GET["gov"] ?>" selected disabled><?= $_GET["gov"] ?></option>
+                        <?php } ?>
                         <option value="Amman">Amman</option>
                         <option value="Zarqa">Zarqa</option>
                         <option value="Irbid">Irbid</option>
@@ -92,28 +88,46 @@ if (isset($_SESSION["id"])) {
     <div class="map">
         <div class="container">
             <h1 style="text-align: center;">Your Map</h1>
-            <div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=1329&amp;height=1307&amp;hl=en&amp;q=اطباء نفسيين عمان&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://connectionsgame.org/">Connections Puzzle</a></div>
-        </div>
-    </div>
-    <!-- end Recomended psy -->
+            <div style="text-decoration:none; overflow:hidden;max-width:100%;width:1200px;height:500px;">
+                <?php if (isset($_GET["gov"])) { ?>
 
-    <!-- start footer -->
-    <footer>
-        <div class="footer_container">
-            <h2>Follow Me</h2>
-            <ul class="footer_ul">
-                <li><a href="https://www.linkedin.com/in/ahmad-istaitieh-64a635248/"><i class="fa-brands fa-linkedin"></i></a></li>
-                <li><a href="https://www.facebook.com/profile.php?id=100002178974914"><i class=" fa-brands fa-facebook"></i></a></li>
-                <li><a href="https://github.com/ahmadadnanes"><i class="fa-brands fa-github"></i></a></li>
-            </ul>
-            <h3>Made With <span>&#10084;</span> By ahmad adnan</h3>
-        </div>
-    </footer>
-    <!-- end footer -->
+                    <?php if ($_GET["gov"] == "Amman") { ?>
+                        <div id="google-maps-canvas" style="height:100%; width:100%;max-width:100%;"><iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/search?q=اطباء+نفسسين+عمان&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe></div><a class="embedded-map-code" href="https://www.bootstrapskins.com/themes" id="authmaps-data">premium bootstrap themes</a>
+                    <?php } else if ($_GET["gov"] == "Zarqa") { ?>
+                        <div style="max-width:100%;overflow:hidden;color:red;width:1200px;height:500px;">
+                            <div id="my-map-display" style="height:100%; width:100%;max-width:100%;"><iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/search?q=اطباء+نفسسسين+زرقاء&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe></div><a class="googlecoder" rel="nofollow" href="https://www.bootstrapskins.com/themes" id="get-data-for-embed-map">premium bootstrap themes</a>
+                        </div>
+                    <?php } else { ?>
+                        <div style="max-width:100%;overflow:hidden;color:red;width:1200px;height:500px;">
+                            <div id="my-map-display" style="height:100%; width:100%;max-width:100%;">
+                                <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/search?q=اطباء+نفسسسين+اربدء&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
+                            </div><a class="googlecoder" rel="nofollow" href="https://www.bootstrapskins.com/themes" id="get-data-for-embed-map">premium bootstrap themes</a>
+                        </div>
+                    <?php } ?>
 
-    <!-- JS -->
-    <script src="/app/resources/js/main.js"></script>
-    <script src="/app/resources/js/Recomended psy.js"></script>
+                <?php } else { ?>
+                    <div id="google-maps-canvas" style="height:100%; width:100%;max-width:100%;"><iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/search?q=اطباء+نفسسين+عمان&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe></div><a class="embedded-map-code" href="https://www.bootstrapskins.com/themes" id="authmaps-data">premium bootstrap themes</a <?php } ?> </div>
+            </div>
+        </div>
+        <!-- end Recomended psy -->
+
+        <!-- start footer -->
+        <footer>
+            <div class="footer_container">
+                <h2>Follow Me</h2>
+                <ul class="footer_ul">
+                    <li><a href="https://www.linkedin.com/in/ahmad-istaitieh-64a635248/"><i class="fa-brands fa-linkedin"></i></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100002178974914"><i class=" fa-brands fa-facebook"></i></a></li>
+                    <li><a href="https://github.com/ahmadadnanes"><i class="fa-brands fa-github"></i></a></li>
+                </ul>
+                <h3>Made With <span>&#10084;</span> By ahmad adnan</h3>
+            </div>
+        </footer>
+        <!-- end footer -->
+
+        <!-- JS -->
+        <script src="/app/resources/js/main.js"></script>
+        <script src="/app/resources/js/Recomended psy.js"></script>
 
 </body>
 
