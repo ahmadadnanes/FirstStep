@@ -5,17 +5,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/app/resources/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/app/resources/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/app/resources/img/favicon-16x16.png">
+    <link rel="manifest" href="/app/resources/img/site.webmanifest">
+    <link rel="mask-icon" href="/app/resources/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#b91d47">
+    <meta name="theme-color" content="#ffffff">
     <!-- main css file -->
     <link rel="stylesheet" href="/app/resources/css/main.css">
     <link rel="stylesheet" href="/app/resources/css/Home.css">
     <!-- other css files -->
     <link rel="stylesheet" href="/app/resources/css/normal.css">
     <link rel="stylesheet" href="/app/resources/css/all.min.css">
-    <link rel="stylesheet" href="/app/resources/css/brands.min.cssS">
+    <link rel="stylesheet" href="/app/resources/css/brands.min.css">
     <title>First Step</title>
 </head>
 
-<body bgcolor="#DCDCDC">
+<body>
     <!-- start header -->
     <nav>
         <div class="container">
@@ -25,7 +33,7 @@
             ?>
                 <div class="user">
                     <span>
-                        <a href="<?= '/' . $_SESSION["user"]  ?>"><?php echo $user  ?></a>
+                        <a href="<?= '/user/' . $user  ?>"><?php echo $user  ?></a>
                     </span>
                 </div>
             <?php } ?>
@@ -185,13 +193,7 @@
         <div class="container">
             <div class="contact">
                 <h1>Contact Us</h1>
-                <?php
-                if (isset($_GET["msg"])) {
-                ?>
-                    <div class="error">
-                        <p>Error</p>
-                    </div>
-                <?php } ?>
+                <?php include("./app/resources/components/error.php") ?>
             </div>
             <div class="contact_form serv">
                 <form action="/contact" method="post">
@@ -203,21 +205,7 @@
         </div>
     </section>
     <!-- end contact -->
-
-    <!-- start footer -->
-    <footer>
-        <div class="footer_container">
-            <h2>Follow Me</h2>
-            <ul class="footer_ul">
-                <li><a href="https://www.linkedin.com/in/ahmad-istaitieh-64a635248/"><i class="fa-brands fa-linkedin"></i></a></li>
-                <li><a href="https://www.facebook.com/profile.php?id=100002178974914"><i class=" fa-brands fa-facebook"></i></a></li>
-                <li><a href="https://github.com/ahmadadnanes"><i class="fa-brands fa-github"></i></a></li>
-            </ul>
-            <h3>Made With <span>&#10084;</span> By ahmad adnan</h3>
-        </div>
-    </footer>
-    <!-- end footer -->
-
+    <?php include("./app/resources/components/footer.php") ?>
     <!-- JS -->
     <script src="/app/resources/js/main.js"></script>
     <script src="/app/resources/js/Home.js"></script>

@@ -17,10 +17,10 @@ $result = $view->Get($_SESSION["id"]);
     <link rel="stylesheet" href="/app/resources/css/all.min.css">
     <link rel="stylesheet" href="/app/resources/css/brands.min.css">
     <link rel="stylesheet" href="/app/resources/css/normal.css">
-    <title>Your Diares</title>
+    <title>Your Diaries</title>
 </head>
 
-<body bgcolor="#DCDCDC">
+<body>
     <!-- start header -->
     <nav>
         <div class="container">
@@ -41,6 +41,8 @@ $result = $view->Get($_SESSION["id"]);
 
                         <li>
                             <a href="/logout">Logout</a>
+                        </li>
+                        <li>
                             <a href="/diary">Diary</a>
                         </li>
 
@@ -61,18 +63,26 @@ $result = $view->Get($_SESSION["id"]);
     <!-- start your diares -->
     <section>
         <div class="container">
-            <?php foreach ($result as $key => $row) {
-                $dt = $row[$key];
-                $dc = $row[$key]; ?>
-                <div class="diary_container">
-                    <div class="title">
-                        <p><?= $dt ?></p>
+
+            <?php
+            if (!empty($result)) {
+                foreach ($result as $key => $row) {
+                    $dt = $row[$key];
+                    $dc = $row[$key]; ?>
+                    <div class="diary_container">
+                        <div class="title">
+                            <p><?= $dt ?></p>
+                        </div>
+                        <div class="content">
+                            <p><?= $dc ?></p>
+                        </div>
                     </div>
-                    <div class="content">
-                        <p><?= $dc ?></p>
-                    </div>
-                </div>
-            <?php } ?>
+                <?php }
+            } else { ?>
+                <div class="create" style="text-align: center;">
+                    <h4>Your Diaries are empty<a href="/diary">Create One!</a></h4>
+                </div><?php } ?>
+
         </div>
     </section>
     <!-- end your diares -->

@@ -1,0 +1,13 @@
+<!-- start footer -->
+<footer>
+    <div class="footer_container">
+        <h2>Follow Me</h2>
+        <ul class="footer_ul">
+            <li><a href="https://www.linkedin.com/in/ahmad-istaitieh-64a635248/"><i class="fa-brands fa-linkedin"></i></a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=100002178974914"><i class=" fa-brands fa-facebook"></i></a></li>
+            <li><a href="https://github.com/ahmadadnanes"><i class="fa-brands fa-github"></i></a></li>
+        </ul>
+        <h3>Made With <span>&#10084;</span> By ahmad adnan</h3>
+    </div>
+</footer>
+<!-- end footer -->

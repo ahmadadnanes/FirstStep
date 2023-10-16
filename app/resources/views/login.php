@@ -14,7 +14,7 @@
     <title>Login</title>
 </head>
 
-<body bgcolor="#DCDCDC">
+<body>
     <!-- start header -->
     <nav>
         <div class="container">
@@ -55,7 +55,7 @@
         <div class="container">
             <div class="square">
                 <div class="half1">
-                    <h2 style="text-align: center;color:#4a916e;">
+                    <h2 class="quote">
                         Be somebody who makes everybody feel like a somebody.
                     </h2>
                 </div>
@@ -79,37 +79,16 @@
 
                             <span>Doesn't have an account <a href="/signup">Signup</a></span><br>
 
-                            <button class="btnn" type="submit">Login</button>
+                            <button class="btnn" type="submit" name="submit">Login</button>
                         </form>
-                        <?php
-                        if (isset($_GET["msg"])) { ?>
-                            <div class="error">
-                                <h3><?php echo "email or password is wrong please try again" ?></h3>
-                            </div>
-                        <?php
-                        }
-                        ?>
+                        <?php include("./app/resources/components/error.php") ?>
                     </center>
                 </div>
             </div>
         </div>
     </section>
     <!-- end login -->
-
-    <!-- start footer -->
-    <footer>
-        <div class="footer_container">
-            <h2>Follow Me</h2>
-            <ul class="footer_ul">
-                <li><a href="https://www.linkedin.com/in/ahmad-istaitieh-64a635248/"><i class="fa-brands fa-linkedin"></i></a></li>
-                <li><a href="https://www.facebook.com/profile.php?id=100002178974914"><i class=" fa-brands fa-facebook"></i></a></li>
-                <li><a href="https://github.com/ahmadadnanes"><i class="fa-brands fa-github"></i></a></li>
-            </ul>
-            <h3>Made With <span>&#10084;</span> By ahmad adnan</h3>
-        </div>
-    </footer>
-    <!-- end footer -->
-
+    <?php include("./app/resources/components/footer.php") ?>
     <!-- JS -->
     <script src="app/resources/js/main.js"></script>
 </body>

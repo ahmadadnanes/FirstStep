@@ -14,7 +14,7 @@ $router->addRoute('GET', '/index.php', function () {
     exit;
 });
 
-$router->addRoute('GET', '//:msg', function () {
+$router->addRoute('GET', '//:msg', function ($msg) {
     require "app/resources/views/Home.php";
 });
 
@@ -36,7 +36,7 @@ $router->addRoute('GET', '/signup', function () {
     exit;
 });
 
-$router->addRoute('GET', '/signup/:msg', function () {
+$router->addRoute('GET', '/signup/:msg', function ($msg) {
     require "app/resources/views/signup.php";
     exit;
 });
@@ -82,10 +82,6 @@ $router->addRoute('POST', '/diary', function () {
     require "app/controller/DiaryController.php";
 });
 
-$router->addRoute('GET', '/:user', function ($user) {
-    require "app/resources/views/YourDiares.php";
-});
-
 $router->addRoute('GET', '/Your', function () {
     require "app/resources/views/YourDiares.php";
 });
@@ -105,6 +101,10 @@ $router->addRoute('GET', '/psy', function () {
 
 $router->addRoute('GET', '/psy/:gov', function ($gov) {
     require "app/resources/views/Recomended.php";
+});
+
+$router->addRoute('GET', '/user/:user', function ($user) {
+    require "app/resources/views/YourDiares.php";
 });
 
 

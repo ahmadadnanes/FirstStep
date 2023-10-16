@@ -1,11 +1,16 @@
 :root{
     --main-color : aquamarine;
-    --sec-color : bisque;
+    --sec-color : #4a916e;
 }
 
 section{
     padding: 50px;
     min-height: 100vh;
+}
+
+.quote{
+    text-align: center;
+    color: var(--sec-color);
 }
 
 section .container .square .half2{

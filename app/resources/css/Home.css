@@ -60,7 +60,6 @@ article .container h1{
 }
 
 article .container p{
-    color: white;
     font-size: 25px;
     line-height: 1.5;
 }
@@ -113,6 +112,7 @@ article .container p{
 
 .services .container .card-container .card h5{
     text-align: center;
+    font-size: 18px;
 }
 
 .services .container  .card-container .card p{

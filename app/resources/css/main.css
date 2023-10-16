@@ -8,6 +8,7 @@
 }
 
 :root{
+    --backGround-color: #eee;
     --main-color : aquamarine;
     --sec-color : bisque;
 }
@@ -19,6 +20,7 @@ html{
 
 body{
     font-family: 'Poppins' , sans-serif;
+    background-color: var(--backGround-color);
 }
 
 a{
@@ -165,6 +167,7 @@ nav .links ul li a:hover{
     border: none;
     display: none;
     z-index: 1000;
+    background-color: white;
     
 }
 
@@ -207,3 +210,10 @@ footer .footer_container h3{
 }
 
 /* end - footer */
+
+/* start error */
+.error{
+    font-size: 18px;
+    color: red;
+}
+/* end error */

@@ -24,7 +24,7 @@ function displayResult(){
   }
 
   let resultMessage = "";
-      if(score == 0)
+      if(score === 0)
       {
         window.alert("You are good press ok to redierct to the home page");
         location.href = "../Home.php";
