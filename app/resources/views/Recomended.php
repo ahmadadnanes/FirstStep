@@ -1,11 +1,10 @@
 <?php
 
-if (isset($_SESSION["user"])) {
-    $user = $_SESSION["user"];
-} else {
+if (!isset($_SESSION["user"])) {
     session_start();
-    $user = $_SESSION["user"];
 }
+
+$user = $_SESSION["user"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,34 +55,31 @@ if (isset($_SESSION["user"])) {
     <div class="map">
         <div class="container">
             <h1 style="text-align: center;">Your Map</h1>
-            <div style="text-decoration:none; overflow:hidden;max-width:100%;width:1200px;height:500px;">
-                <?php if (isset($_GET["gov"])) { ?>
-
-                    <?php if ($_GET["gov"] == "Amman") { ?>
-                        <div id="google-maps-canvas" style="height:100%; width:100%;max-width:100%;"><iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/search?q=اطباء+نفسسين+عمان&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe></div><a class="embedded-map-code" href="https://www.bootstrapskins.com/themes" id="authmaps-data">premium bootstrap themes</a>
-                    <?php } else if ($_GET["gov"] == "Zarqa") { ?>
-                        <div style="max-width:100%;overflow:hidden;color:red;width:1200px;height:500px;">
-                            <div id="my-map-display" style="height:100%; width:100%;max-width:100%;"><iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/search?q=اطباء+نفسسسين+زرقاء&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe></div><a class="googlecoder" rel="nofollow" href="https://www.bootstrapskins.com/themes" id="get-data-for-embed-map">premium bootstrap themes</a>
-                        </div>
+            <div style="max-width:100%;overflow:hidden;color:red;width:1200px;height:500px;">
+                <div id="embed-map-display" style="height:100%; width:100%;max-width:100%;">
+                    <?php if (isset($_GET["gov"])) { ?>
+                        <?php if ($_GET["gov"] == "Amman") { ?>
+                            <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/search?q=اطباء+نفسيين+عمان&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
+                        <?php } else if ($_GET["gov"] == "Zarqa") { ?>
+                            <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/search?q=اطباء+نفسيين+زرقاء&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
+                        <?php } else { ?>
+                            <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/search?q=اطباء+نفسيين+اربد&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
+                        <?php } ?>
                     <?php } else { ?>
-                        <div style="max-width:100%;overflow:hidden;color:red;width:1200px;height:500px;">
-                            <div id="my-map-display" style="height:100%; width:100%;max-width:100%;">
-                                <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/search?q=اطباء+نفسسسين+اربدء&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
-                            </div><a class="googlecoder" rel="nofollow" href="https://www.bootstrapskins.com/themes" id="get-data-for-embed-map">premium bootstrap themes</a>
-                        </div>
+                        <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/search?q=اطباء+نفسيين+عمان&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
                     <?php } ?>
+                </div><a class="googlecoder" rel="nofollow" href="https://www.bootstrapskins.com/themes" id="make-map-infor-mation">premium bootstrap themes</a>
 
-                <?php } else { ?>
-                    <div id="google-maps-canvas" style="height:100%; width:100%;max-width:100%;"><iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/search?q=اطباء+نفسسين+عمان&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe></div><a class="embedded-map-code" href="https://www.bootstrapskins.com/themes" id="authmaps-data">premium bootstrap themes</a <?php } ?> </div>
             </div>
         </div>
-        <!-- end Recomended psy -->
+    </div>
+    <!-- end Recomended psy -->
 
-        <?php include("./app/resources/components/footer.php") ?>
+    <?php include("./app/resources/components/footer.php") ?>
 
-        <!-- JS -->
-        <script src="/app/resources/js/main.js"></script>
-        <script src="/app/resources/js/Recomended psy.js"></script>
+    <!-- JS -->
+    <script src="/app/resources/js/main.js"></script>
+    <script src="/app/resources/js/Recomended psy.js"></script>
 
 </body>
 

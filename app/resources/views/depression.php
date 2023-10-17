@@ -8,7 +8,7 @@ $user = $_SESSION["user"];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- main css file -->
+    <!-- main css files -->
     <link rel="stylesheet" href="/app/resources/css/main.css">
     <link rel="stylesheet" href="/app/resources/css/DEPERSSION TEST.css">
     <!-- other css files -->

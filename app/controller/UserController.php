@@ -16,18 +16,7 @@ class UserController extends user
         $this->password = $password;
     }
 
-    function filterSingUp()
-    {
-
-        if (filter_var($this->email, FILTER_VALIDATE_EMAIL) && strlen($this->email) !== 0) {
-            return true;
-        } else {
-            $errors['email'] = "Please Fill Email Field";
-            return $errors["email"];
-        }
-    }
-
-    function filterLogIn()
+    public function filterSingUp()
     {
         if (filter_var($this->email, FILTER_VALIDATE_EMAIL) && strlen($this->email) !== 0) {
             return true;
@@ -37,7 +26,17 @@ class UserController extends user
         }
     }
 
-    function signup()
+    public function filterLogIn()
+    {
+        if (filter_var($this->email, FILTER_VALIDATE_EMAIL) && strlen($this->email) !== 0) {
+            return true;
+        } else {
+            $errors['email'] = "Please Fill Email Field";
+            return $errors["email"];
+        }
+    }
+
+    public function signup()
     {
         $username = $this->username;
         $email = $this->email;
@@ -58,10 +57,9 @@ class UserController extends user
         exit;
     }
 
-    function login()
+    public function login()
     {
         $errors["Wrong"] = "Wrong Email or Password";
-
         $email = $this->email;
         $pass = $this->password;
         $filter = $this->filterLogIn();
@@ -76,6 +74,8 @@ class UserController extends user
                     } else {
                         header("location: /");
                     }
+                } else {
+                    header("location:/login/?msg=" . $errors['Wrong']);
                 }
             } else {
                 header("location:/login/?msg=" . $errors['Wrong']);
