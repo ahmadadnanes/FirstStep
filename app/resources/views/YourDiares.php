@@ -66,10 +66,20 @@ $result = $view->Get($_SESSION["id"]);
 
             <?php
             if (!empty($result)) {
-                foreach ($result as $key => $row) {
-                    $dt = $row[$key];
-                    $dc = $row[$key]; ?>
+                // die(var_dump($result));
+                foreach ($result as $row) {
+                    $id = $row[0];
+                    $dt = $row[1];
+                    $dc = $row[2];
+            ?>
                     <div class="diary_container">
+                        <div class="delete">
+                            <form action="/diary" method="post">
+                                <button name="delete" value="<?= $id ?>">
+                                    <i class="fa-solid fa-square-xmark"></i>
+                                </button>
+                            </form>
+                        </div>
                         <div class="title">
                             <p><?= $dt ?></p>
                         </div>

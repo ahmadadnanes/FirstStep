@@ -16,7 +16,7 @@ class diaryModel extends connect
     public static function GetDiary($id)
     {
         $db = connect::conn();
-        $sql = $db->prepare("SELECT diary_title,diary_content FROM diary WHERe user_id like ? ORDER BY id DESC");
+        $sql = $db->prepare("SELECT id,diary_title,diary_content FROM diary WHERe user_id like ? ORDER BY id DESC");
         $sql->bind_param('s', $id);
         $sql->execute();
         $result = $sql->get_result();
@@ -24,5 +24,13 @@ class diaryModel extends connect
 
         $db->close();
         return $diaries;
+    }
+
+    public static function DeleteDiary($id)
+    {
+        $db = connect::conn();
+        $sql = $db->prepare("DELETE FROM diary WHERE id LIKE ?");
+        $sql->bind_param('s', $id);
+        $sql->execute();
     }
 }

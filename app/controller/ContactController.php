@@ -1,5 +1,5 @@
 <?php
-include '../Project-2-remasterd/app/classes/contactModel.php';
+include './app/classes/contactModel.php';
 
 $email = $_POST["email"];
 $contact = $_POST["contact"];

@@ -15,6 +15,11 @@ class DiaryController extends diaryModel
         return $array;
     }
 
+    public static function delete($diary_id)
+    {
+        diaryModel::DeleteDiary($diary_id);
+    }
+
     public static function Filter($title, $content)
     {
         if (strlen($title) > 0 && strlen($title) < 80) {
@@ -39,17 +44,22 @@ if ($_SERVER["REQUEST_URI"] == "/diary") {
             exit;
         }
     } else {
-        $id = $_SESSION["id"];
-        $title = $_POST["title"];
-        $content = $_POST["content"];
-        $filter = DiaryController::Filter($title, $content);
-
-        if (is_bool($filter)) {
-            DiaryController::Save($id, $title, $content);
+        if (isset($_POST["delete"])) {
+            diaryModel::DeleteDiary($_POST["delete"]);
             header("location: /user/" . $_SESSION["user"]);
         } else {
-            header("location: /diary/?msg=$filter");
+            $id = $_SESSION["id"];
+            $title = $_POST["title"];
+            $content = $_POST["content"];
+            $filter = DiaryController::Filter($title, $content);
+
+            if (is_bool($filter)) {
+                DiaryController::Save($id, $title, $content);
+                header("location: /user/" . $_SESSION["user"]);
+            } else {
+                header("location: /diary/?msg=$filter");
+            }
+            exit;
         }
-        exit;
     }
 }
