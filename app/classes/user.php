@@ -4,7 +4,7 @@ include_once 'connect.php';
 class user extends connect
 {
 
-    public static function createUser($username, $email, $password)
+    public static function createUser($username, $email, $password): bool
     {
         $db = connect::conn();
 

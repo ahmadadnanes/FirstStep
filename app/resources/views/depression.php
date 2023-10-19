@@ -187,7 +187,7 @@ $user = $_SESSION["user"];
             </div>
     </section>
 
-    <!-- end deperssion test -->
+    <!-- end depression test -->
     <?php include("./app/resources/components/footer.php") ?>
     <!-- JS -->
     <script src="/app/resources/js/main.js"></script>

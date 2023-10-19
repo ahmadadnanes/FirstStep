@@ -108,4 +108,8 @@ $router->addRoute('GET', '/user/:user', function ($user) {
 });
 
 
-$router->matchRoute();
+try {
+    $router->matchRoute();
+} catch (Exception $e) {
+    require ("app/resources/views/404.html");
+}

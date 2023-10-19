@@ -37,7 +37,7 @@
                     </span>
                 </div>
             <?php } ?>
-            <a href="/"><img src="/app/resources/img/logo-removebg-preview.png" width="90px"></a>
+            <a href="/"><img src="/app/resources/img/logo-removebg-preview.png" width="90px" alt="..."></a>
 
             <div class="normal-bar">
                 <a href="#services">Services</a>

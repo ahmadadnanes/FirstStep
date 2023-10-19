@@ -23,7 +23,7 @@ class DiaryController extends diaryModel
     public static function Filter($title, $content)
     {
         if (strlen($title) > 0 && strlen($title) < 80) {
-            if (strlen($content) > 0 && strlen($title) < 300) {
+            if (strlen($content) > 0 && strlen($content) < 300) {
                 return true;
             } else {
                 return "content can't exceed 300 character";

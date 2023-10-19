@@ -7,7 +7,7 @@ class connect
     private static $pass = "";
     private static  $db = "first_step_remastered";
 
-    public static  function conn()
+    public static  function conn(): mysqli
     {
         $mysqli = new \mysqli(connect::$host, connect::$user, connect::$pass, connect::$db);
 

@@ -18,7 +18,7 @@
     <!-- start header -->
     <nav>
         <div class="container">
-            <a href="/"><img src="/app/resources/img/logo-removebg-preview.png" width="90px"></a>
+            <a href="/"><img src="/app/resources/img/logo-removebg-preview.png" width="90px" alt="..."></a>
 
             <div class="normal-bar">
                 <a href="/signup">SignUp</a>

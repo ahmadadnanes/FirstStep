@@ -26,7 +26,7 @@ function displayResult(){
   let resultMessage = "";
       if(score === 0)
       {
-        window.alert("You are good press ok to redierct to the home page");
+        window.alert("You are good press ok to redirect to the home page");
         location.href = "../Home.php";
       }
       else if (score > 0 && score <= 4) {
@@ -42,7 +42,7 @@ function displayResult(){
       }
       a = window.confirm(resultMessage + " " + "Click Ok So We can help you or press no and you will be redirect to the Home page ");
       if (a) {
-            location.href = "../Recomended psy.php";
+            location.href = "../Recommended psy.php";
         } else {
             location.href = "../Home.php";
         }
