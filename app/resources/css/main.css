@@ -215,5 +215,6 @@ footer .footer_container h3{
 .error{
     font-size: 18px;
     color: red;
+    text-align: center;
 }
 /* end error */

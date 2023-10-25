@@ -96,7 +96,7 @@ $result = $view->Get($_SESSION["id"]);
         </div>
     </section>
     <!-- end your diares -->
-    <?php include("./app/resources/components/footer.php") ?>
+    <?php include("./app/resources/components/footer.html") ?>
     <!-- JS -->
     <script src="/app/resources/js/main.js"></script>
 </body>

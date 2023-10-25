@@ -9,12 +9,8 @@ $user = $_SESSION["user"];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- main css files -->
-    <link rel="stylesheet" href="/app/resources/css/main.css">
+    <?php include("./app/resources/components/layout.php") ?>
     <link rel="stylesheet" href="/app/resources/css/DEPERSSION TEST.css">
-    <!-- other css files -->
-    <link rel="stylesheet" href="/app/resources/css/normal.css">
-    <link rel="stylesheet" href="/app/resources/css/all.min.css">
-    <link rel="stylesheet" href="/app/resources/css/brands.min.css">
     <title>Depression Test</title>
 </head>
 
@@ -188,7 +184,7 @@ $user = $_SESSION["user"];
     </section>
 
     <!-- end depression test -->
-    <?php include("./app/resources/components/footer.php") ?>
+    <?php include("./app/resources/components/footer.html") ?>
     <!-- JS -->
     <script src="/app/resources/js/main.js"></script>
     <script src="/app/resources/js/DEPERSSION TEST.js"></script>

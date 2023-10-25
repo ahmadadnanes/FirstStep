@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- main css file -->
-    <link rel="stylesheet" href="/app/resources/css/main.css">
+    <?php include("./app/resources/components/layout.php") ?>
     <link rel="stylesheet" href="/app/resources/css/login.css">
     <!-- other css files -->
     <link rel="stylesheet" href="/app/resources/css/all.min.css">
@@ -88,7 +87,7 @@
         </div>
     </section>
     <!-- end login -->
-    <?php include("./app/resources/components/footer.php") ?>
+    <?php include("./app/resources/components/footer.html") ?>
     <!-- JS -->
     <script src="app/resources/js/main.js"></script>
 </body>

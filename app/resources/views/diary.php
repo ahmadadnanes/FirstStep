@@ -1,5 +1,7 @@
 <?php
-include 'app/includes/spl.php';
+if (!isset($_SESSION["user"])) {
+    session_start();
+}
 $user = $_SESSION["user"];
 ?>
 <!DOCTYPE html>
@@ -8,6 +10,7 @@ $user = $_SESSION["user"];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php include("./app/resources/components/layout.php") ?>
     <!-- main css files -->
     <link rel="stylesheet" href="/app/resources/css/main.css">
     <link rel="stylesheet" href="/app/resources/css/diary.css">
@@ -39,13 +42,14 @@ $user = $_SESSION["user"];
                     <button type="submit" name="submit">
                         Submit
                     </button>
+                    <?php include("./app/resources/components/error.php") ?>
                 </div>
             </form>
-            <?php include("./app/resources/components/error.php") ?>
+
         </div>
     </section>
     <!-- end diary -->
-    <?php include("./app/resources/components/footer.php") ?>
+    <?php include("./app/resources/components/footer.html") ?>
     <!-- JS -->
     <script src="/app/resources/js/main.js"></script>
 </body>

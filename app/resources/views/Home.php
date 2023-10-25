@@ -5,16 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="apple-touch-icon" sizes="180x180" href="/app/resources/img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/app/resources/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/app/resources/img/favicon-16x16.png">
-    <link rel="manifest" href="/app/resources/img/site.webmanifest">
-    <link rel="mask-icon" href="/app/resources/img/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#b91d47">
-    <meta name="theme-color" content="#ffffff">
-    <!-- main css file -->
-    <link rel="stylesheet" href="/app/resources/css/main.css">
+    <?php include("./app/resources/components/layout.php") ?>
     <link rel="stylesheet" href="/app/resources/css/Home.css">
     <!-- other css files -->
     <link rel="stylesheet" href="/app/resources/css/normal.css">
@@ -205,7 +196,7 @@
         </div>
     </section>
     <!-- end contact -->
-    <?php include("./app/resources/components/footer.php") ?>
+    <?php include("./app/resources/components/footer.html") ?>
     <!-- JS -->
     <script src="/app/resources/js/main.js"></script>
     <script src="/app/resources/js/Home.js"></script>

@@ -82,6 +82,10 @@ $router->addRoute('POST', '/diary', function () {
     require "app/controller/DiaryController.php";
 });
 
+$router->addRoute('GET', '/diary/:msg', function ($msg) {
+    require "app/resources/views/diary.php";
+});
+
 $router->addRoute('GET', '/Your', function () {
     require "app/resources/views/YourDiares.php";
 });
@@ -111,5 +115,5 @@ $router->addRoute('GET', '/user/:user', function ($user) {
 try {
     $router->matchRoute();
 } catch (Exception $e) {
-    require ("app/resources/views/404.html");
+    require("app/resources/views/404.php");
 }

@@ -57,25 +57,14 @@ $user = $_SESSION["user"];
             <h1 style="text-align: center;">Your Map</h1>
             <div style="max-width:100%;overflow:hidden;color:red;width:1200px;height:500px;">
                 <div id="embed-map-display" style="height:100%; width:100%;max-width:100%;">
-                    <?php if (isset($_GET["gov"])) { ?>
-                        <?php if ($_GET["gov"] == "Amman") { ?>
-                            <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/search?q=اطباء+نفسيين+عمان&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
-                        <?php } else if ($_GET["gov"] == "Zarqa") { ?>
-                            <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/search?q=اطباء+نفسيين+زرقاء&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
-                        <?php } else { ?>
-                            <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/search?q=اطباء+نفسيين+اربد&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
-                        <?php } ?>
-                    <?php } else { ?>
-                        <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/search?q=اطباء+نفسيين+عمان&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
-                    <?php } ?>
+                    <?php include("./app/resources/components/map.php") ?>
                 </div><a class="googlecoder" rel="nofollow" href="https://www.bootstrapskins.com/themes" id="make-map-infor-mation">premium bootstrap themes</a>
-
             </div>
         </div>
     </div>
     <!-- end Recomended psy -->
 
-    <?php include("./app/resources/components/footer.php") ?>
+    <?php include("./app/resources/components/footer.html") ?>
 
     <!-- JS -->
     <script src="/app/resources/js/main.js"></script>
