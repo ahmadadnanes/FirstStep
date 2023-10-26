@@ -54,7 +54,7 @@ article{
     padding-bottom: 50px;
 }
 article .container h1{
-    color: var(--sec-color);
+    color: var(--main-color);
     font-size: 50px;
     text-align: center;
 }
