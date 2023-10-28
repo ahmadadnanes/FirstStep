@@ -55,3 +55,8 @@ section .container .square .half2 button:hover{
 section .container .square .half2 span{
     color: var(--main-color);
 }
+
+.success{
+    display: block;
+    right: 0;
+}

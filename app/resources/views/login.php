@@ -86,9 +86,19 @@
             </div>
         </div>
     </section>
+    <?php
+    if (isset($_SESSION["success"])) {
+    ?>
+        <div class="success rounded-2 bg-primary position-fixed bottom-0 p-1 m-1 text-white" id="success">
+            <?= $_SESSION["success"] ?>
+        </div>
+    <?php
+    }
+    ?>
     <!-- end login -->
     <?php include("./app/resources/components/footer.html") ?>
     <!-- JS -->
+    <script src="/app/resources/js/login.js"></script>
     <script src="app/resources/js/main.js"></script>
 </body>
 

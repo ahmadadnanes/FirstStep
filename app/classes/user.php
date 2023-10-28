@@ -30,6 +30,8 @@ class user extends connect
             $sql2->bind_param('sss', $username, $email, $password);
             $sql2->execute();
             $db->close();
+            session_start();
+            $_SESSION["success"] = "Your account has been created";
             return true;
         }
     }

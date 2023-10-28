@@ -5,6 +5,7 @@
 <link rel="mask-icon" href="/app/resources/img/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#b91d47">
 <!-- main css file -->
+<link rel="stylesheet" href="/app/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="/app/resources/css/main.css">
 <!-- other css files -->
 <link rel="stylesheet" href="/app/resources/css/normal.css">
