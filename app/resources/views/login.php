@@ -90,7 +90,9 @@
     if (isset($_SESSION["success"])) {
     ?>
         <div class="success rounded-2 bg-primary position-fixed bottom-0 p-1 m-1 text-white" id="success">
-            <?= $_SESSION["success"] ?>
+            <?php echo $_SESSION["success"];
+            session_unset();
+            ?>
         </div>
     <?php
     }
