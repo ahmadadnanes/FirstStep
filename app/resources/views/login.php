@@ -66,11 +66,11 @@
                                             echo "/login";
                                         } ?>" method="post" id="form1">
 
+                            <h1>Login</h1>
                             <div style="margin-bottom:20px;">
                                 <label for="email"></label>
                                 <input type="email" id="email" name="email" required placeholder="Email">
                                 <br><br>
-
                                 <label for="password"></label>
                                 <input type="password" id="password" name="password" required placeholder="Password">
                                 <br><br>

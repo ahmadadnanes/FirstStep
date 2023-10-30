@@ -1,6 +1,6 @@
 :root{
     --main-color : aquamarine;
-    --sec-color : #4a916e;
+    --sec-log-color : #4a916e;
 }
 
 section{
@@ -8,16 +8,37 @@ section{
     min-height: 100vh;
 }
 
+.container{
+    max-width: 100% !important;
+}
+
 .quote{
     text-align: center;
-    color: var(--sec-color);
+    color: var(--sec-log-color);
+}
+
+section .container .square{
+    display: flex;
+    height: 400px;
+}
+
+section .container .square .half1{
+    background-image: url(../img/happy.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 section .container .square .half2{
     padding: 15px;
     background-color: white;
-    border-radius: 10px;
     box-shadow: rgba(1 1 1 /15%);
+    order: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
 }
 section .container .square .half2 input{
     border-radius: 5px;
@@ -34,6 +55,15 @@ section .container .square .half2 button{
     width: 100px;
     height: 40px;
     margin-top: 10px;
+}
+
+@media (max-width:1000px) {
+    section .container .square .half1{
+        display: none;
+    }
+    section .container .square .half2{
+        width: 100%;
+    }
 }
 
 @media (max-width: 600px) {
