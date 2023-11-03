@@ -14,6 +14,9 @@
     }
 
     .question{
+        opacity: 0;
+        transform: translateX(100%);
+        transition: opacity 0.5s, transform 0.5s;
         &.active{
             opacity: 1;
             transform: translateX(0);
@@ -35,13 +38,11 @@
     #the_questions{
         font-weight: bolder;
         font-size:30px;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         margin-bottom: 40px;
     }
     
     #answer{
         font-size:23px;
-        font-family: 'Times New Roman', Times, serif;
     }
     
     #Next_btn , #Submit_btn{

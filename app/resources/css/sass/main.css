@@ -488,6 +488,11 @@ nav .container .links ul li a:hover {
 .dep #dep {
   text-align: center;
 }
+.dep .question {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 0.5s, transform 0.5s;
+}
 .dep .question.active {
   opacity: 1;
   transform: translateX(0);
@@ -505,12 +510,10 @@ nav .container .links ul li a:hover {
 .dep #the_questions {
   font-weight: bolder;
   font-size: 30px;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   margin-bottom: 40px;
 }
 .dep #answer {
   font-size: 23px;
-  font-family: "Times New Roman", Times, serif;
 }
 .dep #Next_btn, .dep #Submit_btn {
   padding: 7px 100px;
