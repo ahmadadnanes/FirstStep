@@ -5,9 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include("./app/resources/components/layout.php") ?>
-    <!-- main css files -->
-    <link rel="stylesheet" href="/app/resources/css/main.css">
-    <link rel="stylesheet" href="/app/resources/css/login.css">
     <!-- other css files -->
     <link rel="stylesheet" href="/app/resources/css/all.min.css">
     <link rel="stylesheet" href="/app/resources/css/brands.min.css">
@@ -15,7 +12,7 @@
     <title>SignUp</title>
 </head>
 
-<body>
+<body class="login">
     <!-- start header -->
     <nav>
         <div class="container">
@@ -45,10 +42,6 @@
 
     </nav>
     <!-- end header -->
-
-    <!-- start scrollUp button -->
-    <button class="up" id="up"><i class="fa-solid fa-arrow-up"></i></button>
-    <!-- end scrollUp button -->
 
     <!-- start login -->
     <section>
@@ -89,7 +82,6 @@
         </div>
     </section>
     <!-- end login -->
-    <?php include("./app/resources/components/footer.html") ?>
     <!-- JS -->
     <script src="/app/resources/js/main.js"></script>
 </body>

@@ -12,9 +12,7 @@ $user = $_SESSION["user"];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- main css file -->
-    <link rel="stylesheet" href="/app/resources/css/main.css">
-    <link rel="stylesheet" href="/app/resources/css/Recomended psy.css">
+    <?php include('./app/resources/components/layout.php') ?>
     <!-- other css files -->
     <link rel="stylesheet" href="/app/resources/css/all.min.css">
     <link rel="stylesheet" href="/app/resources/css/normal.css">
@@ -22,12 +20,8 @@ $user = $_SESSION["user"];
     <title>Recommended Psychologist</title>
 </head>
 
-<body>
+<body class="rec">
     <?php include("./app/resources/components/header.php") ?>
-
-    <!-- start scrollup button -->
-    <button class="up" id="up"><i class="fa-solid fa-arrow-up"></i></button>
-    <!-- end scrollup button -->
 
     <!-- start Recomended psy -->
     <section>

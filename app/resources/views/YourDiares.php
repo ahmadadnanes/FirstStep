@@ -10,9 +10,7 @@ $result = $view->Get($_SESSION["id"]);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- main css files -->
-    <link rel="stylesheet" href="/app/resources/css/main.css">
-    <link rel="stylesheet" href="/app/resources/css/YourDiares.css">
+    <?php include('./app/resources/components/layout.php') ?>
     <!-- other css files -->
     <link rel="stylesheet" href="/app/resources/css/all.min.css">
     <link rel="stylesheet" href="/app/resources/css/brands.min.css">
@@ -20,7 +18,7 @@ $result = $view->Get($_SESSION["id"]);
     <title>Your Diaries</title>
 </head>
 
-<body>
+<body class="your">
     <!-- start header -->
     <nav>
         <div class="container">
@@ -56,9 +54,7 @@ $result = $view->Get($_SESSION["id"]);
     </nav>
     <!-- end header -->
 
-    <!-- start scrollup button -->
-    <button class="up" id="up"><i class="fa-solid fa-arrow-up"></i></button>
-    <!-- end scrollup button -->
+    <?php include("./app/resources/components/up.html") ?>
 
     <!-- start your diares -->
     <section>

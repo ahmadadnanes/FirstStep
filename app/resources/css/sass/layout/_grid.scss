@@ -1,0 +1,14 @@
+@use '../helpers/vars' as *;
+@use '../helpers/mixins' as *;
+.container{
+    @media ($phone)  {
+        width: $phone-container;
+    }
+    @media ($tablet) {
+        width: $tablet-container;
+    }
+    @media ($laptop) {      
+        width: $laptop-container;
+    }
+}
+

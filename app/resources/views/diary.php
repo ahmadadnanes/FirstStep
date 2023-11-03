@@ -11,9 +11,6 @@ $user = $_SESSION["user"];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include("./app/resources/components/layout.php") ?>
-    <!-- main css files -->
-    <link rel="stylesheet" href="/app/resources/css/main.css">
-    <link rel="stylesheet" href="/app/resources/css/diary.css">
     <!-- other css files -->
     <link rel="stylesheet" href="/app/resources/css/all.min.css">
     <link rel="stylesheet" href="/app/resources/css/brands.min.css">
@@ -21,11 +18,9 @@ $user = $_SESSION["user"];
     <title>Diary</title>
 </head>
 
-<body>
+<body class="diary">
     <?php include("./app/resources/components/header.php") ?>
-    <!-- start scrollup button -->
-    <button class="up" id="up"><i class="fa-solid fa-arrow-up"></i></button>
-    <!-- end scrollup button -->
+    <?php include("./app/resources/components/up.html") ?>
 
     <!-- start diary -->
     <section>

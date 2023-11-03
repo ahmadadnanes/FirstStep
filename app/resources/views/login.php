@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include("./app/resources/components/layout.php") ?>
-    <link rel="stylesheet" href="/app/resources/css/login.css">
     <!-- other css files -->
     <link rel="stylesheet" href="/app/resources/css/all.min.css">
     <link rel="stylesheet" href="/app/resources/css/brands.min.css">
@@ -13,7 +12,7 @@
     <title>Login</title>
 </head>
 
-<body>
+<body class="login">
     <!-- start header -->
     <nav>
         <div class="container">
@@ -30,24 +29,15 @@
                     </span>
 
                     <ul id="nav_ul">
-
                         <li>
                             <a href="/signup">SignUp</a>
                         </li>
-
                     </ul>
                 </div>
             </div>
-
         </div>
-
-
     </nav>
     <!-- end header -->
-
-    <!-- start scrollup button -->
-    <button class="up" id="up"><i class="fa-solid fa-arrow-up"></i></button>
-    <!-- end scrollup button -->
 
     <!-- start login -->
     <section>
@@ -98,7 +88,6 @@
     }
     ?>
     <!-- end login -->
-    <?php include("./app/resources/components/footer.html") ?>
     <!-- JS -->
     <script src="/app/resources/js/login.js"></script>
     <script src="app/resources/js/main.js"></script>

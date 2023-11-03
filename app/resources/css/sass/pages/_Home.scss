@@ -1,0 +1,176 @@
+@use '../helpers/vars' as *;
+@use '../helpers/mixins' as *;
+.home{
+    .serv{
+        opacity: 0;
+        transform: translateX(-100%);
+        &.active{
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    section{
+        &:first-of-type{
+            .intro_container{
+                text-align: center;
+                background-image: url(/app/resources/img/hands.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                height: calc(100vh - 90px);
+                position: relative;
+                .intro{
+                    position: absolute;
+                    left: 50% ;
+                    top: 50%;
+                    transform: translate(-50%,-50%) ;
+                    width: 320px;
+                    max-width: 100%;
+                }
+                h1{
+                    color: $main;
+                    font-size: 50px;
+                }
+                p{
+                    color: white;
+                    font-size: 25px;
+                }
+            }
+        }
+        &:last-of-type{
+            padding-top: 50px;
+            padding-bottom: 50px;
+            .container{
+                .contact{
+                    text-align: center;
+                    padding-bottom: 50px;
+                }
+                .contact_form{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    background-color: white;
+                    border-radius: 10px;
+                    box-shadow: 0px 5px 15px rgba(1 1 1 /15%);
+                    transition: 0.5s;
+                    input{
+                        border: none;
+                        border-radius: 5px;
+                        height: 50px;
+                        margin-left: 100px;
+                        background-color: $main;
+                        margin-top:20px;
+                        @media (max-width: 600px) {
+                            left: 0px;
+                            width: 300px;
+                        }
+                    }
+                    textarea{
+                        border: none;
+                        border-radius: 10px;
+                        width: 500px;
+                        height: 200px;
+                        background-color: $main;
+                        @media (max-width: 601px) {
+                            width: 300px;
+                        }
+                    }
+                    button{
+                        border: none;
+                        width: 300px;
+                        height: 40px;
+                        border-radius: 5px;
+                        margin-bottom: 20px;
+                        @media (min-width:601px) {
+                            margin-left: 100px;
+                        }
+                        &:hover{
+                            cursor: pointer;
+                            background-color: $second;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    article{
+        padding-top: 50px;
+        padding-bottom: 50px;
+        .container{
+            h1{
+                color: $main;
+                font-size: 50px;
+                text-align: center;
+            }
+            p{
+                font-size: 25px;
+                line-height: 1.5;
+                @media ($phone-max) {
+                    font-size: 20px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .services{
+        padding-top: 50px;
+        padding-bottom: 50px;
+        .container{
+            .card-container{
+                display: grid;
+                grid-template-columns: repeat(auto-fill , minmax(300px,1fr));
+                grid-gap: 20px;
+                .card{
+                    background-color: white;
+                    border-radius: 10px;
+                    box-shadow: 0px 5px 15px rgba(1 1 1 /15%);
+                    transition: 0.5s;
+                    &.serv.active:hover{
+                        transform: scale(1.1);
+                    }
+                    img{
+                        display: block;
+                        margin-left: auto;
+                        margin-right: auto;
+                        width: 100%;
+                    }
+                    h5{
+                        text-align: center;
+                        font-size: 18px;
+                    }
+                    p{
+                        color: black;
+                        text-align: center;
+                        font-size: 15px;
+                        line-height: 1.5;
+                    }
+                    .button-container{
+                        display: flex;
+                        width: 100%;
+                        justify-content: center;
+                        button{
+                            background-color: $main;
+                            border-radius: 5px;
+                            margin-bottom: 15px;
+                            width: 100px;
+                            height: 40px;
+                            border: none;
+                            &:hover{
+                                background-color: $second;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+            .check{
+                h1{
+                    text-align: center;
+                    padding-bottom: 50px;
+                }
+            }
+        }
+    }
+}

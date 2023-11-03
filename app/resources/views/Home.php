@@ -14,7 +14,7 @@
     <title>First Step</title>
 </head>
 
-<body>
+<body class="home">
     <!-- start header -->
     <nav>
         <div class="container">
@@ -87,9 +87,7 @@
     <!-- end header -->
 
 
-    <!-- start scrollup button -->
-    <button class="up" id="up"><i class="fa-solid fa-arrow-up"></i></button>
-    <!-- end scrollup button -->
+    <?php include("./app/resources/components/up.html") ?>
 
     <!-- start landing -->
     <section>

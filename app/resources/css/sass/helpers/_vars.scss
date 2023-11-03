@@ -1,0 +1,19 @@
+// phone and small tablets
+$phone : '(min-width:768px)';
+$phone-container : 750px;
+$phone-max : '(max-width:768px)';
+
+//  large tablets
+$tablet : '(min-width:992px)';
+$tablet-container : 970px;
+
+//  laptops
+$laptop : '(min-width:1200px)';
+$laptop-container : 1170px;
+
+
+// colors
+$backGround : white;
+$main : aquamarine;
+$second : bisque;
+$quote : #4a916e;

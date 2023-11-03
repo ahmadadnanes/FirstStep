@@ -1,0 +1,648 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@media ((min-width:768px)) {
+  .container {
+    width: 750px;
+  }
+}
+@media ((min-width:992px)) {
+  .container {
+    width: 970px;
+  }
+}
+@media ((min-width:1200px)) {
+  .container {
+    width: 1170px;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* end - header */
+nav {
+  padding: 15px;
+}
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .container .links {
+  position: relative;
+}
+nav .container .links .icon {
+  width: 30px;
+  display: flex;
+  flex-wrap: wrap;
+}
+nav .container .links .icon span {
+  background-color: white;
+  margin-bottom: 5px;
+  height: 3px;
+  width: 100%;
+}
+nav .container .links ul {
+  list-style: none;
+  position: absolute;
+  right: 0;
+  min-width: 200px;
+  top: calc(100% + 15px);
+  background-color: white;
+  display: none;
+  z-index: 100;
+}
+nav .container .links ul::before {
+  content: "";
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent white transparent;
+  position: absolute;
+  top: -19px;
+  right: 5px;
+}
+nav .container .links ul li a {
+  display: block;
+  text-decoration: none;
+  color: var(--sec-color);
+  padding: 15px;
+  transition: 0.3s;
+}
+nav .container .links ul li a:hover {
+  padding-left: 25px;
+}
+
+.normal-bar {
+  display: none;
+}
+@media ((min-width:992px)) {
+  .normal-bar {
+    display: block;
+  }
+}
+.normal-bar a {
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  border-radius: 7px;
+}
+.normal-bar a:hover {
+  background-color: aquamarine;
+}
+
+@media ((min-width:992px)) {
+  .drop-down {
+    display: none;
+  }
+}
+
+/* start - scroll up */
+.up {
+  display: none;
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  display: none;
+  z-index: 1000;
+  background-color: white;
+}
+
+/* end - scroll up */
+/* start error */
+.error {
+  font-size: 18px;
+  color: red;
+  text-align: center;
+  padding-top: 10px;
+}
+
+/* end error */
+.home .serv {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+.home .serv.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+.home section:first-of-type .intro_container {
+  text-align: center;
+  background-image: url(/app/resources/img/hands.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: calc(100vh - 90px);
+  position: relative;
+}
+.home section:first-of-type .intro_container .intro {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  max-width: 100%;
+}
+.home section:first-of-type .intro_container h1 {
+  color: aquamarine;
+  font-size: 50px;
+}
+.home section:first-of-type .intro_container p {
+  color: white;
+  font-size: 25px;
+}
+.home section:last-of-type {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.home section:last-of-type .container .contact {
+  text-align: center;
+  padding-bottom: 50px;
+}
+.home section:last-of-type .container .contact_form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(1, 1, 1, 0.15);
+  transition: 0.5s;
+}
+.home section:last-of-type .container .contact_form input {
+  border: none;
+  border-radius: 5px;
+  height: 50px;
+  margin-left: 100px;
+  background-color: aquamarine;
+  margin-top: 20px;
+}
+@media (max-width: 600px) {
+  .home section:last-of-type .container .contact_form input {
+    left: 0px;
+    width: 300px;
+  }
+}
+.home section:last-of-type .container .contact_form textarea {
+  border: none;
+  border-radius: 10px;
+  width: 500px;
+  height: 200px;
+  background-color: aquamarine;
+}
+@media (max-width: 601px) {
+  .home section:last-of-type .container .contact_form textarea {
+    width: 300px;
+  }
+}
+.home section:last-of-type .container .contact_form button {
+  border: none;
+  width: 300px;
+  height: 40px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+@media (min-width: 601px) {
+  .home section:last-of-type .container .contact_form button {
+    margin-left: 100px;
+  }
+}
+.home section:last-of-type .container .contact_form button:hover {
+  cursor: pointer;
+  background-color: bisque;
+}
+.home article {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.home article .container h1 {
+  color: aquamarine;
+  font-size: 50px;
+  text-align: center;
+}
+.home article .container p {
+  font-size: 25px;
+  line-height: 1.5;
+}
+@media ((max-width:768px)) {
+  .home article .container p {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+.home .services {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.home .services .container .card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+.home .services .container .card-container .card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(1, 1, 1, 0.15);
+  transition: 0.5s;
+}
+.home .services .container .card-container .card.serv.active:hover {
+  transform: scale(1.1);
+}
+.home .services .container .card-container .card img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.home .services .container .card-container .card h5 {
+  text-align: center;
+  font-size: 18px;
+}
+.home .services .container .card-container .card p {
+  color: black;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.home .services .container .card-container .card .button-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.home .services .container .card-container .card .button-container button {
+  background-color: aquamarine;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  width: 100px;
+  height: 40px;
+  border: none;
+}
+.home .services .container .card-container .card .button-container button:hover {
+  background-color: bisque;
+  cursor: pointer;
+}
+.home .services .container .check h1 {
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.diary section {
+  padding: 50px;
+  min-height: 100vh;
+}
+.diary section .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.diary section .container form {
+  background-color: white;
+  box-shadow: 0px 5px 15px rgba(1, 1, 1, 0.15);
+  border-radius: 10px;
+}
+.diary section .container form .title {
+  padding: 15px;
+}
+.diary section .container form .title input {
+  border-radius: 5px;
+  border: none;
+  width: 260px;
+  height: 40px;
+  margin-left: 100px;
+  background-color: aquamarine;
+}
+@media ((max-width:768px)) {
+  .diary section .container form .title input {
+    margin-left: 0px;
+    width: 300px;
+  }
+}
+.diary section .container form .content {
+  padding: 15px;
+}
+.diary section .container form .content textarea {
+  border-radius: 5px;
+  border: none;
+  width: 500px;
+  height: 200px;
+  background-color: aquamarine;
+}
+@media ((max-width:768px)) {
+  .diary section .container form .content textarea {
+    width: 300px;
+  }
+}
+.diary section .container form .button {
+  padding: 15px;
+  margin-left: 200px;
+}
+@media ((max-width:768px)) {
+  .diary section .container form .button {
+    margin-left: 100px;
+  }
+}
+.diary section .container form .button button {
+  border-radius: 5px;
+  border: none;
+  width: 100px;
+  height: 40px;
+}
+.diary section .container form .button button:hover {
+  background-color: var(--sec-color);
+  cursor: pointer;
+}
+
+.login .container {
+  max-width: 100% !important;
+}
+.login section {
+  padding: 50px;
+  min-height: calc(100vh - 90px);
+}
+.login section .container .square {
+  display: flex;
+  height: 400px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(1, 1, 1, 0.15);
+  transition: 0.5s;
+}
+.login section .container .square .half1 {
+  background-image: url(/app/resources/img/happy.jpg);
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 1000px) {
+  .login section .container .square .half1 {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .login section .container .square .half1 {
+    font-size: 14px;
+  }
+}
+.login section .container .square .half2 {
+  padding: 15px;
+  background-color: white;
+  box-shadow: rgba(1, 1, 1, 0.15);
+  order: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+@media (max-width: 1000px) {
+  .login section .container .square .half2 {
+    width: 100%;
+  }
+}
+.login section .container .square .half2 input {
+  border-radius: 5px;
+  padding: 10px;
+  border: none;
+  background-color: aquamarine;
+}
+@media (max-width: 600px) {
+  .login section .container .square .half2 input {
+    width: 70%;
+  }
+}
+.login section .container .square .half2 button {
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 75px;
+  border-radius: 5px;
+  border: none;
+  width: 100px;
+  height: 40px;
+  margin-top: 10px;
+}
+.login section .container .square .half2 button:hover {
+  cursor: pointer;
+  background-color: aquamarine;
+}
+.login section .container .square .half2 span {
+  color: aquamarine;
+}
+.login section .quote {
+  text-align: center;
+  color: #4a916e;
+}
+.login .success {
+  display: block;
+  right: 0;
+}
+
+.errorPage {
+  background-image: url("/app/resources/img/mouse_keyboard.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+.errorPage .text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+}
+.errorPage .text a {
+  color: bisque;
+}
+
+.dep #htr {
+  text-align: center;
+}
+.dep .paragraph {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+}
+.dep #dep {
+  text-align: center;
+}
+.dep .question.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+.dep .choices {
+  margin-top: 10px;
+}
+.dep .choices label {
+  display: block;
+  margin-bottom: 5px;
+}
+.dep .result {
+  display: none;
+}
+.dep #the_questions {
+  font-weight: bolder;
+  font-size: 30px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin-bottom: 40px;
+}
+.dep #answer {
+  font-size: 23px;
+  font-family: "Times New Roman", Times, serif;
+}
+.dep #Next_btn, .dep #Submit_btn {
+  padding: 7px 100px;
+  margin-top: 40px;
+  border-radius: 20px;
+  background-color: #9BD58B;
+  color: #003134;
+  font-size: 20px;
+  border: none;
+}
+.dep #Next_btn:hover, .dep #Submit_btn:hover {
+  background-color: #4B7B3F;
+  color: #ffffff;
+}
+@media (max-width: 600px) {
+  .dep #Next_btn, .dep #Submit_btn {
+    width: 80%;
+  }
+}
+
+.rec section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.rec section .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.rec section form {
+  background-color: white;
+  width: 600px;
+  height: 400px;
+  position: relative;
+  box-shadow: 0px 5px 15px rgba(1, 1, 1, 0.15);
+  border-radius: 10px;
+}
+.rec section .form_container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.rec section .form_container select {
+  border: none;
+  border-radius: 5px;
+  padding-left: 50px;
+  padding-right: 50px;
+  height: 50px;
+  background-color: aquamarine;
+}
+.rec section .form_container button {
+  border: none;
+  border-radius: 5px;
+  width: 100px;
+  height: 40px;
+  margin-left: 45px;
+}
+.rec section .form_container button:hover {
+  background-color: var(second);
+  cursor: pointer;
+}
+.rec .map {
+  margin-bottom: 50px;
+}
+.rec #google-maps-canvas img.text-marker {
+  width: 100% !important;
+  background: none !important;
+}
+
+.your section {
+  padding: 50px;
+  min-height: 100vh;
+}
+.your section .container .diary_container {
+  margin-bottom: 15px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 5px 15px rgba(1, 1, 1, 0.15);
+  position: relative;
+}
+.your section .container .diary_container .delete {
+  position: absolute;
+  right: 0;
+  font-size: 30px;
+}
+.your section .container .diary_container .delete:hover i {
+  color: red;
+}
+.your section .container .diary_container button {
+  border: none;
+  background-color: transparent;
+}
+.your section .container .diary_container .title {
+  text-align: center;
+  padding-top: 10px;
+}
+.your section .container .diary_container .content {
+  padding: 15px;
+}
+
+/* start - footer */
+footer {
+  background-color: bisque;
+}
+
+footer .footer_container h2 {
+  text-align: center;
+  padding: 15px;
+  padding-left: 50px;
+}
+footer .footer_container h3 {
+  font-size: 20px;
+  text-align: center;
+  padding: 15px;
+  padding-left: 50px;
+  margin: 0;
+}
+footer .footer_ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+footer .footer_ul li {
+  padding: 15px;
+}
+footer .footer_ul li i {
+  font-size: 40px;
+  color: black;
+  text-align: center;
+}
+
+/* end - footer *//*# sourceMappingURL=main.css.map */

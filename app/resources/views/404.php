@@ -9,7 +9,7 @@
     <title>404</title>
 </head>
 
-<body>
+<body class="errorPage">
     <div class="text">
         <h1>The page you looking for does not exist</h1>
         <a href="/">return Home?</a>

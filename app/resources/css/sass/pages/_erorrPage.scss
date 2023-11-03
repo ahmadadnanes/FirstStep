@@ -1,0 +1,18 @@
+.errorPage{
+    background-image: url('/app/resources/img/mouse_keyboard.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+
+    .text{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 600px;
+
+        a{
+            color: bisque;
+        }
+    }
+}

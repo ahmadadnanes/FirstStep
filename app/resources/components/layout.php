@@ -6,7 +6,7 @@
 <meta name="msapplication-TileColor" content="#b91d47">
 <!-- main css file -->
 <link rel="stylesheet" href="/app/resources/css/bootstrap.min.css">
-<link rel="stylesheet" href="/app/resources/css/main.css">
+<link rel="stylesheet" href="/app/resources/css/sass/main.css">
 <!-- other css files -->
 <link rel="stylesheet" href="/app/resources/css/normal.css">
 <link rel="stylesheet" href="/app/resources/css/all.min.css">

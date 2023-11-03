@@ -14,14 +14,10 @@ $user = $_SESSION["user"];
     <title>Depression Test</title>
 </head>
 
-<body>
+<body class="dep">
     <?php include("./app/resources/components/header.php") ?>
-    <!-- start scrollup button -->
-    <button class="up" id="up"><i class="fa-solid fa-arrow-up"></i></button>
-    <!-- end scrollup button -->
-
+    <?php include("./app/resources/components/up.html") ?>
     <!-- start deperssion test -->
-
     <section>
 
         <div class="container">

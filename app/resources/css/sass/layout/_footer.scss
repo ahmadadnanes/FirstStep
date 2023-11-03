@@ -1,0 +1,40 @@
+@use '../helpers/vars' as *;
+@use '../helpers/mixins' as *;
+/* start - footer */
+
+footer{
+    background-color: $second;
+}
+
+footer{
+    .footer_container{
+        h2{
+            text-align: center;
+            padding: 15px;
+            padding-left: 50px;
+        }
+        h3{
+            font-size: 20px;
+            text-align: center;
+            padding: 15px;
+            padding-left: 50px;
+            margin: 0;
+        }
+    }
+    .footer_ul{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        li{
+            padding: 15px;
+            i{
+                font-size: 40px;
+                color: black;
+                text-align: center;
+            }
+        }
+    }
+}
+
+/* end - footer */

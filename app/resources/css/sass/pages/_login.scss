@@ -1,0 +1,83 @@
+@use '../helpers/vars' as *;
+@use '../helpers/mixins' as *;
+.login{
+    .container{
+        max-width: 100% !important;
+    }
+    
+    section{
+        padding: 50px;
+        min-height: calc(100vh - 90px);
+        .container{
+            .square{
+                display: flex;
+                height: 400px;
+                border-radius: 10px;
+                box-shadow: 0px 5px 15px rgba(1 1 1 /15%);
+                transition: 0.5s;
+                .half1{
+                    background-image: url(/app/resources/img/happy.jpg);
+                    background-size: cover;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    @media (max-width: 1000px) {
+                        display: none;
+                    }
+                    @media (max-width: 600px) {
+                        font-size: 14px;
+                    }
+                }
+                .half2{
+                    padding: 15px;
+                    background-color: white;
+                    box-shadow: rgba(1 1 1 /15%);
+                    order: -1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 50%;
+                    @media (max-width: 1000px) {
+                        width: 100%;
+                    }
+                    input{
+                        border-radius: 5px;
+                        padding: 10px;
+                        border: none;
+                        background-color: $main;
+                        @media (max-width: 600px) {
+                            width: 70%;
+                        }
+                    }
+                    button{
+                        padding-left:  10px;
+                        padding-right: 10px;
+                        width: 75px;
+                        border-radius: 5px;
+                        border: none;
+                        width: 100px;
+                        height: 40px;
+                        margin-top: 10px;
+                        &:hover{
+                            cursor: pointer;
+                            background-color: $main;
+                        }
+                    }
+                    span{
+                        color: $main;
+                    }
+                }
+            }
+        }
+        .quote{
+            text-align: center;
+            color: $quote;
+        }
+    }
+    
+    .success{
+        display: block;
+        right: 0;
+    }
+}
+

@@ -1,0 +1,17 @@
+@use './layout/grid';
+@use './layout/root';
+@use './layout/header';
+
+@use './components/scrollUp';
+@use './components/error';
+
+@use './pages/Home';
+@use './pages/diary';
+@use './pages/login';
+@use './pages/erorrPage';
+@use './pages/depression';
+@use './pages/Recommended';
+@use './pages/YourDiares';
+
+@use './layout/footer';
+
