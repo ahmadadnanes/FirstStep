@@ -5,10 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include("./app/resources/components/layout.php") ?>
-    <!-- other css files -->
-    <link rel="stylesheet" href="/app/resources/css/all.min.css">
-    <link rel="stylesheet" href="/app/resources/css/brands.min.css">
-    <link rel="stylesheet" href="/app/resources/css/normal.css">
     <title>Login</title>
 </head>
 
@@ -25,7 +21,7 @@
             <div class="drop-down">
                 <div class="links">
                     <span class="icon">
-                        <input type="image" src="/app/resources/img/bars-solid.svg" id="nav_button">
+                        <input type="image" src="/app/resources/img/bars-solid.svg" id="nav_button" alt="bars">
                     </span>
 
                     <ul id="nav_ul">

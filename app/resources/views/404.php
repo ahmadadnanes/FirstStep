@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include("./app/resources/components/layout.php") ?>
-    <link rel="stylesheet" href="/app/resources/css/404.css">
     <title>404</title>
 </head>
 

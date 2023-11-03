@@ -7,10 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include("./app/resources/components/layout.php") ?>
     <link rel="stylesheet" href="/app/resources/css/Home.css">
-    <!-- other css files -->
-    <link rel="stylesheet" href="/app/resources/css/normal.css">
-    <link rel="stylesheet" href="/app/resources/css/all.min.css">
-    <link rel="stylesheet" href="/app/resources/css/brands.min.css">
     <title>First Step</title>
 </head>
 
@@ -18,17 +14,7 @@
     <!-- start header -->
     <nav>
         <div class="container">
-            <?php
-            if (isset($_SESSION["user"])) {
-                $user = $_SESSION["user"];
-            ?>
-                <div class="user">
-                    <span>
-                        <a href="<?= '/user/' . $user  ?>"><?php echo $user  ?></a>
-                    </span>
-                </div>
-            <?php } ?>
-            <a href="/"><img src="/app/resources/img/logo-removebg-preview.png" width="90px" alt="..."></a>
+            <a href="/"><img src="/app/resources/img/logo-removebg-preview.png" width="90px" alt="logo"></a>
 
             <div class="normal-bar">
                 <a href="#services">Services</a>
@@ -47,10 +33,21 @@
                 <a href="#contact">Contact</a>
             </div>
 
+            <?php
+            if (isset($_SESSION["user"])) {
+                $user = $_SESSION["user"];
+            ?>
+                <div class="user">
+                    <span>
+                        <a href="<?= '/user/' . $user  ?>"><?php echo $user  ?></a>
+                    </span>
+                </div>
+            <?php } ?>
+
             <div class="drop-down">
                 <div class="links">
                     <span class="icon">
-                        <input type="image" src="/app/resources/img/bars-solid.svg" id="nav_button">
+                        <input type="image" src="/app/resources/img/bars-solid.svg" id="nav_button" alt="bars">
                     </span>
 
                     <ul id="nav_ul">

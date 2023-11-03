@@ -11,10 +11,6 @@ $user = $_SESSION["user"];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include("./app/resources/components/layout.php") ?>
-    <!-- other css files -->
-    <link rel="stylesheet" href="/app/resources/css/all.min.css">
-    <link rel="stylesheet" href="/app/resources/css/brands.min.css">
-    <link rel="stylesheet" href="/app/resources/css/normal.css">
     <title>Diary</title>
 </head>
 

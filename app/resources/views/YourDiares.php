@@ -11,10 +11,6 @@ $result = $view->Get($_SESSION["id"]);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include('./app/resources/components/layout.php') ?>
-    <!-- other css files -->
-    <link rel="stylesheet" href="/app/resources/css/all.min.css">
-    <link rel="stylesheet" href="/app/resources/css/brands.min.css">
-    <link rel="stylesheet" href="/app/resources/css/normal.css">
     <title>Your Diaries</title>
 </head>
 
@@ -22,7 +18,7 @@ $result = $view->Get($_SESSION["id"]);
     <!-- start header -->
     <nav>
         <div class="container">
-            <a href="/"><img src="/app/resources/img/logo-removebg-preview.png" width="90px"></a>
+            <a href="/"><img src="/app/resources/img/logo-removebg-preview.png" width="90px" alt="logo"></a>
 
             <div class="normal-bar">
                 <a href="/logout">Logout</a>
@@ -32,7 +28,7 @@ $result = $view->Get($_SESSION["id"]);
             <div class="drop-down">
                 <div class="links">
                     <span class="icon">
-                        <input type="image" src="/app/resources/img/bars-solid.svg" id="nav_button">
+                        <input type="image" src="/app/resources/img/bars-solid.svg" id="nav_button" alt="bars">
                     </span>
 
                     <ul id="nav_ul">
