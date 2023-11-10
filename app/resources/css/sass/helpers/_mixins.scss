@@ -1,4 +1,4 @@
-@mixin preFixer($property, $value, $prefixes: ()){
+@mixin preFixer($property, $value, $prefixes){
     @each $prefix in $prefixes{
         #{'-' + $prefix + '-' + $property}: $value;
     }

@@ -60,10 +60,13 @@
 
                                 <label for="email"></label>
                                 <input type="email" id="email" name="email" required placeholder="Email">
-                                <br><br>
+                                <br>
 
                                 <label for="password"></label>
-                                <input type="password" id="password" name="password" required placeholder="Password">
+                                <div class="password">
+                                    <input type="password" id="password" name="password" required placeholder="Password" min="5">
+                                    <i class="fa-solid fa-eye show" id="show"></i>
+                                </div>
                                 <br><br>
                             </div>
 
@@ -80,6 +83,7 @@
     <!-- end login -->
     <!-- JS -->
     <script src="/app/resources/js/main.js"></script>
+    <script src="/app/resources/js/login.js"></script>
 </body>
 
 </html>

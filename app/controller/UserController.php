@@ -68,7 +68,7 @@ class UserController extends user
             if (user::checkEmail($email)) {
                 $result = user::checkPass($email, $pass);
                 if ($result) {
-                    if (isset($_SERVER["QUERY_STRING"])) {
+                    if (isset($_SERVER["QUERY_STRING"]) && !isset($_GET["msg"])) {
                         $pre_header = $_SERVER["QUERY_STRING"];
                         header("location: /" . $pre_header);
                     } else {

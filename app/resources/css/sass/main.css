@@ -16,7 +16,6 @@
 }
 
 * {
-  padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
@@ -51,6 +50,18 @@ nav .container {
   justify-content: space-between;
   align-items: center;
 }
+nav .container .user {
+  order: -1;
+}
+@media ((min-width:1200px)) {
+  nav .container .user {
+    order: 1;
+  }
+}
+nav .container .user i {
+  font-size: 25px;
+  color: black;
+}
 nav .container .links {
   position: relative;
 }
@@ -71,7 +82,7 @@ nav .container .links ul {
   right: 0;
   min-width: 200px;
   top: calc(100% + 15px);
-  background-color: white;
+  background-color: #eee;
   display: none;
   z-index: 100;
 }
@@ -79,7 +90,7 @@ nav .container .links ul::before {
   content: "";
   border-width: 10px;
   border-style: solid;
-  border-color: transparent transparent white transparent;
+  border-color: transparent transparent #eee transparent;
   position: absolute;
   top: -19px;
   right: 5px;
@@ -114,7 +125,7 @@ nav .container .links ul li a:hover {
 }
 
 @media ((min-width:992px)) {
-  .drop-down {
+  .drop-down#drop-down {
     display: none;
   }
 }
@@ -130,7 +141,7 @@ nav .container .links ul li a:hover {
   border: none;
   display: none;
   z-index: 1000;
-  background-color: white;
+  background-color: #eee;
 }
 
 /* end - scroll up */
@@ -143,6 +154,11 @@ nav .container .links ul li a:hover {
 }
 
 /* end error */
+button {
+  border: none;
+  border-radius: 5px;
+}
+
 .home .serv {
   opacity: 0;
   transform: translateX(-100%);
@@ -203,7 +219,7 @@ nav .container .links ul li a:hover {
 }
 @media (max-width: 600px) {
   .home section:last-of-type .container .contact_form input {
-    left: 0px;
+    margin-left: 0px;
     width: 300px;
   }
 }
@@ -312,7 +328,7 @@ nav .container .links ul li a:hover {
 
 .diary section {
   padding: 50px;
-  min-height: 100vh;
+  min-height: 80vh;
 }
 .diary section .container {
   display: flex;
@@ -373,8 +389,15 @@ nav .container .links ul li a:hover {
   height: 40px;
 }
 .diary section .container form .button button:hover {
-  background-color: var(--sec-color);
+  background-color: bisque;
   cursor: pointer;
+}
+.diary section .container form .private {
+  padding-left: 20px;
+}
+.diary .social h2 {
+  text-align: center;
+  padding-bottom: 50px;
 }
 
 .login .container {
@@ -434,7 +457,7 @@ nav .container .links ul li a:hover {
     width: 70%;
   }
 }
-.login section .container .square .half2 button {
+.login section .container .square .half2 .btnn {
   padding-left: 10px;
   padding-right: 10px;
   width: 75px;
@@ -444,9 +467,20 @@ nav .container .links ul li a:hover {
   height: 40px;
   margin-top: 10px;
 }
-.login section .container .square .half2 button:hover {
+.login section .container .square .half2 .btnn:hover {
   cursor: pointer;
   background-color: aquamarine;
+}
+.login section .container .square .half2 .password {
+  position: relative;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.login section .container .square .half2 .password .show, .login section .container .square .half2 .password .hide {
+  position: absolute;
+  right: 0;
+  margin-top: 10px;
+  margin-right: 10px;
 }
 .login section .container .square .half2 span {
   color: aquamarine;
@@ -589,30 +623,31 @@ nav .container .links ul li a:hover {
   padding: 50px;
   min-height: 100vh;
 }
-.your section .container .diary_container {
+.your section .container .delete {
+  position: absolute;
+  right: 0;
+  font-size: 30px;
+}
+.your section .container .delete:hover i {
+  color: red;
+}
+.your section .container button {
+  border: none;
+  background-color: transparent;
+}
+
+.diary_container {
   margin-bottom: 15px;
   border-radius: 10px;
   background-color: white;
   box-shadow: 0px 5px 15px rgba(1, 1, 1, 0.15);
   position: relative;
 }
-.your section .container .diary_container .delete {
-  position: absolute;
-  right: 0;
-  font-size: 30px;
-}
-.your section .container .diary_container .delete:hover i {
-  color: red;
-}
-.your section .container .diary_container button {
-  border: none;
-  background-color: transparent;
-}
-.your section .container .diary_container .title {
+.diary_container .title {
   text-align: center;
   padding-top: 10px;
 }
-.your section .container .diary_container .content {
+.diary_container .content {
   padding: 15px;
 }
 

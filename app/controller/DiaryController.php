@@ -3,15 +3,21 @@ include_once './app/classes/diaryModel.php';
 session_start();
 class DiaryController extends diaryModel
 {
-    public static function Save($id, $title, $content)
+    public static function Save($id, $title, $content, $private)
     {
-        $result = diaryModel::SaveDiary($id, $title, $content);
+        $result = diaryModel::SaveDiary($id, $title, $content, $private);
         return $result;
     }
 
     public static function Get($id)
     {
         $array = diaryModel::GetDiary($id);
+        return $array;
+    }
+
+    public static function all()
+    {
+        $array = diaryModel::all();
         return $array;
     }
 
@@ -51,10 +57,15 @@ if ($_SERVER["REQUEST_URI"] == "/diary") {
             $id = $_SESSION["id"];
             $title = $_POST["title"];
             $content = $_POST["content"];
+            if (isset($_POST["private"])) {
+                $private = $_POST["private"];
+            } else {
+                $private = 0;
+            }
             $filter = DiaryController::Filter($title, $content);
 
             if (is_bool($filter)) {
-                DiaryController::Save($id, $title, $content);
+                DiaryController::Save($id, $title, $content, $private);
                 header("location: /user/" . $_SESSION["user"]);
             } else {
                 header("location: /diary/?msg=$filter");

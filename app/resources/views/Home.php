@@ -1,4 +1,8 @@
-<?php session_start() ?>
+<?php
+if (empty($_SESSION)) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +10,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include("./app/resources/components/layout.php") ?>
-    <link rel="stylesheet" href="/app/resources/css/Home.css">
     <title>First Step</title>
 </head>
 
@@ -14,7 +17,7 @@
     <!-- start header -->
     <nav>
         <div class="container">
-            <a href="/"><img src="/app/resources/img/logo-removebg-preview.png" width="90px" alt="logo"></a>
+            <a href="/" class="logo"><img src="/app/resources/img/logo-removebg-preview.png" width="90px" alt="logo"></a>
 
             <div class="normal-bar">
                 <a href="#services">Services</a>
@@ -38,13 +41,15 @@
                 $user = $_SESSION["user"];
             ?>
                 <div class="user">
-                    <span>
-                        <a href="<?= '/user/' . $user  ?>"><?php echo $user  ?></a>
+                    <span class="icon">
+                        <span>
+                            <a href="<?= '/user/' . $user  ?>"><i class="fa-solid fa-user" id="user"></i></a>
+                        </span>
                     </span>
                 </div>
             <?php } ?>
 
-            <div class="drop-down">
+            <div class="drop-down" id="drop-down">
                 <div class="links">
                     <span class="icon">
                         <input type="image" src="/app/resources/img/bars-solid.svg" id="nav_button" alt="bars">
@@ -167,13 +172,10 @@
                             <button onclick="location.href='/psy'">Start</button>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
-
     </div>
-
     <!-- end services -->
 
     <!-- start contact -->
@@ -185,7 +187,7 @@
             </div>
             <div class="contact_form serv">
                 <form action="/contact" method="post">
-                    <input type="email" name="email" id="email" placeholder="Enter your Email" style="padding-right: 60px;" required><br><br>
+                    <input type="email" name="email" id="email" placeholder=" Enter your Email" style="padding-right: 60px;" required><br><br>
                     <textarea name="contact" id="contact" cols="30" rows="10" required></textarea><br><br>
                     <button type="submit">Submit</button>
                 </form>

@@ -6,6 +6,16 @@ nav{
         display: flex;
         justify-content: space-between;
         align-items: center;
+        .user{
+            order: -1;
+            @media ($laptop) {
+                order: +1;
+            }
+            i{
+                font-size: 25px;
+                color: black;
+            }
+        }
         .links{
             position: relative;
             .icon{
@@ -25,14 +35,14 @@ nav{
                 right: 0;
                 min-width: 200px;
                 top: calc(100% + 15px);
-                background-color: white;
+                background-color: #eee;
                 display: none;
                 z-index: 100;
                 &::before{
                     content: "";
                     border-width: 10px;
                     border-style: solid;
-                    border-color: transparent transparent white  transparent;
+                    border-color: transparent transparent #eee  transparent;
                     position: absolute;
                     top: -19px;
                     right: 5px;
@@ -70,7 +80,7 @@ nav{
     }
 }
 
-.drop-down{
+.drop-down#drop-down{
     @media ($tablet) {
         display: none;
     }

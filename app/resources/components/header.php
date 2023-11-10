@@ -2,7 +2,11 @@
 <nav>
     <div class="container">
         <div class="user">
-            <a href=<?= "/user/" . $user ?>><?= $user ?></a>
+            <span class="icon">
+                <span>
+                    <a href="<?= '/user/' . $user  ?>"><i class="fa-solid fa-user" id="user"></i></a>
+                </span>
+            </span>
         </div>
         <a href="/"><img src="/app/resources/img/logo-removebg-preview.png" width="90px" alt="logo"></a>
 
@@ -10,7 +14,7 @@
             <a href="/logout">Logout</a>
         </div>
 
-        <div class="drop-down">
+        <div class="drop-down" id="drop-down">
             <div class="links">
                 <span class="icon">
                     <input type="image" src="/app/resources/img/bars-solid.svg" id="nav_button" alt="bars">

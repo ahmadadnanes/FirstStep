@@ -49,7 +49,7 @@
                             width: 70%;
                         }
                     }
-                    button{
+                    .btnn{
                         padding-left:  10px;
                         padding-right: 10px;
                         width: 75px;
@@ -61,6 +61,16 @@
                         &:hover{
                             cursor: pointer;
                             background-color: $main;
+                        }
+                    }
+                    .password{
+                        position: relative;
+                        width: fit-content;
+                        .show , .hide{
+                            position: absolute;
+                            right: 0;
+                            margin-top: 10px;
+                            margin-right: 10px;
                         }
                     }
                     span{

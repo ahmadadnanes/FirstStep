@@ -4,7 +4,7 @@
 .diary{
     section{
         padding: 50px;
-        min-height: 100vh;
+        min-height: 80vh;
         .container{
             display: flex;
             justify-content: center;
@@ -54,12 +54,21 @@
                         width: 100px;
                         height: 40px;
                         &:hover{
-                            background-color: var(--sec-color);
+                            background-color: $second;
                             cursor: pointer;
                         }
                     }
                 }
+                .private{
+                    padding-left: 20px;
+                }
             }
+        }
+    }
+    .social{
+        h2{
+            text-align: center;
+            padding-bottom: 50px;
         }
     }
 }
