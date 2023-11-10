@@ -67,7 +67,7 @@
                                     <input type="password" id="password" name="password" required placeholder="Password" min="5">
                                     <i class="fa-solid fa-eye show" id="show"></i>
                                 </div>
-                                <br><br>
+                                <br>
                             </div>
 
                             <span>if you have an account <a href="/login">Login</a></span><br>

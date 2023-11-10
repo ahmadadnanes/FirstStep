@@ -1,5 +1,7 @@
 let current = 1;
 let qu = 10;
+let popup = document.getElementById("popup");
+
 let answers = [];
 function next(){
   let question = document.querySelector('input[name="q' + current + '"]:checked').value;
@@ -9,6 +11,9 @@ function next(){
       current++;
       if (current <= qu) {
         document.getElementById('question' + current).classList.add('active');
+        setTimeout(() =>{
+          location.href = "/depression#" + 'question' + current;
+        } , 300)
       } 
       else {
         displayResult();
@@ -27,7 +32,7 @@ function displayResult(){
       if(score === 0)
       {
         window.alert("You are good press ok to redirect to the home page");
-        location.href = "../Home.php";
+        location.href = "/";
       }
       else if (score > 0 && score <= 4) {
         resultMessage = "You are experiencing minimal depressive symptoms.";
@@ -40,10 +45,13 @@ function displayResult(){
       } else {
         resultMessage = "You have severe depressive symptoms. It is important to seek professional help.";
       }
-      a = window.confirm(resultMessage + " " + "Click Ok So We can help you or press no and you will be redirect to the Home page ");
-      if (a) {
-            location.href = "../Recommended psy.php";
-        } else {
-            location.href = "../Home.php";
-        }
+      pop(resultMessage);
+}
+
+function pop(text){
+  let body = document.getElementById("body");
+  console.log(body)
+  body.innerText = text;
+  popup.classList.toggle("active");
+  location.href = "/depression#";
 }

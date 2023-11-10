@@ -14,7 +14,6 @@
                 }
             }
             button{
-                    border: none;
                     background-color: transparent;
             }
         }
@@ -34,5 +33,12 @@
     }
     .content{
         padding: 15px;
+    }
+    .author{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        padding-right: 15px;
+
     }
 }

@@ -383,8 +383,6 @@ button {
   }
 }
 .diary section .container form .button button {
-  border-radius: 5px;
-  border: none;
   width: 100px;
   height: 40px;
 }
@@ -454,15 +452,12 @@ button {
 }
 @media (max-width: 600px) {
   .login section .container .square .half2 input {
-    width: 70%;
+    width: 181.13px;
   }
 }
 .login section .container .square .half2 .btnn {
   padding-left: 10px;
   padding-right: 10px;
-  width: 75px;
-  border-radius: 5px;
-  border: none;
   width: 100px;
   height: 40px;
   margin-top: 10px;
@@ -491,6 +486,7 @@ button {
 }
 .login .success {
   display: block;
+  background-color: aquamarine;
   right: 0;
 }
 
@@ -511,6 +507,61 @@ button {
   color: bisque;
 }
 
+.dep .popup .overlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  display: none;
+}
+.dep .popup .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background-color: #fff;
+  width: 450px;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+  padding: 20px;
+  transition: 0.3s;
+  z-index: 1001;
+}
+.dep .popup .content .close-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 25px;
+  border-radius: 10px;
+  color: white;
+  background-color: black;
+  width: 35px;
+  height: 35px;
+  margin: 10px;
+}
+.dep .popup .content .close-btn:hover {
+  cursor: pointer;
+}
+@media ((max-width:768px)) {
+  .dep .popup .content {
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}
+.dep .popup .content .text {
+  margin-top: 30px;
+}
+.dep .popup.active .overlay {
+  display: block;
+}
+.dep .popup.active .content {
+  transform: translate(-50%, -50%) scale(1);
+}
 .dep #htr {
   text-align: center;
 }
@@ -549,21 +600,22 @@ button {
 .dep #answer {
   font-size: 23px;
 }
-.dep #Next_btn, .dep #Submit_btn {
-  padding: 7px 100px;
-  margin-top: 40px;
-  border-radius: 20px;
+.dep #Next_btn, .dep #Submit_btn, .dep .pop-btn {
+  width: 300px;
+  height: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   background-color: #9BD58B;
   color: #003134;
   font-size: 20px;
   border: none;
 }
-.dep #Next_btn:hover, .dep #Submit_btn:hover {
+.dep #Next_btn:hover, .dep #Submit_btn:hover, .dep .pop-btn:hover {
   background-color: #4B7B3F;
   color: #ffffff;
 }
-@media (max-width: 600px) {
-  .dep #Next_btn, .dep #Submit_btn {
+@media ((max-width:768px)) {
+  .dep #Next_btn, .dep #Submit_btn, .dep .pop-btn {
     width: 80%;
   }
 }
@@ -632,7 +684,6 @@ button {
   color: red;
 }
 .your section .container button {
-  border: none;
   background-color: transparent;
 }
 
@@ -649,6 +700,12 @@ button {
 }
 .diary_container .content {
   padding: 15px;
+}
+.diary_container .author {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding-right: 15px;
 }
 
 /* start - footer */

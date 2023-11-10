@@ -78,7 +78,7 @@
     <?php
     if (isset($_SESSION["success"])) {
     ?>
-        <div class="success rounded-2 bg-primary position-fixed bottom-0 p-1 m-1 text-white" id="success">
+        <div class="success rounded-2 position-fixed bottom-0 p-1 m-1 text-white" id="success">
             <?php echo $_SESSION["success"];
             session_unset();
             ?>

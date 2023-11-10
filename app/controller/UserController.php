@@ -1,6 +1,7 @@
 <?php
 include_once "./app/classes/user.php";
-session_start();
+if (!isset($_SESSION))
+    session_start();
 $errors = [];
 
 class UserController extends user
@@ -9,7 +10,7 @@ class UserController extends user
     private $email;
     private $password;
 
-    public function __construct($username = null, $email, $password)
+    public function __construct($username = null, $email = null, $password = null)
     {
         $this->username = $username;
         $this->email = $email;
@@ -84,13 +85,18 @@ class UserController extends user
             header("location:/login/?msg=" . $filter);
         }
     }
+
+    public static function get($id)
+    {
+        return user::getUser($id);
+    }
 }
 
 
 
+$server = explode('/', $_SERVER["REQUEST_URI"])[1];
 
-
-if ($_SERVER["REQUEST_URI"] == "/signup") {
+if ($server == "signup") {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_POST["submit"])) {
             $user = new UserController(trim($_POST["username"]), $_POST["email"], trim($_POST["password"]));
@@ -99,7 +105,7 @@ if ($_SERVER["REQUEST_URI"] == "/signup") {
     } else {
         require("./app/resources/views/signup.php");
     }
-} else {
+} else if ($server == "login") {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_POST["submit"])) {
             $user = new UserController(null, $_POST["email"], trim($_POST["password"]));

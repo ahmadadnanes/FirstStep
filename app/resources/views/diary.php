@@ -1,6 +1,7 @@
 <?php
 include_once("./app/controller/DiaryController.php");
-if (!isset($_SESSION["user"])) {
+include_once("./app/controller/UserController.php");
+if (!isset($_SESSION)) {
     session_start();
 }
 $user = $_SESSION["user"];
@@ -52,8 +53,10 @@ $diaries = DiaryController::all();
             <?php
             if (!empty($diaries)) {
                 foreach ($diaries as $row) {
+                    $id = $row[1];
                     $dt = $row[2];
                     $dc = $row[3];
+                    $dUser = UserController::get($id);
             ?>
                     <div class="diary_container">
                         <div class="title">
@@ -61,6 +64,9 @@ $diaries = DiaryController::all();
                         </div>
                         <div class="content">
                             <p><?= $dc ?></p>
+                        </div>
+                        <div class="author">
+                            <p>by:<?= $dUser ?></p>
                         </div>
                     </div>
                 <?php }

@@ -46,15 +46,12 @@
                         border: none;
                         background-color: $main;
                         @media (max-width: 600px) {
-                            width: 70%;
+                            width: 181.13px;
                         }
                     }
                     .btnn{
                         padding-left:  10px;
                         padding-right: 10px;
-                        width: 75px;
-                        border-radius: 5px;
-                        border: none;
                         width: 100px;
                         height: 40px;
                         margin-top: 10px;
@@ -87,6 +84,7 @@
     
     .success{
         display: block;
+        background-color: $main;
         right: 0;
     }
 }

@@ -177,7 +177,20 @@ $user = $_SESSION["user"];
                 </center>
             </div>
     </section>
-
+    <div class="popup" id="popup">
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="close-btn" onclick="pop('close')">
+                &times;
+            </div>
+            <div class="text">
+                <p id="body">
+                </p>
+                <button onclick="location.href='/psy'" class="pop-btn">Help me</button>
+                <button onclick="location.href='/'" class="pop-btn">Return Home</button>
+            </div>
+        </div>
+    </div>
     <!-- end depression test -->
     <?php include("./app/resources/components/footer.html") ?>
     <!-- JS -->

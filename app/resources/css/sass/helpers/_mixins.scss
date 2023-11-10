@@ -4,3 +4,14 @@
     }
     #{$property}: $value;
 }
+
+@mixin overlay(){
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: none;
+}
