@@ -5,8 +5,8 @@ let popup = document.getElementById("popup");
 let answers = [];
 function next(){
   let question = document.querySelector('input[name="q' + current + '"]:checked').value;
-  answers.push(parseInt(qu));
-
+  answers.push(parseInt(question));
+  console.log(answers)
   document.getElementById('question' + current).classList.remove('active');
       current++;
       if (current <= qu) {
@@ -24,15 +24,14 @@ function displayResult(){
   let score = 0;
 
 
-  for(let i = 1 ; i <= answers.length ; i++){
+  for(let i = 0 ; i < answers.length ; i++){
     score += answers[i];
   }
 
   let resultMessage = "";
       if(score === 0)
       {
-        window.alert("You are good press ok to redirect to the home page");
-        location.href = "/";
+        resultMessage = "You are good press ok to redirect to the home page.";
       }
       else if (score > 0 && score <= 4) {
         resultMessage = "You are experiencing minimal depressive symptoms.";

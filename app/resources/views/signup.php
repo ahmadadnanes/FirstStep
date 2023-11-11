@@ -17,25 +17,7 @@
             <div class="normal-bar">
                 <a href="/login">Login</a>
             </div>
-
-            <div class="drop-down">
-                <div class="links">
-                    <span class="icon">
-                        <input type="image" src="/app/resources/img/bars-solid.svg" id="nav_button" alt="bars">
-                    </span>
-
-                    <ul id="nav_ul">
-
-                        <li>
-                            <a href="/login">Login</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
         </div>
-
-
     </nav>
     <!-- end header -->
 

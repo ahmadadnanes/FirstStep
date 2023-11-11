@@ -121,11 +121,11 @@ nav .container .links ul li a:hover {
   border-radius: 7px;
 }
 .normal-bar a:hover {
-  background-color: aquamarine;
+  background-color: #eee;
 }
 
 @media ((min-width:992px)) {
-  .drop-down#drop-down {
+  .drop-down {
     display: none;
   }
 }
@@ -154,9 +154,48 @@ nav .container .links ul li a:hover {
 }
 
 /* end error */
-button {
+button:not(.x) {
   border: none;
   border-radius: 5px;
+  background-color: #eee !important;
+}
+button:not(.x):hover {
+  background-color: bisque !important;
+  cursor: pointer;
+}
+
+.delete {
+  position: absolute;
+  right: 0;
+  font-size: 30px;
+}
+.delete:hover i {
+  color: red;
+}
+.delete button {
+  background-color: transparent;
+  border: none;
+}
+
+.diary_container {
+  margin-bottom: 15px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 5px 15px rgba(1, 1, 1, 0.15);
+  position: relative;
+}
+.diary_container .title {
+  text-align: center;
+  padding-top: 10px;
+}
+.diary_container .content {
+  padding: 15px;
+}
+.diary_container .author {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding-right: 15px;
 }
 
 .home .serv {
@@ -184,7 +223,7 @@ button {
   max-width: 100%;
 }
 .home section:first-of-type .intro_container h1 {
-  color: aquamarine;
+  color: #eee;
   font-size: 50px;
 }
 .home section:first-of-type .intro_container p {
@@ -192,6 +231,8 @@ button {
   font-size: 25px;
 }
 .home section:last-of-type {
+  background: url(/app/resources/img/notepad-pencils-left.jpg);
+  background-size: cover;
   padding-top: 50px;
   padding-bottom: 50px;
 }
@@ -214,7 +255,7 @@ button {
   border-radius: 5px;
   height: 50px;
   margin-left: 100px;
-  background-color: aquamarine;
+  background-color: #eee;
   margin-top: 20px;
 }
 @media (max-width: 600px) {
@@ -223,23 +264,35 @@ button {
     width: 300px;
   }
 }
+@media (max-width: 320px) {
+  .home section:last-of-type .container .contact_form input {
+    margin-left: 10px;
+    width: 250px;
+  }
+}
 .home section:last-of-type .container .contact_form textarea {
   border: none;
   border-radius: 10px;
   width: 500px;
   height: 200px;
-  background-color: aquamarine;
+  max-width: 100%;
+  background-color: #eee;
 }
 @media (max-width: 601px) {
   .home section:last-of-type .container .contact_form textarea {
     width: 300px;
   }
 }
+@media (max-width: 320px) {
+  .home section:last-of-type .container .contact_form textarea {
+    margin-left: 10px;
+    width: 250px;
+  }
+}
 .home section:last-of-type .container .contact_form button {
-  border: none;
+  background-color: #eee;
   width: 300px;
   height: 40px;
-  border-radius: 5px;
   margin-bottom: 20px;
 }
 @media (min-width: 601px) {
@@ -247,16 +300,17 @@ button {
     margin-left: 100px;
   }
 }
-.home section:last-of-type .container .contact_form button:hover {
-  cursor: pointer;
-  background-color: bisque;
+@media (max-width: 320px) {
+  .home section:last-of-type .container .contact_form button {
+    margin-left: 10px;
+    width: 250px;
+  }
 }
 .home article {
   padding-top: 50px;
   padding-bottom: 50px;
 }
 .home article .container h1 {
-  color: aquamarine;
   font-size: 50px;
   text-align: center;
 }
@@ -310,12 +364,10 @@ button {
   justify-content: center;
 }
 .home .services .container .card-container .card .button-container button {
-  background-color: aquamarine;
-  border-radius: 5px;
+  background-color: #eee;
   margin-bottom: 15px;
   width: 100px;
   height: 40px;
-  border: none;
 }
 .home .services .container .card-container .card .button-container button:hover {
   background-color: bisque;
@@ -350,7 +402,7 @@ button {
   width: 260px;
   height: 40px;
   margin-left: 100px;
-  background-color: aquamarine;
+  background-color: #eee;
 }
 @media ((max-width:768px)) {
   .diary section .container form .title input {
@@ -366,7 +418,7 @@ button {
   border: none;
   width: 500px;
   height: 200px;
-  background-color: aquamarine;
+  background-color: #eee;
 }
 @media ((max-width:768px)) {
   .diary section .container form .content textarea {
@@ -385,10 +437,6 @@ button {
 .diary section .container form .button button {
   width: 100px;
   height: 40px;
-}
-.diary section .container form .button button:hover {
-  background-color: bisque;
-  cursor: pointer;
 }
 .diary section .container form .private {
   padding-left: 20px;
@@ -448,7 +496,7 @@ button {
   border-radius: 5px;
   padding: 10px;
   border: none;
-  background-color: aquamarine;
+  background-color: #eee;
 }
 @media (max-width: 600px) {
   .login section .container .square .half2 input {
@@ -462,10 +510,6 @@ button {
   height: 40px;
   margin-top: 10px;
 }
-.login section .container .square .half2 .btnn:hover {
-  cursor: pointer;
-  background-color: aquamarine;
-}
 .login section .container .square .half2 .password {
   position: relative;
   width: -moz-fit-content;
@@ -477,16 +521,12 @@ button {
   margin-top: 10px;
   margin-right: 10px;
 }
-.login section .container .square .half2 span {
-  color: aquamarine;
-}
 .login section .quote {
   text-align: center;
-  color: #4a916e;
 }
 .login .success {
   display: block;
-  background-color: aquamarine;
+  background-color: #eee;
   right: 0;
 }
 
@@ -605,14 +645,7 @@ button {
   height: 50px;
   margin-top: 10px;
   margin-bottom: 10px;
-  background-color: #9BD58B;
-  color: #003134;
   font-size: 20px;
-  border: none;
-}
-.dep #Next_btn:hover, .dep #Submit_btn:hover, .dep .pop-btn:hover {
-  background-color: #4B7B3F;
-  color: #ffffff;
 }
 @media ((max-width:768px)) {
   .dep #Next_btn, .dep #Submit_btn, .dep .pop-btn {
@@ -620,6 +653,10 @@ button {
   }
 }
 
+.rec {
+  background-image: url(/app/resources/img/blur-hospital.jpg);
+  background-size: cover;
+}
 .rec section {
   padding-top: 50px;
   padding-bottom: 50px;
@@ -650,18 +687,12 @@ button {
   padding-left: 50px;
   padding-right: 50px;
   height: 50px;
-  background-color: aquamarine;
+  background-color: #eee;
 }
 .rec section .form_container button {
-  border: none;
-  border-radius: 5px;
   width: 100px;
   height: 40px;
   margin-left: 45px;
-}
-.rec section .form_container button:hover {
-  background-color: var(second);
-  cursor: pointer;
 }
 .rec .map {
   margin-bottom: 50px;
@@ -675,44 +706,8 @@ button {
   padding: 50px;
   min-height: 100vh;
 }
-.your section .container .delete {
-  position: absolute;
-  right: 0;
-  font-size: 30px;
-}
-.your section .container .delete:hover i {
-  color: red;
-}
-.your section .container button {
-  background-color: transparent;
-}
-
-.diary_container {
-  margin-bottom: 15px;
-  border-radius: 10px;
-  background-color: white;
-  box-shadow: 0px 5px 15px rgba(1, 1, 1, 0.15);
-  position: relative;
-}
-.diary_container .title {
-  text-align: center;
-  padding-top: 10px;
-}
-.diary_container .content {
-  padding: 15px;
-}
-.diary_container .author {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  padding-right: 15px;
-}
 
 /* start - footer */
-footer {
-  background-color: bisque;
-}
-
 footer .footer_container h2 {
   text-align: center;
   padding: 15px;

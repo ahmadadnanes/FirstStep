@@ -67,7 +67,7 @@ $result = $view->Get($_SESSION["id"]);
                     <div class="diary_container">
                         <div class="delete">
                             <form action="/diary" method="post">
-                                <button name="delete" value="<?= $id ?>">
+                                <button class="x" name="delete" value="<?= $id ?>">
                                     <i class="fa-solid fa-square-xmark"></i>
                                 </button>
                             </form>

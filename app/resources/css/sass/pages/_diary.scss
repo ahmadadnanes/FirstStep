@@ -51,10 +51,6 @@
                     button{
                         width: 100px;
                         height: 40px;
-                        &:hover{
-                            background-color: $second;
-                            cursor: pointer;
-                        }
                     }
                 }
                 .private{

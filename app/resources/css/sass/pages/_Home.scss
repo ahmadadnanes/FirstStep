@@ -37,6 +37,8 @@
             }
         }
         &:last-of-type{
+            background: url(/app/resources/img/notepad-pencils-left.jpg);
+            background-size: cover;
             padding-top: 50px;
             padding-bottom: 50px;
             .container{
@@ -64,29 +66,37 @@
                             margin-left: 0px;
                             width: 300px;
                         }
+                        @media (max-width: 320px) {
+                            margin-left: 10px;
+                            width: 250px;
+                        }
                     }
                     textarea{
                         border: none;
                         border-radius: 10px;
                         width: 500px;
                         height: 200px;
+                        max-width: 100%;
                         background-color: $main;
                         @media (max-width: 601px) {
                             width: 300px;
                         }
+                        @media (max-width: 320px) {
+                            margin-left: 10px;
+                            width: 250px;
+                        }
                     }
                     button{
-                        border: none;
+                        background-color: $main;
                         width: 300px;
                         height: 40px;
-                        border-radius: 5px;
                         margin-bottom: 20px;
                         @media (min-width:601px) {
                             margin-left: 100px;
                         }
-                        &:hover{
-                            cursor: pointer;
-                            background-color: $second;
+                        @media (max-width: 320px) {
+                            margin-left: 10px;
+                            width: 250px;
                         }
                     }
                 }
@@ -99,7 +109,6 @@
         padding-bottom: 50px;
         .container{
             h1{
-                color: $main;
                 font-size: 50px;
                 text-align: center;
             }
@@ -152,11 +161,9 @@
                         justify-content: center;
                         button{
                             background-color: $main;
-                            border-radius: 5px;
                             margin-bottom: 15px;
                             width: 100px;
                             height: 40px;
-                            border: none;
                             &:hover{
                                 background-color: $second;
                                 cursor: pointer;

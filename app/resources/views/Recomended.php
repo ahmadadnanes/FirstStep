@@ -25,7 +25,6 @@ $user = $_SESSION["user"];
             <form action="<?= htmlspecialchars('/psy/') ?>" method="get" id="form">
                 <div class="form_container">
                     <label for="gov">Choose a governorate:</label><br><br>
-
                     <select name="gov" id="gov">
                         <?php
                         if (isset($_GET["gov"])) { ?>
@@ -52,6 +51,7 @@ $user = $_SESSION["user"];
             </div>
         </div>
     </div>
+    <p class="text-center"><a href="https://www.freepik.com/free-photo/blur-hospital_1135191.htm#page=2&query=doctor&position=1&from_view=search&track=sph">Image by mrsiraphol</a> on Freepik</p>
     <!-- end Recomended psy -->
 
     <?php include("./app/resources/components/footer.html") ?>

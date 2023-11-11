@@ -102,14 +102,7 @@
         height: 50px;
         margin-top:10px;
         margin-bottom: 10px;
-        background-color:#9BD58B;
-        color:#003134;
         font-size:20px;
-        border: none;
-        &:hover{
-            background-color: #4B7B3F;
-            color: #ffffff;
-        }
         @media ($phone-max) {
             width: 80%;
         }

@@ -192,6 +192,9 @@ if (empty($_SESSION)) {
                     <button type="submit">Submit</button>
                 </form>
             </div>
+            <p class="text-center mt-2">
+                Image by <a href="https://www.freepik.com/free-photo/notepad-pencils-left_2436952.htm#query=pen%20background&position=11&from_view=keyword&track=ais">Freepik</a>
+            </p>
         </div>
     </section>
     <!-- end contact -->

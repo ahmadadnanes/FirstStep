@@ -180,8 +180,10 @@ $user = $_SESSION["user"];
     <div class="popup" id="popup">
         <div class="overlay"></div>
         <div class="content">
-            <div class="close-btn" onclick="pop('close')">
-                &times;
+            <div class="delete">
+                <button class="x" onclick="pop('close')">
+                    <i class="fa-solid fa-square-xmark"></i>
+                </button>
             </div>
             <div class="text">
                 <p id="body">

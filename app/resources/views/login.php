@@ -13,23 +13,8 @@
     <nav>
         <div class="container">
             <a href="/"><img src="/app/resources/img/logo-removebg-preview.png" width="90px" alt="..."></a>
-
             <div class="normal-bar">
                 <a href="/signup">SignUp</a>
-            </div>
-
-            <div class="drop-down">
-                <div class="links">
-                    <span class="icon">
-                        <input type="image" src="/app/resources/img/bars-solid.svg" id="nav_button" alt="bars">
-                    </span>
-
-                    <ul id="nav_ul">
-                        <li>
-                            <a href="/signup">SignUp</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </div>
     </nav>

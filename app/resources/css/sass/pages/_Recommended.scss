@@ -1,6 +1,8 @@
 @use '../helpers/vars' as *;
 @use '../helpers/mixins' as *;
 .rec{
+    background-image: url(/app/resources/img/blur-hospital.jpg);
+    background-size: cover;
     section{
         padding-top: 50px;
         padding-bottom: 50px;
@@ -32,15 +34,9 @@
                 background-color: $main;
             }
             button{
-                border: none;
-                border-radius: 5px;
                 width: 100px;
                 height: 40px;
                 margin-left: 45px;
-                &:hover{
-                    background-color: var(second);
-                    cursor: pointer;
-                }
             }
         }
     }

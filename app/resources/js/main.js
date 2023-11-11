@@ -14,34 +14,36 @@ if(user !== null){
     });
 }
 
+
 button.onclick = function(){
     if(ul.style.display === "block"){
         ul.style.display = "none";
     }
     else{
-        ul.style.display = "block";
+                ul.style.display = "block";
     }
 }
+
+
 
 let btn = document.querySelector("#up");
-
-window.onload = scrollbtn;
-window.onscroll = scrollbtn;
-function scrollbtn(){
-    if(window.scrollY >= 100){
-        btn.style.display = "block";
+if(btn !== null){
+    window.onload = scrollbtn;
+    window.onscroll = scrollbtn;
+    function scrollbtn(){
+        if(window.scrollY >= 100){
+            btn.style.display = "block";
+        }
+        else{
+            btn.style.display = "none";
+        }
     }
-    else{
-        btn.style.display = "none";
-    }
-
-}
     
-
     btn.onclick = function(){
         window.scrollTo({
             top: 0,
             behavior: "smooth"
         })
     }
+}
 

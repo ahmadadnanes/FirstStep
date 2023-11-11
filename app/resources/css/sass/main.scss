@@ -5,14 +5,16 @@
 @use './components/scrollUp';
 @use './components/error';
 @use './components/button';
+@use './components/xButton';
+@use './components/diary-container';
 
 @use './pages/Home';
 @use './pages/diary';
 @use './pages/login';
-@use './pages/erorrPage';
+@use './pages/errorPage';
 @use './pages/depression';
 @use './pages/Recommended';
-@use './pages/YourDiares';
+@use './pages/YourDiaries';
 
 @use './layout/footer';
 
