@@ -4,7 +4,7 @@
     width: 750px;
   }
 }
-@media ((min-width:992px)) {
+@media ((min-width:1200px)) {
   .container {
     width: 970px;
   }
@@ -109,7 +109,7 @@ nav .container .links ul li a:hover {
 .normal-bar {
   display: none;
 }
-@media ((min-width:992px)) {
+@media ((min-width:1200px)) {
   .normal-bar {
     display: block;
   }
@@ -124,7 +124,7 @@ nav .container .links ul li a:hover {
   background-color: #eee;
 }
 
-@media ((min-width:992px)) {
+@media ((min-width:1200px)) {
   .drop-down {
     display: none;
   }
@@ -208,7 +208,7 @@ button:not(.x):hover {
 }
 .home section:first-of-type .intro_container {
   text-align: center;
-  background-image: url(/app/resources/img/hands.jpg);
+  background-image: url("/app/resources/img/hands-min.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: calc(100vh - 90px);
@@ -231,10 +231,25 @@ button:not(.x):hover {
   font-size: 25px;
 }
 .home section:last-of-type {
-  background: url(/app/resources/img/notepad-pencils-left.jpg);
+  background: url("/app/resources/img/notepad-pencils-left-min.jpg");
   background-size: cover;
   padding-top: 50px;
   padding-bottom: 50px;
+}
+@media ((max-width:768px)) {
+  .home section:last-of-type {
+    background-image: url("/app/resources/img/notepad-pencils-left-small-min.jpg");
+  }
+}
+@media ((max-width:992px)) {
+  .home section:last-of-type {
+    background-image: url("/app/resources/img/notepad-pencils-left-medium-min.jpg");
+  }
+}
+@media ((max-width:1200px)) {
+  .home section:last-of-type {
+    background-image: url("/app/resources/img/notepad-pencils-left-large-min.jpg");
+  }
 }
 .home section:last-of-type .container .contact {
   text-align: center;
@@ -378,6 +393,25 @@ button:not(.x):hover {
   padding-bottom: 50px;
 }
 
+.diary {
+  background-image: url("/app/resources/img/sharp-colored-pencil-min.jpg");
+  background-size: cover;
+}
+@media ((max-width:768px)) {
+  .diary {
+    background-image: url("/app/resources/img/sharp-colored-pencil-small-min.jpg");
+  }
+}
+@media ((max-width:992px)) {
+  .diary {
+    background-image: url("/app/resources/img/sharp-colored-pencil-medium-min.jpg");
+  }
+}
+@media ((max-width:1200px)) {
+  .diary {
+    background-image: url("/app/resources/img/sharp-colored-pencil-large-min.jpg");
+  }
+}
 .diary section {
   padding: 50px;
   min-height: 80vh;
@@ -461,7 +495,7 @@ button:not(.x):hover {
   transition: 0.5s;
 }
 .login section .container .square .half1 {
-  background-image: url(/app/resources/img/happy.jpg);
+  background-image: url(/app/resources/img/happy-min.jpg);
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -531,7 +565,7 @@ button:not(.x):hover {
 }
 
 .errorPage {
-  background-image: url("/app/resources/img/mouse_keyboard.jpg");
+  background-image: url("/app/resources/img/mouse_keyboard-min.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
@@ -654,8 +688,23 @@ button:not(.x):hover {
 }
 
 .rec {
-  background-image: url(/app/resources/img/blur-hospital.jpg);
+  background-image: url(/app/resources/img/blur-hospital-min.jpg);
   background-size: cover;
+}
+@media ((max-width:768px)) {
+  .rec {
+    background-image: url("/app/resources/img/blur-hospital-small-min.jpg");
+  }
+}
+@media ((max-width:992px)) {
+  .rec {
+    background-image: url("/app/resources/img/blur-hospital-medium-min.jpg");
+  }
+}
+@media ((max-width:1200px)) {
+  .rec {
+    background-image: url("/app/resources/img/blur-hospital-large-min.jpg");
+  }
 }
 .rec section {
   padding-top: 50px;
@@ -702,6 +751,25 @@ button:not(.x):hover {
   background: none !important;
 }
 
+.your {
+  background-image: url("/app/resources/img/wavy-line-colored-pencils-min.jpg");
+  background-size: cover;
+}
+@media ((max-width:768px)) {
+  .your {
+    background-image: url("/app/resources/img/wavy-line-colored-pencils-small-min.jpg");
+  }
+}
+@media ((max-width:992px)) {
+  .your {
+    background-image: url("/app/resources/img/wavy-line-colored-pencils-medium-min.jpg");
+  }
+}
+@media ((max-width:1200px)) {
+  .your {
+    background-image: url("/app/resources/img/wavy-line-colored-pencils-large-min.jpg");
+  }
+}
 .your section {
   padding: 50px;
   min-height: 100vh;

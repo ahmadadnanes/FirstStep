@@ -1,8 +1,17 @@
 @use '../helpers/vars' as *;
 @use '../helpers/mixins' as *;
 .rec{
-    background-image: url(/app/resources/img/blur-hospital.jpg);
+    background-image: url(/app/resources/img/blur-hospital-min.jpg);
     background-size: cover;
+    @media ($phone-max) {
+        background-image: url('/app/resources/img/blur-hospital-small-min.jpg');
+    }
+    @media ($tablet-max) {
+        background-image: url('/app/resources/img/blur-hospital-medium-min.jpg');
+    }
+    @media ($laptop-max) {
+        background-image: url('/app/resources/img/blur-hospital-large-min.jpg');
+    }
     section{
         padding-top: 50px;
         padding-bottom: 50px;

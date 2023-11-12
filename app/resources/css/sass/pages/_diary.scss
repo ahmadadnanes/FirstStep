@@ -2,6 +2,17 @@
 @use '../helpers/mixins' as *;
 
 .diary{
+    background-image: url('/app/resources/img/sharp-colored-pencil-min.jpg');
+    background-size: cover;
+    @media ($phone-max) {
+        background-image: url('/app/resources/img/sharp-colored-pencil-small-min.jpg');
+    }
+    @media ($tablet-max) {
+        background-image: url('/app/resources/img/sharp-colored-pencil-medium-min.jpg');
+    }
+    @media ($laptop-max) {
+        background-image: url('/app/resources/img/sharp-colored-pencil-large-min.jpg');
+    }
     section{
         padding: 50px;
         min-height: 80vh;

@@ -4,11 +4,13 @@ $phone-container : 750px;
 $phone-max : '(max-width:768px)';
 
 //  large tablets
-$tablet : '(min-width:992px)';
+$tablet : '(min-width:1200px)';
+$tablet-max : '(max-width:992px)';
 $tablet-container : 970px;
 
 //  laptops
 $laptop : '(min-width:1200px)';
+$laptop-max : '(max-width:1200px)';
 $laptop-container : 1170px;
 
 

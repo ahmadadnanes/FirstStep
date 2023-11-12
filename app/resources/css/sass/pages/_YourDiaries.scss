@@ -1,4 +1,17 @@
+@use '../helpers/vars' as *;
+@use '../helpers/mixins' as *;
 .your{
+    background-image: url('/app/resources/img/wavy-line-colored-pencils-min.jpg');
+    background-size: cover;
+    @media ($phone-max) {
+        background-image: url('/app/resources/img/wavy-line-colored-pencils-small-min.jpg');
+    }
+    @media ($tablet-max) {
+        background-image: url('/app/resources/img/wavy-line-colored-pencils-medium-min.jpg');
+    }
+    @media ($laptop-max) {
+        background-image: url('/app/resources/img/wavy-line-colored-pencils-large-min.jpg');
+    }
     section{
         padding: 50px;
         min-height: 100vh;

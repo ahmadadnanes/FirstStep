@@ -84,8 +84,8 @@ $result = $view->Get($_SESSION["id"]);
                 <div class="create" style="text-align: center;">
                     <h4>Your Diaries are empty<a href="/diary">Create One!</a></h4>
                 </div><?php } ?>
-
         </div>
+        <p class="text-center mt-1">Image by <a href="https://www.freepik.com/free-photo/wavy-line-colored-pencils_2533019.htm#page=8&query=pencil%20wallpaper&position=37&from_view=keyword&track=ais">Freepik</a></p>
     </section>
     <!-- end your diares -->
     <?php include("./app/resources/components/footer.html") ?>

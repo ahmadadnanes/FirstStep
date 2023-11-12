@@ -20,20 +20,20 @@ if (empty($_SESSION)) {
             <a href="/" class="logo"><img src="/app/resources/img/logo-removebg-preview.png" width="90px" alt="logo"></a>
 
             <div class="normal-bar">
-                <a href="#services">Services</a>
+                <a href="#services" aria-label="go to services">Services</a>
                 <?php
                 if (isset($_SESSION["id"])) {
                 ?>
-                    <a href="/logout">Logout</a>
+                    <a href="/logout" aria-label="logout">Logout</a>
                 <?php
                 } else {
                 ?>
-                    <a href="/login">Login</a>
-                    <a href="/signup">SignUp</a>
+                    <a href="/login" aria-label="login">Login</a>
+                    <a href="/signup" aria-label="signup">SignUp</a>
                 <?php
                 }
                 ?>
-                <a href="#contact">Contact</a>
+                <a href="#contact" aria-label="go to contact">Contact</a>
             </div>
 
             <?php
@@ -43,7 +43,7 @@ if (empty($_SESSION)) {
                 <div class="user">
                     <span class="icon">
                         <span>
-                            <a href="<?= '/user/' . $user  ?>"><i class="fa-solid fa-user" id="user"></i></a>
+                            <a href="<?= '/user/' . $user  ?>" aria-label="user profile"><i class="fa-solid fa-user" id="user"></i></a>
                         </span>
                     </span>
                 </div>
@@ -57,25 +57,25 @@ if (empty($_SESSION)) {
 
                     <ul id="nav_ul">
                         <li>
-                            <a href="#services">Services</a>
+                            <a href="#services" aria-label="go to services">Services</a>
                         </li>
 
                         <li>
                             <?php
                             if (isset($_SESSION["id"])) {
                             ?>
-                                <a href="/logout">Logout</a>
+                                <a href="/logout" aria-label="logout">Logout</a>
                             <?php
                             } else {
                             ?>
-                                <a href="/login">Login</a>
-                                <a href="/signup">SignUp</a>
+                                <a href="/login" aria-label="login">Login</a>
+                                <a href="/signup" aria-label="signup">SignUp</a>
                             <?php
                             } ?>
                         </li>
 
                         <li>
-                            <a href="#contact">Contact</a>
+                            <a href="#contact" aria-label="go to contact">Contact</a>
                         </li>
 
                     </ul>
@@ -83,8 +83,6 @@ if (empty($_SESSION)) {
             </div>
 
         </div>
-
-
     </nav>
     <!-- end header -->
 
@@ -142,7 +140,7 @@ if (empty($_SESSION)) {
             </div>
             <div class="card-container">
                 <div class="card serv">
-                    <img src="/app/resources/img/depression-test.jpg" alt="..." width="200px">
+                    <img src="/app/resources/img/depression-test-min.jpg" alt="..." width="200px" loading="lazy">
                     <div class="card-body">
                         <h5>Depression Test</h5>
                         <p>
@@ -154,7 +152,7 @@ if (empty($_SESSION)) {
                     </div>
                 </div>
                 <div class="card serv">
-                    <img src="/app/resources/img/Diary_img.jpg" alt="..." width="200px" class="diary" height="235px">
+                    <img src="/app/resources/img/Diary_img-min.jpg" alt="..." width="200px" class="diary" height="235px" loading="lazy">
                     <div class="card-body">
                         <h5>Diary</h5>
                         <p>here you can express your feelings</p>
@@ -164,7 +162,7 @@ if (empty($_SESSION)) {
                     </div>
                 </div>
                 <div class="card serv">
-                    <img src="/app/resources/img/therapy 1.jpg" alt="..." width="200px">
+                    <img src="/app/resources/img/therapy 1-min.jpg" alt="..." width="200px" loading="lazy">
                     <div class="card-body">
                         <h5>Recommended Psychologist</h5>
                         <p> here you can explore most famous Psychologist through the country</p>
@@ -193,7 +191,7 @@ if (empty($_SESSION)) {
                 </form>
             </div>
             <p class="text-center mt-2">
-                Image by <a href="https://www.freepik.com/free-photo/notepad-pencils-left_2436952.htm#query=pen%20background&position=11&from_view=keyword&track=ais">Freepik</a>
+                Image by <a href="https://www.freepik.com/free-photo/notepad-pencils-left_2436952.htm#query=pen%20background&position=11&from_view=keyword&track=ais" aria-label="got to freepik">Freepik</a>
             </p>
         </div>
     </section>

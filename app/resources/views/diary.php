@@ -76,6 +76,7 @@ $diaries = DiaryController::all();
                 </div><?php } ?>
         </div>
     </div>
+    <p class="text-center mt-1">Image by <a href="https://www.freepik.com/free-photo/sharp-colored-pencil_1476988.htm#query=pencil%20wallpaper&position=0&from_view=keyword&track=ais">Freepik</a></p>
     <!-- end social diary -->
     <?php include("./app/resources/components/footer.html") ?>
     <!-- JS -->

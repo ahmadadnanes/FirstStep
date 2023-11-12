@@ -13,7 +13,7 @@
         &:first-of-type{
             .intro_container{
                 text-align: center;
-                background-image: url(/app/resources/img/hands.jpg);
+                background-image: url('/app/resources/img/hands-min.jpg');
                 background-repeat: no-repeat;
                 background-size: cover;
                 height: calc(100vh - 90px);
@@ -37,8 +37,17 @@
             }
         }
         &:last-of-type{
-            background: url(/app/resources/img/notepad-pencils-left.jpg);
+            background: url('/app/resources/img/notepad-pencils-left-min.jpg');
             background-size: cover;
+            @media ($phone-max) {
+                background-image: url('/app/resources/img/notepad-pencils-left-small-min.jpg');
+            }
+            @media ($tablet-max) {
+                background-image: url('/app/resources/img/notepad-pencils-left-medium-min.jpg');
+            }
+            @media ($laptop-max) {
+                background-image: url('/app/resources/img/notepad-pencils-left-large-min.jpg');
+            }
             padding-top: 50px;
             padding-bottom: 50px;
             .container{
