@@ -1,6 +1,7 @@
 @use '../helpers/vars' as *;
 @use '../helpers/mixins' as *;
 .container{
+    max-width: 100% !important;
     @media ($phone)  {
         width: $phone-container;
     }
