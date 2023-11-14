@@ -4,6 +4,7 @@
     background-color: white ;
     box-shadow: 0px 5px 15px rgba(1 1 1 / 15%);
     position: relative;
+    transition: 0.5s;
     .title{
         text-align: center;
         padding-top: 10px;
@@ -16,5 +17,8 @@
         right: 0;
         bottom: 0;
         padding-right: 15px;
+    }
+    &:hover{
+        transform: scale(1.1);
     }
 }

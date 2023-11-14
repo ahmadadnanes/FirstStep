@@ -66,7 +66,7 @@ $diaries = DiaryController::all();
                             <p><?= $dc ?></p>
                         </div>
                         <div class="author">
-                            <p>by:<?= $dUser ?></p>
+                            <p>by: <a href="/diaries/<?= $dUser . "?id=" . $id ?>"><?= $dUser ?></a></p>
                         </div>
                     </div>
                 <?php }
