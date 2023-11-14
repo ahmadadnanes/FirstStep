@@ -1,5 +1,5 @@
 <?php
-include_once './app/classes/diaryModel.php';
+include_once './app/Model/diaryModel.php';
 session_start();
 class DiaryController extends diaryModel
 {
@@ -37,6 +37,11 @@ class DiaryController extends diaryModel
         } else {
             return "title can't exceed 80 character";
         }
+    }
+
+    public static function GetDiariesByAuthor($id)
+    {
+        return diaryModel::GetDiaryByUser($id);
     }
 }
 

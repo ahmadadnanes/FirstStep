@@ -1,5 +1,5 @@
 <?php
-include './app/classes/contactModel.php';
+include './app/Model/contactModel.php';
 
 $email = $_POST["email"];
 $contact = $_POST["contact"];

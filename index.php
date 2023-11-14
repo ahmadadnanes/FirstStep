@@ -1,5 +1,5 @@
 <?php
-include_once "app/classes/router.php";
+include_once "app/Model/router.php";
 $router = new router;
 
 // Home
@@ -88,6 +88,10 @@ $router->addRoute('GET', '/diary/:msg', function ($msg) {
 
 $router->addRoute('GET', '/Your', function () {
     require "app/resources/views/YourDiares.php";
+});
+
+$router->addRoute('GET', '/diaries/:id', function ($id) {
+    require "app/resources/views/diariesByUser.php";
 });
 
 

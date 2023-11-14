@@ -1,5 +1,5 @@
 <?php
-include_once "./app/classes/user.php";
+include_once "./app/Model/user.php";
 if (!isset($_SESSION))
     session_start();
 $errors = [];
