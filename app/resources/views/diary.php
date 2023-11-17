@@ -5,6 +5,8 @@ if (!isset($_SESSION)) {
     session_start();
 }
 $user = $_SESSION["user"];
+$initial = 1;
+$type = "diary";
 $diaries = DiaryController::all();
 ?>
 <!DOCTYPE html>
@@ -51,29 +53,8 @@ $diaries = DiaryController::all();
         <h2>Explore other Diaries</h2>
         <div class="container">
             <?php
-            if (!empty($diaries)) {
-                foreach ($diaries as $row) {
-                    $id = $row[1];
-                    $dt = $row[2];
-                    $dc = $row[3];
-                    $dUser = UserController::get($id);
+            include("./app/resources/components/diary_container.php")
             ?>
-                    <div class="diary_container">
-                        <div class="title">
-                            <p><?= $dt ?></p>
-                        </div>
-                        <div class="content">
-                            <p><?= $dc ?></p>
-                        </div>
-                        <div class="author">
-                            <p>by: <a href="/diaries/<?= "?id=" . $id ?>"><?= $dUser ?></a></p>
-                        </div>
-                    </div>
-                <?php }
-            } else { ?>
-                <div class="create" style="text-align: center;">
-                    <h4 class="mb-5">This is it for now</h4>
-                </div><?php } ?>
         </div>
     </div>
     <p class="text-center mt-1">Image by <a href="https://www.freepik.com/free-photo/sharp-colored-pencil_1476988.htm#query=pencil%20wallpaper&position=0&from_view=keyword&track=ais">Freepik</a></p>

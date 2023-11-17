@@ -49,7 +49,7 @@ class diaryModel extends connect
     public static function GetDiaryByUser($UserId)
     {
         $db = connect::conn();
-        $sql = $db->prepare("SELECT * FROM diary WHERE user_id like ? and private = 0 ORDER BY id DESC");
+        $sql = $db->prepare("SELECT id,diary_title,diary_content FROM diary WHERE user_id like ? and private = 0 ORDER BY id DESC");
         $sql->bind_param('s', $UserId);
         $sql->execute();
         $result = $sql->get_result();

@@ -1,9 +1,13 @@
+.diaries{
+    padding-block: 50px;
+}
+
 .diary_container{
     margin-bottom: 15px;
     border-radius: 10px;
+    position: relative;
     background-color: white ;
     box-shadow: 0px 5px 15px rgba(1 1 1 / 15%);
-    position: relative;
     transition: 0.5s;
     .title{
         text-align: center;

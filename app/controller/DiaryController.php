@@ -45,7 +45,9 @@ class DiaryController extends diaryModel
     }
 }
 
-if ($_SERVER["REQUEST_URI"] == "/diary") {
+$server = explode('/', $_SERVER["REQUEST_URI"])[1];
+
+if ($server == "diary") {
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
         if (isset($_SESSION["id"])) {
             require "./app/resources/views/diary.php";
