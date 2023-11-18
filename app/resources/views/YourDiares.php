@@ -1,10 +1,15 @@
 <?php
 include_once "./app/controller/DiaryController.php";
-$delete = true;
 $initial = 0;
 $type = "userDiaries";
-$view = new DiaryController;
-$diaries = $view->Get($_SESSION["id"]);
+if (isset($_GET["user"])) {
+    $id = $_GET["user"];
+    $diaries = diaryModel::GetDiaryByUser($id);
+} else {
+    $delete = true;
+    $view = new DiaryController;
+    $diaries = $view->Get($_SESSION["id"]);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,8 +46,6 @@ $diaries = $view->Get($_SESSION["id"]);
                 </div>
             </div>
         </div>
-
-
     </nav>
     <!-- end header -->
     <?php include("./app/resources/components/up.html") ?>
@@ -55,8 +58,27 @@ $diaries = $view->Get($_SESSION["id"]);
     </section>
     <!-- end your diares -->
     <?php include("./app/resources/components/footer.html") ?>
+
+    <div class="popup" id="popup">
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="delete">
+                <button class="x" onclick="popDiary()">
+                    <i class="fa-solid fa-square-xmark"></i>
+                </button>
+            </div>
+            <div class="text">
+                <p id="body">
+                    Do you really want to delete this diary
+                </p>
+                <button value="true" class="pop-btn bg-danger" id="del">Delete</button>
+                <button value="false" class="pop-btn" id="cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
     <!-- JS -->
     <script src="/app/resources/js/main.js"></script>
+    <script src="/app/resources/js/YourDiaries.js"></script>
 </body>
 
 </html>

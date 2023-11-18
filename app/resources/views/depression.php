@@ -26,7 +26,6 @@ $user = $_SESSION["user"];
             <div class="container">
                 <p class="paragraph">
                     Please fill out this short questionnaire to provide some background information about you and the issues you'd like to deal with in therapy. It would help us match you with the most suitable therapist for you. Your answers will also give this therapist a good starting point in getting to know you.
-
                     Use the tab key to navigate this questionnaire and use enter key to confirm selection. Once you use the click/use enter key to select an answer for the current question, we will move to the next question in the list.
                 </p>
             </div>

@@ -2,55 +2,6 @@
 @use "../helpers/vars" as *;
 
 .dep{
-    .popup{
-        .overlay{
-            @include overlay();
-        }
-        .content{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%) scale(0);
-            background-color: #fff;
-            width: 450px;
-            height: fit-content;
-            text-align: center;
-            padding: 20px;
-            transition: 0.3s;
-            z-index: 1001;
-            .close-btn{
-                position: absolute;
-                right: 0;
-                top: 0;
-                font-size: 25px;
-                border-radius: 10px;
-                color: white;
-                background-color: black;
-                width: 35px;
-                height: 35px;
-                margin: 10px;
-                &:hover{
-                    cursor: pointer;
-                }
-            } 
-            @media ($phone-max) {
-                width: 100%;
-                height: fit-content;
-            }
-            .text{
-                margin-top: 30px;
-            }     
-        }
-        &.active{
-            .overlay{
-                display: block;
-            }
-            .content{
-                transform: translate(-50%,-50%) scale(1);
-            }
-        }
-    }
-
     #htr{
         text-align: center;
     }

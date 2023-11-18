@@ -35,7 +35,7 @@
                     <center>
                         <form action="/signup" method="post" id="form1">
                             <h1>SignUp</h1>
-                            <div style="margin-bottom:20px;">
+                            <div class="input-container">
                                 <label for="username"></label>
                                 <input type="text" id="username" name="username" required placeholder="Username">
                                 <br><br>

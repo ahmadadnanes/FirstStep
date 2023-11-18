@@ -7,7 +7,6 @@
     
     section{
         padding: 50px;
-        min-height: calc(100vh - 90px);
         .container{
             .square{
                 display: flex;
@@ -40,13 +39,26 @@
                     @media (max-width: 1000px) {
                         width: 100%;
                     }
-                    input{
-                        border-radius: 5px;
-                        padding: 10px;
-                        border: none;
-                        background-color: $main;
-                        @media (max-width: 600px) {
-                            width: 181.13px;
+                    .input-container{
+                        margin-bottom: 20px;
+                        input{
+                            border-radius: 5px;
+                            padding: 10px;
+                            border: none;
+                            background-color: $main;
+                            @media (max-width: 600px) {
+                                width: 181.13px;
+                            }
+                        }
+                        .password{
+                            position: relative;
+                            width: fit-content;
+                            .show , .hide{
+                                position: absolute;
+                                right: 0;
+                                margin-top: 10px;
+                                margin-right: 10px;
+                            }
                         }
                     }
                     .btnn{
@@ -55,16 +67,6 @@
                         width: 100px;
                         height: 40px;
                         margin-top: 10px;
-                    }
-                    .password{
-                        position: relative;
-                        width: fit-content;
-                        .show , .hide{
-                            position: absolute;
-                            right: 0;
-                            margin-top: 10px;
-                            margin-right: 10px;
-                        }
                     }
                 }
             }

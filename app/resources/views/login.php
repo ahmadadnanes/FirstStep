@@ -38,7 +38,7 @@
                                         } ?>" method="post" id="form1">
 
                             <h1>Login</h1>
-                            <div style="margin-bottom:20px;">
+                            <div class="input-container">
                                 <label for="email"></label>
                                 <input type="email" id="email" name="email" required placeholder="Email">
                                 <br>
@@ -51,7 +51,6 @@
                             </div>
 
                             <span>Doesn't have an account <a href="/signup">Signup</a></span><br>
-
                             <button class="btnn" type="submit" name="submit">Login</button>
                         </form>
                         <?php include("./app/resources/components/error.php") ?>

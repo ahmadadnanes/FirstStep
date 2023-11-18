@@ -199,14 +199,70 @@ button:not(.x):hover {
 .diary_container .content {
   padding: 15px;
 }
+@media ((max-width:768px)) {
+  .diary_container .content {
+    font-size: 14px;
+  }
+}
 .diary_container .author {
   position: absolute;
   right: 0;
   bottom: 0;
   padding-right: 15px;
 }
+@media ((max-width:768px)) {
+  .diary_container .author {
+    font-size: 14px;
+  }
+}
 .diary_container:hover {
   transform: scale(1.1);
+}
+
+.popup .overlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  display: none;
+}
+.popup .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background-color: #fff;
+  width: 450px;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+  padding: 20px;
+  transition: 0.3s;
+  z-index: 1001;
+}
+@media ((max-width:768px)) {
+  .popup .content {
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}
+.popup .content .text {
+  margin-top: 30px;
+}
+.popup .content .text .pop-btn {
+  width: 300px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+.popup.active .overlay {
+  display: block;
+}
+.popup.active .content {
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .home .serv {
@@ -496,7 +552,6 @@ button:not(.x):hover {
 }
 .login section {
   padding: 50px;
-  min-height: calc(100vh - 90px);
 }
 .login section .container .square {
   display: flex;
@@ -537,16 +592,30 @@ button:not(.x):hover {
     width: 100%;
   }
 }
-.login section .container .square .half2 input {
+.login section .container .square .half2 .input-container {
+  margin-bottom: 20px;
+}
+.login section .container .square .half2 .input-container input {
   border-radius: 5px;
   padding: 10px;
   border: none;
   background-color: #eee;
 }
 @media (max-width: 600px) {
-  .login section .container .square .half2 input {
+  .login section .container .square .half2 .input-container input {
     width: 181.13px;
   }
+}
+.login section .container .square .half2 .input-container .password {
+  position: relative;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.login section .container .square .half2 .input-container .password .show, .login section .container .square .half2 .input-container .password .hide {
+  position: absolute;
+  right: 0;
+  margin-top: 10px;
+  margin-right: 10px;
 }
 .login section .container .square .half2 .btnn {
   padding-left: 10px;
@@ -554,17 +623,6 @@ button:not(.x):hover {
   width: 100px;
   height: 40px;
   margin-top: 10px;
-}
-.login section .container .square .half2 .password {
-  position: relative;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-.login section .container .square .half2 .password .show, .login section .container .square .half2 .password .hide {
-  position: absolute;
-  right: 0;
-  margin-top: 10px;
-  margin-right: 10px;
 }
 .login section .quote {
   text-align: center;
@@ -592,61 +650,6 @@ button:not(.x):hover {
   color: bisque;
 }
 
-.dep .popup .overlay {
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  top: 0px;
-  left: 0px;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 1000;
-  display: none;
-}
-.dep .popup .content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  background-color: #fff;
-  width: 450px;
-  height: -moz-fit-content;
-  height: fit-content;
-  text-align: center;
-  padding: 20px;
-  transition: 0.3s;
-  z-index: 1001;
-}
-.dep .popup .content .close-btn {
-  position: absolute;
-  right: 0;
-  top: 0;
-  font-size: 25px;
-  border-radius: 10px;
-  color: white;
-  background-color: black;
-  width: 35px;
-  height: 35px;
-  margin: 10px;
-}
-.dep .popup .content .close-btn:hover {
-  cursor: pointer;
-}
-@media ((max-width:768px)) {
-  .dep .popup .content {
-    width: 100%;
-    height: -moz-fit-content;
-    height: fit-content;
-  }
-}
-.dep .popup .content .text {
-  margin-top: 30px;
-}
-.dep .popup.active .overlay {
-  display: block;
-}
-.dep .popup.active .content {
-  transform: translate(-50%, -50%) scale(1);
-}
 .dep #htr {
   text-align: center;
 }

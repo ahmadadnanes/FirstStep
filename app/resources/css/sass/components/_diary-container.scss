@@ -1,3 +1,5 @@
+@use "../helpers/vars" as *;
+@use "../helpers/mixins" as *;
 .diaries{
     padding-block: 50px;
 }
@@ -15,12 +17,18 @@
     }
     .content{
         padding: 15px;
+        @media ($phone-max) {
+            font-size: 14px;
+        }
     }
     .author{
         position: absolute;
         right: 0;
         bottom: 0;
         padding-right: 15px;
+        @media ($phone-max) {
+            font-size: 14px;
+        }
     }
     &:hover{
         transform: scale(1.1);

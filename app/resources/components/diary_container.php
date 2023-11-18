@@ -9,7 +9,7 @@ if (!empty($diaries)) {
         <div class="diary_container">
             <?php if (isset($delete)) { ?>
                 <div class="delete">
-                    <form action="/diary" method="post">
+                    <form action="/diary" method="post" id="deleteForm">
                         <button class="x" name="delete" value="<?= $id ?>">
                             <i class="fa-solid fa-square-xmark"></i>
                         </button>
@@ -26,7 +26,7 @@ if (!empty($diaries)) {
                 $dUser = UserController::getUser($id);
             ?>
                 <div class="author">
-                    <p>by: <a href="/diaries/<?= "?id=" . $id ?>"><?= $dUser ?></a></p>
+                    <p>by: <a href="/user/<?= "?user=" . $id ?>"><?= $dUser ?></a></p>
                 </div>
             <?php } ?>
         </div>
