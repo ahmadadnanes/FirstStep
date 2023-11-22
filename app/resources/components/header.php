@@ -8,7 +8,7 @@
                 </span>
             </span>
         </div>
-        <a href="/" aria-label="go to home"><img src="/app/resources/img/logo-removebg-preview.png" width="90px" alt="logo"></a>
+        <?php include('./app/resources/components/logo.html') ?>
 
         <div class="normal-bar">
             <a href="/logout" aria-label="logout">Logout</a>

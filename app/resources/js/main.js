@@ -1,3 +1,7 @@
+// if('serviceWorker' in navigator){
+//     navigator.serviceWorker.register('/sw.js');
+// }
+
 let button = document.getElementById("nav_button");
 let ul = document.getElementById("nav_ul");
 

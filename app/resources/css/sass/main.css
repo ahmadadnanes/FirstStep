@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 .container {
+  max-height: 100% !important;
   max-width: 100% !important;
 }
 @media ((min-width:768px)) {
@@ -47,6 +48,7 @@ a {
 /* end - header */
 nav {
   padding: 15px;
+  height: 80px;
 }
 nav .container {
   display: flex;
@@ -169,6 +171,7 @@ button:not(.x):hover {
 
 .delete {
   position: absolute;
+  top: 0;
   right: 0;
   font-size: 30px;
 }
@@ -278,7 +281,7 @@ button:not(.x):hover {
   background-image: url("/app/resources/img/hands-min.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: calc(100vh - 90px);
+  height: calc(100vh - 80px);
   position: relative;
 }
 .home section:first-of-type .intro_container .intro {
@@ -389,6 +392,7 @@ button:not(.x):hover {
   }
 }
 .home article {
+  background-color: #eee;
   padding-top: 50px;
   padding-bottom: 50px;
 }
@@ -567,7 +571,7 @@ button:not(.x):hover {
   justify-content: center;
   align-items: center;
 }
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .login section .container .square .half1 {
     display: none;
   }
@@ -586,10 +590,17 @@ button:not(.x):hover {
   align-items: center;
   justify-content: center;
   width: 50%;
+  max-height: 100%;
 }
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .login section .container .square .half2 {
     width: 100%;
+  }
+}
+@media (min-width: 344px) {
+  .login section .container .square .half2 {
+    background-color: none;
+    box-shadow: none;
   }
 }
 .login section .container .square .half2 .input-container {

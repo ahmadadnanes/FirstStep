@@ -20,7 +20,7 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    @media (max-width: 1000px) {
+                    @media (max-width: 1200px) {
                         display: none;
                     }
                     @media (max-width: 600px) {
@@ -36,8 +36,13 @@
                     align-items: center;
                     justify-content: center;
                     width: 50%;
-                    @media (max-width: 1000px) {
+                    max-height: 100%;
+                    @media (max-width: 1200px) {
                         width: 100%;
+                    }
+                    @media(min-width: 344px){
+                        background-color: none;
+                        box-shadow: none;
                     }
                     .input-container{
                         margin-bottom: 20px;

@@ -5,12 +5,12 @@ $router = new router;
 // Home
 
 $router->addRoute('GET', '/', function () {
-    require "app/resources/views/Home.php";
+    require "app/controller/UserController.php";
     exit;
 });
 
 $router->addRoute('GET', '/index.php', function () {
-    require "app/resources/views/Home.php";
+    require "app/controller/UserController.php";
     exit;
 });
 
@@ -32,12 +32,12 @@ $router->addRoute('POST', '/contact', function () {
 // signup
 
 $router->addRoute('GET', '/signup', function () {
-    require "app/resources/views/signup.php";
+    require "app/resources/views/login.php";
     exit;
 });
 
 $router->addRoute('GET', '/signup/:msg', function ($msg) {
-    require "app/resources/views/signup.php";
+    require "app/resources/views/login.php";
     exit;
 });
 

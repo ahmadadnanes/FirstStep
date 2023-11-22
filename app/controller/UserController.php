@@ -1,7 +1,5 @@
 <?php
 include_once "./app/Model/user.php";
-if (!isset($_SESSION))
-    session_start();
 $errors = [];
 
 class UserController extends user
@@ -69,11 +67,17 @@ class UserController extends user
             if (user::checkEmail($email)) {
                 $result = user::checkPass($email, $pass);
                 if ($result) {
+                    if (isset($_POST["remember"])) {
+                        if ((!isset($_COOKIE["email"]) && !isset($_COOKIE["password"]))) {
+                            setcookie("email", $_POST["email"], time() + strtotime("1 month"));
+                            setcookie("password", $_POST["password"], time() + strtotime("1 month"));
+                        }
+                    }
                     if (isset($_SERVER["QUERY_STRING"]) && !isset($_GET["msg"])) {
                         $pre_header = $_SERVER["QUERY_STRING"];
                         header("location: /" . $pre_header);
                     } else {
-                        header("location: /");
+                        require("./app/resources/views/Home.php");
                     }
                 } else {
                     header("location:/login/?msg=" . $errors['Wrong']);
@@ -119,4 +123,11 @@ if ($server == "signup") {
         }
     }
     exit;
+} else if ($server == "" || $server == "index.php") {
+    if (isset($_COOKIE["email"]) && isset($_COOKIE["password"])) {
+        $user = new UserController(null, $_COOKIE["email"], trim($_COOKIE["password"]));
+        $user->login();
+    } else {
+        require('./app/resources/views/Home.php');
+    }
 }

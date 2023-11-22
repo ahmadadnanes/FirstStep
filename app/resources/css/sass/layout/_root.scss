@@ -4,7 +4,7 @@
 
 *{
     margin: 0;
-    @include preFixer(box-sizing, border-box, webkit moz)
+    @include preFixer(box-sizing, border-box, webkit moz);
 }
 
 html{

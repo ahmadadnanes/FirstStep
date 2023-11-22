@@ -16,7 +16,7 @@
                 background-image: url('/app/resources/img/hands-min.jpg');
                 background-repeat: no-repeat;
                 background-size: cover;
-                height: calc(100vh - 90px);
+                height: calc(100vh - 80px);
                 position: relative;
                 .intro{
                     position: absolute;
@@ -114,6 +114,7 @@
     }
 
     article{
+        background-color: $main;
         padding-top: 50px;
         padding-bottom: 50px;
         .container{

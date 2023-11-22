@@ -25,7 +25,7 @@ if (isset($_GET["user"])) {
     <!-- start header -->
     <nav>
         <div class="container">
-            <a href="/"><img src="/app/resources/img/logo-removebg-preview.png" width="90px" alt="logo"></a>
+            <?php include('./app/resources/components/logo.html') ?>
             <div class="normal-bar">
                 <a href="/logout">Logout</a>
                 <a href="/diary">Diary</a>

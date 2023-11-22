@@ -1,5 +1,5 @@
 <?php
-if (empty($_SESSION)) {
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 ?>
@@ -17,8 +17,7 @@ if (empty($_SESSION)) {
     <!-- start header -->
     <nav>
         <div class="container">
-            <a href="/" class="logo"><img src="/app/resources/img/logo-removebg-preview.png" width="90px" alt="logo"></a>
-
+            <?php include('./app/resources/components/logo.html') ?>
             <div class="normal-bar">
                 <a href="#services" aria-label="go to services">Services</a>
                 <?php
@@ -54,12 +53,10 @@ if (empty($_SESSION)) {
                     <span class="icon">
                         <input type="image" src="/app/resources/img/bars-solid.svg" id="nav_button" alt="bars">
                     </span>
-
                     <ul id="nav_ul">
                         <li>
                             <a href="#services" aria-label="go to services">Services</a>
                         </li>
-
                         <li>
                             <?php
                             if (isset($_SESSION["id"])) {
@@ -73,15 +70,12 @@ if (empty($_SESSION)) {
                             <?php
                             } ?>
                         </li>
-
                         <li>
                             <a href="#contact" aria-label="go to contact">Contact</a>
                         </li>
-
                     </ul>
                 </div>
             </div>
-
         </div>
     </nav>
     <!-- end header -->
@@ -155,7 +149,7 @@ if (empty($_SESSION)) {
                     <img src="/app/resources/img/Diary_img-min.jpg" alt="..." width="200px" class="diary" height="235px" loading="lazy">
                     <div class="card-body">
                         <h5>Diary</h5>
-                        <p>here you can express your feelings</p>
+                        <p>here you can express your feelings and opinions and discuses it with other people around the world</p>
                         <div class="button-container">
                             <button onclick="location.href='/diary'">Start</button>
                         </div>
@@ -181,7 +175,6 @@ if (empty($_SESSION)) {
         <div class="container">
             <div class="contact">
                 <h1>Contact Us</h1>
-                <?php include("./app/resources/components/error.php") ?>
             </div>
             <div class="contact_form serv">
                 <form action="/contact" method="post">

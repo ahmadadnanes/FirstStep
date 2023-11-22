@@ -1,3 +1,6 @@
+<?php
+$server = explode('/', $_SERVER["REQUEST_URI"])[1];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +8,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include("./app/resources/components/layout.php") ?>
-    <title>Login</title>
+    <?php if ($server == "login") { ?>
+        <title>Login</title>
+    <?php } else { ?>
+        <title>Signup</title>
+    <?php } ?>
 </head>
 
 <body class="login">
@@ -14,7 +21,9 @@
         <div class="container">
             <a href="/"><img src="/app/resources/img/logo-removebg-preview.png" width="90px" alt="..."></a>
             <div class="normal-bar">
-                <a href="/signup">SignUp</a>
+                <?php if ($server == "signup") { ?> <a href="/login">Login</a> <?php } else { ?>
+                    <a href="/signup">SignUp</a>
+                <?php } ?>
             </div>
         </div>
     </nav>
@@ -32,26 +41,46 @@
                 <div class="half2">
                     <center>
                         <form action="<?php
-                                        if (isset($_SERVER["QUERY_STRING"])) echo "/login/?" . $_SERVER['QUERY_STRING'];
+                                        if (isset($_SERVER["QUERY_STRING"])) echo '/' . $server . '/?' . $_SERVER['QUERY_STRING'];
                                         else {
-                                            echo "/login";
+                                            echo '/' . $server;
                                         } ?>" method="post" id="form1">
 
-                            <h1>Login</h1>
+                            <?php if ($server == "login") { ?><h1>Login</h1> <?php } else { ?>
+                                <h1>SignUp</h1>
+                            <?php } ?>
                             <div class="input-container">
+                                <?php if ($server == "signup") { ?>
+                                    <label for="username"></label>
+                                    <input type="text" id="username" name="username" required placeholder="Username">
+                                    <br><br>
+                                <?php } ?>
                                 <label for="email"></label>
                                 <input type="email" id="email" name="email" required placeholder="Email">
-                                <br>
-                                <label for="password"></label>
+                                <br><br>
+
                                 <div class="password">
+                                    <label for="password"></label>
                                     <input type="password" id="password" name="password" required placeholder="Password" min="5">
                                     <i class="fa-solid fa-eye show" id="show"></i>
                                 </div>
                                 <br><br>
+                                <?php if ($server == "login") { ?>
+                                    <div class="remember">
+                                        <label for="remember">Remember Me</label>
+                                        <input type="checkbox" name="remember" id="" value="yes">
+                                    </div>
                             </div>
-
-                            <span>Doesn't have an account <a href="/signup">Signup</a></span><br>
-                            <button class="btnn" type="submit" name="submit">Login</button>
+                            <span>Doesn't have an account <a href=<?= '/signup' ?>>
+                                    Signup
+                                </a>
+                            </span><br>
+                        <?php } else { ?>
+                            <span>have an account <a href=<?= '/login' ?>>
+                                    Login
+                                </a><br>
+                            <?php } ?>
+                            <button class="btnn" type="submit" name="submit"><?php if ($server == "login") { ?> Login <?php } else { ?> SignUp <?php } ?></button>
                         </form>
                         <?php include("./app/resources/components/error.php") ?>
                     </center>

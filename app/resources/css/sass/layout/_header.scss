@@ -2,6 +2,7 @@
 @use '../helpers/mixins' as *;
 nav{
     padding: 15px;
+    height: 80px;
     .container{
         display: flex;
         justify-content: space-between;
