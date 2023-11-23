@@ -15,4 +15,5 @@
     </div>
 </body>
 
+<script src="/app/resources/js/app.js"></script>
 </html>

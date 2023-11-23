@@ -53,34 +53,32 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
                                 <?php if ($server == "signup") { ?>
                                     <label for="username"></label>
                                     <input type="text" id="username" name="username" required placeholder="Username">
-                                    <br><br>
+
                                 <?php } ?>
                                 <label for="email"></label>
                                 <input type="email" id="email" name="email" required placeholder="Email">
-                                <br><br>
 
                                 <div class="password">
                                     <label for="password"></label>
                                     <input type="password" id="password" name="password" required placeholder="Password" min="5">
                                     <i class="fa-solid fa-eye show" id="show"></i>
                                 </div>
-                                <br><br>
-                                <?php if ($server == "login") { ?>
-                                    <div class="remember">
-                                        <label for="remember">Remember Me</label>
-                                        <input type="checkbox" name="remember" id="" value="yes">
-                                    </div>
                             </div>
-                            <span>Doesn't have an account <a href=<?= '/signup' ?>>
-                                    Signup
-                                </a>
-                            </span><br>
-                        <?php } else { ?>
-                            <span>have an account <a href=<?= '/login' ?>>
-                                    Login
-                                </a><br>
-                            <?php } ?>
-                            <button class="btnn" type="submit" name="submit"><?php if ($server == "login") { ?> Login <?php } else { ?> SignUp <?php } ?></button>
+                            <?php if ($server == "login") { ?>
+                                <div class="remember">
+                                    <label for="remember">Remember Me</label>
+                                    <input type="checkbox" name="remember" id="" value="yes">
+                                </div>
+                                <span>Doesn't have an account <a href=<?= '/signup' ?>>
+                                        Signup
+                                    </a>
+                                </span><br>
+                            <?php } else { ?>
+                                <span>have an account <a href=<?= '/login' ?>>
+                                        Login
+                                    </a><br>
+                                <?php } ?>
+                                <button class="btnn" type="submit" name="submit"><?php if ($server == "login") { ?> Login <?php } else { ?> SignUp <?php } ?></button>
                         </form>
                         <?php include("./app/resources/components/error.php") ?>
                     </center>
@@ -101,8 +99,9 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
     ?>
     <!-- end login -->
     <!-- JS -->
-    <script src="/app/resources/js/login.js"></script>
+    <script src="/app/resources/js/app.js"></script>
     <script src="app/resources/js/main.js"></script>
+    <script src="/app/resources/js/login.js"></script>
 </body>
 
 </html>

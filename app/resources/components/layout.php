@@ -1,4 +1,4 @@
-<!-- <meta name="theme-color" media="(prefers-color-scheme: light)" content="cyan" /> -->
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#eee" />
 <link rel="apple-touch-icon" sizes="180x180" href="/app/resources/img/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/app/resources/img/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/app/resources/img/favicon-16x16.png">

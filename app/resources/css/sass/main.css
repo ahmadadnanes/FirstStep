@@ -604,12 +604,13 @@ button:not(.x):hover {
   }
 }
 .login section .container .square .half2 .input-container {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .login section .container .square .half2 .input-container input {
   border-radius: 5px;
   padding: 10px;
   border: none;
+  margin-bottom: 5px;
   background-color: #eee;
 }
 @media (max-width: 600px) {
@@ -621,6 +622,7 @@ button:not(.x):hover {
   position: relative;
   width: -moz-fit-content;
   width: fit-content;
+  margin-right: 3px;
 }
 .login section .container .square .half2 .input-container .password .show, .login section .container .square .half2 .input-container .password .hide {
   position: absolute;

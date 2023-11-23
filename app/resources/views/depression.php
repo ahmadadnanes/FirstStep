@@ -195,6 +195,7 @@ $user = $_SESSION["user"];
     <!-- end depression test -->
     <?php include("./app/resources/components/footer.html") ?>
     <!-- JS -->
+    <script src="/app/resources/js/app.js"></script>
     <script src="/app/resources/js/main.js"></script>
     <script src="/app/resources/js/DEPERSSION TEST.js"></script>
 

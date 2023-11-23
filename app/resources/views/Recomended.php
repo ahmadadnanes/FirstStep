@@ -57,6 +57,7 @@ $user = $_SESSION["user"];
     <?php include("./app/resources/components/footer.html") ?>
 
     <!-- JS -->
+    <script src="/app/resources/js/app.js"></script>
     <script src="/app/resources/js/main.js"></script>
     <script src="/app/resources/js/Recomended psy.js"></script>
 

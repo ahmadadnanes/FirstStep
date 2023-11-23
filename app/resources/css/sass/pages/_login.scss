@@ -45,11 +45,12 @@
                         box-shadow: none;
                     }
                     .input-container{
-                        margin-bottom: 20px;
+                        margin-bottom: 10px;
                         input{
                             border-radius: 5px;
                             padding: 10px;
                             border: none;
+                            margin-bottom: 5px;
                             background-color: $main;
                             @media (max-width: 600px) {
                                 width: 181.13px;
@@ -58,6 +59,7 @@
                         .password{
                             position: relative;
                             width: fit-content;
+                            margin-right: 3px;
                             .show , .hide{
                                 position: absolute;
                                 right: 0;
