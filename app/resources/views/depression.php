@@ -1,5 +1,5 @@
 <?php
-include 'app/includes/spl.php';
+@session_start();
 $user = $_SESSION["user"];
 ?>
 <!DOCTYPE html>
@@ -16,7 +16,7 @@ $user = $_SESSION["user"];
 <body class="dep">
     <?php include("./app/resources/components/header.php") ?>
     <?php include("./app/resources/components/up.html") ?>
-    <!-- start deperssion test -->
+    <!-- start depression test -->
     <section>
 
         <div class="container">
@@ -196,8 +196,9 @@ $user = $_SESSION["user"];
     <?php include("./app/resources/components/footer.html") ?>
     <!-- JS -->
     <script src="/app/resources/js/app.js"></script>
-    <script src="/app/resources/js/main.js"></script>
-    <script src="/app/resources/js/DEPERSSION TEST.js"></script>
+    <script src="/app/resources/js/navbar.js"></script>
+    <script src="/app/resources/js/up.js"></script>
+    <script src="/app/resources/js/depression.js"></script>
 
 </body>
 

@@ -1,9 +1,7 @@
 <?php
 include_once("./app/controller/DiaryController.php");
 include_once("./app/controller/UserController.php");
-if (!isset($_SESSION)) {
-    session_start();
-}
+@session_start();
 $user = $_SESSION["user"];
 $initial = 1;
 $type = "diary";
@@ -62,7 +60,8 @@ $diaries = DiaryController::all();
     <?php include("./app/resources/components/footer.html") ?>
     <!-- JS -->
     <script src="/app/resources/js/app.js"></script>
-    <script src="/app/resources/js/main.js"></script>
+    <script src="/app/resources/js/navbar.js"></script>
+    <script src="/app/resources/js/up.js"></script>
 </body>
 
 </html>

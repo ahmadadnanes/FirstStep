@@ -1,4 +1,5 @@
 <?php
+include "app/functions/checkQuestionMark.function.php";
 
 class router
 {
@@ -9,7 +10,8 @@ class router
     */
     public function addRoute(string $method, string $url, closure $target)
     {
-        $this->routes[$method][$url] = $target;
+        $cleanUrl = checkQuestionMark($url);
+        $this->routes[$method][$cleanUrl] = $target;
     }
 
     public function matchRoute()

@@ -1,9 +1,5 @@
 <?php
-
-if (!isset($_SESSION["user"])) {
-    session_start();
-}
-
+@session_start();
 $user = $_SESSION["user"];
 ?>
 <!DOCTYPE html>
@@ -58,8 +54,7 @@ $user = $_SESSION["user"];
 
     <!-- JS -->
     <script src="/app/resources/js/app.js"></script>
-    <script src="/app/resources/js/main.js"></script>
-    <script src="/app/resources/js/Recomended psy.js"></script>
+    <script src="/app/resources/js/navbar.js"></script>
 
 </body>
 

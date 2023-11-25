@@ -67,7 +67,7 @@ class user extends connect
             $sql2->execute();
             $result2 = $sql2->get_result();
 
-            session_start();
+            @session_start();
             $idRow = $result2->fetch_assoc();
             $_SESSION["id"] = $idRow['id'];
             $id = $_SESSION["id"];

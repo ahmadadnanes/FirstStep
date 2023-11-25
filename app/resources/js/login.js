@@ -2,11 +2,13 @@ let success = document.getElementById("success");
 let show = document.getElementById("show");
 let password = document.getElementById("password");
 
-setTimeout(() =>{
-    if(success.style.display !== "none"){
-        success.style.display = "none";
-    }
-}, 4000);
+if(success !== null){
+    setTimeout(() =>{
+        if(success.style.display !== "none"){
+            success.style.display = "none";
+        }
+    }, 4000);
+}
 
 show.addEventListener('click' , () =>{ 
     if(show.classList.contains("show") && password.value.length !== 0){

@@ -565,6 +565,7 @@ button:not(.x):hover {
   transition: 0.5s;
 }
 .login section .container .square .half1 {
+  position: relative;
   background-image: url(/app/resources/img/happy-min.jpg);
   background-size: cover;
   display: flex;
@@ -580,6 +581,13 @@ button:not(.x):hover {
   .login section .container .square .half1 {
     font-size: 14px;
   }
+}
+.login section .container .square .half1 span {
+  margin-left: 20px;
+  margin-bottom: 5px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
 .login section .container .square .half2 {
   padding: 15px;

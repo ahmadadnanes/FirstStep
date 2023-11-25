@@ -1,4 +1,5 @@
 <?php
+@session_start();
 $server = explode('/', $_SERVER["REQUEST_URI"])[1];
 ?>
 <!DOCTYPE html>
@@ -19,8 +20,8 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
     <!-- start header -->
     <nav>
         <div class="container">
-            <a href="/"><img src="/app/resources/img/logo-removebg-preview.png" width="90px" alt="..."></a>
-            <div class="normal-bar">
+            <?php include('./app/resources/components/logo.html') ?>
+            <div class="normal-bar d-block">
                 <?php if ($server == "signup") { ?> <a href="/login">Login</a> <?php } else { ?>
                     <a href="/signup">SignUp</a>
                 <?php } ?>
@@ -37,6 +38,15 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
                     <h2 class="quote">
                         Be somebody who makes everybody feel like a somebody.
                     </h2>
+                    <?php if ($server == "login") { ?>
+                        <span>Doesn't have an account<a href=<?= '/signup' ?>>
+                                Signup
+                            </a><br>
+                        <?php } else { ?>
+                            <span>have an account <a href=<?= '/login' ?>>
+                                    Login
+                                </a><br>
+                            <?php } ?>
                 </div>
                 <div class="half2">
                     <center>
@@ -69,16 +79,8 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
                                     <label for="remember">Remember Me</label>
                                     <input type="checkbox" name="remember" id="" value="yes">
                                 </div>
-                                <span>Doesn't have an account <a href=<?= '/signup' ?>>
-                                        Signup
-                                    </a>
-                                </span><br>
-                            <?php } else { ?>
-                                <span>have an account <a href=<?= '/login' ?>>
-                                        Login
-                                    </a><br>
-                                <?php } ?>
-                                <button class="btnn" type="submit" name="submit"><?php if ($server == "login") { ?> Login <?php } else { ?> SignUp <?php } ?></button>
+                            <?php } ?>
+                            <button class="btnn" type="submit" name="submit"><?php if ($server == "login") { ?> Login <?php } else { ?> SignUp <?php } ?></button>
                         </form>
                         <?php include("./app/resources/components/error.php") ?>
                     </center>
@@ -89,7 +91,7 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
     <?php
     if (isset($_SESSION["success"])) {
     ?>
-        <div class="success rounded-2 position-fixed bottom-0 p-1 m-1 text-white" id="success">
+        <div class="success rounded-2 position-fixed bottom-0 p-1 m-1" id="success">
             <?php echo $_SESSION["success"];
             session_unset();
             ?>
@@ -100,7 +102,6 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
     <!-- end login -->
     <!-- JS -->
     <script src="/app/resources/js/app.js"></script>
-    <script src="app/resources/js/main.js"></script>
     <script src="/app/resources/js/login.js"></script>
 </body>
 

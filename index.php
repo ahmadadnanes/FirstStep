@@ -1,5 +1,6 @@
 <?php
 include_once "app/Model/router.php";
+
 $router = new router;
 
 // Home

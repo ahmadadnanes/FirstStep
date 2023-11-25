@@ -1,7 +1,5 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+@session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -156,7 +154,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     </div>
                 </div>
                 <div class="card serv">
-                    <img src="/app/resources/img/therapy 1-min.jpg" alt="..." width="200px" loading="lazy">
+                    <img src="/app/resources/img/therapy-min.jpg" alt="..." width="200px" loading="lazy">
                     <div class="card-body">
                         <h5>Recommended Psychologist</h5>
                         <p> here you can explore most famous Psychologist through the country</p>
@@ -180,7 +178,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <form action="/contact" method="post">
                     <input type="email" name="email" id="email" placeholder=" Enter your Email" style="padding-right: 60px;" required><br><br>
                     <textarea name="contact" id="contact" cols="30" rows="10" required></textarea><br><br>
-                    <button type="submit">Submit</button>
+                    <button type="submit" name="submit">Submit</button>
                 </form>
             </div>
             <p class="text-center mt-2">
@@ -192,7 +190,8 @@ if (session_status() === PHP_SESSION_NONE) {
     <?php include("./app/resources/components/footer.html") ?>
     <!-- JS -->
     <script src="/app/resources/js/app.js"></script>
-    <script src="/app/resources/js/main.js"></script>
+    <script src="/app/resources/js/navbar.js"></script>
+    <script src="/app/resources/js/up.js"></script>
     <script src="/app/resources/js/Home.js"></script>
 </body>
 

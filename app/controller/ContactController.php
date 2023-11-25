@@ -1,8 +1,9 @@
 <?php
 include './app/Model/contactModel.php';
-
-$email = $_POST["email"];
-$contact = $_POST["contact"];
+if (isset($_POST["submit"])) {
+    $email = $_POST["email"];
+    $contact = $_POST["contact"];
+}
 
 
 if (contactModel::NewContact($email, $contact)) {

@@ -78,7 +78,8 @@ if (isset($_GET["user"])) {
     </div>
     <!-- JS -->
     <script src="/app/resources/js/app.js"></script>
-    <script src="/app/resources/js/main.js"></script>
+    <script src="/app/resources/js/navbar.js"></script>
+    <script src="/app/resources/js/up.js"></script>
     <script src="/app/resources/js/YourDiaries.js"></script>
 </body>
 
