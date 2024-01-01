@@ -176,7 +176,22 @@ $user = $_SESSION["user"];
                 </center>
             </div>
     </section>
-    <div class="popup" id="popup">
+    <dialog id="dialog">
+        <div class="content">
+            <div class="delete">
+                <button class="x" onclick="dialog.close()">
+                    <i class="fa-solid fa-square-xmark"></i>
+                </button>
+            </div>
+            <div class="text">
+                <p id="body">
+                </p>
+                <button onclick="location.href='/psy'" class="pop-btn">Help me</button>
+                <button onclick="location.href='/'" class="pop-btn">Return Home</button>
+            </div>
+        </div>
+    </dialog>
+    <!-- <div class="popup" id="popup">
         <div class="overlay"></div>
         <div class="content">
             <div class="delete">
@@ -191,11 +206,11 @@ $user = $_SESSION["user"];
                 <button onclick="location.href='/'" class="pop-btn">Return Home</button>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- end depression test -->
     <?php include("./app/resources/components/footer.html") ?>
     <!-- JS -->
-    <script src="/app/resources/js/app.js"></script>
+    <script src="/app.js"></script>
     <script src="/app/resources/js/navbar.js"></script>
     <script src="/app/resources/js/up.js"></script>
     <script src="/app/resources/js/depression.js"></script>

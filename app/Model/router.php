@@ -10,8 +10,7 @@ class router
     */
     public function addRoute(string $method, string $url, closure $target)
     {
-        $cleanUrl = checkQuestionMark($url);
-        $this->routes[$method][$cleanUrl] = $target;
+        $this->routes[$method][$url] = $target;
     }
 
     public function matchRoute()

@@ -1,21 +1,18 @@
 @use "../helpers/mixins" as *;
 @use "../helpers/vars" as *;
-.popup{
-    .overlay{
-        @include overlay();
-    }
+dialog{
+    border: none;
     .content{
-        position: absolute;
+        position: fixed;
         top: 50%;
         left: 50%;
-        transform: translate(-50%,-50%) scale(0);
+        transform: translate(-50%,-50%);
         background-color: #fff;
         width: 450px;
         height: fit-content;
         text-align: center;
         padding: 20px;
         transition: 0.3s;
-        z-index: 1001;
         @media ($phone-max) {
             width: 100%;
             height: fit-content;
@@ -28,13 +25,5 @@
                 margin-bottom: 10px;
             }
         }     
-    }
-    &.active{
-        .overlay{
-            display: block;
-        }
-        .content{
-            transform: translate(-50%,-50%) scale(1);
-        }
     }
 }

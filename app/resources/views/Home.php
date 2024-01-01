@@ -39,9 +39,15 @@
             ?>
                 <div class="user">
                     <span class="icon">
-                        <span>
-                            <a href="<?= '/user/' . $user  ?>" aria-label="user profile"><i class="fa-solid fa-user" id="user"></i></a>
-                        </span>
+                        <?php if (isset($_SESSION["admin"])) { ?>
+                            <span>
+                                <a href="/admin" aria-label="user profile"><i class="fa-solid fa-user" id="user"></i></a>
+                            </span>
+                        <?php } else { ?>
+                            <span>
+                                <a href="<?= '/user/' . $user  ?>" aria-label="user profile"><i class="fa-solid fa-user" id="user"></i></a>
+                            </span>
+                        <?php } ?>
                     </span>
                 </div>
             <?php } ?>
@@ -189,7 +195,7 @@
     <!-- end contact -->
     <?php include("./app/resources/components/footer.html") ?>
     <!-- JS -->
-    <script src="/app/resources/js/app.js"></script>
+    <script src="/app.js"></script>
     <script src="/app/resources/js/navbar.js"></script>
     <script src="/app/resources/js/up.js"></script>
     <script src="/app/resources/js/Home.js"></script>

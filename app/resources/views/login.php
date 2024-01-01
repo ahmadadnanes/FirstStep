@@ -62,16 +62,16 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
                             <div class="input-container">
                                 <?php if ($server == "signup") { ?>
                                     <label for="username"></label>
-                                    <input type="text" id="username" name="username" required placeholder="Username">
+                                    <input type="text" id="username" name="username" required placeholder="Username"><br>
 
                                 <?php } ?>
                                 <label for="email"></label>
-                                <input type="email" id="email" name="email" required placeholder="Email">
+                                <input type="email" id="email" name="email" required placeholder="Email"><br>
 
                                 <div class="password">
                                     <label for="password"></label>
                                     <input type="password" id="password" name="password" required placeholder="Password" min="5">
-                                    <i class="fa-solid fa-eye show" id="show"></i>
+                                    <i class="show fa-solid fa-eye show" id="show"></i>
                                 </div>
                             </div>
                             <?php if ($server == "login") { ?>
@@ -101,7 +101,8 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
     ?>
     <!-- end login -->
     <!-- JS -->
-    <script src="/app/resources/js/app.js"></script>
+    <script src="/app.js"></script>
+    <script src="/app/resources/js/components/showButton.js"></script>
     <script src="/app/resources/js/login.js"></script>
 </body>
 

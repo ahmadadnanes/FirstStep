@@ -1,5 +1,6 @@
-<?php 
-function checkQuestionMark($inputString) {
+<?php
+function checkQuestionMark($inputString)
+{
     // Check if the input string contains '?'
     $questionMarkPos = strpos($inputString, '?');
 
@@ -10,7 +11,19 @@ function checkQuestionMark($inputString) {
             return $inputString;
         } else {
             // If no characters exist after '?', return the input string without '?'
-            return str_replace('?', '', $inputString);
+            $withOutQuestionMark = str_replace('?', '', $inputString);
+            $firstSlashPos = strpos($withOutQuestionMark, '/');
+            if ($firstSlashPos !== false) {
+                // Find the position of the second '/'
+                $secondSlashPos = strpos($withOutQuestionMark, '/', $firstSlashPos + 1);
+                if ($secondSlashPos !== false) {
+                    // Remove the second '/'
+                    $outputString = substr_replace($withOutQuestionMark, '', $secondSlashPos, 1);
+                    return $outputString;
+                }
+            } else {
+                return $withOutQuestionMark;
+            }
         }
     }
 

@@ -2,19 +2,35 @@
 
 class connect
 {
-    private static  $host = "localhost";
-    private static $user = "root";
-    private static $pass = "";
-    private static  $db = "first_step_remastered";
+    private $host;
+    private $user;
+    private $pass;
+    private $db;
+    private $mysqli;
 
-    public static  function conn(): mysqli
+
+    public function __construct()
     {
-        $mysqli = new \mysqli(connect::$host, connect::$user, connect::$pass, connect::$db);
+        $this->host = "localhost";
+        $this->user = "root";
+        $this->pass = "";
+        $this->db = "first_step_remastered";
 
-        if ($mysqli->connect_errno) {
-            echo "Failed to connect to Mysql:" . $mysqli->connect_error;
+        $this->mysqli = new \mysqli($this->host, $this->user, $this->pass, $this->db);
+        if ($this->mysqli->connect_errno) {
+            echo "Failed to connect to Mysql:" . $this->mysqli->connect_error;
         }
+    }
 
-        return $mysqli;
+    public function conn()
+    {
+        return $this->mysqli;
+    }
+
+    public function __destruct()
+    {
+        if (is_resource($this->mysqli) && get_resource_type($this->mysqli) === 'mysql link') {
+            $this->mysqli->close();
+        }
     }
 }

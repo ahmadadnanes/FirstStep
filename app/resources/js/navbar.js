@@ -6,6 +6,6 @@ button.onclick = function(){
         ul.style.display = "none";
     }
     else{
-                ul.style.display = "block";
+        ul.style.display = "block";
     }
 }

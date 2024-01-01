@@ -135,6 +135,23 @@ nav .container .links ul li a:hover {
   }
 }
 
+.sidebar {
+  background-color: #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sidebar div {
+  padding-bottom: 15px;
+}
+.sidebar div i {
+  font-size: 25px;
+  color: white;
+}
+.sidebar div i:hover {
+  cursor: pointer;
+}
+
 /* start - scroll up */
 .up {
   display: none;
@@ -222,21 +239,14 @@ button:not(.x):hover {
   transform: scale(1.1);
 }
 
-.popup .overlay {
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  top: 0px;
-  left: 0px;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 1000;
-  display: none;
+dialog {
+  border: none;
 }
-.popup .content {
-  position: absolute;
+dialog .content {
+  position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0);
+  transform: translate(-50%, -50%);
   background-color: #fff;
   width: 450px;
   height: -moz-fit-content;
@@ -244,28 +254,75 @@ button:not(.x):hover {
   text-align: center;
   padding: 20px;
   transition: 0.3s;
-  z-index: 1001;
 }
 @media ((max-width:768px)) {
-  .popup .content {
+  dialog .content {
     width: 100%;
     height: -moz-fit-content;
     height: fit-content;
   }
 }
-.popup .content .text {
+dialog .content .text {
   margin-top: 30px;
 }
-.popup .content .text .pop-btn {
+dialog .content .text .pop-btn {
   width: 300px;
   height: 50px;
   margin-bottom: 10px;
 }
-.popup.active .overlay {
-  display: block;
+
+.password {
+  position: relative;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-right: 3px;
 }
-.popup.active .content {
-  transform: translate(-50%, -50%) scale(1);
+.password .show, .password .hide {
+  position: absolute;
+  right: 0;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.admin {
+  min-height: 100vh;
+  display: flex;
+}
+.admin .content {
+  flex-grow: 1;
+  position: relative;
+}
+.admin .content .password-form {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #eee;
+  width: 500px;
+  height: 250px;
+  border-radius: 5px;
+}
+.admin .content .password-form h1 {
+  margin-bottom: 20px;
+}
+.admin .content .password-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.admin .content .password-form form input {
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  width: 260px;
+  height: 40px;
+}
+.admin .content .password-form form button {
+  width: 100px;
+  height: 40px;
+  background-color: white !important;
 }
 
 .home .serv {
@@ -626,18 +683,6 @@ button:not(.x):hover {
     width: 181.13px;
   }
 }
-.login section .container .square .half2 .input-container .password {
-  position: relative;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin-right: 3px;
-}
-.login section .container .square .half2 .input-container .password .show, .login section .container .square .half2 .input-container .password .hide {
-  position: absolute;
-  right: 0;
-  margin-top: 10px;
-  margin-right: 10px;
-}
 .login section .container .square .half2 .btnn {
   padding-left: 10px;
   padding-right: 10px;
@@ -686,6 +731,7 @@ button:not(.x):hover {
   opacity: 0;
   transform: translateX(100%);
   transition: opacity 0.5s, transform 0.5s;
+  margin-left: 10px;
 }
 .dep .question.active {
   opacity: 1;

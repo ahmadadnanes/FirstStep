@@ -59,25 +59,8 @@ if (isset($_GET["user"])) {
     <!-- end your diares -->
     <?php include("./app/resources/components/footer.html") ?>
 
-    <div class="popup" id="popup">
-        <div class="overlay"></div>
-        <div class="content">
-            <div class="delete">
-                <button class="x" onclick="popDiary()">
-                    <i class="fa-solid fa-square-xmark"></i>
-                </button>
-            </div>
-            <div class="text">
-                <p id="body">
-                    Do you really want to delete this diary
-                </p>
-                <button value="true" class="pop-btn bg-danger" id="del">Delete</button>
-                <button value="false" class="pop-btn" id="cancel">Cancel</button>
-            </div>
-        </div>
-    </div>
     <!-- JS -->
-    <script src="/app/resources/js/app.js"></script>
+    <script src="/app.js"></script>
     <script src="/app/resources/js/navbar.js"></script>
     <script src="/app/resources/js/up.js"></script>
     <script src="/app/resources/js/YourDiaries.js"></script>

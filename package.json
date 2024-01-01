@@ -1,0 +1,12 @@
+{
+  "name": "first-step",
+  "version": "1.0.0",
+  "description": "First step is a system the help you find the best doctors in your governorate (jordan) and you can express your feelings and a test that will help you determine your health using html css js php and mysql",
+  "main": "workbox-config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "ahmad adnan",
+  "license": "ISC"
+}

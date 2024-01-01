@@ -53,7 +53,7 @@ $user = $_SESSION["user"];
     <?php include("./app/resources/components/footer.html") ?>
 
     <!-- JS -->
-    <script src="/app/resources/js/app.js"></script>
+    <script src="/app.js"></script>
     <script src="/app/resources/js/navbar.js"></script>
 
 </body>

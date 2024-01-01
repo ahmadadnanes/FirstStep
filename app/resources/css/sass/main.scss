@@ -1,6 +1,7 @@
 @use './layout/grid';
 @use './layout/root';
 @use './layout/header';
+@use './layout/sidebar.admin';
 
 @use './components/scrollUp';
 @use './components/error';
@@ -8,7 +9,9 @@
 @use './components/xButton';
 @use './components/diary-container';
 @use './components/popup';
+@use './components/showPass';
 
+@use './pages/admin';
 @use './pages/Home';
 @use './pages/diary';
 @use './pages/login';

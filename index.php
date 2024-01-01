@@ -107,6 +107,18 @@ $router->addRoute('GET', '/user/:user', function ($user) {
     require "app/resources/views/YourDiares.php";
 });
 
+$router->addRoute('GET', '/admin', function () {
+    require("app/controller/adminController.php");
+});
+
+$router->addRoute('GET', '/changePassword', function () {
+    require('app/controller/adminController.php');
+});
+
+$router->addRoute('POST', '/changePassword', function () {
+    require('app/controller/adminController.php');
+});
+
 
 try {
     $router->matchRoute();

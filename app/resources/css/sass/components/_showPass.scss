@@ -1,0 +1,11 @@
+.password{
+    position: relative;
+    width: fit-content;
+    margin-right: 3px;
+    .show , .hide{
+        position: absolute;
+        right: 0;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+}

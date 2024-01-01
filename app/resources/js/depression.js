@@ -1,6 +1,6 @@
 let current = 1;
 let qu = 10;
-let popup = document.getElementById("popup");
+let popup = document.getElementById("dialog");
 
 let answers = [];
 function next(){
@@ -51,6 +51,6 @@ function pop(text){
   let body = document.getElementById("body");
   console.log(body)
   body.innerText = text;
-  popup.classList.toggle("active");
+  popup.showModal();
   location.href = "/depression#";
 }

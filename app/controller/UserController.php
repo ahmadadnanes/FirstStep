@@ -78,7 +78,11 @@ class UserController extends user
                         $pre_header = $_SERVER["QUERY_STRING"];
                         header("location: /" . $pre_header);
                     } else {
-                        require("./app/resources/views/Home.php");
+                        if (user::UserType($_SESSION["id"])) {
+                            header("location: /admin");
+                        } else {
+                            require("./app/resources/views/Home.php");
+                        }
                     }
                 } else {
                     header("location:/login/?msg=" . $errors['Wrong']);
@@ -118,7 +122,11 @@ if ($server == "signup") {
         }
     } else {
         if (isset($_SESSION["id"])) {
-            require "./app/resources/views/Home.php";
+            if (user::UserType($_SESSION["id"])) {
+                header("location: /admin");
+            } else {
+                require "./app/resources/views/Home.php";
+            }
         } else {
             require "./app/resources/views/login.php";
         }
