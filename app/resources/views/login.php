@@ -71,7 +71,7 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
                                 <div class="password">
                                     <label for="password"></label>
                                     <input type="password" id="password" name="password" required placeholder="Password" min="5">
-                                    <i class="show fa-solid fa-eye show" id="show"></i>
+                                    <i class="fa-solid fa-eye show" id="show"></i>
                                 </div>
                             </div>
                             <?php if ($server == "login") { ?>

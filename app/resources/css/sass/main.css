@@ -146,7 +146,6 @@ nav .container .links ul li a:hover {
 }
 .sidebar div i {
   font-size: 25px;
-  color: white;
 }
 .sidebar div i:hover {
   cursor: pointer;
@@ -300,7 +299,7 @@ dialog .content .text .pop-btn {
   transform: translate(-50%, -50%);
   background-color: #eee;
   width: 500px;
-  height: 250px;
+  height: 270px;
   border-radius: 5px;
 }
 .admin .content .password-form h1 {

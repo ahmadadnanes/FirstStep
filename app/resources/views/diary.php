@@ -59,7 +59,6 @@ $diaries = DiaryController::all();
     <!-- end social diary -->
     <?php include("./app/resources/components/footer.html") ?>
     <!-- JS -->
-    <script src="/app.js"></script>
     <script src="/app/resources/js/navbar.js"></script>
     <script src="/app/resources/js/up.js"></script>
 </body>

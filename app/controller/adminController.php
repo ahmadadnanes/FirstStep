@@ -9,6 +9,7 @@ class admin extends adminModel
     {
         if ($this->checkPass($id, $old)) {
             $this->changePass($id, $new);
+            return true;
         } else {
             return "Old Password is Wrong Please Try Again";
         }
@@ -24,7 +25,13 @@ if (isset($_SESSION["id"])) {
         } else {
             if (isset($_POST["submit"])) {
                 $admin = new admin;
-                $admin->changePassword($_SESSION["id"], $_POST["oldPass"], $_POST["newPass"]);
+                $result = $admin->changePassword($_SESSION["id"], $_POST["oldPass"], $_POST["newPass"]);
+                if (is_bool($result)) {
+                    header("location: /changePassword");
+                } else {
+                    header("location: /changePassword/?msg=$result");
+                }
+                exit;
             }
         }
     }

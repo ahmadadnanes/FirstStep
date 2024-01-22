@@ -12,14 +12,16 @@ class adminModel extends connect
         $sql->execute();
 
         $result = $sql->get_result();
-        return $result->num_rows > 0;
+        $row = $result->fetch_all();
+
+        return $row["pass"] == md5($old);
     }
     public function changePass($id, $new)
     {
         $db = new connect;
         $conn = $db->conn();
         $sql = $conn->prepare("UPDATE users SET pass = ? WHERE id = ?");
-        $sql->bind_param('ss', $new, $id);
+        $sql->bind_param('ss', md5($new), $id);
         $sql->execute();
 
         $result = $sql->get_result();

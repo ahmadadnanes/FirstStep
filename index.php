@@ -119,9 +119,14 @@ $router->addRoute('POST', '/changePassword', function () {
     require('app/controller/adminController.php');
 });
 
+$router->addRoute('GET', '/changePassword/:msg', function ($msg) {
+    require('app/resources/views/admin/changePassword.php');
+});
 
 try {
     $router->matchRoute();
 } catch (Exception $e) {
     require("app/resources/views/404.php");
 }
+?>
+<script src="app.js"></script>
