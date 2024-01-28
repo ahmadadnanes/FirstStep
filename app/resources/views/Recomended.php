@@ -57,6 +57,6 @@ $user = $_SESSION["user"];
     <script src="/app/resources/js/navbar.js"></script>
 
 </body>
-
+<script src="/app.js"></script>
 
 </html>

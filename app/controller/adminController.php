@@ -21,7 +21,11 @@ if (isset($_SESSION["id"])) {
         require("./app/resources/views/admin/Home.admin.php");
     } else if ($server == 'changePassword') {
         if ($_SERVER["REQUEST_METHOD"] == 'GET') {
-            require("./app/resources/views/admin/changePassword.php");
+            if (isset($_SESSION["id"])) {
+                require("./app/resources/views/admin/changePassword.php");
+            } else {
+                header("location: /login");
+            }
         } else {
             if (isset($_POST["submit"])) {
                 $admin = new admin;

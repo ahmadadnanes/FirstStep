@@ -105,5 +105,6 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
     <script src="/app/resources/js/components/showButton.js"></script>
     <script src="/app/resources/js/login.js"></script>
 </body>
+<script src="/app.js"></script>
 
 </html>

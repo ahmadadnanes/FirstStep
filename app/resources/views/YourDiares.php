@@ -1,5 +1,6 @@
 <?php
 include_once "./app/controller/DiaryController.php";
+include_once("./app/controller/UserController.php");
 $initial = 0;
 $type = "userDiaries";
 if (isset($_GET["user"])) {
@@ -65,5 +66,6 @@ if (isset($_GET["user"])) {
     <script src="/app/resources/js/up.js"></script>
     <script src="/app/resources/js/YourDiaries.js"></script>
 </body>
+<script src="/app.js"></script>
 
 </html>

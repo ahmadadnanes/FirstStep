@@ -215,5 +215,6 @@ $user = $_SESSION["user"];
     <script src="/app/resources/js/depression.js"></script>
 
 </body>
+<script src="/app.js"></script>
 
 </html>

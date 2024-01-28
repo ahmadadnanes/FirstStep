@@ -43,10 +43,24 @@ class DiaryController extends diaryModel
     {
         return diaryModel::GetDiaryByUser($id);
     }
+
+    public static function storeComm($user_id, $diary_id, $comment)
+    {
+        if (diaryModel::storeComment($user_id, $diary_id, $comment)) {
+            header("Content-type: application/json");
+            $array = ["user_id" => $user_id, "diary_id" => $diary_id, "comment" => $comment];
+            echo json_encode($array);
+        } else {
+            echo "Error";
+        }
+    }
+
+    public static function GetComm($diary_id)
+    {
+        return DiaryController::getCommentsByDiary($diary_id);
+    }
 }
-
 $server = explode('/', $_SERVER["REQUEST_URI"])[1];
-
 if ($server == "diary") {
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
         if (isset($_SESSION["id"])) {
@@ -61,23 +75,37 @@ if ($server == "diary") {
             diaryModel::DeleteDiary($_POST["delete"]);
             header("location: /user/" . $_SESSION["user"]);
         } else {
-            $id = $_SESSION["id"];
-            $title = $_POST["title"];
-            $content = $_POST["content"];
-            if (isset($_POST["private"])) {
-                $private = $_POST["private"];
+            if (isset($_SESSION["id"], $_POST["title"], $_POST["content"])) {
+                $id = $_SESSION["id"];
+                $title = $_POST["title"];
+                $content = $_POST["content"];
+                if (isset($_POST["private"])) {
+                    $private = $_POST["private"];
+                } else {
+                    $private = 0;
+                }
+                $filter = DiaryController::Filter($title, $content);
+                if (is_bool($filter)) {
+                    DiaryController::Save($id, $title, $content, $private);
+                    header("location: /user/" . $_SESSION["user"]);
+                } else {
+                    header("location: /diary/?msg=$filter");
+                }
+                exit;
             } else {
-                $private = 0;
+                header("location: /diary/?msg=Error");
             }
-            $filter = DiaryController::Filter($title, $content);
-
-            if (is_bool($filter)) {
-                DiaryController::Save($id, $title, $content, $private);
-                header("location: /user/" . $_SESSION["user"]);
-            } else {
-                header("location: /diary/?msg=$filter");
-            }
-            exit;
+        }
+    }
+} else if ($server == "comment") {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (isset($_POST["user_id"], $_POST["diary_id"], $_POST["comment"])) {
+            $user_id = $_POST["user_id"];
+            $diary_id = $_POST["diary_id"];
+            $comment = $_POST["comment"];
+            return DiaryController::storeComm($user_id, $diary_id, $comment);
+        } else {
+            header("location: /diaryById?id=" . $_POST["diary_id"]);
         }
     }
 }

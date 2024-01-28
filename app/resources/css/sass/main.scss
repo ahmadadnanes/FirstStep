@@ -10,6 +10,7 @@
 @use './components/diary-container';
 @use './components/popup';
 @use './components/showPass';
+@use './components/comment';
 
 @use './pages/admin';
 @use './pages/Home';
@@ -19,6 +20,7 @@
 @use './pages/depression';
 @use './pages/Recommended';
 @use './pages/YourDiaries';
+@use './pages/diaryById';
 
 @use './layout/footer';
 

@@ -236,6 +236,7 @@ button:not(.x):hover {
 }
 .diary_container:hover {
   transform: scale(1.1);
+  cursor: pointer;
 }
 
 dialog {
@@ -281,6 +282,13 @@ dialog .content .text .pop-btn {
   right: 0;
   margin-top: 10px;
   margin-right: 10px;
+}
+
+.comment {
+  margin-bottom: 15px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 5px 15px rgba(1, 1, 1, 0.15);
 }
 
 .admin {
@@ -853,6 +861,30 @@ dialog .content .text .pop-btn {
 .your section {
   padding: 50px;
   min-height: 100vh;
+}
+
+.diaryById .diary_container:hover {
+  cursor: default;
+  transform: scale(1);
+}
+.diaryById form {
+  position: relative;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.diaryById form textarea {
+  width: 100%;
+  border-radius: 10px;
+}
+.diaryById form button {
+  position: absolute;
+  background-color: transparent !important;
+  border: 0;
+  right: 0;
+  bottom: 0;
+}
+.diaryById form button i {
+  font-size: 40px;
 }
 
 /* start - footer */

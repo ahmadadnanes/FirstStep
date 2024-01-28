@@ -87,6 +87,14 @@ $router->addRoute('GET', '/diary/:msg', function ($msg) {
     require "app/resources/views/diary.php";
 });
 
+$router->addRoute('GET', '/diaryById/:id', function ($id) {
+    require "app/resources/views/diaryById.php";
+});
+
+$router->addRoute('POST', '/comment', function () {
+    require "app/controller/DiaryController.php";
+});
+
 // depression
 
 $router->addRoute('GET', '/depression', function () {
@@ -122,11 +130,9 @@ $router->addRoute('POST', '/changePassword', function () {
 $router->addRoute('GET', '/changePassword/:msg', function ($msg) {
     require('app/resources/views/admin/changePassword.php');
 });
-
-try {
-    $router->matchRoute();
-} catch (Exception $e) {
-    require("app/resources/views/404.php");
-}
-?>
-<script src="app.js"></script>
+$router->matchRoute();
+// try {
+    
+// } catch (Exception $e) {
+//     require("app/resources/views/404.php");
+// }

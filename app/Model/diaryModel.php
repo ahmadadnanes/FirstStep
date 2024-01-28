@@ -34,6 +34,20 @@ class diaryModel extends connect
         $sql->execute();
         $result = $sql->get_result();
         $diaries = $result->fetch_all();
+        $result->free_result();
+        return $diaries;
+    }
+
+    public static function GetDiaryById($DiaryId)
+    {
+        $db = new connect();
+        $conn = $db->conn();
+        $sql = $conn->prepare("SELECT * FROM diary WHERE id like ?");
+        $sql->bind_param('s', $DiaryId);
+        $sql->execute();
+        $result = $sql->get_result();
+        $diaries = $result->fetch_all();
+        $result->free_result();
         return $diaries;
     }
 
@@ -55,7 +69,29 @@ class diaryModel extends connect
         $sql->execute();
         $result = $sql->get_result();
         $diaries = $result->fetch_all();
-
+        $result->free_result();
         return $diaries;
+    }
+
+    public static function storeComment($user_id, $diary_id, $comment)
+    {
+        $db = new connect();
+        $conn = $db->conn();
+        $sql = $conn->prepare("INSERT INTO comments(user_id,diary_id,comment) VALUES (?,?,?)");
+        $sql->bind_param('iis', $user_id, $diary_id, $comment);
+        $result = $sql->execute();
+        return $result;
+    }
+
+    public static function getCommentsByDiary($diary_id)
+    {
+        $db = new connect();
+        $conn = $db->conn();
+        $sql = $conn->prepare("SELECT * FROM comments WHERE diary_id = ? ORDER BY date DESC");
+        $sql->bind_param('s', $diary_id);
+        $result = $sql->get_result();
+        $comments = $result->fetch_all();
+        $result->free_result();
+        return $comments;
     }
 }

@@ -33,24 +33,7 @@
                 <a href="#contact" aria-label="go to contact">Contact</a>
             </div>
 
-            <?php
-            if (isset($_SESSION["user"])) {
-                $user = $_SESSION["user"];
-            ?>
-                <div class="user">
-                    <span class="icon">
-                        <?php if (isset($_SESSION["admin"])) { ?>
-                            <span>
-                                <a href="/admin" aria-label="user profile"><i class="fa-solid fa-user" id="user"></i></a>
-                            </span>
-                        <?php } else { ?>
-                            <span>
-                                <a href="<?= '/user/' . $user  ?>" aria-label="user profile"><i class="fa-solid fa-user" id="user"></i></a>
-                            </span>
-                        <?php } ?>
-                    </span>
-                </div>
-            <?php } ?>
+            <?php include("./app/resources/components/userAccess.php") ?>
 
             <div class="drop-down" id="drop-down">
                 <div class="links">
@@ -199,5 +182,6 @@
     <script src="/app/resources/js/up.js"></script>
     <script src="/app/resources/js/Home.js"></script>
 </body>
+<script src="/app.js"></script>
 
 </html>

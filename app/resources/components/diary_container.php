@@ -2,15 +2,16 @@
 if (!empty($diaries)) {
     foreach ($diaries as $row) {
         $start = $initial;
-        $id = $row[$start];
+        $diary_id = $row[0];
+        $user_id = $row[$start];
         $dt = $row[$start += 1];
         $dc = $row[$start += 1];
 ?>
-        <div class="diary_container">
+        <div class="diary_container" onclick="location.href='/diaryById/?id=<?= $diary_id ?>'">
             <?php if (isset($delete)) { ?>
                 <div class="delete">
                     <form action="/diary" method="post" id="deleteForm">
-                        <button class="x" name="delete" value="<?= $id ?>">
+                        <button class="x" name="delete" value="<?= $diary_id ?>">
                             <i class="fa-solid fa-square-xmark"></i>
                         </button>
                     </form>
@@ -23,10 +24,10 @@ if (!empty($diaries)) {
                 <p><?= $dc ?></p>
             </div>
             <?php if ($type == "diary") {
-                $dUser = UserController::getUser($id);
+                $dUser = UserController::getUser($user_id);
             ?>
                 <div class="author">
-                    <p>by: <a href="/user/<?= "?user=" . $id ?>"><?= $dUser ?></a></p>
+                    <p>by: <a href="/user/<?= "?user=" . $user_id ?>"><?= $dUser ?></a></p>
                 </div>
             <?php } ?>
         </div>
