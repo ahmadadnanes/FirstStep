@@ -33,4 +33,13 @@ class connect
             $this->mysqli->close();
         }
     }
+
+    public function clearStoredResults()
+    {
+        do {
+            if ($res = $this->mysqli->store_result()) {
+                $res->free();
+            }
+        } while ($this->mysqli->more_results() && $this->mysqli->next_result());
+    }
 }

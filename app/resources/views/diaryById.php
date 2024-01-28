@@ -1,11 +1,12 @@
 <?php
 include_once "./app/controller/DiaryController.php";
+include_once "./app/controller/UserController.php";
 $id = trim($_GET["id"]);
 if (isset($_SESSION["user"])) {
     $user = $_SESSION["user"];
 }
-$viewDiary = new DiaryController();
-$diary = $viewDiary->GetDiaryById($id);
+$view = new DiaryController();
+$diary = $view->GetDiaryById($id);
 // die(var_dump($diary));
 ?>
 <!DOCTYPE html>
@@ -30,8 +31,27 @@ $diary = $viewDiary->GetDiaryById($id);
             <?php
             $viewComment = new DiaryController();
             $comments = $viewComment->GetComm($id);
-            foreach ($comments as $comment)
-            ?>
+            // die(var_dump($comments));
+            foreach ($comments as $comment) { ?>
+                <div class="comment">
+                    <div class="author">
+                        <?php
+                        $viewUser = new UserController();
+                        $user = $viewUser->get($comment[1]);
+                        echo $user;
+                        ?>
+                    </div>
+                    <div class="content">
+                        <?= $comment[3] ?>
+                    </div>
+                    <div class="time">
+                        <?php
+                        $date = new DateTime($comment[4]);
+                        echo $date->format('h:i a m/d/Y');
+                        ?>
+                    </div>
+                </div>
+            <?php } ?>
         </div>
         <form action="/comment" method="post">
             <input type="hidden" name="diary_id" value="<?= $diary[0][0] ?>">
@@ -40,6 +60,7 @@ $diary = $viewDiary->GetDiaryById($id);
             <button id="submit"><i class="fas fa-comment"></i></button>
         </form>
     </div>
+    <?php include "./app/resources/components/footer.html" ?>
 </body>
 <script src="/app/resources/js/jquery.js"></script>
 <script src="/app/resources/js/navbar.js"></script>
