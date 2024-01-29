@@ -14,12 +14,7 @@ $('#submit').on('click' , function (event){
                 comment: comment
             },
             success: function(response){
-                object = response;
-                $(".all_comments").append(`
-                    <div class='comment'> 
-                        <p>${object.comment}</p>
-                    </div>
-                `);
+                $(".all_comments").append(response);
             }
         }
         )

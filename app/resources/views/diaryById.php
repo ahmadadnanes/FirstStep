@@ -55,7 +55,7 @@ $diary = $view->GetDiaryById($id);
         </div>
         <form action="/comment" method="post">
             <input type="hidden" name="diary_id" value="<?= $diary[0][0] ?>">
-            <input type="hidden" name="user_id" value="<?= $diary[0][1] ?>">
+            <input type="hidden" name="user_id" value="<?= $_SESSION["id"] ?>">
             <textarea name="comment" cols="30" rows="10" id="comment"></textarea>
             <button id="submit"><i class="fas fa-comment"></i></button>
         </form>

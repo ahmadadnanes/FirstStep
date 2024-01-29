@@ -1,6 +1,7 @@
 <?php
 include_once './app/Model/diaryModel.php';
-session_start();
+include_once './app/controller/UserController.php';
+@session_start();
 class DiaryController extends diaryModel
 {
     public static function Save($id, $title, $content, $private)
@@ -47,9 +48,23 @@ class DiaryController extends diaryModel
     public static function storeComm($user_id, $diary_id, $comment)
     {
         if (diaryModel::storeComment($user_id, $diary_id, $comment)) {
-            header("Content-type: application/json");
-            $array = ["user_id" => $user_id, "diary_id" => $diary_id, "comment" => $comment];
-            echo json_encode($array);
+            $viewUser = new UserController();
+            $user = $viewUser->get($user_id);
+            $date = new DateTime();
+            $date->setTimezone(new DateTimeZone("Asia/Amman"));
+            $date = $date->format('h:i a m/d/Y');
+            echo "
+            <div class='comment'> 
+                <div class='author'>
+                    $user
+                </div>
+                <div class='content'>
+                    $comment
+                </div
+                <div class='time'>
+                    $date
+                </div>
+            </div>";
         } else {
             echo "Error";
         }

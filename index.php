@@ -130,9 +130,8 @@ $router->addRoute('POST', '/changePassword', function () {
 $router->addRoute('GET', '/changePassword/:msg', function ($msg) {
     require('app/resources/views/admin/changePassword.php');
 });
-$router->matchRoute();
-// try {
-    
-// } catch (Exception $e) {
-//     require("app/resources/views/404.php");
-// }
+try {
+    $router->matchRoute();
+} catch (Exception $e) {
+    require("app/resources/views/404.php");
+}

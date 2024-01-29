@@ -13,7 +13,10 @@
         &:first-of-type{
             .intro_container{
                 text-align: center;
-                background-image: url('/app/resources/img/hands-min.jpg');
+                background: linear-gradient(to bottom, 
+                    #0000 0%,
+                    #0000 50%,
+                    #000b 100%), url('/app/resources/img/hands-min.jpg');
                 background-repeat: no-repeat;
                 background-size: cover;
                 height: calc(100vh - 80px);
