@@ -1,6 +1,8 @@
 <?php
 @session_start();
-$user = $_SESSION["user"];
+if (isset($_SESSION["user"])) {
+    $user = $_SESSION["user"];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +10,7 @@ $user = $_SESSION["user"];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include('./app/resources/components/layout.php') ?>
+    <?php include('./app/resources/components/layout.html') ?>
     <title>Recommended Psychologist</title>
 </head>
 
@@ -23,7 +25,9 @@ $user = $_SESSION["user"];
                     <label for="gov">Choose a governorate:</label><br><br>
                     <select name="gov" id="gov">
                         <?php
-                        if (isset($_GET["gov"])) { ?>
+                        if (isset($_GET["gov"])) {
+                            $gov = htmlspecialchars($_GET["gov"]);
+                        ?>
                             <option value="<?= $_GET["gov"] ?>" selected disabled><?= $_GET["gov"] ?></option>
                         <?php } ?>
                         <option value="Amman">Amman</option>

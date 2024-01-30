@@ -95,16 +95,20 @@ $router->addRoute('POST', '/comment', function () {
     require "app/controller/DiaryController.php";
 });
 
+$router->addRoute('GET', '/comment/:id', function ($id) {
+    require "app/resources/views/comment.php";
+});
+
 // depression
 
 $router->addRoute('GET', '/depression', function () {
-    require "app/controller/DepressionController.php";
+    require "app/controller/ServicesController.php";
 });
 
 // psy
 
 $router->addRoute('GET', '/psy', function () {
-    require "app/controller/RecomendedController.php";
+    require "app/controller/ServicesController.php";
 });
 
 $router->addRoute('GET', '/psy/:gov', function ($gov) {

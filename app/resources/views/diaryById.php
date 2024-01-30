@@ -1,8 +1,8 @@
 <?php
 include_once "./app/controller/DiaryController.php";
 include_once "./app/controller/UserController.php";
-$id = trim($_GET["id"]);
-if (isset($_SESSION["user"])) {
+if (isset($_GET["id"], $_SESSION["user"])) {
+    $id = htmlspecialchars($_GET["id"]);
     $user = $_SESSION["user"];
 }
 $view = new DiaryController();
@@ -15,7 +15,7 @@ $diary = $view->GetDiaryById($id);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include_once("./app/resources/components/layout.php") ?>
+    <?php include_once("./app/resources/components/layout.html") ?>
     <title><?= $diary[0][2] ?></title>
 </head>
 
@@ -33,13 +33,13 @@ $diary = $view->GetDiaryById($id);
             $comments = $viewComment->GetComm($id);
             // die(var_dump($comments));
             foreach ($comments as $comment) { ?>
-                <div class="comment">
+                <div class="comment" onclick="location.href='/comment/?id=<?= $comment[0] ?>'">
                     <div class="author">
                         <?php
                         $viewUser = new UserController();
                         $user = $viewUser->get($comment[1]);
-                        echo $user;
                         ?>
+                        <a href="/user/<?= "?user=" . $comment[1] ?>"><?= $user ?></a>
                     </div>
                     <div class="content">
                         <?= $comment[3] ?>

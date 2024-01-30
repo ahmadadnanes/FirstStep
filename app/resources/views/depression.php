@@ -9,7 +9,7 @@ $user = $_SESSION["user"];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- main css files -->
-    <?php include("./app/resources/components/layout.php") ?>
+    <?php include("./app/resources/components/layout.html") ?>
     <title>Depression Test</title>
 </head>
 

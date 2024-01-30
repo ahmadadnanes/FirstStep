@@ -93,4 +93,16 @@ class diaryModel extends connect
         $comments = $result->fetch_all();
         return $comments;
     }
+
+    public static function getCommentById($comment_id)
+    {
+        $db = new connect();
+        $conn = $db->conn();
+        $sql = $conn->prepare("SELECT * FROM comments WHERE id = ?");
+        $sql->bind_param('s', $comment_id);
+        $sql->execute();
+        $result = $sql->get_result();
+        $comment = $result->fetch_all();
+        return $comment;
+    }
 }

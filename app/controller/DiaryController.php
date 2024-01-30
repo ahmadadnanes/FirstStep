@@ -6,20 +6,17 @@ class DiaryController extends diaryModel
 {
     public static function Save($id, $title, $content, $private)
     {
-        $result = diaryModel::SaveDiary($id, $title, $content, $private);
-        return $result;
+        return diaryModel::SaveDiary($id, $title, $content, $private);
     }
 
     public static function Get($id)
     {
-        $array = diaryModel::GetDiary($id);
-        return $array;
+        return diaryModel::GetDiary($id);
     }
 
     public static function all()
     {
-        $array = diaryModel::all();
-        return $array;
+        return diaryModel::all();
     }
 
     public static function delete($diary_id)
@@ -56,7 +53,7 @@ class DiaryController extends diaryModel
             echo "
             <div class='comment'> 
                 <div class='author'>
-                    $user
+                    <a href='/user/?user=$user_id'>$user</a>
                 </div>
                 <div class='content'>
                     $comment
@@ -70,9 +67,14 @@ class DiaryController extends diaryModel
         }
     }
 
+    public static function GetCommentById($comment_id)
+    {
+        return diaryModel::getCommentById($comment_id);
+    }
+
     public static function GetComm($diary_id)
     {
-        return DiaryController::getCommentsByDiary($diary_id);
+        return diaryModel::getCommentsByDiary($diary_id);
     }
 }
 $server = explode('/', $_SERVER["REQUEST_URI"])[1];

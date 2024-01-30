@@ -1,14 +1,16 @@
 <?php
 include './app/Model/contactModel.php';
 if (isset($_POST["submit"])) {
-    $email = $_POST["email"];
-    $contact = $_POST["contact"];
-}
-
-
-if (contactModel::NewContact($email, $contact)) {
-    header("location: /");
-} else {
-    header("location: //?msg=1");
+    $email = htmlspecialchars($_POST["email"]);
+    $contact = htmlspecialchars($_POST["contact"]);
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $email = $email;
+        $contact = trim($contact);
+        if (contactModel::NewContact($email, $contact)) {
+            header("location: /");
+        } else {
+            header("location: //?msg=1");
+        }
+    }
 }
 exit();

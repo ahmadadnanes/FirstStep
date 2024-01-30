@@ -29,6 +29,9 @@ if (isset($_SESSION["id"])) {
         } else {
             if (isset($_POST["submit"])) {
                 $admin = new admin;
+                $old = trim($_POST["oldPass"]);
+                $new = trim($_POST["newPass"]);
+
                 $result = $admin->changePassword($_SESSION["id"], $_POST["oldPass"], $_POST["newPass"]);
                 if (is_bool($result)) {
                     header("location: /changePassword");

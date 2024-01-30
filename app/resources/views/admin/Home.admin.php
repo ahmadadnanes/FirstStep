@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include("./app/resources/components/layout.php") ?>
+    <?php include("./app/resources/components/layout.html") ?>
     <title>Welcome admin <?= $_SESSION["user"] ?></title>
 </head>
 
