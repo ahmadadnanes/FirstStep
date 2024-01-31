@@ -44,26 +44,25 @@ class DiaryController extends diaryModel
 
     public static function storeComm($user_id, $diary_id, $comment)
     {
-        if (diaryModel::storeComment($user_id, $diary_id, $comment)) {
+        $id = diaryModel::storeComment($user_id, $diary_id, $comment);
+        if (is_numeric($id)) {
             $viewUser = new UserController();
             $user = $viewUser->get($user_id);
             $date = new DateTime();
             $date->setTimezone(new DateTimeZone("Asia/Amman"));
             $date = $date->format('h:i a m/d/Y');
             echo "
-            <div class='comment'> 
-                <div class='author'>
-                    <a href='/user/?user=$user_id'>$user</a>
-                </div>
-                <div class='content'>
-                    $comment
-                </div
-                <div class='time'>
-                    $date
-                </div>
-            </div>";
-        } else {
-            echo "Error";
+                <div class='comment' onclick='location.href=`/comment/?id=$id`'> 
+                    <div class='author'>
+                        <a href='/user/?user=$user_id'>$user</a>
+                    </div>
+                    <div class='content'>
+                        $comment
+                    </div
+                    <div class='time'>
+                        $date
+                    </div>
+                </div>";
         }
     }
 

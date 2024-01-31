@@ -33,12 +33,12 @@ $router->addRoute('POST', '/contact', function () {
 // signup
 
 $router->addRoute('GET', '/signup', function () {
-    require "app/resources/views/login.php";
+    require "app/resources/views/auth.php";
     exit;
 });
 
 $router->addRoute('GET', '/signup/:msg', function ($msg) {
-    require "app/resources/views/login.php";
+    require "app/resources/views/auth.php";
     exit;
 });
 
@@ -55,7 +55,7 @@ $router->addRoute('GET', '/login', function () {
 });
 
 $router->addRoute('GET', '/login/:msg', function ($msg) {
-    require "app/resources/views/login.php";
+    require "app/resources/views/auth.php";
     exit;
 });
 

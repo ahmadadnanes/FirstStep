@@ -77,8 +77,9 @@ class diaryModel extends connect
         $conn = $db->conn();
         $sql = $conn->prepare("INSERT INTO comments(user_id,diary_id,comment) VALUES (?,?,?)");
         $sql->bind_param('iis', $user_id, $diary_id, $comment);
-        $result = $sql->execute();
-        return $result;
+        $sql->execute();
+        $id = $sql->insert_id;
+        return $id;
     }
 
     public static function getCommentsByDiary($diary_id)

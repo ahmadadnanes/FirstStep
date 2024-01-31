@@ -112,7 +112,7 @@ if ($server == "signup") {
             $user->signup();
         }
     } else {
-        require("./app/resources/views/signup.php");
+        require("./app/resources/views/auth.php");
     }
 } else if ($server == "login") {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -128,7 +128,7 @@ if ($server == "signup") {
                 require "./app/resources/views/Home.php";
             }
         } else {
-            require "./app/resources/views/login.php";
+            require "./app/resources/views/auth.php";
         }
     }
     exit;

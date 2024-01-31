@@ -6,6 +6,7 @@ if (!empty($diaries)) {
         $user_id = $row[$start];
         $dt = $row[$start += 1];
         $dc = $row[$start += 1];
+        $dd = $row[5];
 ?>
         <div class="diary_container" onclick="location.href='/diaryById/?id=<?= $diary_id ?>'">
             <?php if (isset($delete)) { ?>
@@ -30,6 +31,12 @@ if (!empty($diaries)) {
                     <p>by: <a href="/user/<?= "?user=" . $user_id ?>"><?= $dUser ?></a></p>
                 </div>
             <?php } ?>
+            <div class="time">
+                <?php
+                $date = new DateTime($dd);
+                echo " <p> Date: " . $date->format('h:i a m/d/Y') . "</p>";
+                ?>
+            </div>
         </div>
     <?php }
 } else {

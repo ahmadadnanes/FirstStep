@@ -226,11 +226,22 @@ button:not(.x):hover {
 .diary_container .author {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 10px;
   padding-right: 15px;
 }
 @media ((max-width:768px)) {
   .diary_container .author {
+    font-size: 14px;
+  }
+}
+.diary_container .time {
+  position: absolute;
+  right: 0;
+  bottom: -10px;
+  padding-right: 15px;
+}
+@media ((max-width:768px)) {
+  .diary_container .time {
     font-size: 14px;
   }
 }
@@ -293,6 +304,9 @@ dialog .content .text .pop-btn {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+.comment:hover {
+  cursor: pointer;
 }
 
 .admin {

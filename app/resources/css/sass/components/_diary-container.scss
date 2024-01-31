@@ -24,7 +24,16 @@
     .author{
         position: absolute;
         right: 0;
-        bottom: 0;
+        bottom: 10px;
+        padding-right: 15px;
+        @media ($phone-max) {
+            font-size: 14px;
+        }
+    }
+    .time{
+        position: absolute;
+        right: 0;
+        bottom: -10px;
         padding-right: 15px;
         @media ($phone-max) {
             font-size: 14px;
