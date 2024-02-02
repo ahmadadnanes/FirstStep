@@ -5,23 +5,4 @@
             transform: scale(1);
         }
     }
-    form{
-        position: relative;
-        padding-top: 50px;
-        padding-bottom: 50px;
-        textarea{
-            width: 100%;
-            border-radius: 10px;
-        }
-        button{
-            position: absolute;
-            background-color: transparent !important;
-            border: 0;
-            right: 0;
-            bottom: 0;
-            i{
-                font-size: 40px;
-            }
-        }
-    }
 }

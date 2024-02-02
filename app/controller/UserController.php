@@ -78,11 +78,12 @@ class UserController extends user
                         $pre_header = $_SERVER["QUERY_STRING"];
                         header("location: /" . $pre_header);
                     } else {
-                        if (user::UserType($_SESSION["id"])) {
-                            header("location: /admin");
-                        } else {
-                            require("./app/resources/views/Home.php");
-                        }
+                        require("./app/resources/views/Home.php");
+                        // if (user::UserType($_SESSION["id"])) {
+                        //     header("location: /admin");
+                        // } else {
+
+                        // }
                     }
                 } else {
                     header("location:/login/?msg=" . $errors['Wrong']);

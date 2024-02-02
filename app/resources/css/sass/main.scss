@@ -2,6 +2,7 @@
 @use './layout/root';
 @use './layout/header';
 @use './layout/sidebar.admin';
+@use './components/comment';
 
 @use './components/scrollUp';
 @use './components/error';
@@ -10,7 +11,7 @@
 @use './components/diary-container';
 @use './components/popup';
 @use './components/showPass';
-@use './components/comment';
+@use './components/add_comment';
 
 @use './pages/admin';
 @use './pages/Home';

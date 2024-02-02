@@ -38,6 +38,10 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style: none;
+}
+
 .container {
   padding-right: 15px;
   padding-left: 15px;
@@ -45,7 +49,6 @@ a {
   margin-right: auto;
 }
 
-/* end - header */
 nav {
   padding: 15px;
   height: 80px;
@@ -148,6 +151,20 @@ nav .container .links ul li a:hover {
   font-size: 25px;
 }
 .sidebar div i:hover {
+  cursor: pointer;
+}
+
+.comment {
+  margin-bottom: 15px;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 0px 5px 15px rgba(1, 1, 1, 0.15);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.comment:hover {
   cursor: pointer;
 }
 
@@ -295,18 +312,25 @@ dialog .content .text .pop-btn {
   margin-right: 10px;
 }
 
-.comment {
+.add_comment {
+  position: relative;
+  padding-top: 50px;
+  padding-bottom: 50px;
   margin-bottom: 15px;
-  border-radius: 10px;
-  padding: 15px;
-  background-color: white;
-  box-shadow: 0px 5px 15px rgba(1, 1, 1, 0.15);
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
 }
-.comment:hover {
-  cursor: pointer;
+.add_comment textarea {
+  width: 100%;
+  border-radius: 10px;
+}
+.add_comment button {
+  position: absolute;
+  background-color: transparent !important;
+  border: 0;
+  right: 0;
+  bottom: 0;
+}
+.add_comment button i {
+  font-size: 40px;
 }
 
 .admin {
@@ -885,52 +909,54 @@ dialog .content .text .pop-btn {
   cursor: default;
   transform: scale(1);
 }
-.diaryById form {
-  position: relative;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-.diaryById form textarea {
-  width: 100%;
-  border-radius: 10px;
-}
-.diaryById form button {
-  position: absolute;
-  background-color: transparent !important;
-  border: 0;
-  right: 0;
-  bottom: 0;
-}
-.diaryById form button i {
-  font-size: 40px;
-}
 
 /* start - footer */
-footer .footer_container h2 {
-  text-align: center;
-  padding: 15px;
-  padding-left: 50px;
+footer {
+  background-color: bisque;
+  padding-top: 50px;
 }
-footer .footer_container h3 {
-  font-size: 20px;
-  text-align: center;
-  padding: 15px;
-  padding-left: 50px;
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .container .text h2 {
+  padding: 10px;
   margin: 0;
 }
-footer .footer_ul {
+@media (max-width: 600px) {
+  footer .container .text {
+    margin-bottom: 10px;
+  }
+}
+footer .container .browse li {
+  padding-bottom: 10px;
+}
+footer .container ul {
+  padding: 0;
+}
+footer .container .footer_ul {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
 }
-footer .footer_ul li {
-  padding: 15px;
+@media (max-width: 600px) {
+  footer .container .footer_ul {
+    padding-top: 10px;
+    justify-content: center;
+  }
 }
-footer .footer_ul li i {
+footer .container .footer_ul li {
+  padding-inline: 10px;
+}
+footer .container .footer_ul li i {
   font-size: 40px;
   color: black;
-  text-align: center;
+}
+@media (max-width: 600px) {
+  footer .container {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 /* end - footer *//*# sourceMappingURL=main.css.map */

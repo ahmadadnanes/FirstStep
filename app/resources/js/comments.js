@@ -6,7 +6,7 @@ $('#submit').on('click' , function (event){
     if(comment){
         $.ajax({
             type: "POST",
-            url: '/comment',
+            url: '/addcomment',
             data:
             {
                 user_id: userId ,

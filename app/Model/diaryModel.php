@@ -29,7 +29,7 @@ class diaryModel extends connect
     {
         $db = new connect();
         $conn = $db->conn();
-        $sql = $conn->prepare("SELECT id,diary_title,diary_content,private FROM diary WHERe user_id like ? ORDER BY id DESC");
+        $sql = $conn->prepare("SELECT * FROM diary WHERe user_id like ? ORDER BY id DESC");
         $sql->bind_param('s', $id);
         $sql->execute();
         $result = $sql->get_result();
@@ -63,7 +63,7 @@ class diaryModel extends connect
     {
         $db = new connect();
         $conn = $db->conn();
-        $sql = $conn->prepare("SELECT id,diary_title,diary_content FROM diary WHERE user_id like ? and private = 0 ORDER BY id DESC");
+        $sql = $conn->prepare("SELECT * FROM diary WHERE user_id like ? and private = 0 ORDER BY id DESC");
         $sql->bind_param('s', $UserId);
         $sql->execute();
         $result = $sql->get_result();

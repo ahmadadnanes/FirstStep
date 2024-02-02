@@ -113,7 +113,7 @@ if ($server == "diary") {
             }
         }
     }
-} else if ($server == "comment") {
+} else if ($server == "addcomment") {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_POST["user_id"], $_POST["diary_id"], $_POST["comment"])) {
             $user_id = $_POST["user_id"];

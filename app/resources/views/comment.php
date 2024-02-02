@@ -38,6 +38,7 @@ if (isset($_GET["id"])) {
                 ?>
             </div>
         </div>
+        <?php include_once("./app/resources/components/add_comment.php") ?>
     </div>
 </body>
 

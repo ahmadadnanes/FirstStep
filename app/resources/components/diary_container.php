@@ -1,12 +1,19 @@
 <?php
 if (!empty($diaries)) {
+    // die(var_dump($diaries));
     foreach ($diaries as $row) {
         $start = $initial;
         $diary_id = $row[0];
-        $user_id = $row[$start];
-        $dt = $row[$start += 1];
-        $dc = $row[$start += 1];
+        $user_id = $row[1];
         $dd = $row[5];
+        if ($type == "userDiaries") {
+            $start = $initial;
+            $dt = $row[$start];
+            $dc = $row[$start += 1];
+        } else {
+            $dt = $row[$start += 1];
+            $dc = $row[$start += 1];
+        }
 ?>
         <div class="diary_container" onclick="location.href='/diaryById/?id=<?= $diary_id ?>'">
             <?php if (isset($delete)) { ?>

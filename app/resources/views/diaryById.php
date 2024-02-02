@@ -1,6 +1,7 @@
 <?php
 include_once "./app/controller/DiaryController.php";
 include_once "./app/controller/UserController.php";
+$server = explode('/', $_SERVER["REQUEST_URI"])[1];
 if (isset($_GET["id"], $_SESSION["user"])) {
     $id = htmlspecialchars($_GET["id"]);
     $user = $_SESSION["user"];
@@ -53,12 +54,7 @@ $diary = $view->GetDiaryById($id);
                 </div>
             <?php } ?>
         </div>
-        <form action="/comment" method="post">
-            <input type="hidden" name="diary_id" value="<?= $diary[0][0] ?>">
-            <input type="hidden" name="user_id" value="<?= $_SESSION["id"] ?>">
-            <textarea name="comment" cols="30" rows="10" id="comment"></textarea>
-            <button id="submit"><i class="fas fa-comment"></i></button>
-        </form>
+        <?php include_once("./app/resources/components/add_comment.php") ?>
     </div>
     <?php include "./app/resources/components/footer.html" ?>
 </body>

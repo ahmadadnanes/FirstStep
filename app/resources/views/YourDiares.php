@@ -1,7 +1,7 @@
 <?php
 include_once "./app/controller/DiaryController.php";
 include_once("./app/controller/UserController.php");
-$initial = 0;
+$initial = 2;
 $type = "userDiaries";
 if (isset($_GET["user"])) {
     $id = $_GET["user"];

@@ -91,7 +91,7 @@ $router->addRoute('GET', '/diaryById/:id', function ($id) {
     require "app/resources/views/diaryById.php";
 });
 
-$router->addRoute('POST', '/comment', function () {
+$router->addRoute('POST', '/addcomment', function () {
     require "app/controller/DiaryController.php";
 });
 
