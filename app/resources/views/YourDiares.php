@@ -1,11 +1,11 @@
 <?php
 include_once "./app/controller/DiaryController.php";
-include_once("./app/controller/UserController.php");
+include_once "./app/controller/UserController.php";
 $initial = 2;
 $type = "userDiaries";
 if (isset($_GET["user"])) {
     $id = $_GET["user"];
-    $diaries = diaryModel::GetDiaryByUser($id);
+    $diaries = DiaryController::GetDiaryByUser($id);
 } else {
     $delete = true;
     $view = new DiaryController;

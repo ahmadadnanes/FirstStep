@@ -17,23 +17,20 @@
     }
     .content{
         padding: 15px;
+        word-wrap: break-word;
         @media ($phone-max) {
             font-size: 14px;
         }
     }
     .author{
-        position: absolute;
-        right: 0;
-        bottom: 10px;
+        text-align: center;
         padding-right: 15px;
         @media ($phone-max) {
             font-size: 14px;
         }
     }
     .time{
-        position: absolute;
-        right: 0;
-        bottom: -10px;
+        text-align: center;
         padding-right: 15px;
         @media ($phone-max) {
             font-size: 14px;

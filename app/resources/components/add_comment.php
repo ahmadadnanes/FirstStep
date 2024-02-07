@@ -1,5 +1,5 @@
 <form action="" method="post" class="add_comment">
-    <?php if ($server == "/diaryById") { ?>
+    <?php if ($server == "diaryById") { ?>
         <input type="hidden" name="diary_id" value="<?= $diary[0][0] ?>">
         <input type="hidden" name="user_id" value="<?= $_SESSION["id"] ?>">
     <?php } else { ?>

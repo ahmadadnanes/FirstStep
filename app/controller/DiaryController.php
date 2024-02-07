@@ -75,6 +75,10 @@ class DiaryController extends diaryModel
     {
         return diaryModel::getCommentsByDiary($diary_id);
     }
+
+    public static function GetRep($comment_id)
+    {
+    }
 }
 $server = explode('/', $_SERVER["REQUEST_URI"])[1];
 if ($server == "diary") {

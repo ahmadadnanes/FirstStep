@@ -234,6 +234,7 @@ button:not(.x):hover {
 }
 .diary_container .content {
   padding: 15px;
+  word-wrap: break-word;
 }
 @media ((max-width:768px)) {
   .diary_container .content {
@@ -241,9 +242,7 @@ button:not(.x):hover {
   }
 }
 .diary_container .author {
-  position: absolute;
-  right: 0;
-  bottom: 10px;
+  text-align: center;
   padding-right: 15px;
 }
 @media ((max-width:768px)) {
@@ -252,9 +251,7 @@ button:not(.x):hover {
   }
 }
 .diary_container .time {
-  position: absolute;
-  right: 0;
-  bottom: -10px;
+  text-align: center;
   padding-right: 15px;
 }
 @media ((max-width:768px)) {
@@ -881,28 +878,26 @@ dialog .content .text .pop-btn {
   background: none !important;
 }
 
-.your {
+.your section {
+  padding: 50px;
+  min-height: 100vh;
   background-image: url("/app/resources/img/wavy-line-colored-pencils-min.jpg");
   background-size: cover;
 }
 @media ((max-width:768px)) {
-  .your {
+  .your section {
     background-image: url("/app/resources/img/wavy-line-colored-pencils-small-min.jpg");
   }
 }
 @media ((max-width:992px)) {
-  .your {
+  .your section {
     background-image: url("/app/resources/img/wavy-line-colored-pencils-medium-min.jpg");
   }
 }
 @media ((max-width:1200px)) {
-  .your {
+  .your section {
     background-image: url("/app/resources/img/wavy-line-colored-pencils-large-min.jpg");
   }
-}
-.your section {
-  padding: 50px;
-  min-height: 100vh;
 }
 
 .diaryById .diary_container:hover {
