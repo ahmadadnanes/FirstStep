@@ -10,7 +10,12 @@
         left: 50%;
         transform: translate(-50%,-50%);
         width: 600px;
-
+        @media (max-width: 600px) {
+            width: 300px;
+            h1{
+                font-size: 24px;
+            }
+        }
         a{
             color: bisque;
         }

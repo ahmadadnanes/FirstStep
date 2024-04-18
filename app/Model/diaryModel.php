@@ -2,30 +2,28 @@
 include_once 'connect.php';
 class diaryModel extends connect
 {
-    public static function SaveDiary($id, $title, $content, $private)
+    public static function SaveDiary($id, $title, $content, $private): bool
     {
         $db = new connect();
         $conn = $db->conn();
         $sql = $conn->prepare("INSERT INTO diary (user_id,diary_title,diary_content,private) VALUES (?,?,?,?)");
         $sql->bind_param('sssi', $id, $title, $content, $private);
-        $sql->execute();
 
-        return true;
+        return $sql->execute();
     }
 
-    public static function all()
+    public static function all(): array
     {
         $db = new connect();
         $conn = $db->conn();
         $sql = $conn->prepare("SELECT * FROM diary WHERE private = 0");
         $sql->execute();
         $result = $sql->get_result();
-        $diaries = $result->fetch_all();
 
-        return $diaries;
+        return $result->fetch_all();
     }
 
-    public static function GetDiary($id)
+    public static function GetDiary($id): array
     {
         $db = new connect();
         $conn = $db->conn();
@@ -33,11 +31,10 @@ class diaryModel extends connect
         $sql->bind_param('s', $id);
         $sql->execute();
         $result = $sql->get_result();
-        $diaries = $result->fetch_all();
-        return $diaries;
+        return $result->fetch_all();
     }
 
-    public static function GetDiaryById($DiaryId)
+    public static function GetDiaryById($DiaryId): array
     {
         $db = new connect();
         $conn = $db->conn();
@@ -59,7 +56,7 @@ class diaryModel extends connect
         $sql->execute();
     }
 
-    public static function GetDiaryByUser($UserId)
+    public static function GetDiaryByUser($UserId): array
     {
         $db = new connect();
         $conn = $db->conn();
@@ -82,7 +79,7 @@ class diaryModel extends connect
         return $id;
     }
 
-    public static function getCommentsByDiary($diary_id)
+    public static function getCommentsByDiary($diary_id): array
     {
         $db = new connect();
         $conn = $db->conn();
@@ -95,7 +92,7 @@ class diaryModel extends connect
         return $comments;
     }
 
-    public static function getCommentById($comment_id)
+    public static function getCommentById($comment_id): array
     {
         $db = new connect();
         $conn = $db->conn();

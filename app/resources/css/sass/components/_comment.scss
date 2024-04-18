@@ -7,7 +7,11 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    word-wrap: break-word;
     &:hover{
         cursor: pointer;
+    }
+    .content{
+        max-width: 100%;
     }
 }

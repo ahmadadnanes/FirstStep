@@ -33,8 +33,12 @@ if (isset($_GET["id"])) {
             </div>
             <div class="time">
                 <?php
-                $date = new DateTime($comment[0][4]);
-                echo $date->format('h:i a m/d/Y');
+                try {
+                    $date = new DateTime($comment[0][4]);
+                    echo $date->format('h:i a m/d/Y');
+                } catch (Exception $e) {
+                    echo "0:00 00/00/0000";
+                }
                 ?>
             </div>
         </div>

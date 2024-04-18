@@ -7,15 +7,13 @@ if (!empty($diaries)) {
         $user_id = $row[1];
         $dd = $row[5];
         if ($type == "userDiaries") {
-            $start = $initial;
             $dt = $row[$start];
-            $dc = $row[$start += 1];
         } else {
             $dt = $row[$start += 1];
-            $dc = $row[$start += 1];
         }
+        $dc = $row[$start += 1];
 ?>
-        <div class="diary_container" onclick="location.href='/diaryById/?id=<?= $diary_id ?>'">
+        <div class="diary_container" onclick="location.href='/diaryById/?id=<?= $diary_id ?>'" id="<?= $diary_id ?>">
             <?php if (isset($delete)) { ?>
                 <div class="delete">
                     <form action="/diary" method="post" id="deleteForm">

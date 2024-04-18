@@ -163,9 +163,13 @@ nav .container .links ul li a:hover {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  word-wrap: break-word;
 }
 .comment:hover {
   cursor: pointer;
+}
+.comment .content {
+  max-width: 100%;
 }
 
 /* start - scroll up */
@@ -757,6 +761,14 @@ dialog .content .text .pop-btn {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 600px;
+}
+@media (max-width: 600px) {
+  .errorPage .text {
+    width: 300px;
+  }
+  .errorPage .text h1 {
+    font-size: 24px;
+  }
 }
 .errorPage .text a {
   color: bisque;

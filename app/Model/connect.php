@@ -22,7 +22,7 @@ class connect
         }
     }
 
-    public function conn()
+    public function conn(): mysqli
     {
         return $this->mysqli;
     }

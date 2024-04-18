@@ -52,7 +52,7 @@ if (isset($_GET["user"])) {
     <?php include("./app/resources/components/up.html") ?>
     <!-- start your diares -->
     <section>
-        <div class="container">
+        <div class="container" id="YourDiariesContainer">
             <?php include('./app/resources/components/diary_container.php') ?>
         </div>
         <p class="text-center mt-1">Image by <a href="https://www.freepik.com/free-photo/wavy-line-colored-pencils_2533019.htm#page=8&query=pencil%20wallpaper&position=37&from_view=keyword&track=ais">Freepik</a></p>

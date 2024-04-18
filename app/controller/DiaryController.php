@@ -14,7 +14,7 @@ class DiaryController extends diaryModel
         return diaryModel::GetDiary($id);
     }
 
-    public static function all()
+    public static function all(): array
     {
         return diaryModel::all();
     }
@@ -66,12 +66,12 @@ class DiaryController extends diaryModel
         }
     }
 
-    public static function GetCommentById($comment_id)
+    public static function GetCommentById($comment_id): array
     {
         return diaryModel::getCommentById($comment_id);
     }
 
-    public static function GetComm($diary_id)
+    public static function GetComm($diary_id): array
     {
         return diaryModel::getCommentsByDiary($diary_id);
     }
@@ -91,6 +91,7 @@ if ($server == "diary") {
             exit;
         }
     } else {
+        die($_POST["delete"]);
         if (isset($_POST["delete"])) {
             diaryModel::DeleteDiary($_POST["delete"]);
             header("location: /user/" . $_SESSION["user"]);
@@ -123,7 +124,7 @@ if ($server == "diary") {
             $user_id = $_POST["user_id"];
             $diary_id = $_POST["diary_id"];
             $comment = $_POST["comment"];
-            return DiaryController::storeComm($user_id, $diary_id, $comment);
+            DiaryController::storeComm($user_id, $diary_id, $comment);
         } else {
             header("location: /diaryById?id=" . $_POST["diary_id"]);
         }

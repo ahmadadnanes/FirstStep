@@ -1,5 +1,4 @@
 <?php
-include "app/functions/checkQuestionMark.function.php";
 
 class router
 {

@@ -47,7 +47,11 @@ $diary = $view->GetDiaryById($id);
                     </div>
                     <div class="time">
                         <?php
-                        $date = new DateTime($comment[4]);
+                        try {
+                            $date = new DateTime($comment[4]);
+                        } catch (Exception $e) {
+                            echo "0:00 00/00/0000";
+                        }
                         echo $date->format('h:i a m/d/Y');
                         ?>
                     </div>

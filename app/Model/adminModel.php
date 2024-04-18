@@ -3,7 +3,7 @@ include_once "connect.php";
 
 class adminModel extends connect
 {
-    public function checkPass($id, $old)
+    public function checkPass($id, $old): bool
     {
         $db = new connect;
         $conn = $db->conn();
@@ -24,7 +24,6 @@ class adminModel extends connect
         $sql->bind_param('ss', md5($new), $id);
         $sql->execute();
 
-        $result = $sql->get_result();
-        return $result;
+        return $sql->get_result();
     }
 }

@@ -4,7 +4,6 @@ if (isset($_POST["submit"])) {
     $email = htmlspecialchars($_POST["email"]);
     $contact = htmlspecialchars($_POST["contact"]);
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $email = $email;
         $contact = trim($contact);
         if (contactModel::NewContact($email, $contact)) {
             header("location: /");

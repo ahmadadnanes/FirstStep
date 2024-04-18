@@ -42,9 +42,8 @@ class user extends connect
         $sql = $conn->prepare("SELECT email from users where email like ?");
         $sql->bind_param('s', $email);
         $sql->execute();
-        $result = $sql->get_result();
 
-        return $result;
+        return $sql->get_result();
     }
 
     public static function checkPass($em, $pass)
