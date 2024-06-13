@@ -41,17 +41,17 @@ $nav['English'] = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include("./app/resources/components/layout.html") ?>
+    <?php include("./app/resources/views/components/layout.html") ?>
     <title>الخطوة الأولى</title>
 </head>
 
 <body class="home">
     <!-- start header -->
-    <?php include './app/resources/components/header.php' ?>
+    <?php include './app/resources/views/components/header.php' ?>
     <!-- end header -->
 
 
-    <?php include("./app/resources/components/up.html") ?>
+    <?php include("./app/resources/views/components/up.html") ?>
 
     <!-- start landing -->
     <section>
@@ -148,7 +148,7 @@ $nav['English'] = [
         </div>
     </section>
     <!-- end contact -->
-    <?php include("./app/resources/components/rtl/footer.rtl.html") ?>
+    <?php include("./app/resources/views/components/rtl/footer.rtl.html") ?>
    
 </body>
  <!-- JS -->

@@ -82,7 +82,7 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
                             <?php } ?>
                             <button class="btnn" type="submit" name="submit"><?php if ($server == "login") { ?> Login <?php } else { ?> SignUp <?php } ?></button>
                         </form>
-                        <?php include("./app/resources/components/error.php") ?>
+                        <?php include("./app/resources/views/components/error.php") ?>
                     </center>
                 </div>
             </div>

@@ -19,13 +19,13 @@ $nav = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include("./app/resources/components/layout.html") ?>
+    <?php include("./app/resources/views/components/layout.html") ?>
     <title>المذكرة</title>
 </head>
 
 <body class="diary">
-    <?php include("./app/resources/components/header.php") ?>
-    <?php include("./app/resources/components/up.html") ?>
+    <?php include("./app/resources/views/components/header.php") ?>
+    <?php include("./app/resources/views/components/up.html") ?>
 
     <!-- start diary -->
     <section>
@@ -46,7 +46,7 @@ $nav = [
                     <button type="submit" name="submit">
                         ادخال
                     </button>
-                    <?php include("./app/resources/components/error.php") ?>
+                    <?php include("./app/resources/views/components/error.php") ?>
                 </div>
             </form>
         </div>
@@ -57,13 +57,13 @@ $nav = [
         <h2>تصفح اخر المذكرات</h2>
         <div class="container">
             <?php
-            include("./app/resources/components/diary_container.php")
+            include("./app/resources/views/components/diary_container.php")
             ?>
         </div>
     </div>
     <p class="text-center mt-1">Image by <a href="https://www.freepik.com/free-photo/sharp-colored-pencil_1476988.htm#query=pencil%20wallpaper&position=0&from_view=keyword&track=ais">Freepik</a></p>
     <!-- end social diary -->
-    <?php include("./app/resources/components/footer.html") ?>
+    <?php include("./app/resources/views/components/footer.html") ?>
     <!-- JS -->
     <script src="/app/resources/js/navbar.js"></script>
     <script src="/app/resources/js/up.js"></script>

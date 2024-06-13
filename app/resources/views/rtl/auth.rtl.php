@@ -8,7 +8,7 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include("./app/resources/components/layout.html") ?>
+    <?php include("./app/resources/views/components/layout.html") ?>
     <?php if ($server == "login") { ?>
         <title>تسجيل الدخول</title>
     <?php } else { ?>
@@ -20,7 +20,7 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
     <!-- start header -->
     <nav>
         <div class="container">
-            <?php include('./app/resources/components/logo.html') ?>
+            <?php include('./app/resources/views/components/logo.html') ?>
             <div class="normal-bar d-block">
                 <?php if ($server == "signup") { ?> <a href="/login/?lang=ar">تسجيل الدخول</a> <?php } else { ?>
                     <a href="/signup/?lang=ar">تسجيل حساب جديد</a>
@@ -83,7 +83,7 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
                             <?php } ?>
                             <button class="btnn" type="submit" name="submit">تسجيل</button>
                         </form>
-                        <?php include("./app/resources/components/error.php") ?>
+                        <?php include("./app/resources/views/components/error.php") ?>
                     </center>
                 </div>
             </div>
