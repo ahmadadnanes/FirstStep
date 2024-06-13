@@ -1,11 +1,19 @@
+@use '../helpers/vars' as *;
 .password{
     position: relative;
     width: fit-content;
     margin-right: 3px;
     .show , .hide{
         position: absolute;
-        right: 0;
+
+        [dir=rtl] & {
+            left: 0;
+            margin-left: 10px;
+        }
+        [dir=ltr] & {
+            right: 0;
+            margin-right: 10px;
+        }
         margin-top: 10px;
-        margin-right: 10px;
     }
 }

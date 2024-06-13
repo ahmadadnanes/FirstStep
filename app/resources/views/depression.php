@@ -1,6 +1,12 @@
 <?php
 @session_start();
 $user = $_SESSION["user"];
+$nav = [
+    'logout' =>[
+        '/logout',
+        'logout'
+    ]
+]
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,13 +15,13 @@ $user = $_SESSION["user"];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- main css files -->
-    <?php include("./app/resources/components/layout.html") ?>
+    <?php include("./app/resources/views/components/layout.html") ?>
     <title>Depression Test</title>
 </head>
 
 <body class="dep">
-    <?php include("./app/resources/components/header.php") ?>
-    <?php include("./app/resources/components/up.html") ?>
+    <?php include("./app/resources/views/components/header.php") ?>
+    <?php include("./app/resources/views/components/up.html") ?>
     <!-- start depression test -->
     <section>
 
@@ -208,7 +214,7 @@ $user = $_SESSION["user"];
         </div>
     </div> -->
     <!-- end depression test -->
-    <?php include("./app/resources/components/footer.html") ?>
+    <?php include("./app/resources/views/components/footer.html") ?>
     <!-- JS -->
     <script src="/app/resources/js/navbar.js"></script>
     <script src="/app/resources/js/up.js"></script>

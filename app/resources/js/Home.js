@@ -1,5 +1,4 @@
 window.addEventListener('scroll',reveal);
-
 function reveal() {
     let reveals = document.querySelectorAll(".serv");
     for (let i = 0; i < reveals.length; i++) {
@@ -10,7 +9,7 @@ function reveal() {
             reveals[i].classList.add("active");
         } else {
             reveals[i].classList.remove("active");
-            }
+        }
     }
 }
 

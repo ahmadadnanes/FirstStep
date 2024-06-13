@@ -4,7 +4,7 @@ include_once 'connect.php';
 class user extends connect
 {
 
-    public static function createUser($username, $email, $password): bool
+    public static function createUser($username, $email, $password, $admin = 0): bool
     {
         $db = new connect();
         $conn = $db->conn();
@@ -25,8 +25,8 @@ class user extends connect
             return false;
         } else {
             // create new user
-            $sql2 = $conn->prepare("insert into users(username,email,pass) values (?,?,?)");
-            $sql2->bind_param('sss', $username, $email, $password);
+            $sql2 = $conn->prepare("insert into users(username,email,pass,admin) values (?,?,?,?)");
+            $sql2->bind_param('sssi', $username, $email, $password, $admin);
             $sql2->execute();
             session_start();
             $_SESSION["success"] = "Your account has been created";

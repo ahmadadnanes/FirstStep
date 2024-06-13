@@ -37,11 +37,6 @@ $router->addRoute('GET', '/signup', function () {
     exit;
 });
 
-$router->addRoute('GET', '/signup/:msg', function ($msg) {
-    require "app/resources/views/auth.php";
-    exit;
-});
-
 $router->addRoute('POST', '/signup', function () {
     require "app/controller/UserController.php";
     exit;
@@ -55,13 +50,17 @@ $router->addRoute('GET', '/login', function () {
 });
 
 $router->addRoute('GET', '/login/:msg', function ($msg) {
-    require "app/resources/views/auth.php";
+    require "app/controller/UserController.php";
     exit;
 });
 
 $router->addRoute('GET', '/login/:pre', function ($pre) {
     require "app/controller/UserController.php";
     exit;
+});
+
+$router->addRoute('GET' , '/login/:lang/:pre' , function($lang , $pre){
+    require "app/controller/UserController.php";
 });
 
 $router->addRoute('POST', '/login', function () {
@@ -83,17 +82,13 @@ $router->addRoute('POST', '/diary', function () {
     require "app/controller/DiaryController.php";
 });
 
-$router->addRoute('GET', '/diary/:msg', function ($msg) {
-    require "app/resources/views/diary.php";
-});
+$router->addRoute('GET' , '/diary/:lang' , fn($lang) => require('app/controller/DiaryController.php'));
 
-$router->addRoute('GET', '/diaryById/:id', function ($id) {
-    require "app/resources/views/diaryById.php";
-});
+$router->addRoute('GET', '/diary/:msg', fn ($msg) => require "app/resources/views/diary.php");
 
-$router->addRoute('POST', '/addcomment', function () {
-    require "app/controller/DiaryController.php";
-});
+$router->addRoute('GET', '/diaryById/:id', fn ($id) => require "app/resources/views/diaryById.php");
+
+$router->addRoute('POST', '/addcomment', fn () => require "app/controller/DiaryController.php");
 
 $router->addRoute('GET', '/comment/:id', function ($id) {
     require "app/resources/views/comment.php";
@@ -134,8 +129,26 @@ $router->addRoute('POST', '/changePassword', function () {
 $router->addRoute('GET', '/changePassword/:msg', function ($msg) {
     require('app/resources/views/admin/changePassword.php');
 });
+
+$router->addRoute('GET' , '/:lang' , function($lang) {
+    require('app/resources/views/rtl/Home.rtl.php');
+});
+
+$router->addRoute('GET' , '/login/:lang' , function($lang){
+    require('app/controller/UserController.php');
+});
+
+$router->addRoute('GET' , '/signup/:lang' , function($lang){
+    require('app/resources/views/rtl/auth.rtl.php');
+});
+
+$router->addRoute('GET', '/signup/:msg', function ($msg) {
+    require "app/resources/views/auth.php";
+    exit;
+});
+
 try {
     $router->matchRoute();
 } catch (Exception $e) {
-    require("app/resources/views/404.php");
+    isset($_GET["lang"]) ? require("app/resources/views/rtl/404.rtl.php") : require("app/resources/views/404.php");
 }

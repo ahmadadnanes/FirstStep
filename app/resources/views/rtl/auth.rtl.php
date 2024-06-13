@@ -3,16 +3,16 @@
 $server = explode('/', $_SERVER["REQUEST_URI"])[1];
 ?>
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="rtl" lang="ar">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include("./app/resources/views/components/layout.html") ?>
+    <?php include("./app/resources/components/layout.html") ?>
     <?php if ($server == "login") { ?>
-        <title>Login</title>
+        <title>تسجيل الدخول</title>
     <?php } else { ?>
-        <title>Signup</title>
+        <title>تسجيل حساب جديد</title>
     <?php } ?>
 </head>
 
@@ -20,10 +20,10 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
     <!-- start header -->
     <nav>
         <div class="container">
-            <?php include('./app/resources/views/components/logo.html') ?>
+            <?php include('./app/resources/components/logo.html') ?>
             <div class="normal-bar d-block">
-                <?php if ($server == "signup") { ?> <a href="/login">Login</a> <?php } else { ?>
-                    <a href="/signup">SignUp</a>
+                <?php if ($server == "signup") { ?> <a href="/login/?lang=ar">تسجيل الدخول</a> <?php } else { ?>
+                    <a href="/signup/?lang=ar">تسجيل حساب جديد</a>
                 <?php } ?>
             </div>
         </div>
@@ -36,15 +36,16 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
             <div class="square">
                 <div class="half1">
                     <h2 class="quote">
-                        Be somebody who makes everybody feel like a somebody.
+                        كن شخصًا يجعل الجميع يشعرون
+                        وكأنهم شخص ما
                     </h2>
                     <?php if ($server == "login") { ?>
-                        <span>Doesn't have an account<a href='/signup'>
-                                Signup
+                        <span>لا يوجد لديك حساب<a href='/signup/?lang=ar'>
+                                تسجيل حساب جديد
                             </a><br>
                         <?php } else { ?>
-                            <span>have an account <a href='/login'>
-                                    Login
+                            <span>لديك حساب؟<a href='/login/?lang=ar'>
+                                    تسجيل الدخول
                                 </a><br>
                             <?php } ?>
                 </div>
@@ -56,31 +57,31 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
                                             echo '/' . $server;
                                         } ?>" method="post" id="form1">
 
-                            <?php if ($server == "login") { ?><h1>Login</h1> <?php } else { ?>
-                                <h1>SignUp</h1>
+                            <?php if ($server == "login") { ?><h1>تسجيل الدخول</h1> <?php } else { ?>
+                                <h1>تسجيل حساب جديد</h1>
                             <?php } ?>
                             <div class="input-container">
                                 <?php if ($server == "signup") { ?>
                                     <label for="username"></label>
-                                    <input type="text" id="username" name="username" required placeholder="Username"><br>
+                                    <input type="text" id="username" name="username" required placeholder="اسم المستخدم"><br>
 
                                 <?php } ?>
                                 <label for="email"></label>
-                                <input type="email" id="email" name="email" required placeholder="Email"><br>
+                                <input type="email" id="email" name="email" required placeholder="البريد الإلكتروني"><br>
 
                                 <div class="password">
                                     <label for="password"></label>
-                                    <input type="password" id="password" name="password" required placeholder="Password" min="5">
+                                    <input type="password" id="password" name="password" required placeholder="كلمة سر" min="5">
                                     <i class="fa-solid fa-eye show" id="show"></i>
                                 </div>
                             </div>
                             <?php if ($server == "login") { ?>
                                 <div class="remember">
-                                    <label for="remember">Remember Me</label>
+                                    <label for="remember">تذكرني</label>
                                     <input type="checkbox" name="remember" id="" value="yes">
                                 </div>
                             <?php } ?>
-                            <button class="btnn" type="submit" name="submit"><?php if ($server == "login") { ?> Login <?php } else { ?> SignUp <?php } ?></button>
+                            <button class="btnn" type="submit" name="submit">تسجيل</button>
                         </form>
                         <?php include("./app/resources/components/error.php") ?>
                     </center>

@@ -1,6 +1,7 @@
 <?php
 @session_start();
 include_once "./app/Model/user.php";
+include_once "./app/functions/validate.function.php";
 $errors = [];
 
 class UserController extends user
@@ -20,6 +21,8 @@ class UserController extends user
     public function filterSingUp()
     {
         if (filter_var($this->email, FILTER_VALIDATE_EMAIL) && strlen($this->email) !== 0) {
+            $this->email = validate($this->email);
+            $this->password = validate($this->password);
             return true;
         } else {
             $errors['email'] = "Please Fill Email Field";
@@ -30,6 +33,8 @@ class UserController extends user
     public function filterLogIn()
     {
         if (filter_var($this->email, FILTER_VALIDATE_EMAIL) && strlen($this->email) !== 0) {
+            $this->email = validate($this->email);
+            $this->password = validate($this->password);
             return true;
         } else {
             $errors['email'] = "Please Fill Email Field";
@@ -106,15 +111,12 @@ class UserController extends user
 
 
 $server = explode('/', $_SERVER["REQUEST_URI"])[1];
-
 if ($server == "signup") {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_POST["submit"])) {
             $user = new UserController(trim($_POST["username"]), $_POST["email"], trim($_POST["password"]));
             $user->signup();
         }
-    } else {
-        require("./app/resources/views/auth.php");
     }
 } else if ($server == "login") {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -130,13 +132,19 @@ if ($server == "signup") {
                 require "./app/resources/views/Home.php";
             }
         } else {
-            require "./app/resources/views/auth.php";
+            // die(var_dump($_GET));
+            if(isset($_GET["lang"])){
+                require("./app/resources/views/rtl/auth.rtl.php");
+            }else{
+                require("./app/resources/views/auth.php");
+            }
         }
     }
     exit;
 } else if ($server == "" || $server == "index.php") {
     if (isset($_COOKIE["email"]) && isset($_COOKIE["password"])) {
-        $user = new UserController(null, $_COOKIE["email"], trim($_COOKIE["password"]));
+        $pass = validate($_COOKIE["password"]);
+        $user = new UserController(null, $_COOKIE["email"], $pass);
         $user->login();
     } else {
         require('./app/resources/views/Home.php');

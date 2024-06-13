@@ -1,5 +1,6 @@
 <?php
 include_once "./app/Model/adminModel.php";
+include_once "./app/functions/validate.function.php";
 @session_start();
 $server = explode('/', $_SERVER["REQUEST_URI"])[1];
 
@@ -29,8 +30,8 @@ if (isset($_SESSION["id"])) {
         } else {
             if (isset($_POST["submit"])) {
                 $admin = new admin;
-                $old = trim($_POST["oldPass"]);
-                $new = trim($_POST["newPass"]);
+                $old = validate($_POST["oldPass"]);
+                $new = validate($_POST["newPass"]);
 
                 $result = $admin->changePassword($_SESSION["id"], $_POST["oldPass"], $_POST["newPass"]);
                 if (is_bool($result)) {

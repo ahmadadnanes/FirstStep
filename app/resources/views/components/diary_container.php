@@ -16,7 +16,7 @@ if (!empty($diaries)) {
         <div class="diary_container" onclick="location.href='/diaryById/?id=<?= $diary_id ?>'" id="<?= $diary_id ?>">
             <?php if (isset($delete)) { ?>
                 <div class="delete">
-                    <form action="/diary" method="post" id="deleteForm">
+                    <form id="deleteForm">
                         <button class="x" name="delete" value="<?= $diary_id ?>">
                             <i class="fa-solid fa-square-xmark"></i>
                         </button>
@@ -45,9 +45,9 @@ if (!empty($diaries)) {
         </div>
     <?php }
 } else {
-    if ($type == "userDiaries") { ?>
+    if ($type == "userDiaries" && !isset($_GET["user"])) { ?>
         <div class="create text-center">
-            <h4>Your Diaries are empty<a href=" /diary">Create One!</a></h4>
+            <h4>Your Diaries are empty<a href="/diary">Create One!</a></h4>
         </div><?php } else { ?>
         <div class="create" style="text-align: center;">
             <h4 class="mb-5">This is it for now</h4>

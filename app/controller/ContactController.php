@@ -1,10 +1,11 @@
 <?php
 include './app/Model/contactModel.php';
+include './app/functions/validate.function.php';
 if (isset($_POST["submit"])) {
-    $email = htmlspecialchars($_POST["email"]);
-    $contact = htmlspecialchars($_POST["contact"]);
+    $email = validate($_POST["email"]);
+    $contact = validate($_POST["contact"]);
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $contact = trim($contact);
+        $contact = validate($contact);
         if (contactModel::NewContact($email, $contact)) {
             header("location: /");
         } else {

@@ -1,8 +1,15 @@
 <?php
+include "./app/controller/UserController.php";
 @session_start();
 if (isset($_SESSION["user"])) {
     $user = $_SESSION["user"];
 }
+$nav = [
+    'logout' =>[
+        '/logout',
+        'logout'
+    ]
+]
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,12 +17,12 @@ if (isset($_SESSION["user"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include('./app/resources/components/layout.html') ?>
+    <?php include('./app/resources/views/components/layout.html') ?>
     <title>Recommended Psychologist</title>
 </head>
 
 <body class="rec">
-    <?php include("./app/resources/components/header.php") ?>
+    <?php include("./app/resources/views/components/header.php") ?>
 
     <!-- start Recomended psy -->
     <section>
@@ -54,7 +61,7 @@ if (isset($_SESSION["user"])) {
     <p class="text-center"><a href="https://www.freepik.com/free-photo/blur-hospital_1135191.htm#page=2&query=doctor&position=1&from_view=search&track=sph">Image by mrsiraphol</a> on Freepik</p>
     <!-- end Recomended psy -->
 
-    <?php include("./app/resources/components/footer.html") ?>
+    <?php include("./app/resources/views/components/footer.html") ?>
 
     <!-- JS -->
     <script src="/app.js"></script>

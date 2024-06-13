@@ -1,6 +1,7 @@
 <?php
 include_once './app/Model/diaryModel.php';
 include_once './app/controller/UserController.php';
+include_once './app/functions/validate.function.php';
 @session_start();
 class DiaryController extends diaryModel
 {
@@ -28,6 +29,8 @@ class DiaryController extends diaryModel
     {
         if (strlen($title) > 0 && strlen($title) < 80) {
             if (strlen($content) > 0 && strlen($content) < 300) {
+                $title = validate($title);
+                $content = validate($content);
                 return true;
             } else {
                 return "content can't exceed 300 character";
@@ -84,22 +87,25 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
 if ($server == "diary") {
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
         if (isset($_SESSION["id"])) {
-            require "./app/resources/views/diary.php";
+            if(isset($_GET["lang"])){
+                require "./app/resources/views/rtl/diary.rtl.php";
+            }else{
+                require "./app/resources/views/diary.php";
+            }
         } else {
             $actual_link = $_SERVER["REQUEST_URI"];
             header("location:/login/?diary");
             exit;
         }
     } else {
-        die($_POST["delete"]);
         if (isset($_POST["delete"])) {
             diaryModel::DeleteDiary($_POST["delete"]);
-            header("location: /user/" . $_SESSION["user"]);
+            echo "success";
         } else {
             if (isset($_SESSION["id"], $_POST["title"], $_POST["content"])) {
                 $id = $_SESSION["id"];
-                $title = $_POST["title"];
-                $content = $_POST["content"];
+                $title = validate($_POST["title"]);
+                $content = validate($_POST["content"]);
                 if (isset($_POST["private"])) {
                     $private = $_POST["private"];
                 } else {

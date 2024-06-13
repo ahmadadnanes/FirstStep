@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
@@ -15,11 +15,11 @@
             <h1>Change Password</h1>
             <form action="/changePassword" method="post">
                 <div class="password">
-                    <input type="password" placeholder="Old Password" name="oldPass" id="OldPassword">
+                    <input type="password" placeholder=" Old Password" name="oldPass" id="OldPassword">
                     <i class="fa-solid fa-eye show" id="showOld"></i>
                 </div>
                 <div class="password">
-                    <input type="password" placeholder="New Password" name="newPass" min="8" id="NewPassword">
+                    <input type="password" placeholder=" New Password" name="newPass" min="8" id="NewPassword">
                     <i class="fa-solid fa-eye show" id="showNew"></i>
                 </div>
                 <button type="submit" name="submit">Submit</button>

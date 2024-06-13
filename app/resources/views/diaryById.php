@@ -1,9 +1,16 @@
 <?php
+$nav = [
+    'logout' => [
+        '/logout',
+        'logout'
+    ]
+];
 include_once "./app/controller/DiaryController.php";
 include_once "./app/controller/UserController.php";
+include_once "./app/functions/validate.function.php";
 $server = explode('/', $_SERVER["REQUEST_URI"])[1];
 if (isset($_GET["id"], $_SESSION["user"])) {
-    $id = htmlspecialchars($_GET["id"]);
+    $id = validate($_GET["id"]);
     $user = $_SESSION["user"];
 }
 $view = new DiaryController();
@@ -16,12 +23,12 @@ $diary = $view->GetDiaryById($id);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include_once("./app/resources/components/layout.html") ?>
+    <?php include_once("./app/resources/views/components/layout.html") ?>
     <title><?= $diary[0][2] ?></title>
 </head>
 
 <body class="diaryById">
-    <?php include "./app/resources/components/header.php" ?>
+    <?php include "./app/resources/views/components/header.php" ?>
     <div class="container">
         <div class="diary_container">
             <div class="title"><?= $diary[0][2] ?></div>
@@ -49,18 +56,18 @@ $diary = $view->GetDiaryById($id);
                         <?php
                         try {
                             $date = new DateTime($comment[4]);
+                            echo $date->format('h:i a m/d/Y');
                         } catch (Exception $e) {
                             echo "0:00 00/00/0000";
                         }
-                        echo $date->format('h:i a m/d/Y');
                         ?>
                     </div>
                 </div>
             <?php } ?>
         </div>
-        <?php include_once("./app/resources/components/add_comment.php") ?>
+        <?php include_once("./app/resources/views/components/add_comment.php") ?>
     </div>
-    <?php include "./app/resources/components/footer.html" ?>
+    <?php include "./app/resources/views/components/footer.html" ?>
 </body>
 <script src="/app/resources/js/jquery.js"></script>
 <script src="/app/resources/js/navbar.js"></script>

@@ -85,14 +85,18 @@ nav .container .links .icon span {
   width: 100%;
 }
 nav .container .links ul {
-  list-style: none;
   position: absolute;
-  right: 0;
   min-width: 200px;
   top: calc(100% + 15px);
   background-color: #eee;
   display: none;
   z-index: 100;
+}
+[dir=rtl] nav .container .links ul {
+  left: 0;
+}
+[dir=ltr] nav .container .links ul {
+  right: 0;
 }
 nav .container .links ul::before {
   content: "";
@@ -101,6 +105,11 @@ nav .container .links ul::before {
   border-color: transparent transparent #eee transparent;
   position: absolute;
   top: -19px;
+}
+[dir=rtl] nav .container .links ul::before {
+  left: 5px;
+}
+[dir=ltr] nav .container .links ul::before {
   right: 5px;
 }
 nav .container .links ul li a {
@@ -110,7 +119,10 @@ nav .container .links ul li a {
   padding: 15px;
   transition: 0.3s;
 }
-nav .container .links ul li a:hover {
+[dir=rtl] nav .container .links ul li a:hover {
+  padding-right: 25px;
+}
+[dir=ltr] nav .container .links ul li a:hover {
   padding-left: 25px;
 }
 
@@ -308,8 +320,14 @@ dialog .content .text .pop-btn {
 }
 .password .show, .password .hide {
   position: absolute;
-  right: 0;
   margin-top: 10px;
+}
+[dir=rtl] .password .show, [dir=rtl] .password .hide {
+  left: 0;
+  margin-left: 10px;
+}
+[dir=ltr] .password .show, [dir=ltr] .password .hide {
+  right: 0;
   margin-right: 10px;
 }
 
@@ -436,6 +454,7 @@ dialog .content .text .pop-btn {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   position: relative;
   background-color: white;
   border-radius: 10px;
@@ -446,7 +465,6 @@ dialog .content .text .pop-btn {
   border: none;
   border-radius: 5px;
   height: 50px;
-  margin-left: 100px;
   background-color: #eee;
   margin-top: 20px;
 }
@@ -486,11 +504,6 @@ dialog .content .text .pop-btn {
   width: 300px;
   height: 40px;
   margin-bottom: 20px;
-}
-@media (min-width: 601px) {
-  .home section:last-of-type .container .contact_form button {
-    margin-left: 100px;
-  }
 }
 @media (max-width: 320px) {
   .home section:last-of-type .container .contact_form button {
@@ -606,6 +619,7 @@ dialog .content .text .pop-btn {
   border-radius: 10px;
 }
 .diary section .container form .title {
+  text-align: center;
   padding: 15px;
 }
 .diary section .container form .title input {
@@ -613,7 +627,6 @@ dialog .content .text .pop-btn {
   border: none;
   width: 260px;
   height: 40px;
-  margin-left: 100px;
   background-color: #eee;
 }
 @media ((max-width:768px)) {
@@ -638,20 +651,18 @@ dialog .content .text .pop-btn {
   }
 }
 .diary section .container form .button {
+  text-align: center;
   padding: 15px;
-  margin-left: 200px;
-}
-@media ((max-width:768px)) {
-  .diary section .container form .button {
-    margin-left: 100px;
-  }
 }
 .diary section .container form .button button {
   width: 100px;
   height: 40px;
 }
-.diary section .container form .private {
+[dir=ltr] .diary section .container form .private {
   padding-left: 20px;
+}
+[dir=rtl] .diary section .container form .private {
+  padding-right: 20px;
 }
 .diary .social h2 {
   text-align: center;
@@ -675,6 +686,7 @@ dialog .content .text .pop-btn {
   position: relative;
   background-image: url(/app/resources/img/happy-min.jpg);
   background-size: cover;
+  width: 780px;
   display: flex;
   justify-content: center;
   align-items: center;

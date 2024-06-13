@@ -53,7 +53,7 @@ class diaryModel extends connect
         $conn = $db->conn();
         $sql = $conn->prepare("DELETE FROM diary WHERE id LIKE ?");
         $sql->bind_param('s', $id);
-        $sql->execute();
+        return $sql->execute();
     }
 
     public static function GetDiaryByUser($UserId): array

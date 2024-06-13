@@ -3,6 +3,16 @@ include_once "./app/controller/DiaryController.php";
 include_once "./app/controller/UserController.php";
 $initial = 2;
 $type = "userDiaries";
+$nav = [
+    'Logout' => [
+        '/logout',
+        'logout'
+    ],
+    'Diary' => [
+        '/diary',
+        'go to diary'
+    ]
+];
 if (isset($_GET["user"])) {
     $id = $_GET["user"];
     $diaries = DiaryController::GetDiaryByUser($id);
@@ -13,52 +23,29 @@ if (isset($_GET["user"])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include('./app/resources/components/layout.html') ?>
+    <?php include('./app/resources/views/components/layout.html') ?>
     <title>Your Diaries</title>
 </head>
 
 <body class="your">
     <!-- start header -->
-    <nav>
-        <div class="container">
-            <?php include('./app/resources/components/logo.html') ?>
-            <div class="normal-bar">
-                <a href="/logout">Logout</a>
-                <a href="/diary">Diary</a>
-            </div>
-            <div class="drop-down">
-                <div class="links">
-                    <span class="icon">
-                        <input type="image" src="/app/resources/img/bars-solid.svg" id="nav_button" alt="bars">
-                    </span>
-                    <ul id="nav_ul">
-                        <li>
-                            <a href="/logout">Logout</a>
-                        </li>
-                        <li>
-                            <a href="/diary">Diary</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <?php include("./app/resources/views/components/header.php") ?>
     <!-- end header -->
-    <?php include("./app/resources/components/up.html") ?>
-    <!-- start your diares -->
+    <?php include("./app/resources/views/components/up.html") ?>
+    <!-- start your diaries -->
     <section>
         <div class="container" id="YourDiariesContainer">
-            <?php include('./app/resources/components/diary_container.php') ?>
+            <?php include('./app/resources/views/components/diary_container.php') ?>
         </div>
         <p class="text-center mt-1">Image by <a href="https://www.freepik.com/free-photo/wavy-line-colored-pencils_2533019.htm#page=8&query=pencil%20wallpaper&position=37&from_view=keyword&track=ais">Freepik</a></p>
     </section>
-    <!-- end your diares -->
-    <?php include("./app/resources/components/footer.html") ?>
+    <!-- end your diaries -->
+    <?php include("./app/resources/views/components/footer.html") ?>
 
     <!-- JS -->
     <script src="/app.js"></script>

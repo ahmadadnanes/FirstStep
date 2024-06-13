@@ -4,9 +4,11 @@ let popup = document.getElementById("popup");
 
 let deleteButton = document.getElementById("del");
 let cancelButton = document.getElementById("cancel");
+let comment = document.getElementsByClassName(".diary_container");
 if(form !== null){
     form.onsubmit = (event) =>{
         event.preventDefault();
+        comment.onclick = (event) => event.preventDefault();
         let con = confirm("are you sure");
         if(con){
                 let diary_id = $("input[name=delete]").val();
