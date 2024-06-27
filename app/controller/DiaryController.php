@@ -1,138 +1,136 @@
 <?php
-include_once './app/Model/diaryModel.php';
-include_once './app/controller/UserController.php';
-include_once './app/functions/validate.function.php';
+namespace app\controller;
 @session_start();
-class DiaryController extends diaryModel
+use app\controller\UserController;
+use app\Model\Diary;
+use app\include\Validation;
+use DateTime;
+use DateTimeZone;
+include './app/include/autoloader.php';
+
+
+class DiaryController extends Diary
 {
-    public static function Save($id, $title, $content, $private)
-    {
-        return diaryModel::SaveDiary($id, $title, $content, $private);
-    }
-
-    public static function Get($id)
-    {
-        return diaryModel::GetDiary($id);
-    }
-
-    public static function all(): array
-    {
-        return diaryModel::all();
-    }
-
-    public static function delete($diary_id)
-    {
-        diaryModel::DeleteDiary($diary_id);
-    }
-
-    public static function Filter($title, $content)
-    {
-        if (strlen($title) > 0 && strlen($title) < 80) {
-            if (strlen($content) > 0 && strlen($content) < 300) {
-                $title = validate($title);
-                $content = validate($content);
-                return true;
-            } else {
-                return "content can't exceed 300 character";
-            }
-        } else {
-            return "title can't exceed 80 character";
-        }
-    }
-
-    public static function GetDiariesByAuthor($id)
-    {
-        return diaryModel::GetDiaryByUser($id);
-    }
-
-    public static function storeComm($user_id, $diary_id, $comment)
-    {
-        $id = diaryModel::storeComment($user_id, $diary_id, $comment);
-        if (is_numeric($id)) {
-            $viewUser = new UserController();
-            $user = $viewUser->get($user_id);
-            $date = new DateTime();
-            $date->setTimezone(new DateTimeZone("Asia/Amman"));
-            $date = $date->format('h:i a m/d/Y');
-            echo "
-                <div class='comment' onclick='location.href=`/comment/?id=$id`'> 
-                    <div class='author'>
-                        <a href='/user/?user=$user_id'>$user</a>
-                    </div>
-                    <div class='content'>
-                        $comment
-                    </div
-                    <div class='time'>
-                        $date
-                    </div>
-                </div>";
-        }
-    }
-
-    public static function GetCommentById($comment_id): array
-    {
-        return diaryModel::getCommentById($comment_id);
-    }
-
-    public static function GetComm($diary_id): array
-    {
-        return diaryModel::getCommentsByDiary($diary_id);
-    }
-
-    public static function GetRep($comment_id)
-    {
-    }
-}
-$server = explode('/', $_SERVER["REQUEST_URI"])[1];
-if ($server == "diary") {
-    if ($_SERVER["REQUEST_METHOD"] == "GET") {
-        if (isset($_SESSION["id"])) {
+    public static function index(){
+        if(!UserController::guest()){
+            global $user , $initial , $type , $diaries , $nav;
+            $user = $_SESSION["user"];
+            $initial = 1;
+            $type = "diary";
+            $diaries = DiaryController::all();
             if(isset($_GET["lang"])){
-                require "./app/resources/views/rtl/diary.rtl.php";
+                $nav = [
+                    'تسجيل الخروج' =>[
+                        '/logout/?lang=ar',
+                        'logout'
+                    ]
+                    ];
+                require ('./resources/views/rtl/diary.rtl.php');
             }else{
-                require "./app/resources/views/diary.php";
+                $nav = [
+                    'Create' => [
+                        '/diary/create',
+                        'create diary'
+                    ]
+                ];
+                require ('./resources/views/diary/index.php');
             }
-        } else {
-            $actual_link = $_SERVER["REQUEST_URI"];
+        }else{
             header("location:/login/?diary");
             exit;
         }
-    } else {
-        if (isset($_POST["delete"])) {
-            diaryModel::DeleteDiary($_POST["delete"]);
-            echo "success";
+    }
+
+    public static function show($id){
+        if (!UserController::guest()) {
+            global $user , $view , $diary , $userView , $author;
+            $user = $_SESSION["user"];
+            $view = new DiaryController();
+            $diary = $view->find($id);
+            $userView = new UserController();
+            $author = $userView->get_user($diary[0][1]);
+            $nav = [
+                'logout' => [
+                    '/logout',
+                    'logout'
+                ]
+            ];
+            require ('./resources/views/diary/show.php');
+        }else{
+            header("location: /login");
+            exit;
+        }
+    }
+
+    public static function Filter($content)
+    {
+        if (strlen($content) > 0 && strlen($content) < 300) {
+            $content = Validation::validate_text($content);
+            return true;
         } else {
-            if (isset($_SESSION["id"], $_POST["title"], $_POST["content"])) {
-                $id = $_SESSION["id"];
-                $title = validate($_POST["title"]);
-                $content = validate($_POST["content"]);
-                if (isset($_POST["private"])) {
-                    $private = $_POST["private"];
-                } else {
-                    $private = 0;
-                }
-                $filter = DiaryController::Filter($title, $content);
-                if (is_bool($filter)) {
-                    DiaryController::Save($id, $title, $content, $private);
-                    header("location: /user/" . $_SESSION["user"]);
-                } else {
-                    header("location: /diary/?msg=$filter");
-                }
-                exit;
+            return "content can't exceed 300 character";
+        }
+    }
+
+    public static function insert($id,$content,$private){
+        if (isset($_SESSION["id"],$_POST["content"])) {
+            $id = $_SESSION["id"];
+            $content = Validation::validate_text($_POST["content"]);
+            if (isset($_POST["private"])) {
+                $private = $_POST["private"];
             } else {
-                header("location: /diary/?msg=Error");
+                $private = 0;
+            }
+            $filter = DiaryController::Filter($content);
+            if (is_bool($filter)) {
+                Diary::insert($id,$content, $private);
+                header("location: /profile/" . $_SESSION["user"]);
+            } else {
+                header("location: /diary/?msg=$filter");
+            }
+            exit;
+        }
+    }
+
+    public static function edit($id , $content = null , $private = null){
+        if($_SERVER["REQUEST_METHOD"] == "GET"){
+            global $diary;
+            $diary = DiaryController::find($id);
+            require "./resources/views/diary/edit.php";
+        }else{
+            $id = Validation::validate_text($id);
+            $content = Validation::validate_text($content);
+            if(Diary::edit($id , $content , $private)){
+                header("location: /diary");
             }
         }
     }
-} else if ($server == "addcomment") {
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (isset($_POST["user_id"], $_POST["diary_id"], $_POST["comment"])) {
-            $user_id = $_POST["user_id"];
-            $diary_id = $_POST["diary_id"];
-            $comment = $_POST["comment"];
-            DiaryController::storeComm($user_id, $diary_id, $comment);
-        } else {
-            header("location: /diaryById?id=" . $_POST["diary_id"]);
+
+    public static function delete($id){
+        if (isset($id)) {
+            $id = Validation::validate_text($id);
+            Diary::delete($id);
         }
     }
 }
+// $server = explode('/', $_SERVER["REQUEST_URI"])[1];
+// if ($server == "diary") {
+// } else { else {
+//             } else {
+//                 header("location: /diary/?msg=Error");
+//             }
+//         }
+//     }
+// } else if ($server == "addcomment") {
+// }else if($server == "user"){
+//     if(isset($_GET["user"])){
+//         if($_SESSION["id"] == $_GET["user"]){
+//             header('location: /user/' . $_SESSION["user"]);
+//         }else{
+//             require ('./resources/views/YourDiares.php');
+//         }
+//     }else{
+//         require ('./resources/views/YourDiares.php');
+//     }
+// }
+// exit;

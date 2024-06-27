@@ -1,0 +1,15 @@
+.delete{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 20px;
+    &:hover{
+        i{
+            color: red;
+        }
+    }
+    button{
+        background-color: transparent !important;
+        border: none;
+    }
+}

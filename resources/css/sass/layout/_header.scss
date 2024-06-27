@@ -1,0 +1,141 @@
+@use '../helpers/vars' as *;
+@use '../helpers/mixins' as *;
+nav{
+    padding: 15px;
+    height: 60px;
+    .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .user{
+            order: -1;
+            @media ($laptop) {
+                order: +1;
+            }
+            i{
+                font-size: 25px !important;
+            }
+        }
+        .links{
+            &:first{
+                ul{
+                    @media ($phone-max) {
+                        left: -15px;
+                    }
+                }
+
+            }
+        }
+        .links{
+            position: relative;
+            .icon{
+                width: 30px;
+                display: flex;
+                flex-wrap: wrap;
+                span{
+                    margin-bottom: 5px;
+                    height: 3px;
+                    width: 100%;
+                }
+                i{
+                    font-size: 30px;
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
+            ul{
+                border-radius: 15px;
+                position: absolute;
+                background-color: $paragraph_color;
+                width: 300px;
+                top: 43px;
+                display: none;
+                z-index: 100;
+                // &::before{
+                //     content: "";
+                //     border-width: 10px;
+                //     border-style: solid;
+                //     border-color: transparent transparent $paragraph_color  transparent;
+                //     position: absolute;
+                //     top: -19px;
+                //     [dir=rtl] &{
+                //         left: 5px;
+                //     }
+    
+                //     [dir=ltr] &{
+                //         right: 5px;
+                //     }
+                // }
+                li{
+                    a{
+                        display: block;
+                        text-decoration: none;
+                        padding: 15px;
+                        transition:  0.3s;
+                        color: $links_color;
+                        &:hover{
+                            [dir=rtl] &{
+                                padding-right: 25px;
+                            }
+            
+                            [dir=ltr] &{
+                                padding-left: 25px;
+                            }
+                        }
+                    }
+                }
+            }
+            #nav_ul{
+                &:last-of-type{
+                    [dir=rtl] &{
+                        left: 0;
+                        @media ($phone-max) {
+                            left: -15px;
+                        }
+                    }
+    
+                    [dir=ltr] &{
+                        right: 0;
+                        @media ($phone-max) {
+                            right: -15px;
+                        }
+                    }
+                }
+            }
+            #nav_ul_user{
+                [dir=rtl] &{
+                    left: 0;
+                    @media ($tablet-max) {
+                        right: 0px;
+                    }
+                }
+
+                [dir=ltr] &{
+                    right: -2px;
+                    @media ($tablet-max) {
+                        left: -15px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.normal-bar{
+    display: none;
+    @media ($tablet) {
+        display: block;
+    }
+    a{
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 7px;
+    }
+}
+
+.drop-down{
+    @media ($tablet) {
+        display: none;
+    }
+}

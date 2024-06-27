@@ -1,0 +1,31 @@
+@use '../helpers/vars' as *;
+@use '../helpers/mixins' as *;
+.your{
+    section{
+        padding: 50px;
+        min-height: 100vh;
+        // background-image: url('/resources/img/wavy-line-colored-pencils-min.jpg');
+        // background-size: cover;
+        // @media ($phone-max) {
+        //     background-image: url('/resources/img/wavy-line-colored-pencils-small-min.jpg');
+        // }
+        // @media ($tablet-max) {
+        //     background-image: url('/resources/img/wavy-line-colored-pencils-medium-min.jpg');
+        // }
+        // @media ($laptop-max) {
+        //     background-image: url('/resources/img/wavy-line-colored-pencils-large-min.jpg');
+        // }
+
+        .content{
+            padding-top: 15px;
+            word-wrap: break-word;
+            @media ($phone-max) {
+                font-size: 12px;
+            }
+        }
+
+        .reply{
+            padding: 5px;
+        }
+    }
+}

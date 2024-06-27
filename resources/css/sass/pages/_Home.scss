@@ -1,0 +1,191 @@
+@use '../helpers/vars' as *;
+@use '../helpers/mixins' as *;
+.home{
+    overflow: hidden;
+    .serv{
+        opacity: 0;
+        transform: translateX(-100%);
+        &.active{
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    section{
+        &:first-of-type{
+            .intro_container{
+                height: 500px ;
+                overflow: hidden;
+                text-align: center;
+                background-color: #FFD600;
+                border-radius: 10px;
+                // background: linear-gradient(to bottom, 
+                //     #0000 0%,
+                //     #0000 50%,
+                //     #000b 100%), url('/resources/img/hands-min.jpg');
+                // @media (max-width: 320px){
+                //     background-image: url('/resources/img/hands-min-small.jpg');
+                // }
+                position: relative;
+                .intro{
+                    position: absolute;
+                    left: 50% ;
+                    top: 50%;
+                    transform: translate(-50%,-50%) ;
+                    width: 320px;
+                    max-width: 100%;
+                }
+                h1{
+                    font-size: 3.22912rem;
+                }
+                p{
+                    font-size: 25px;
+                }
+                .circle{
+                    position: absolute;
+                    right: -307px;
+                    height: 100%;
+                    width: 500px;
+                    border-radius: 50%;
+                    background-color: $paragraph_color;
+                    @media ($phone-max) {
+                        right: -400px;
+                    }
+
+                    @media ($small-phones-max ) {
+                        right: -490px;
+                    } 
+                }
+            }
+        }
+        &:last-of-type{
+            background: url('/resources/img/notepad-pencils-left-min.jpg');
+            background-size: cover;
+            @media ($phone-max) {
+                background-image: url('/resources/img/notepad-pencils-left-small-min.jpg');
+            }
+            @media ($tablet-max) {
+                background-image: url('/resources/img/notepad-pencils-left-medium-min.jpg');
+            }
+            @media ($laptop-max) {
+                background-image: url('/resources/img/notepad-pencils-left-large-min.jpg');
+            }
+            padding-top: 50px;
+            padding-bottom: 50px;
+            .container{
+                .contact{
+                    overflow: hidden;
+                    text-align: center;
+                    padding-bottom: 50px;
+                }
+                .contact_form{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    position: relative;
+                    border-radius: 10px;
+                    background-color: white;
+                    box-shadow: 0px 5px 15px rgba(1 1 1 /15%);
+                    transition: 0.5s;
+                    input{
+                        border: none;
+                        height: 50px;
+                        margin-top:20px;
+                        @media (max-width: 600px) {
+                            width: 300px;
+                        }
+                        @media (max-width: 320px) {
+                            width: 250px;
+                        }
+                    }
+                    textarea{
+                        border: none;
+                        width: 500px;
+                        height: 200px;
+                        max-width: 100%;
+                        @media (max-width: 601px) {
+                            width: 300px;
+                        }
+                        @media (max-width: 320px) {
+                            margin-left: 10px;
+                            width: 250px;
+                        }
+                    }
+                    button{
+                        width: 300px;
+                        height: 40px;
+                        margin-bottom: 20px;
+                        @media (max-width: 320px) {
+                            margin-left: 10px;
+                            width: 250px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .services{
+        padding-top: 50px;
+        padding-bottom: 50px;
+        .container{
+            .card-container{
+                display: grid;
+                grid-template-columns: repeat(auto-fill , minmax(300px,1fr));
+                justify-items: center;
+                align-items: center;
+                grid-gap: 20px;
+                .card{
+                    @media ($laptop-max) {
+                        height: 434.09px;
+                    }
+                    @media ($phone-max) {
+                        height: auto;
+                    }
+                    background-color: white;
+                    border-radius: 10px;
+                    box-shadow: 0px 5px 15px rgba(1 1 1 /15%);
+                    transition: 0.5s;
+                    &.serv.active:hover{
+                        transform: scale(1.1);
+                    }
+                    img{
+                        display: block;
+                        margin-left: auto;
+                        margin-right: auto;
+                        width: 100%;
+                        border-radius: 10px;
+                    }
+                    h5{
+                        text-align: center;
+                        font-size: 18px;
+                    }
+                    p{
+                        text-align: center;
+                        font-size: 15px;
+                        line-height: 1.5;
+                    }
+                    .button-container{
+                        display: flex;
+                        width: 100%;
+                        justify-content: center;
+                        button{
+                            margin-bottom: 15px;
+                            width: 100px;
+                            height: 40px;
+                            &:hover{
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+            .check{
+                h1{
+                    text-align: center;
+                    padding-bottom: 50px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+.diaryById{
+    .diary_container{
+        &:hover{
+            cursor: default;
+            transform: scale(1);
+        }
+    }
+
+    form{
+        i{
+            float: right;
+            font-size: 30px;
+        }
+    }
+}

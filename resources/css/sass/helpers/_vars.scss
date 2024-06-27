@@ -1,0 +1,23 @@
+// phone and small tablets
+$phone : '(min-width:768px)';
+$phone-container : 750px;
+$phone-max : '(max-width:768px)';
+$small-phones-max : '(max-width:550px)';
+
+//  large tablets
+$tablet : '(min-width:1200px)';
+$tablet-max : '(max-width:992px)';
+$tablet-container : 970px;
+
+//  laptops
+$laptop : '(min-width:1200px)';
+$laptop-max : '(max-width:1300px)';
+$laptop-container : 1170px;
+
+
+// colors
+
+$paragraph_color: #142b6f !important;
+$links_color: #FFD600 !important;
+$background_color: white !important;
+$form_color: #eee !important;

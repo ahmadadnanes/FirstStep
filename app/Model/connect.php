@@ -1,6 +1,6 @@
 <?php
-
-class connect
+namespace app\Model;
+class Connect
 {
     private $host;
     private $user;
@@ -22,7 +22,7 @@ class connect
         }
     }
 
-    public function conn(): mysqli
+    public function conn()
     {
         return $this->mysqli;
     }

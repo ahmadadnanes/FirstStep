@@ -1,0 +1,53 @@
+@use "../helpers/vars" as *;
+@use "../helpers/mixins" as *;
+.diaries{
+    padding-block: 50px;
+}
+
+.diary_container{
+    margin-bottom: 15px;
+    border-radius: 10px;
+    position: relative;
+    background-color: white ;
+    box-shadow: 0px 5px 15px rgba(1 1 1 / 15%);
+    .title{
+        text-align: center;
+        padding-top: 10px;
+    }
+    .content{
+        padding: 15px;
+        word-wrap: break-word;
+        @media ($phone-max) {
+            font-size: 14px;
+        }
+    }
+    .author{
+        padding-left: 15px;
+        padding-top: 15px;
+        @media ($phone-max) {
+            font-size: 14px;
+        }
+    }
+    .combo{
+        text-align: end;
+        @media ($phone-max) {
+            font-size: 14px;
+        }
+        .time{
+            display: flex;
+            justify-content: end;
+            .reply{
+                color: $paragraph_color;
+                background-color: transparent !important;
+            }
+        }
+        p{
+            margin-bottom: 0 !important;
+        }
+
+        .date{
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+    }
+}

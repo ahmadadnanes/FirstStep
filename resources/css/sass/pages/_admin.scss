@@ -1,0 +1,119 @@
+@use "../helpers/mixins" as *;
+@use "../helpers/vars" as *;
+
+.admin{
+    min-height: 100vh;
+    display: flex;
+    .logo{
+        margin-top: 15px;
+    }
+    .content{
+        flex-grow: 1;
+        position: relative;
+        .password-form{
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background-color: #eee;
+            width: 500px;
+            height: 270px;
+            @media ($phone-max) {
+                width: 250px;
+                height: 200px;
+            }
+            border-radius: 5px;
+            h1{
+                margin-bottom: 20px;
+                @media ($phone-max) {
+                    font-size: 18px;
+                }
+            }
+            form{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                input{
+                    margin-bottom: 10px;
+                    border-radius: 5px;
+                    border: none;
+                    width: 260px;
+                    height: 40px;
+                    @media ($phone-max) {
+                        width: 180px;
+                    }
+                }
+                button{
+                    width: 100px;
+                    height: 40px;
+                    background-color: white !important;
+                }
+            }
+        }
+        .card-container{
+            padding-block: 60px;
+
+            display: grid;
+            grid-template-columns: repeat(auto-fill , minmax(300px,1fr));
+            grid-gap: 20px;
+            text-align: center;
+            @media ($phone-max) {
+                padding-block: 0px;
+                grid-gap: 10px;
+            }
+            @media ($tablet-max) {
+                padding-block: 5px;
+                grid-gap: 5px;
+            }
+            .card{
+                border-radius: 10px;
+                box-shadow: 0px 5px 15px rgba(1 1 1 /15%);
+                transition: 0.5s;
+                padding: 60px;
+                b{
+                    font-size: 18px;
+                }
+                i{
+                    font-size: 40px;
+                    margin-bottom: 15px;
+                }
+                @media($phone-max){
+                    padding: 39.5px;
+                }
+                @media ($tablet-max) {
+                    padding: 20px;
+                }
+            }
+        }
+        .user_form{
+            margin-bottom: 15px;
+            input{
+                border: 0;
+                padding: 5px;
+            }
+            button{
+                padding: 5px;
+            }
+        }
+        .container{
+            overflow-x: auto;
+        }
+        table{
+            height: 100%;
+            @media ($laptop-max) {
+                width: 100%;
+            }
+            tr{
+                &:nth-child(even){
+                    background-color: $form_color;
+                }
+            }
+            thead{
+                height: 60px;
+                background-color: $form_color;
+            }
+        }
+    }
+}

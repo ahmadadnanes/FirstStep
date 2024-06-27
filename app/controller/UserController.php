@@ -1,152 +1,114 @@
 <?php
+namespace app\controller;
+use app\Model\User;
+use app\include\Validation;
+
+include './app/include/autoloader.php';
 @session_start();
-include_once "./app/Model/user.php";
-include_once "./app/functions/validate.function.php";
 $errors = [];
 
-class UserController extends user
+class UserController extends User
 {
-    private $username;
-    private $email;
-    private $password;
-
-    public function __construct($username = null, $email = null, $password = null)
-    {
-        parent::__construct();
-        $this->username = $username;
-        $this->email = $email;
-        $this->password = $password;
+    public static function guest(){
+        return !isset($_SESSION["id"]);
     }
 
-    public function filterSingUp()
-    {
-        if (filter_var($this->email, FILTER_VALIDATE_EMAIL) && strlen($this->email) !== 0) {
-            $this->email = validate($this->email);
-            $this->password = validate($this->password);
-            return true;
-        } else {
-            $errors['email'] = "Please Fill Email Field";
-            return $errors["email"];
+    public static function index(){
+        if(isset($_get["lang"])){
+            require('./resources/views/rtl/auth.rtl.php');
+        }
+        else{
+            require('./resources/views/auth.php');
         }
     }
 
-    public function filterLogIn()
-    {
-        if (filter_var($this->email, FILTER_VALIDATE_EMAIL) && strlen($this->email) !== 0) {
-            $this->email = validate($this->email);
-            $this->password = validate($this->password);
-            return true;
-        } else {
-            $errors['email'] = "Please Fill Email Field";
-            return $errors["email"];
-        }
+    public static function profile(){
+        
     }
 
-    public function signup()
+    public static function create($username , $email , $password)
     {
-        $username = $this->username;
-        $email = $this->email;
-        $password = md5($this->password);
+        $username = $username;
+        $email = Validation::validate_email($email);
+        $password = md5($password);
+        if ($email) {
+            $username = Validation::validate_text($username);
+            $password = Validation::validate_text($password);
 
-        $filter = $this->filterSingUp();
-
-        if (is_bool($filter)) {
-            if (user::createUser($username, $email, $password)) {
+            if (User::insert($username, $email, $password)) {
                 header("location:/login");
             } else {
                 $errors["used"] = "this email or username is already in use";
                 header("location:/signup/?msg=" . $errors["used"]);
             }
         } else {
-            header("location:/signup/?msg=$filter");
+            header("location:/signup/?msg=please fill the email field correctly");
         }
         exit;
     }
 
-    public function login()
+    public static function auth($email , $password)
     {
-        $errors["Wrong"] = "Wrong Email or Password";
-        $email = $this->email;
-        $pass = $this->password;
-        $filter = $this->filterLogIn();
+        $email = Validation::validate_email($email);
+        $password = Validation::validate_text($password);
 
-        if (is_bool($filter)) {
-            if (user::checkEmail($email)) {
-                $result = user::checkPass($email, $pass);
-                if ($result) {
-                    if (isset($_POST["remember"])) {
-                        if ((!isset($_COOKIE["email"]) && !isset($_COOKIE["password"]))) {
-                            setcookie("email", $_POST["email"], time() + strtotime("1 month"));
-                            setcookie("password", $_POST["password"], time() + strtotime("1 month"));
-                        }
+        if($email && $password){
+            if(UserController::get_email($email)){
+                if(UserController::get_password($email,$password)){
+                    if(isset($_POST["remember"])){
+                        setcookie("email" , $email , time() + strtotime("1 month"));
+                        setcookie("password" , $password , time() + strtotime("1 month"));
                     }
                     if (isset($_SERVER["QUERY_STRING"]) && !isset($_GET["msg"])) {
-                        $pre_header = $_SERVER["QUERY_STRING"];
-                        header("location: /" . $pre_header);
-                    } else {
-                        require("./app/resources/views/Home.php");
-                        // if (user::UserType($_SESSION["id"])) {
-                        //     header("location: /admin");
-                        // } else {
-
-                        // }
+                        header("location: /" . $_SERVER["QUERY_STRING"]);
+                    }else{
+                        header("location: /");
                     }
-                } else {
-                    header("location:/login/?msg=" . $errors['Wrong']);
+                }else{
+                    header("location: /login/?msg=this password is wrong");
                 }
-            } else {
-                header("location:/login/?msg=" . $errors['Wrong']);
-            }
-        } else {
-            header("location:/login/?msg=" . $filter);
-        }
-    }
-
-    public static function get($id)
-    {
-        return user::getUser($id);
-    }
-}
-
-
-
-$server = explode('/', $_SERVER["REQUEST_URI"])[1];
-if ($server == "signup") {
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (isset($_POST["submit"])) {
-            $user = new UserController(trim($_POST["username"]), $_POST["email"], trim($_POST["password"]));
-            $user->signup();
-        }
-    }
-} else if ($server == "login") {
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (isset($_POST["submit"])) {
-            $user = new UserController(null, $_POST["email"], trim($_POST["password"]));
-            $user->login();
-        }
-    } else {
-        if (isset($_SESSION["id"])) {
-            if (user::UserType($_SESSION["id"])) {
-                header("location: /admin");
-            } else {
-                require "./app/resources/views/Home.php";
-            }
-        } else {
-            // die(var_dump($_GET));
-            if(isset($_GET["lang"])){
-                require("./app/resources/views/rtl/auth.rtl.php");
             }else{
-                require("./app/resources/views/auth.php");
+                header("location: /login/?msg=this email is wrong");
             }
+        }else{
+            header("location: /login/?msg=please check the input");
         }
-    }
-    exit;
-} else if ($server == "" || $server == "index.php") {
-    if (isset($_COOKIE["email"]) && isset($_COOKIE["password"])) {
-        $pass = validate($_COOKIE["password"]);
-        $user = new UserController(null, $_COOKIE["email"], $pass);
-        $user->login();
-    } else {
-        require('./app/resources/views/Home.php');
+        exit;
     }
 }
+
+
+
+// $server = explode('/', $_SERVER["REQUEST_URI"])[1];
+// if ($server == "signup") {
+//     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//         if (isset($_POST["submit"])) {
+//             $user = new UserController(trim($_POST["username"]), $_POST["email"], trim($_POST["password"]));
+//             $user->create();
+//         }
+//     }
+// } else if ($server == "login") {
+//     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//         if (isset($_POST["submit"])) {
+//             $user = new UserController(null, $_POST["email"], trim($_POST["password"]));
+//             $user->auth();
+//         }
+//     } else {
+//         if (isset($_SESSION["id"])) {
+//             if (user::verify_admin($_SESSION["id"])) {
+//                 header("location: /admin");
+//             } else {
+//                 require "resources/views/Home.php";
+//             }
+//         }
+//     }
+//     exit;
+// } else if ($server == "" || $server == "index.php") {
+//     if (isset($_COOKIE["email"]) && isset($_COOKIE["password"])) {
+//         $pass = Validation::validate_text($_COOKIE["password"]);
+//         $user = new UserController(null, $_COOKIE["email"], $pass);
+//         $user->create();
+//     } else {
+//         require('resources/views/Home.php');
+//     }
+// }

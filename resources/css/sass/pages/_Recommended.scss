@@ -1,0 +1,59 @@
+@use '../helpers/vars' as *;
+@use '../helpers/mixins' as *;
+.rec{
+    background-image: url('/resources/img/blur-hospital-min.jpg');
+    background-size: cover;
+    @media ($phone-max) {
+        background-image: url('/resources/img/blur-hospital-small-min.jpg');
+    }
+    @media ($tablet-max) {
+        background-image: url('/resources/img/blur-hospital-medium-min.jpg');
+    }
+    @media ($laptop-max) {
+        background-image: url('/resources/img/blur-hospital-large-min.jpg');
+    }
+    section{
+        padding-top: 50px;
+        padding-bottom: 50px;
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        form{
+            background-color: white;
+            width: 600px;
+            height: 400px;
+            position: relative;
+            box-shadow: 0px 5px 15px rgba(1 1 1  /15%);
+            border-radius: 10px;
+        }
+        .form_container{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            select{
+                border: none;
+                border-radius: 5px;
+                padding-left: 50px;
+                padding-right: 50px;
+                height: 50px;
+            }
+            button{
+                width: 100px;
+                height: 40px;
+                margin-left: 45px;
+            }
+        }
+    }
+    .map{
+        margin-bottom: 50px;
+    }
+    #google-maps-canvas img.text-marker
+    {
+        width:100%!important;
+        background:none!important;
+    }
+}

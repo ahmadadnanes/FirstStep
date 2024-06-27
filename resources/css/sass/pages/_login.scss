@@ -1,0 +1,90 @@
+@use '../helpers/vars' as *;
+@use '../helpers/mixins' as *;
+.login{
+    .container{
+        max-width: 100% !important;
+    }
+
+    section{
+        padding-top: 50px;
+        padding-bottom: 50px;
+        .container{
+            .square{
+                display: flex;
+                height: 400px;
+                border-radius: 10px;
+                box-shadow: 0px 5px 15px rgba(1 1 1 /15%);
+                transition: 0.5s;
+                .half1{
+                    position: relative;
+                    background-image: url('/resources/img/happy-min.jpg');
+                    background-size: cover;
+                    width: 780px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    @media (max-width: 1200px) {
+                        display: none;
+                    }
+                    @media (max-width: 600px) {
+                        font-size: 14px;
+                    }
+                    span{
+                        margin-left: 20px;
+                        margin-bottom: 5px;
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                    }
+                }
+                .half2{
+                    padding: 15px;
+                    background-color: white;
+                    box-shadow: rgba(1 1 1 /15%);
+                    order: -1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 50%;
+                    max-height: 100%;
+                    @media (max-width: 1200px) {
+                        width: 100%;
+                    }
+                    @media(min-width: 344px){
+                        background-color: none;
+                        box-shadow: none;
+                    }
+                    .input-container{
+                        margin-bottom: 10px;
+                        input{
+                            border-radius: 5px;
+                            padding: 10px;
+                            border: none;
+                            margin-bottom: 5px;
+                            @media (max-width: 600px) {
+                                width: 181.13px;
+                            }
+                        }
+                    }
+                    .btnn{
+                        padding-left:  10px;
+                        padding-right: 10px;
+                        width: 100px;
+                        height: 40px;
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+        .quote{
+            text-align: center;
+        }
+    }
+    
+    .success{
+        display: block;
+        background-color: #eee;
+        right: 0;
+    }
+}
+

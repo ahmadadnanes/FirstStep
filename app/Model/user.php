@@ -1,12 +1,21 @@
 <?php
-include_once 'connect.php';
+namespace app\Model;
+use app\Model\Connect;
 
-class user extends connect
+include './app/include/autoloader.php';
+class User extends Connect
 {
-
-    public static function createUser($username, $email, $password, $admin = 0): bool
+    public static function all(){
+        $db = new Connect;
+        $conn = $db->conn();
+        $sql = $conn->prepare("SELECT * FROM users");
+        $sql->execute();
+        $result = $sql->get_result();
+        return $result->fetch_all();
+    }
+    public static function insert($username, $email, $password, $admin = 0): bool
     {
-        $db = new connect();
+        $db = new Connect();
         $conn = $db->conn();
         // select email
         $sql_email = $conn->prepare("SELECT email from users where email like ?");
@@ -21,7 +30,6 @@ class user extends connect
         $result_user = $sql_user->get_result();
         // check if the user and email already exist
         if ($result_email->num_rows || $result_user->num_rows) {
-
             return false;
         } else {
             // create new user
@@ -34,9 +42,9 @@ class user extends connect
         }
     }
 
-    public static function checkEmail($email)
+    public static function get_email($email)
     {
-        $db = new connect();
+        $db = new Connect();
         $conn = $db->conn();
         // check email
         $sql = $conn->prepare("SELECT email from users where email like ?");
@@ -46,14 +54,14 @@ class user extends connect
         return $sql->get_result();
     }
 
-    public static function checkPass($em, $pass)
+    public static function get_password($email, $pass)
     {
-        $db = new connect();
+        $db = new Connect();
         $conn = $db->conn();
 
         // select password
         $sql = $conn->prepare("SELECT pass from users where email like ?");
-        $sql->bind_param('s', $em);
+        $sql->bind_param('s', $email);
         $sql->execute();
         $result = $sql->get_result();
         $row = $result->fetch_assoc();
@@ -61,7 +69,7 @@ class user extends connect
         // check password
         if ($row['pass'] == md5($pass)) {
             $sql2 = $conn->prepare("SELECT id from users where email like ?");
-            $sql2->bind_param('s', $em);
+            $sql2->bind_param('s', $email);
             $sql2->execute();
             $result2 = $sql2->get_result();
 
@@ -69,16 +77,16 @@ class user extends connect
             $idRow = $result2->fetch_assoc();
             $_SESSION["id"] = $idRow['id'];
             $id = $_SESSION["id"];
-            $_SESSION["user"] = user::getUser($id);
+            $_SESSION["user"] = User::get_user($id);
             return true;
         } else {
             return false;
         }
     }
 
-    public static  function getUser($id)
+    public static  function get_user($id)
     {
-        $db = new connect();
+        $db = new Connect();
         $conn = $db->conn();
 
         $sql = $conn->prepare("SELECT username from users where id like ?");
@@ -90,9 +98,9 @@ class user extends connect
         return $us["username"];
     }
 
-    public static function UserType($id)
+    public static function verify_admin($id)
     {
-        $db = new connect();
+        $db = new Connect();
         $conn = $db->conn();
 
         $sql = $conn->prepare("SELECT admin from users where id like ?");
@@ -105,5 +113,16 @@ class user extends connect
             $_SESSION["admin"] = true;
         }
         return $type["admin"];
+    }
+
+    public static function find_by_user($username){
+        $db = new Connect;
+        $conn = $db->conn();
+        $sql = $conn->prepare("SELECT * FROM users WHERE username LIKE ? ");
+        $sql->bind_param('s' , $username);
+        $sql->execute();
+        $result = $sql->get_result();
+        
+        return $result->fetch_assoc();
     }
 }

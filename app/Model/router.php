@@ -1,5 +1,6 @@
 <?php
-
+namespace app\Model;
+use Exception , Closure;
 class router
 {
 

@@ -1,0 +1,6 @@
+@use '../helpers/vars' as *;
+@use '../helpers/mixins' as *;
+.reply , .edit{
+    color: $paragraph_color;
+    background-color: transparent !important;
+}

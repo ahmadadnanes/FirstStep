@@ -1,0 +1,21 @@
+@use '../helpers/vars' as *;
+@use '../helpers/mixins' as *;
+button{
+    border: none;
+    border-radius: 26px;
+}
+button:not(.x , .reply , .edit , .user , .xComment){
+    color: white;
+    background-color: $paragraph_color;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.user{
+    color: $paragraph_color;
+    background-color: transparent;
+    &:hover{
+        color: $links_color;
+    }
+}
