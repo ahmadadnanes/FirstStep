@@ -5,7 +5,7 @@ include "./app/include/autoloader.php";
 $admin = new AdminController;
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">

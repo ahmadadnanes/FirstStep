@@ -1,6 +1,8 @@
 <?php
 @session_start();
 $server = explode('/', $_SERVER["REQUEST_URI"])[1];
+use app\include\csrf;
+require 'vendor/autoload.php';
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -9,11 +11,7 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include("resources/views/components/layout.php") ?>
-    <?php if ($server == "login") { ?>
-        <title>Login</title>
-    <?php } else { ?>
-        <title>Signup</title>
-    <?php } ?>
+    <title><?php $server === "login" ? 'Login' : 'Signup' ?></title>
 </head>
 
 <body class="login">
@@ -22,9 +20,7 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
         <div class="container">
             <?php include('resources/views/components/logo.html') ?>
             <div class="normal-bar d-block">
-                <?php if ($server == "signup") { ?> <a href="/login">Login</a> <?php } else { ?>
-                    <a href="/signup">SignUp</a>
-                <?php } ?>
+                <?php if ($server == "signup") : ?> <a href="/login">Login</a> <?php else: ?><a href="/signup">SignUp</a><?php endif;?>
             </div>
         </div>
     </nav>
@@ -62,6 +58,7 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
 
                             <h1><?= $server == "login" ? 'Login'  :  'SignUp'  ?></h1>
                             <div class="input-container">
+                                <?php csrf::create_token() ?> 
                                 <?php if ($server == "signup") : ?>
                                     <label for="username"></label>
                                     <input type="text" id="username" name="username" required placeholder="Username"><br>
@@ -71,9 +68,16 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
 
                                 <div class="password">
                                     <label for="password"></label>
-                                    <input type="password" id="password" name="password" required placeholder="Password" min="5">
-                                    <i class="fa-solid fa-eye show" id="show"></i>
+                                    <input type="password" class="passwordInput" name="password" required placeholder="Password" min="5">
+                                    <i class="fa-solid fa-eye show change"></i>
                                 </div>
+                                <?php if($server == "signup") : ?>
+                                    <div class="password">
+                                    <label for="confirm_password"></label>
+                                    <input type="password" class="passwordInput" name="confirm_password" required placeholder="Confirm Password" min="5">
+                                    <i class="fa-solid fa-eye show change"></i>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                             <?php if ($server == "login") : ?>
                                 <div class="remember">

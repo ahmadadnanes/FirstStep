@@ -1,3 +1,7 @@
+<?php
+    use app\include\csrf;
+    require 'vendor/autoload.php';
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -13,7 +17,8 @@
     <div class="content">
         <div class="password-form">
             <h1>Change Password</h1>
-            <form action="/changePassword" method="post">
+            <form action="/admin/changePassword" method="post">
+                <?php csrf::create_token() ?>
                 <div class="password">
                     <input type="password" placeholder=" Old Password" name="oldPass" id="OldPassword">
                     <i class="fa-solid fa-eye show" id="showOld"></i>

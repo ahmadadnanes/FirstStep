@@ -1,8 +1,10 @@
 <?php
 @session_start();
 use app\controller\{DiaryController , UserController};
+use app\include\csrf;
+
 include_once 'app/include/time_ago.php';
-include_once 'app/include/autoloader.php';
+require 'vendor/autoload.php';
 $server = explode('/', $_SERVER["REQUEST_URI"])[1];
 ?>
 <!DOCTYPE html>
@@ -19,18 +21,11 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
     <?php include "resources/views/components/header.php" ?>
     <div class="container">
         <div class="diary_container">
-            <?php if ($diary[0][1] == $_SESSION["id"]) : ?>
-                <div class="delete">
-                    <button class="x" id="x" name="delete" value="<?= $diary_id ?>">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </div>
-            <?php  endif ?>
             <div class="author"><?= $author ?></div>
             <div class="content"><?= $diary[0][2] ?></div>
         </div>
         <div class="all_comments">
-            <h4>Comments</h4>
+            <h4 class="my-5">Comments</h4>
             <?php
             $viewComment = new DiaryController();
             $comments = $viewComment->find_comment_by_diary($id);
@@ -39,9 +34,12 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
                 <div class="comment position-relative" id="<?= $comment[0] ?>">
                     <?php if ($comment[1] == $_SESSION["id"]) : ?>
                         <div class="delete">
-                            <button class="xComment" name="delete" value="<?= $comment[0] ?>">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
+                            <form action="" method="post" class="delete_form">
+                                <?php csrf::create_token() ?>
+                                <button class="xComment" name="delete" value="<?= $comment[0] ?>">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </form>
                         </div>
                     <?php  endif ?>
                     <div class="author">
@@ -56,9 +54,8 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
                     </div>
                     <div class="time">
                     <button class="reply" onclick="location.href='/comment/?id=<?= $comment[0] ?>'"><i class="fas fa-comment"></i></button>
-                        <?php
-                        if($comment[1] == $_SESSION["id"]): ?>
-                            <button class="me-1 edit"><i class="fas fa-edit"></i></button>
+                        <?php if($comment[1] == $_SESSION["id"]): ?>
+                            <button class="me-1 edit" onclick="location.href='/comment/edit/?id=<?= $comment[0] ?>'"><i class="fas fa-edit"></i></button>
                         <?php endif;
                         try {
                             $date = $comment[4];
@@ -75,9 +72,9 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
     </div>
     <?php include "resources/views/components/footer.html" ?>
 </body>
+<script src="/app.js"></script>
 <script src="/resources/js/jquery.js"></script>
 <script src="/resources/js/navbar.js"></script>
 <script src="/resources/js/comments.js"></script>
-<script src="/app.js"></script>
 
 </html>

@@ -1,14 +1,14 @@
 <?php
 namespace app\Model;
 
-use PSpell\Config;
-
-include_once "Connect.php";
+require 'vendor/autoload.php';
 
 class Admin extends Connect
 {
-    public function checkPass($id, $old): bool
+    public static function checkPass($id, $old): bool
     {
+        require './app/include/check_form_token.php';
+
         $db = new Connect;
         $conn = $db->conn();
         $sql = $conn->prepare("SELECT pass FROM users WHERE id = ?");
@@ -16,11 +16,10 @@ class Admin extends Connect
         $sql->execute();
 
         $result = $sql->get_result();
-        $row = $result->fetch_all();
-
+        $row = $result->fetch_assoc();
         return $row["pass"] == md5($old);
     }
-    public function changePass($id, $new)
+    public static function changePass($id, $new)
     {
         $db = new Connect;
         $conn = $db->conn();

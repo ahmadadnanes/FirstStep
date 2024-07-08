@@ -3,7 +3,10 @@
         "/diary",
         "go to main diary page"
     ]
-] ?>
+    ];
+use app\include\csrf;
+require 'vendor/autoload.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +21,7 @@
     <section>
         <div class="container">
             <form action="/diary/create" method="post">
+                <?php csrf::create_token() ?>
                 <div class="content">
                     <textarea name="content" id="content" cols="30" rows="10" required></textarea>
                 </div>

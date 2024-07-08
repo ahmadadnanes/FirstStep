@@ -2,7 +2,7 @@
 namespace app\Model;
 use app\Model\Connect;
 
-include './app/include/autoloader.php';
+require 'vendor/autoload.php';
 class User extends Connect
 {
     public static function all(){
@@ -15,6 +15,8 @@ class User extends Connect
     }
     public static function insert($username, $email, $password, $admin = 0): bool
     {
+        require './app/include/check_form_token.php';
+
         $db = new Connect();
         $conn = $db->conn();
         // select email
@@ -124,5 +126,17 @@ class User extends Connect
         $result = $sql->get_result();
         
         return $result->fetch_assoc();
+    }
+
+    public function delete($id){
+        require './app/include/check_form_token.php';
+
+        $db = new Connect;
+        $conn = $db->conn();
+
+        $sql = $conn->prepare('DELETE FROM users WHERE id = ?');
+        $sql->bind_param('i' , $id);
+        $sql->execute();
+        return $sql->get_result();
     }
 }

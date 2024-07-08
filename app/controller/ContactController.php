@@ -4,7 +4,7 @@ namespace app\controller;
 use app\include\Validation;
 use app\Model\Contact;
 
-include './app/functions/autoloader.php';
+require 'vendor/autoload.php';
 
 class ContactController extends Contact{
     public static function create($email , $contact){

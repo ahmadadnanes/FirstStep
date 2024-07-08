@@ -6,24 +6,27 @@ use app\Model\Diary;
 use app\include\Validation;
 use DateTime;
 use DateTimeZone;
-include './app/include/autoloader.php';
+
+require 'vendor/autoload.php';
 
 
 class DiaryController extends Diary
 {
     public static function index(){
         if(!UserController::guest()){
-            global $user , $initial , $type , $diaries , $nav;
+            global $user , $type , $diaries , $nav;
             $user = $_SESSION["user"];
-            $initial = 1;
             $type = "diary";
+            if(isset($_GET['q'])){
+            }
             $diaries = DiaryController::all();
-            if(isset($_GET["lang"])){
+            $server = explode('/', $_SERVER["REQUEST_URI"])[1];
+            if($server == "ar"){
                 $nav = [
-                    'تسجيل الخروج' =>[
-                        '/logout/?lang=ar',
-                        'logout'
-                    ]
+                        'تسجيل الخروج' =>[
+                            '/logout/en',
+                            'logout'
+                        ]
                     ];
                 require ('./resources/views/rtl/diary.rtl.php');
             }else{
@@ -33,6 +36,8 @@ class DiaryController extends Diary
                         'create diary'
                     ]
                 ];
+                if(isset($_GET['q'])){
+                }
                 require ('./resources/views/diary/index.php');
             }
         }else{
@@ -72,27 +77,28 @@ class DiaryController extends Diary
         }
     }
 
-    public static function insert($id,$content,$private){
-        if (isset($_SESSION["id"],$_POST["content"])) {
-            $id = $_SESSION["id"];
-            $content = Validation::validate_text($_POST["content"]);
-            if (isset($_POST["private"])) {
-                $private = $_POST["private"];
-            } else {
-                $private = 0;
-            }
-            $filter = DiaryController::Filter($content);
-            if (is_bool($filter)) {
-                Diary::insert($id,$content, $private);
-                header("location: /profile/" . $_SESSION["user"]);
-            } else {
-                header("location: /diary/?msg=$filter");
-            }
+    public static function insert($id,$content,$private = 0){
+        if (!isset($_SESSION["id"],$_POST["content"])) {
+            return "please fill the fields";
+        }
+
+        $id = $_SESSION["id"];
+        $content = Validation::validate_text($_POST["content"]);
+
+        $private = $private;
+        $filter = DiaryController::Filter($content);
+
+        if (!is_bool($filter)) {
+            header("location: /diary/?msg=$filter");
             exit;
         }
+
+        Diary::insert($id,$content, $private);
+        header("location: /profile/" . $_SESSION["user"]);
+        exit;
     }
 
-    public static function edit($id , $content = null , $private = null){
+    public static function edit($id , $content = "" , $private = 0){
         if($_SERVER["REQUEST_METHOD"] == "GET"){
             global $diary;
             $diary = DiaryController::find($id);
@@ -102,6 +108,7 @@ class DiaryController extends Diary
             $content = Validation::validate_text($content);
             if(Diary::edit($id , $content , $private)){
                 header("location: /diary");
+                exit;
             }
         }
     }
@@ -113,24 +120,3 @@ class DiaryController extends Diary
         }
     }
 }
-// $server = explode('/', $_SERVER["REQUEST_URI"])[1];
-// if ($server == "diary") {
-// } else { else {
-//             } else {
-//                 header("location: /diary/?msg=Error");
-//             }
-//         }
-//     }
-// } else if ($server == "addcomment") {
-// }else if($server == "user"){
-//     if(isset($_GET["user"])){
-//         if($_SESSION["id"] == $_GET["user"]){
-//             header('location: /user/' . $_SESSION["user"]);
-//         }else{
-//             require ('./resources/views/YourDiares.php');
-//         }
-//     }else{
-//         require ('./resources/views/YourDiares.php');
-//     }
-// }
-// exit;

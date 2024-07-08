@@ -1,26 +1,23 @@
 <?php
 use app\controller\UserController;
+use app\include\csrf;
 include './app/include/time_ago.php';
 if (!empty($diaries)) :
-    // die(var_dump($diaries));
     foreach ($diaries as $row) :
-        $start = $initial;
-        $diary_id = $row[0];
-        $user_id = $row[1];
-        $dd = $row[4];
-        if ($type == "userDiaries") {
-            $dt = $row[$start];
-        } else {
-            $dt = $row[$start];
-        }
-        $dc = $row[$start += 1];
+        $diary_id = $row['id'];
+        $user_id = $row['user_id'];
+        $dd = $row['date'];
+        $dc = $row['diary_content'];
 ?>
         <div class="diary_container" id="<?= $diary_id ?>">
-            <?php if ($row[1] == $_SESSION["id"]) : ?>
+            <?php if ($user_id == $_SESSION["id"]) : ?>
                 <div class="delete">
-                    <button class="xComment" id="x" name="delete" value="<?= $diary_id ?>">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
+                    <form action="" method="post" class="delete_form">
+                        <?php csrf::create_token() ?>
+                        <button class="x" id="x" name="delete" value="<?= $diary_id ?>">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </form>
                 </div>
             <?php  endif ?>
             <?php if ($type == "diary") :
@@ -39,9 +36,9 @@ if (!empty($diaries)) :
             </div>
             <div class="combo">
                 <div class="time">
-                <button class="reply mb-1 p-1" onclick="location.href='/diary/show/?id=<?= $row[0] ?>'"><i class="fas fa-comment"></i></button>
-                    <?php if($row[1] == $_SESSION["id"]): ?>
-                        <button class="me-1 mb-1 edit" onclick="location.href='/diary/edit/?id=<?= $row[0] ?>'"><i class="fas fa-edit"></i></button>
+                <button class="reply mb-1 p-1" onclick="location.href='/diary/show/?id=<?= $diary_id ?>'"><i class="fas fa-comment"></i></button>
+                    <?php if($user_id == $_SESSION["id"]): ?>
+                        <button class="me-1 mb-1 edit" onclick="location.href='/diary/edit/?id=<?= $row['id'] ?>'"><i class="fas fa-edit"></i></button>
                     <?php endif; ?>
                     <p class="date">
                         <?php
@@ -56,7 +53,7 @@ if (!empty($diaries)) :
 else :
     if ($type == "userDiaries" && !isset($_GET["user"])) : ?>
         <div class="create text-center">
-            <h4>Your Diaries are empty<a href="/diary">Create One!</a></h4>
+            <h4>Your Diaries are empty<a href="/diary/create">Create One!</a></h4>
         </div><?php  else : ?>
         <div class="create" style="text-align: center;">
             <h4 class="mb-5">This is it for now</h4>

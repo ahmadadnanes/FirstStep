@@ -7,6 +7,13 @@ nav{
         display: flex;
         justify-content: space-between;
         align-items: center;
+        .logo{
+            img{
+                [dir=rtl] &{
+                    transform: rotateY(0.50turn);
+                }
+            }
+        }
         .user{
             order: -1;
             @media ($laptop) {

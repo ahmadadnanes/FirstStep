@@ -3,14 +3,18 @@
     use app\controller\UserController;
     use app\include\Validation;
     require "./app/include/autoloader.php";
-    if(!isset($_GET["search"])){
+    if(!isset($_GET["search"]) || !($username = Validation::validate_text($_GET["search"]))){
         $users = UserController::all();
     }else{
         $username = Validation::validate_text($_GET["search"]);
         $users = UserController::find_by_user($username);
+        if(!$users){
+            header('location: /admin/userlist');
+            exit;
+        }
     }
 ?>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

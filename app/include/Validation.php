@@ -8,9 +8,7 @@ class Validation{
         }else{
             return false;
         }
-
     }
-
     public static function validate_email($email)
     {
         if (filter_var($email, FILTER_VALIDATE_EMAIL) && strlen($email) !== 0) {

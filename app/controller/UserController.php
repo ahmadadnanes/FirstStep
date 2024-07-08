@@ -1,9 +1,11 @@
 <?php
 namespace app\controller;
+
+use app\include\csrf;
 use app\Model\User;
 use app\include\Validation;
 
-include './app/include/autoloader.php';
+require 'vendor/autoload.php';
 @session_start();
 $errors = [];
 
@@ -26,54 +28,82 @@ class UserController extends User
         
     }
 
-    public static function create($username , $email , $password)
+    public static function create($username , $email , $password , $confirm)
     {
         $username = $username;
         $email = Validation::validate_email($email);
         $password = md5($password);
-        if ($email) {
-            $username = Validation::validate_text($username);
-            $password = Validation::validate_text($password);
-
-            if (User::insert($username, $email, $password)) {
-                header("location:/login");
-            } else {
-                $errors["used"] = "this email or username is already in use";
-                header("location:/signup/?msg=" . $errors["used"]);
-            }
-        } else {
+        if (!$email) {
             header("location:/signup/?msg=please fill the email field correctly");
+            exit;
+        } 
+        $username = Validation::validate_text($username);
+        $password = Validation::validate_text($password);
+        $confirm = Validation::validate_text($confirm);
+        if((!$password == $confirm)){
+            header("location:/signup/?msg=password is not correct");
+            exit;
         }
+        if (!User::insert($username, $email, $password)) {
+            $errors["used"] = "this email or username is already in use";
+            header("location:/signup/?msg=" . $errors["used"]);
+            exit;
+        } 
+        header("location:/login");
         exit;
     }
 
     public static function auth($email , $password)
     {
-        $email = Validation::validate_email($email);
-        $password = Validation::validate_text($password);
-
-        if($email && $password){
-            if(UserController::get_email($email)){
-                if(UserController::get_password($email,$password)){
-                    if(isset($_POST["remember"])){
-                        setcookie("email" , $email , time() + strtotime("1 month"));
-                        setcookie("password" , $password , time() + strtotime("1 month"));
-                    }
-                    if (isset($_SERVER["QUERY_STRING"]) && !isset($_GET["msg"])) {
-                        header("location: /" . $_SERVER["QUERY_STRING"]);
-                    }else{
-                        header("location: /");
-                    }
-                }else{
-                    header("location: /login/?msg=this password is wrong");
-                }
-            }else{
-                header("location: /login/?msg=this email is wrong");
+        if(csrf::check_form_token()){
+            $email = Validation::validate_email($email);
+            $password = Validation::validate_text($password);
+    
+            if(!($email && $password)){
+                header("location: /login/?msg=please check the input");
+                exit;
             }
-        }else{
-            header("location: /login/?msg=please check the input");
+    
+    
+            if(!UserController::get_email($email)){
+                header("location: /login/?msg=this email is wrong");
+                exit;
+            }
+    
+    
+            if(!UserController::get_password($email,$password)){
+                header("location: /login/?msg=this password is wrong");
+                exit;
+            }
+    
+            if(isset($_POST["remember"])){
+                setcookie("email" , $email , time() + strtotime("1 month"));
+                setcookie("password" , $password , time() + strtotime("1 month"));
+            }
+    
+            if (isset($_SERVER["QUERY_STRING"]) && !isset($_GET["msg"])) {
+                header("location: /" . $_SERVER["QUERY_STRING"]);
+            }else{
+                header("location: /");
+            }
+            exit;
         }
-        exit;
+    }
+
+    public static function destroy()
+    {
+        @session_start();
+        if (isset($_SESSION["id"])) {
+            if (isset($_COOKIE["email"]) && isset($_COOKIE["password"])) {
+                unset($_COOKIE["email"]);
+                unset($_COOKIE["password"]);
+                setcookie("email", "", -1, '/');
+                setcookie("password", "", -1, '/');
+            }
+            session_destroy();
+        }
+        header("location: /");
+        exit();
     }
 }
 

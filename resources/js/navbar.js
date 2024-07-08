@@ -11,13 +11,15 @@ button.onclick = function(){
         ul.style.display = "block";
     }
 }
-
-user.onclick = function(event){
-    event.preventDefault()
-    if(UserUl.style.display === "block"){
-        UserUl.style.display = "none";
-    }
-    else{
-        UserUl.style.display = "block";
+if(user){
+    user.onclick = function(event){
+        event.preventDefault()
+        if(UserUl.style.display === "block"){
+            UserUl.style.display = "none";
+        }
+        else{
+            UserUl.style.display = "block";
+        }
     }
 }
+

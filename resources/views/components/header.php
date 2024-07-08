@@ -1,5 +1,5 @@
 <!-- start header -->
-<nav>
+<nav class="m-2">
     <div class="container">
         <?php include('resources/views/components/logo.html') ?>
         <?php if(isset($_SESSION["id"])){ ?>

@@ -67,6 +67,9 @@ nav .container {
   justify-content: space-between;
   align-items: center;
 }
+[dir=rtl] nav .container .logo img {
+  transform: rotateY(0.5turn);
+}
 nav .container .user {
   order: -1;
 }
@@ -467,6 +470,7 @@ dialog .content .text .pop-btn {
   border: none;
   width: 260px;
   height: 40px;
+  background-color: white !important;
 }
 @media ((max-width:768px)) {
   .admin .content .password-form form input {
@@ -476,7 +480,6 @@ dialog .content .text .pop-btn {
 .admin .content .password-form form button {
   width: 100px;
   height: 40px;
-  background-color: white !important;
 }
 .admin .content .card-container {
   padding-block: 60px;
@@ -530,16 +533,12 @@ dialog .content .text .pop-btn {
 .admin .content .user_form button {
   padding: 5px;
 }
-.admin .content .container {
-  overflow-x: auto;
-}
 .admin .content table {
   height: 100%;
-}
-@media ((max-width:1300px)) {
-  .admin .content table {
-    width: 100%;
-  }
+  width: 100%;
+  table-layout: auto;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .admin .content table tr:nth-child(even) {
   background-color: #eee !important;
@@ -793,9 +792,6 @@ dialog .content .text .pop-btn {
   width: 100px;
   height: 40px;
 }
-[dir=ltr] .diary section .container form .private {
-  padding-left: 20px;
-}
 [dir=rtl] .diary section .container form .private {
   padding-right: 20px;
 }
@@ -875,11 +871,7 @@ dialog .content .text .pop-btn {
   padding: 10px;
   border: none;
   margin-bottom: 5px;
-}
-@media (max-width: 600px) {
-  .login section .container .square .half2 .input-container input {
-    width: 181.13px;
-  }
+  width: 250px;
 }
 .login section .container .square .half2 .btnn {
   padding-left: 10px;
@@ -1060,7 +1052,6 @@ dialog .content .text .pop-btn {
 }
 .diaryById form i {
   float: right;
-  font-size: 30px;
 }
 
 .about article {

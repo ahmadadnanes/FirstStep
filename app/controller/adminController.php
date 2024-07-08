@@ -16,45 +16,5 @@ class AdminController extends Admin
             header("location: /login");
         }
     }
-    public function changePassword($id, $old, $new)
-    {
-        if($_SERVER["REQUEST_URI"] == 'GET'){
-            require("resources/views/admin/changePassword.php");
-        }else{
-            if ($this->checkPass($id, $old)) {
-                $this->changePass($id, $new);
-                return true;
-            } else {
-            return "Old Password is Wrong Please Try Again";
-            }  
-        }
-    }
 }
-
-// if (isset($_SESSION["id"])) {
-//     if ($server == 'admin') {
-//         require("resources/views/admin/Home.admin.php");
-//     } else if ($server == 'changePassword') {
-//         if ($_SERVER["REQUEST_METHOD"] == 'GET') {
-//                 require("resources/views/admin/changePassword.php");
-//         } else {
-//             if (isset($_POST["submit"])) {
-//                 $admin = new AdminController;
-//                 $old = Validation::validate_text($_POST["oldPass"]);
-//                 $new = Validation::validate_text($_POST["newPass"]);
-
-//                 $result = $admin->changePassword($_SESSION["id"], $_POST["oldPass"], $_POST["newPass"]);
-//                 if (is_bool($result)) {
-//                     header("location: /changePassword");
-//                 } else {
-//                     header("location: /changePassword/?msg=$result");
-//                 }
-//                 exit;
-//             }
-//         }
-//     }
-// } else {
-//     header("location: /login");
-//     exit;
-// }
 

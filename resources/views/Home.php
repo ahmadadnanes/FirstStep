@@ -1,6 +1,6 @@
 <?php
 use app\controller\UserController;
-include_once 'app/include/autoloader.php';
+require "vendor/autoload.php";
 @session_start();
 $nav = [
     'Who We Are' => [
@@ -14,13 +14,12 @@ if(isset($_SESSION["id"])){
         $nav["Admin"] = ["/admin" , "go to admin page"];
     }
     $user = UserController::get_user($_SESSION["id"]);
-
 }else{
     $nav["Login"] = ["/login" , "login"];
     $nav["SignUp"] = ["/signup" , "signup"];
 }
 
-$nav['العربية'] = ["/Home/?lang=ar", "toAR"];
+$nav['العربية'] = ["/ar", "toAR"];
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">

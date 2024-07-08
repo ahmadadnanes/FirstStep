@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php 
 use app\controller\UserController;
-include "./app/include/autoloader.php";
+require "vendor/autoload.php";
 $nav = [];
 @session_start();
 
@@ -17,7 +17,7 @@ if(isset($_SESSION["id"])){
     $nav["SignUp"] = ["/signup" , "signup"];
 }
 
-$nav['العربية'] = ["/about/?lang=ar", "toAR"];
+$nav['العربية'] = ["/about/en", "toAR"];
 ?>
 <html dir="ltr" lang="en">
 <head>

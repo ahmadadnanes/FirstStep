@@ -1,9 +1,8 @@
 <?php
 
 use app\controller\DiaryController;
-include_once 'app/include/autoloader.php';
+require "vendor/autoload.php";
 
-$initial = 1;
 $type = "userDiaries";
 $nav = [
     'Diary' => [
@@ -51,10 +50,10 @@ if (isset($_GET["user"])) {
 
     <!-- JS -->
     <script src="/app.js"></script>
+    <script src="/resources/js/jquery.js"></script>
     <script src="/resources/js/navbar.js"></script>
     <script src="/resources/js/up.js"></script>
-    <script src="/resources/js/YourDiaries.js"></script>
-    <script src="/resources/js/jquery.js"></script>
+    <script src="/resources/js/Diary.js"></script>
 </body>
 
 </html>

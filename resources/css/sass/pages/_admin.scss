@@ -41,6 +41,7 @@
                     border: none;
                     width: 260px;
                     height: 40px;
+                    background-color: white !important;
                     @media ($phone-max) {
                         width: 180px;
                     }
@@ -48,7 +49,6 @@
                 button{
                     width: 100px;
                     height: 40px;
-                    background-color: white !important;
                 }
             }
         }
@@ -97,14 +97,12 @@
                 padding: 5px;
             }
         }
-        .container{
-            overflow-x: auto;
-        }
         table{
             height: 100%;
-            @media ($laptop-max) {
-                width: 100%;
-            }
+            width: 100%;
+            table-layout: auto;
+            text-overflow: ellipsis;
+            overflow: hidden;
             tr{
                 &:nth-child(even){
                     background-color: $form_color;

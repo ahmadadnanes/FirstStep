@@ -1,12 +1,16 @@
 <?php
 namespace app\Model;
+
+use app\include\csrf;
 use app\Model\Connect;
 
-include './app/include/autoloader.php';
+require 'vendor/autoload.php';
 class Diary extends Connect
 {
     public static function insert($id,$content, $private)
     {
+        csrf::check_form_token();
+
         $db = new Connect();
         $conn = $db->conn();
         $sql = $conn->prepare("INSERT INTO diary (user_id,diary_content,private) VALUES (?,?,?)");
@@ -23,7 +27,7 @@ class Diary extends Connect
         $sql->execute();
         $result = $sql->get_result();
 
-        return $result->fetch_all();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public static function find_by_user($id): array
@@ -52,30 +56,44 @@ class Diary extends Connect
 
     public static function delete($id)
     {
-        $db = new connect();
-        $conn = $db->conn();
-        $sql = $conn->prepare("DELETE FROM diary WHERE id LIKE ?");
-        $sql->bind_param('s', $id);
-        return $sql->execute();
+        if(csrf::check_form_token()){
+            $db = new connect();
+            $conn = $db->conn();
+            $sql = $conn->prepare("DELETE FROM diary WHERE id LIKE ?");
+            $sql->bind_param('s', $id);
+            return $sql->execute();
+        }
     }
 
     public static function edit($id , $content , $private){
+        if(csrf::check_form_token()){
+            $db = new Connect();
+            $conn = $db->conn();
+            $sql = $conn->prepare("UPDATE diary set diary_content = ? , private = ? where id = ?");
+            $sql->bind_param('sii' , $content , $private ,  $id  );
+            return $sql->execute();
+        }
+    }
+
+    public static function search_by_user($q){
         $db = new Connect();
         $conn = $db->conn();
-        $sql = $conn->prepare("UPDATE diary set diary_content = ? , private = ? where id = ?");
-        $sql->bind_param('sii' , $content , $private ,  $id  );
-        return $sql->execute();
+        $sql = $conn->prepare("SELECT * FROM diary , users WHERE users.username = ? AND private = 0");
+        $sql->bind_param('s' , $q);
+        $sql->execute();
+        $result = $sql->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public static function find_by_user_global($UserId): array
     {
         $db = new Connect();
         $conn = $db->conn();
-        $sql = $conn->prepare("SELECT * FROM diary WHERE user_id like ? and private = 0 ORDER BY id DESC");
+        $sql = $conn->prepare("SELECT * FROM diary WHERE user_id like ? ORDER BY id DESC");
         $sql->bind_param('s', $UserId);
         $sql->execute();
         $result = $sql->get_result();
-        $diaries = $result->fetch_all();
+        $diaries = $result->fetch_all(MYSQLI_ASSOC);
         return $diaries;
     }
 
@@ -83,24 +101,26 @@ class Diary extends Connect
     {
         $db = new Connect();
         $conn = $db->conn();
-        $sql = $conn->prepare("SELECT * FROM replies WHERE to_comment_id = ?");
+        $sql = $conn->prepare("SELECT * FROM comments WHERE parent_id = ?");
         $sql->bind_param('s', $id);
         $sql->execute();
         $result = $sql->get_result();
-        $replies = $result->fetch_all();
+        $replies = $result->fetch_all(MYSQLI_ASSOC);
 
         return $replies;
     }
 
-    public static function insert_comment($user_id, $diary_id, $comment)
+    public static function insert_comment($user_id, $diary_id, $comment , $parent_id = null)
     {
-        $db = new Connect();
-        $conn = $db->conn();
-        $sql = $conn->prepare("INSERT INTO comments(user_id,diary_id,comment) VALUES (?,?,?)");
-        $sql->bind_param('iis', $user_id, $diary_id, $comment);
-        $sql->execute();
-        $id = $sql->insert_id;
-        return $id;
+        if(csrf::check_form_token()){
+            $db = new Connect();
+            $conn = $db->conn();
+            $sql = $conn->prepare("INSERT INTO comments(user_id,diary_id,comment,parent_id) VALUES (?,?,?,?)");
+            $sql->bind_param('iisi', $user_id, $diary_id, $comment,$parent_id);
+            $sql->execute();
+            $id = $sql->insert_id;
+            return $id;
+        }
     }
 
     public static function find_comment_by_diary($id): array
@@ -124,24 +144,28 @@ class Diary extends Connect
         $sql->bind_param('s', $id);
         $sql->execute();
         $result = $sql->get_result();
-        $comment = $result->fetch_all();
+        $comment = $result->fetch_array();
         return $comment;
     }
 
     public static function delete_comment($id){
-        $db = new Connect();
-        $conn = $db->conn();
-        $sql = $conn->prepare("DELETE FROM comments WHERE id = ?");
-        $sql->bind_param('s' , $id);
-        return $sql->execute();
+        if(csrf::check_form_token()){
+            $db = new Connect();
+            $conn = $db->conn();
+            $sql = $conn->prepare("DELETE FROM comments WHERE id = ?");
+            $sql->bind_param('s' , $id);
+            return $sql->execute();
+        }
     }
 
-    public static function insert_reply($user_id, $diary_id, $to_comment_id, $comment){
-        $db = new Connect();
-        $conn = $db->conn();
-        $sql = $conn->prepare("INSERT INTO replies(user_id,to_comment_id,diary_id,comment) VALUES (?,?,?,?)");
-        $sql->bind_param('ssss' , $user_id , $to_comment_id , $diary_id , $comment);
-        $sql->execute();
-        return $sql->insert_id;
+    public static function edit_comment($id ,$comment){
+        if(csrf::check_form_token()){
+            $db = new Connect();
+            $conn = $db->conn();
+            $sql = $conn->prepare('UPDATE comments SET comment = ? WHERE id = ?');
+            $sql->bind_param('si' , $comment , $id);
+            $sql->execute();
+            return true;
+        }
     }
 }

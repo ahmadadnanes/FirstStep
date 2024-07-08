@@ -5,9 +5,11 @@
             'go to diary'
         ]
         ];
+    use app\include\csrf;
+    require 'vendor/autoload.php';
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,15 +19,16 @@
 <body class="diary" dir="ltr">
     <?php include './resources/views/components/header.php' ?>
         <!-- start diary -->
-        <section>
+    <section>
         <div class="container">
             <form action="/diary/edit/?<?= "id=" . $id ?>" method="post">
+                <?php csrf::create_token() ?>
                 <div class="content">
                     <textarea name="content" id="content" cols="30" rows="10" required><?= $diary[0][2] ?></textarea>
                 </div>
                 <div class="private">
                     <label for="private" class="ms-1">private</label>
-                    <input type="checkbox" <?= $diary[0][3] ? "checked" : "" ?> name="private" value="1">
+                    <input type="checkbox" <?= $diary[0][3] ? "checked" : "" ?>  name="private" value="1">
                 </div>
                 <div class="button">
                     <button type="submit" name="submit">
