@@ -1,23 +1,25 @@
 <?php
 namespace app\Model;
 
+use app\include\csrf;
+
 require 'vendor/autoload.php';
 
 class Admin extends Connect
 {
     public static function checkPass($id, $old): bool
     {
-        require './app/include/check_form_token.php';
-
-        $db = new Connect;
-        $conn = $db->conn();
-        $sql = $conn->prepare("SELECT pass FROM users WHERE id = ?");
-        $sql->bind_param('s', $id);
-        $sql->execute();
-
-        $result = $sql->get_result();
-        $row = $result->fetch_assoc();
-        return $row["pass"] == md5($old);
+        if(csrf::check_form_token()){
+            $db = new Connect;
+            $conn = $db->conn();
+            $sql = $conn->prepare("SELECT pass FROM users WHERE id = ?");
+            $sql->bind_param('s', $id);
+            $sql->execute();
+    
+            $result = $sql->get_result();
+            $row = $result->fetch_assoc();
+            return $row["pass"] == md5($old);
+        }
     }
     public static function changePass($id, $new)
     {

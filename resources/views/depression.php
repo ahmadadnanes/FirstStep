@@ -4,7 +4,7 @@ $user = $_SESSION["user"];
 $nav = []
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
@@ -21,7 +21,7 @@ $nav = []
     <section>
 
         <div class="container">
-            <h1 id="htr">Help us match you to the <span style="color:#4B7B3F;"> right therapist</span></h1>
+            <h1 id="htr">Help us match you to the <span> right therapist</span></h1>
             <br><br>
 
             <div class="container">

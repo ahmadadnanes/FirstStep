@@ -5,6 +5,9 @@
     overflow: hidden;
     #htr{
         text-align: center;
+        span{
+            color: $links_color;
+        }
     }
 
     .paragraph{

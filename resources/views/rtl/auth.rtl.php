@@ -9,11 +9,7 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include("resources/views/components/layout.php") ?>
-    <?php if ($server == "login") { ?>
-        <title>تسجيل الدخول</title>
-    <?php } else { ?>
-        <title>تسجيل حساب جديد</title>
-    <?php } ?>
+    <?= $server === "login" ? "Login" : "Sign Up" ?>
 </head>
 
 <body class="login">
@@ -39,25 +35,31 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
                         كن شخصًا يجعل الجميع يشعرون
                         وكأنهم شخص ما
                     </h2>
-                    <?php if ($server == "login") : ?>
-                        <span>لا يوجد لديك حساب<a href='/signup/?lang=ar'>
-                                تسجيل حساب جديد
-                            </a><br>
-                        <?php  else : ?>
-                            <span>لديك حساب؟<a href='/login/?lang=ar'>
-                                    تسجيل الدخول
-                                </a><br>
-                            <?php endif ?>
+                    <?php 
+                        if ($server == "login") {
+                            echo
+                                '<span>لا يوجد لديك حساب
+                                <a href="/signup/ar">
+                                    تسجيل حساب جديد
+                                </a>
+                                </span>';
+                        } else {
+                            echo 
+                                '<span>لديك حساب؟<a href="/login/ar">
+                                        تسجيل الدخول
+                                    </a>
+                                </span>';
+                        };
+                    ?>
                 </div>
                 <div class="half2">
                     <center>
-                        <form action="<?php
-                                        if (isset($_SERVER["QUERY_STRING"])) echo '/' . $server . '/?' . $_SERVER['QUERY_STRING'];
-                                        else echo '/' . $server;?>" method="post" id="form1">
-
-                            <?php if ($server == "login") { ?><h1>تسجيل الدخول</h1> <?php } else { ?>
-                                <h1>تسجيل حساب جديد</h1>
-                            <?php } ?>
+                        <form action="
+                            <?=
+                                isset($_SERVER["QUERY_STRING"]) ? '/' . $server . '/?' . $_SERVER['QUERY_STRING']
+                                : '/' . $server?>" method="post" id="form1">
+                            
+                            <?= $server == "login" ? '<h1>تسجيل الدخول</h1>' : '<h1>تسجيل حساب جديد</h1>' ?>
                             <div class="input-container">
                                 <?php if ($server == "signup") { ?>
                                     <label for="username"></label>
@@ -88,10 +90,10 @@ $server = explode('/', $_SERVER["REQUEST_URI"])[1];
         </div>
     </section>
     <?php
-    if (isset($_SESSION["success"])) :
+    if (isset($_SESSION["status"])) :
     ?>
         <div class="success rounded-2 position-fixed bottom-0 p-1 m-1" id="success">
-            <?php echo $_SESSION["success"];
+            <?php echo $_SESSION["status"];
             session_unset();
             ?>
         </div>

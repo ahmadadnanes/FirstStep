@@ -14,6 +14,7 @@ class AdminController extends Admin
                 require('./resources/views/admin/index.php');
         }else{
             header("location: /login");
+            exit;
         }
     }
 }

@@ -1,7 +1,7 @@
 <?php
 namespace app\Model;
 use Exception , Closure;
-class router
+class Router
 {
 
     protected $routes = []; // stores routes
@@ -29,6 +29,6 @@ class router
                 }
             }
         }
-        throw new Exception('Route not found');
+        require "resources/views/errorPage.php";
     }
 }

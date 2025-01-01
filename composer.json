@@ -6,5 +6,8 @@
         "psr-4":{
             "app\\" : "app/"
         }
+    },
+    "require": {
+        "phpmailer/phpmailer": "^6.9"
     }
 }

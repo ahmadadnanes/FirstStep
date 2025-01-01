@@ -1,5 +1,9 @@
 <?php
 namespace app\Model;
+
+use app\controller\MailController;
+use app\include\csrf;
+use app\include\Validation;
 use app\Model\Connect;
 
 require 'vendor/autoload.php';
@@ -15,7 +19,6 @@ class User extends Connect
     }
     public static function insert($username, $email, $password, $admin = 0): bool
     {
-        require './app/include/check_form_token.php';
 
         $db = new Connect();
         $conn = $db->conn();
@@ -35,11 +38,14 @@ class User extends Connect
             return false;
         } else {
             // create new user
-            $sql2 = $conn->prepare("insert into users(username,email,pass,admin) values (?,?,?,?)");
-            $sql2->bind_param('sssi', $username, $email, $password, $admin);
+            $verification_token = md5(rand());
+            $sql2 = $conn->prepare("insert into users(username,email,pass,admin,verification_token) values (?,?,?,?,?)");
+            $sql2->bind_param('sssis', $username, $email, $password, $admin , $verification_token);
             $sql2->execute();
+
+            MailController::email_verification($username , $email , $verification_token);
             session_start();
-            $_SESSION["success"] = "Your account has been created";
+            $_SESSION["status"] = "Your account has been created please verify your account";
             return true;
         }
     }
@@ -75,12 +81,20 @@ class User extends Connect
             $sql2->execute();
             $result2 = $sql2->get_result();
 
-            @session_start();
             $idRow = $result2->fetch_assoc();
+            // die(User::check_user_status($idRow["id"]));
+
+            if(!User::check_user_status($idRow["id"])){
+                die('hi');
+                return false;
+            }
+
+            @session_start();
             $_SESSION["id"] = $idRow['id'];
             $id = $_SESSION["id"];
             $_SESSION["user"] = User::get_user($id);
-            return true;
+
+            return $id;
         } else {
             return false;
         }
@@ -129,14 +143,97 @@ class User extends Connect
     }
 
     public function delete($id){
-        require './app/include/check_form_token.php';
+        if(csrf::check_form_token()){
+            $db = new Connect;
+            $conn = $db->conn();
+    
+            $sql = $conn->prepare('DELETE FROM users WHERE id = ?');
+            $sql->bind_param('i' , $id);
+            $sql->execute();
+            return $sql->get_result();
+        }
+    }
 
-        $db = new Connect;
+    public static function insert_remember_token($id){
+        if(!isset($_COOKIE["token"])){
+            $token = md5(uniqid(mt_rand() , true));
+            $db = new Connect;
+            $conn = $db->conn();
+            $sql = $conn->prepare("INSERT INTO user_tokens(token,expiry,user_id) VALUES (?,?,?)");
+            $expired_seconds = time() + 60 * 60 * 24 * 30;
+            $expiry = date('Y-m-d H:i:s', $expired_seconds);
+            $sql->bind_param('ssi' , $token , $expiry , $id);
+            $sql->execute();
+            setcookie('token' , $token , strtotime('1 month'));
+        }
+    }
+
+    public static function check_user_token(){
+        if(isset($_COOKIE["token"])){
+            $token = Validation::validate_text($_COOKIE["token"]);
+            if($token){
+                $db = new Connect;
+                $conn = $db->conn();
+                $sql = $conn->prepare('SELECT user_id FROM user_tokens WHERE token = ? and expiry > NOW()');
+                $sql->bind_param('s' , $token);
+                $result = $sql->execute();
+                if($result){
+                    $id = $sql->get_result()->fetch_assoc();
+                    return $id['user_id'];
+                }else{
+                    return false;
+                }
+            }
+        }
+    }
+
+    public static function delete_user_token($id){
+        $id = Validation::validate_text($id);
+        if($id){
+            $db = new Connect;
+            $conn = $db->conn();
+            $sql = $conn->prepare('DELETE FROM user_tokens WHERE user_id = ?');
+            $sql->bind_param('i' , $id);
+            $sql->execute();
+        }
+    }
+
+    public static function verify_user($token){
+        $db = new connect;
         $conn = $db->conn();
-
-        $sql = $conn->prepare('DELETE FROM users WHERE id = ?');
-        $sql->bind_param('i' , $id);
+        $sql = $conn->prepare("SELECT id ,verification_token FROM users WHERE verification_token = ?");
+        $sql->bind_param('i' , $token);
         $sql->execute();
-        return $sql->get_result();
+        $result = $sql->get_result();
+
+        if(!$result->num_rows){
+            return false;
+        }
+
+        $result = $result->fetch_assoc();
+
+        $verified = 1;
+        $id = $result["id"];
+        $sql->free_result();
+        $sql = $conn->prepare("UPDATE users SET verified = ? WHERE id = ?");
+        $sql->bind_param('ii' , $verified , $id);
+
+        return $sql->execute();
+    }
+
+    public static function check_user_status($id){
+        $db = new connect;
+        $conn = $db->conn();
+        $sql = $conn->prepare("SELECT verified FROM users WHERE id = ?");
+        $sql->bind_param("i" , $id);
+        $sql->execute();
+
+        $result = $sql->get_result();
+
+        $result = $result->fetch_assoc();
+
+        if($result["verified"] !== 1) return false;
+        
+        return $result["verified"];
     }
 }

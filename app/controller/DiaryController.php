@@ -13,37 +13,56 @@ require 'vendor/autoload.php';
 class DiaryController extends Diary
 {
     public static function index(){
-        if(!UserController::guest()){
-            global $user , $type , $diaries , $nav;
-            $user = $_SESSION["user"];
-            $type = "diary";
-            if(isset($_GET['q'])){
-            }
-            $diaries = DiaryController::all();
-            $server = explode('/', $_SERVER["REQUEST_URI"])[1];
-            if($server == "ar"){
-                $nav = [
-                        'تسجيل الخروج' =>[
-                            '/logout/en',
-                            'logout'
-                        ]
-                    ];
-                require ('./resources/views/rtl/diary.rtl.php');
-            }else{
-                $nav = [
-                    'Create' => [
-                        '/diary/create',
-                        'create diary'
-                    ]
-                ];
-                if(isset($_GET['q'])){
-                }
-                require ('./resources/views/diary/index.php');
+        if(UserController::guest()){
+            header("location:/login/?diary");
+            exit;       
+        };
+
+        global $user , $type , $diaries , $nav;
+        $user = $_SESSION["user"];
+        $type = "diary";
+        if(isset($_GET['q'])){
+            $q = Validation::validate_text($_GET['q']);
+            switch ($q){
+                case "":
+                    $diaries = DiaryController::all();
+                    break;
+                default:
+                    $diaries = DiaryController::search_by_user($q);
+                    break;
             }
         }else{
-            header("location:/login/?diary");
-            exit;
+            $diaries = DiaryController::all();
         }
+
+
+
+        $server = explode('/', $_SERVER["REQUEST_URI"])[1];
+        if(!($server == "ar")){
+            $nav = [
+                'Create' => [
+                    '/diary/create',
+                    'create diary'
+                ],
+                'Depression Test' => [
+                    '/depression',
+                    'go to Depression Test'
+                ],
+                'Recomended Psychologist' => [
+                    '/psy',
+                    'go to Recomended Psychologist'
+                ]
+            ];
+            return require ('./resources/views/diary/index.php');
+        }
+
+        $nav = [
+            'تسجيل الخروج' =>[
+                '/logout/en',
+                'logout'
+            ]
+        ];
+        return require ('./resources/views/rtl/diary.rtl.php');
     }
 
     public static function show($id){
@@ -60,7 +79,7 @@ class DiaryController extends Diary
                     'logout'
                 ]
             ];
-            require ('./resources/views/diary/show.php');
+            return require('./resources/views/diary/show.php');
         }else{
             header("location: /login");
             exit;

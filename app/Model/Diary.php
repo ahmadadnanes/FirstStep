@@ -38,7 +38,7 @@ class Diary extends Connect
         $sql->bind_param('s', $id);
         $sql->execute();
         $result = $sql->get_result();
-        return $result->fetch_all();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public static function find($id): array
@@ -76,10 +76,15 @@ class Diary extends Connect
     }
 
     public static function search_by_user($q){
+        $q = '%' . $q . '%';
         $db = new Connect();
         $conn = $db->conn();
-        $sql = $conn->prepare("SELECT * FROM diary , users WHERE users.username = ? AND private = 0");
+        $sql = $conn->prepare("SELECT id FROM users WHERE username LIKE ?");
         $sql->bind_param('s' , $q);
+        $sql->execute();
+        $id = $sql->get_result()->fetch_all();
+        $sql = $conn->prepare("SELECT * from diary WHERE user_id = ?");
+        $sql->bind_param('i' , $id[0][0]);
         $sql->execute();
         $result = $sql->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);

@@ -26,7 +26,7 @@
             ?>
         </div>
     </div>
-    <!-- <p class="text-center mt-1">Image by <a href="https://www.freepik.com/free-photo/sharp-colored-pencil_1476988.htm#query=pencil%20wallpaper&position=0&from_view=keyword&track=ais">Freepik</a></p> -->
+    <p class="text-center mt-1">Image by <a href="https://www.freepik.com/free-photo/mothers-day-still-life-with-book-coffee_1958412.htm#query=diary&position=1&from_view=keyword&track=ais_hybrid&uuid=bdbc6728-c784-43c4-818b-c1e6ddfc23ff">Freepik</a></p>
     <!-- end social diary -->
     <?php include("resources/views/components/footer.html") ?>
     <!-- JS -->

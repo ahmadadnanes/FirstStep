@@ -18,7 +18,7 @@ class ContactController extends Contact{
                 } else {
                     header("location: //?msg=1");
                 }
-                exit();
+                exit;
             }
         }
     }

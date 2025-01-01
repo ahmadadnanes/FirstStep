@@ -36,9 +36,9 @@ if (!empty($diaries)) :
             </div>
             <div class="combo">
                 <div class="time">
-                <button class="reply mb-1 p-1" onclick="location.href='/diary/show/?id=<?= $diary_id ?>'"><i class="fas fa-comment"></i></button>
+                <button class="reply mb-1 p-1" onclick="location.href='/diary/show/<?= $diary_id ?>'"><i class="fas fa-comment"></i></button>
                     <?php if($user_id == $_SESSION["id"]): ?>
-                        <button class="me-1 mb-1 edit" onclick="location.href='/diary/edit/?id=<?= $row['id'] ?>'"><i class="fas fa-edit"></i></button>
+                        <button class="me-1 mb-1 edit" onclick="location.href='/diary/edit/<?= $row['id'] ?>'"><i class="fas fa-edit"></i></button>
                     <?php endif; ?>
                     <p class="date">
                         <?php

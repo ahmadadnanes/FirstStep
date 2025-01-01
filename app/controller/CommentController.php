@@ -18,7 +18,7 @@ class CommentController extends Diary {
         $replies = CommentController::find_replies_by_comment($id);
         $user = UserController::get_user($comment['user_id']);
         $nav = [];
-        require "./resources/views/comment/index.php";
+        return require "./resources/views/comment/index.php";
     }
 
     public static function insert_comment($user_id, $diary_id, $comment , $parent_id = null){

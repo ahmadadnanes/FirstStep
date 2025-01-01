@@ -45,7 +45,7 @@ $diaries = DiaryController::all();
     <!-- end diary -->
     <!-- start social diary -->
     <div class="social" dir="ltr">
-        <h2>تصفح اخر المذكرات</h2>
+        <h2 class="text-center mb-5">تصفح اخر المذكرات</h2>
         <div class="container">
             <?php
             include("resources/views/components/diary_container.php")

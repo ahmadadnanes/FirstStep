@@ -14,8 +14,8 @@ $nav = [
         'go to setting'
     ]
 ];
-if (isset($_GET["user"])) {
-    $id = $_GET["user"];
+if (isset($_GET["profile"])) {
+    $id = $_GET["profile"];
     $diaries = DiaryController::find_by_user($id);
 } else {
     $delete = true;
