@@ -1,6 +1,7 @@
 let current = 1;
 let qu = 10;
 let popup = document.getElementById("dialog");
+let original_href = window.location.href;
 
 let answers = [];
 function next(){
@@ -12,7 +13,7 @@ function next(){
       if (current <= qu) {
         document.getElementById('question' + current).classList.add('active');
         setTimeout(() =>{
-          location.href = "/depression#" + 'question' + current;
+          location.href = original_href + '#' + 'question' + current;
         } , 300)
       } 
       else {
@@ -51,5 +52,5 @@ function pop(text){
   let body = document.getElementById("body");
   body.innerText = text;
   popup.showModal();
-  location.href = "/depression#";
+  location.href = original_href + '#';
 }

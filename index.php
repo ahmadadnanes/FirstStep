@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 use app\controller\{AdminController , ChangePasswordController, CommentController, ContactController , DepressionController, DiaryController , HomeController, MailController, UserController , RecomendedController};
 use app\Model\Router;
@@ -35,21 +32,25 @@ $router->addRoute('GET', '/signup/:msg', fn ($msg)  => UserController::index());
 $router->addRoute('GET', '/diary', fn ()  => DiaryController::index());
 $router->addRoute('POST', '/diary/create', fn ()  => DiaryController::insert($_SESSION["id"] , $_POST["content"] , isset($_POST["private"]) ? $_POST["private"] : 0));
 $router->addRoute("GET" , "/diary/create" , fn() => require "./resources/views/diary/create.php");
-$router->addRoute('GET' , '/diary/:q' , fn ($q) => DiaryController::index());
+$router->addRoute("GET", "/diary/create/ar", fn() => require "./resources/views/rtl/diary/create.php");
 $router->addRoute('GET' , '/diary/ar' , fn() => DiaryController::index());
+$router->addRoute('GET' , '/diary/:q' , fn ($q) => DiaryController::index());
+$router->addRoute('GET' , '/diary/ar/:q' , fn ($q) => DiaryController::index());
 $router->addRoute('GET', '/diary/show/:id', fn ($id)  => DiaryController::show($id));
 $router->addRoute('GET' , '/diary/edit/:id', fn($id) => DiaryController::edit($id));
 $router->addRoute('POST' , '/diary/delete' , fn() => DiaryController::delete($_POST["delete"]));
-$router->addRoute('POST' , '/diary/edit/:id' , fn($id) => DiaryController::edit($_GET["id"], $_POST["content"] , $_POST["private"] || 0));
+$router->addRoute('POST' , '/diary/edit/:id' , fn($id) => DiaryController::edit($id, $_POST["content"] , $_POST["private"] || 0));
 $router->addRoute('GET', '/diary/:msg', fn ($msg) => DiaryController::index());
 $router->addRoute('POST', '/comment/create', fn() =>  CommentController::insert_comment($_POST["user_id"] , $_POST["diary_id"] , $_POST["comment"] , $_POST["to_comment_id"]));
-$router->addRoute('GET', '/comment/:id', fn ($id)  => CommentController::index($_GET["id"]));
+$router->addRoute('GET', '/comment/:id', fn ($id)  => CommentController::index($id));
 $router->addRoute('POST' , '/comment/delete' , fn() => CommentController::delete_comment($_POST["delete_id"]));
 $router->addRoute('GET' , '/comment/edit/:id' , fn($id) => require './resources/views/comment/edit.php');
 $router->addRoute('POST' , '/comment/edit' , fn() => CommentController::edit_comment($_POST["id"], $_POST["comment"]));
 // services
 $router->addRoute('GET', '/depression', fn ()  => DepressionController::index());
+$router->addRoute('GET', '/depression/ar', fn ()  => DepressionController::index());
 $router->addRoute('GET', '/psy', fn ()  => RecomendedController::index());
+$router->addRoute('GET', '/psy/ar', fn ()  => RecomendedController::index());
 $router->addRoute('GET', '/psy/:gov', fn ($gov)  => RecomendedController::index());
 $router->addRoute('GET', '/profile/:user', fn ($user)  => require "resources/views/profile.php");
 $router->addRoute('POST' , '/profile' , fn() => DiaryController::delete($_POST["delete"]));

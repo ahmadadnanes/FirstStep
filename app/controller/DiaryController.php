@@ -35,10 +35,14 @@ class DiaryController extends Diary
             $diaries = DiaryController::all();
         }
 
+        
+        if(isset(explode('/', $_SERVER["REQUEST_URI"])[2])){
+            $server = explode('/', $_SERVER["REQUEST_URI"])[2];
+        }else{
+            $server = explode('/', $_SERVER["REQUEST_URI"])[1];
+        }
 
-
-        $server = explode('/', $_SERVER["REQUEST_URI"])[1];
-        if(!($server == "ar")){
+        if($server !== "ar"){
             $nav = [
                 'Create' => [
                     '/diary/create',
@@ -58,11 +62,15 @@ class DiaryController extends Diary
 
         $nav = [
             'تسجيل الخروج' =>[
-                '/logout/en',
+                '/logout',
                 'logout'
+            ],
+            'انشاء مذكرة جديدة' => [
+                '/diary/create/ar',
+                'create diary'
             ]
         ];
-        return require ('./resources/views/rtl/diary.rtl.php');
+        return require ('./resources/views/rtl/diary/index.php');
     }
 
     public static function show($id){

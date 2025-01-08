@@ -40,7 +40,7 @@ if($server == 'login'){
     <!-- start header -->
     <nav>
         <div class="container">
-            <?php include('resources/views/components/logo.html') ?>
+            <?php include('resources/views/components/logo.php') ?>
             <div class="normal-bar d-block">
                 <a href="<?= $slots["status"]["url"] ?>"><?= $slots["status"]["title"]?></a>
             </div>

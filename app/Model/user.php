@@ -15,7 +15,7 @@ class User extends Connect
         $sql = $conn->prepare("SELECT * FROM users");
         $sql->execute();
         $result = $sql->get_result();
-        return $result->fetch_all();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
     public static function insert($username, $email, $password, $admin = 0): bool
     {
@@ -85,7 +85,6 @@ class User extends Connect
             // die(User::check_user_status($idRow["id"]));
 
             if(!User::check_user_status($idRow["id"])){
-                die('hi');
                 return false;
             }
 

@@ -4,7 +4,7 @@ include 'app/include/autoloader.php';
 @session_start();
 $nav = [
     'من نحن' => [
-        '/about',
+        '/about/ar',
         'go to about'
     ]
 ];
@@ -79,7 +79,7 @@ $nav['English'] = [
                             إذا كنت تشعر بالحزن الشديد، فهو مجاني وسريع وسري. ومثبتة علميا.
                         </p>
                         <div class="button-container">
-                            <button onclick="location.href='/depression/?lang=ar'">أبدأ</button>
+                            <button onclick="location.href='/depression/ar'">أبدأ</button>
                         </div>
                     </div>
                 </div>
@@ -89,7 +89,7 @@ $nav['English'] = [
                         <h5>المذكرة</h5>
                         <p>هنا يمكنك التعبير عن مشاعرك وآرائك ومناقشتها مع أشخاص آخرين</p>
                         <div class="button-container">
-                            <button onclick="location.href='/diary/?lang=ar'">أبدأ</button>
+                            <button onclick="location.href='/diary/ar'">أبدأ</button>
                         </div>
                     </div>
                 </div>
@@ -99,7 +99,7 @@ $nav['English'] = [
                         <h5>الأطباء النفسيين الموصى بهم</h5>
                         <p>هنا يمكنك استكشاف أشهر علماء النفس في البلاد</p>
                         <div class="button-container">
-                            <button onclick="location.href='/psy/lang=ar'">أبدأ</button>
+                            <button onclick="location.href='/psy/ar'">أبدأ</button>
                         </div>
                     </div>
                 </div>

@@ -1,12 +1,4 @@
-<?php
-use app\controller\DiaryController;
-include "app/include/autoloader.php";
-@session_start();
-$user = $_SESSION["user"];
-$initial = 1;
-$type = "diary";
-$diaries = DiaryController::all();
-?>
+<?php @session_start(); ?>
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
@@ -20,29 +12,14 @@ $diaries = DiaryController::all();
 <body class="diary">
     <?php include("resources/views/components/header.php") ?>
     <?php include("resources/views/components/up.html") ?>
-
-    <!-- start diary -->
-    <section>
-        <div class="container">
-            <form action="/diary" method="post">
-                <div class="content">
-                    <textarea name="content" id="content" cols="30" rows="10" required>
-                    </textarea>
-                </div>
-                <div class="private">
-                    <label for="private">خاص</label>
-                    <input type="checkbox" name="private" value="1">
-                </div>
-                <div class="button">
-                    <button type="submit" name="submit">
-                        ادخال
-                    </button>
-                    <?php include("resources/views/components/error.php") ?>
-                </div>
-            </form>
-        </div>
-    </section>
-    <!-- end diary -->
+    
+    <div class="search">
+        <form action="/diary/ar/" method="get">
+            <h5>البحث عن المذكرة من خلال المستخدم</h5> <br>
+            <input type="text" class="rounded border-0 p-2 me-1" id="search" name="q"><br><br><button class="p-2">بحث</button>
+            <button class="p-2 ms-1">الكل</button>
+        </form>
+    </div>
     <!-- start social diary -->
     <div class="social" dir="ltr">
         <h2 class="text-center mb-5">تصفح اخر المذكرات</h2>

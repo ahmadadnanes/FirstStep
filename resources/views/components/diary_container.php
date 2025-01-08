@@ -3,6 +3,7 @@ use app\controller\UserController;
 use app\include\csrf;
 include './app/include/time_ago.php';
 if (!empty($diaries)) :
+    $i = 0;
     foreach ($diaries as $row) :
         $diary_id = $row['id'];
         $user_id = $row['user_id'];
@@ -14,12 +15,12 @@ if (!empty($diaries)) :
                 <div class="delete">
                     <form action="" method="post" class="delete_form">
                         <?php csrf::create_token() ?>
-                        <button class="x" id="x" name="delete" value="<?= $diary_id ?>">
+                        <button class="x <?= $i ?>" id="x" name="delete" value="<?= $diary_id ?>">
                             <i class="fa-solid fa-trash"></i>
                         </button>
                     </form>
                 </div>
-            <?php  endif ?>
+            <?php $i++; endif ?>
             <?php if ($type == "diary") :
                 $dUser = UserController::get_user($user_id);
             ?>

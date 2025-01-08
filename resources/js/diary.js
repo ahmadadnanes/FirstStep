@@ -20,9 +20,8 @@ for(let i = 0 ; i < x.length ; i++){
         e.preventDefault();
         let con = confirm("are you sure");
         if(con){
-                let diary_id = $('.x').val();
+                let diary_id = $(`.x.${i}`).val();
                 let token = $('input[name=token]').val();
-                console.log(diary_id);
                 $.ajax({
                     type: "POST",
                     url: '/diary/delete',

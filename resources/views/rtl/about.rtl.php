@@ -4,6 +4,9 @@ use app\controller\UserController;
 include "./app/include/autoloader.php";
 $nav = [];
 @session_start();
+if(isset(explode('/', $_SERVER["REQUEST_URI"])[2])){
+    
+}
 
 if(isset($_SESSION["id"])){
     $user = UserController::get_user($_SESSION["id"]);

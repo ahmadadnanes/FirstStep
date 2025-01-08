@@ -1,7 +1,9 @@
 <!-- start header -->
 <nav class="m-2">
     <div class="container">
-        <?php include('resources/views/components/logo.html') ?>
+        <?php 
+        include('resources/views/components/logo.php');
+        ?>
         <?php if(isset($_SESSION["id"])){ ?>
             <div class="user">
                 <div class="links">
@@ -10,12 +12,17 @@
                     </span>
                     <div class="drop-down-user" id="drop-down-user">
                         <ul id="nav_ul_user">
-                            <?php if(!isset($_GET["lang"])) : ?>
+                            <?php if(isset($server)) :?>
+                                <?php if($server !== "ar") : ?>
+                                    <li><a href="<?= '/profile/' . $user  ?>">Profile</a></li>
+                                    <li><a href="/logout">Logout</a></li>
+                                <?php else: ?>
+                                    <li><a href="<?= '/profile/' . $user  ?>">حسابك</a></li>
+                                    <li><a href="/logout">تسجيل الخروج</a></li>
+                                <?php endif; ?>
+                            <?php else: ?>
                                 <li><a href="<?= '/profile/' . $user  ?>">Profile</a></li>
                                 <li><a href="/logout">Logout</a></li>
-                            <?php else: ?>
-                                <li><a href="<?= '/profile/' . $user  ?>">حسابك</a></li>
-                                <li><a href="/logout">تسجيل الخروج</a></li>
                             <?php endif; ?>
                         </ul>
                     </div>

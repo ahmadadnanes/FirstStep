@@ -103,6 +103,7 @@
             table-layout: auto;
             text-overflow: ellipsis;
             overflow: hidden;
+            margin-left: 50px;
             tr{
                 &:nth-child(even){
                     background-color: $form_color;
