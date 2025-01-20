@@ -15,10 +15,10 @@ class Connect
         $this->user = "root";
         $this->pass = "";
         $this->db = "first_step_remastered";
-
-        $this->mysqli = new \mysqli($this->host, $this->user, $this->pass, $this->db);
-        if ($this->mysqli->connect_errno) {
-            echo "Failed to connect to Mysql:" . $this->mysqli->connect_error;
+        try {
+            $this->mysqli = new \mysqli($this->host, $this->user, $this->pass , $this->db);
+        } catch (\Exception $e) {
+            die($e->getMessage());
         }
     }
 

@@ -8,6 +8,7 @@ use app\include\csrf;
 require 'vendor/autoload.php';
 @session_start();
 $user = $_SESSION["user"];
+$server = explode("/", $_SERVER["REQUEST_URI"])[3];
 ?>
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
@@ -17,7 +18,7 @@ $user = $_SESSION["user"];
     <?php include './resources/views/components/layout.php' ?>
     <title>انشاء مذكرتك</title>
 </head>
-<body class="diary" dir="ltr">
+<body class="diary" dir="rtl">
     <?php include './resources/views/components/header.php' ?>
     <!-- start diary -->
     <section>
@@ -41,7 +42,7 @@ $user = $_SESSION["user"];
         </div>
     </section>
     <!-- end diary -->
-    <?php include "./resources/views/components/footer.html" ?>
+    <?php include "./resources/views/components/rtl/footer.rtl.html" ?>
 <script src="/app.js"></script>
 <script src="/resources/js/navbar.js"></script>
 <script src="/resources/js/up.js"></script>

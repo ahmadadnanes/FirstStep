@@ -29,6 +29,6 @@ class Router
                 }
             }
         }
-        require "resources/views/errorPage.php";
+        http_response_code(404);
     }
 }

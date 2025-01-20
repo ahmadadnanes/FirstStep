@@ -2,8 +2,11 @@
 
 use app\controller\{AdminController , ChangePasswordController, CommentController, ContactController , DepressionController, DiaryController , HomeController, MailController, UserController , RecomendedController};
 use app\Model\Router;
-
+use Dotenv\Dotenv;
 require 'vendor/autoload.php';
+
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 @session_start();
 
@@ -22,12 +25,13 @@ $router->addRoute('POST', '/signup', fn () => UserController::create($_POST["use
 $router->addRoute('GET', '/login', fn () => UserController::index());
 $router->addRoute('GET', '/login/:msg',fn ($msg) => UserController::index());
 $router->addRoute('GET', '/login/:pre', fn ($pre) =>  UserController::index());
-$router->addRoute('GET' , '/login/:pre/:lang' , fn ($lang , $pre) => UserController::index());
+$router->addRoute('GET' , '/login/:pre/ar' , fn ($pre) => UserController::index());
 $router->addRoute('POST', '/login', fn () => UserController::auth($_POST["email"] , $_POST["password"]));
 $router->addRoute('POST', '/login/:pre', fn ($pre) => UserController::auth($_POST["email"] , $_POST["password"]));
-$router->addRoute('GET' , '/login/:lang' , fn($lang) => UserController::index());
-$router->addRoute('GET' , '/signup/:lang' , fn($lang) => UserController::index());
+$router->addRoute('GET' , '/login/ar' , fn() => UserController::index());
+$router->addRoute('GET' , '/signup/ar' , fn() => UserController::index());
 $router->addRoute('GET', '/signup/:msg', fn ($msg)  => UserController::index());
+$router->addRoute('POST', '/signup/:msg', fn ($msg)  => UserController::create($_POST["username"] , $_POST["email"] , $_POST["password"] , $_POST["confirm_password"]));
 // diary
 $router->addRoute('GET', '/diary', fn ()  => DiaryController::index());
 $router->addRoute('POST', '/diary/create', fn ()  => DiaryController::insert($_SESSION["id"] , $_POST["content"] , isset($_POST["private"]) ? $_POST["private"] : 0));
@@ -35,7 +39,7 @@ $router->addRoute("GET" , "/diary/create" , fn() => require "./resources/views/d
 $router->addRoute("GET", "/diary/create/ar", fn() => require "./resources/views/rtl/diary/create.php");
 $router->addRoute('GET' , '/diary/ar' , fn() => DiaryController::index());
 $router->addRoute('GET' , '/diary/:q' , fn ($q) => DiaryController::index());
-$router->addRoute('GET' , '/diary/ar/:q' , fn ($q) => DiaryController::index());
+$router->addRoute('GET' , '/diary/ar/:q' , fn ($q) => DiaryController::index($q));
 $router->addRoute('GET', '/diary/show/:id', fn ($id)  => DiaryController::show($id));
 $router->addRoute('GET' , '/diary/edit/:id', fn($id) => DiaryController::edit($id));
 $router->addRoute('POST' , '/diary/delete' , fn() => DiaryController::delete($_POST["delete"]));

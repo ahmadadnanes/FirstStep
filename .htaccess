@@ -4,5 +4,4 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php/$1 [L]
 
 ErrorDocument 404 http://localhost:3000/errorPage
-ErrorDocument 405 http://localhost:3000/errorPage
 

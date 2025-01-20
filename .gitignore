@@ -4,3 +4,4 @@
 .gitignore
 .vscode
 *.cache
+.env

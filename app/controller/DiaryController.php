@@ -21,8 +21,8 @@ class DiaryController extends Diary
         global $user , $type , $diaries , $nav;
         $user = $_SESSION["user"];
         $type = "diary";
-        if(isset($_GET['q'])){
-            $q = Validation::validate_text($_GET['q']);
+        if(isset($_GET["q"])){
+            $q = Validation::validate_text($_GET["q"]);
             switch ($q){
                 case "":
                     $diaries = DiaryController::all();

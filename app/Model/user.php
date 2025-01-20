@@ -5,6 +5,7 @@ use app\controller\MailController;
 use app\include\csrf;
 use app\include\Validation;
 use app\Model\Connect;
+use Exception;
 
 require 'vendor/autoload.php';
 class User extends Connect
@@ -39,13 +40,18 @@ class User extends Connect
         } else {
             // create new user
             $verification_token = md5(rand());
-            $sql2 = $conn->prepare("insert into users(username,email,pass,admin,verification_token) values (?,?,?,?,?)");
-            $sql2->bind_param('sssis', $username, $email, $password, $admin , $verification_token);
-            $sql2->execute();
-
-            MailController::email_verification($username , $email , $verification_token);
-            session_start();
-            $_SESSION["status"] = "Your account has been created please verify your account";
+            try {
+                $conn->begin_transaction();
+                    $sql2 = $conn->prepare("insert into users(username,email,pass,admin,verification_token) values (?,?,?,?,?)");
+                    $sql2->bind_param('sssis', $username, $email, $password, $admin , $verification_token);
+                    $sql2->execute();
+                    MailController::email_verification($username , $email , $verification_token);
+                    session_start();
+                    $_SESSION["status"] = "Your account has been created please verify your account";
+                $conn->commit();
+            } catch (Exception $e) {        
+                $conn->rollback();
+            }
             return true;
         }
     }
@@ -201,7 +207,7 @@ class User extends Connect
         $db = new connect;
         $conn = $db->conn();
         $sql = $conn->prepare("SELECT id ,verification_token FROM users WHERE verification_token = ?");
-        $sql->bind_param('i' , $token);
+        $sql->bind_param('s' , $token);
         $sql->execute();
         $result = $sql->get_result();
 
@@ -213,11 +219,10 @@ class User extends Connect
 
         $verified = 1;
         $id = $result["id"];
-        $sql->free_result();
-        $sql = $conn->prepare("UPDATE users SET verified = ? WHERE id = ?");
-        $sql->bind_param('ii' , $verified , $id);
-
-        return $sql->execute();
+        $sql2 = $conn->prepare("UPDATE users SET verified = ? WHERE id = ?");
+        $sql2->bind_param('si' , $verified , $id);
+        $sql2->execute();
+        return $sql->affected_rows;
     }
 
     public static function check_user_status($id){

@@ -56,7 +56,7 @@ class UserController extends User
     }
 
     public static function auth($email , $password)
-    { 
+    {       
             if(csrf::check_form_token()){
                 $email = Validation::validate_email($email);
                 $password = Validation::validate_text($password);

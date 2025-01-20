@@ -180,6 +180,32 @@ nav .container .links ul li a {
   }
 }
 
+.sidebar {
+  background-color: #FFD600 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media ((max-width:768px)) {
+  .sidebar img {
+    width: 60px;
+  }
+}
+.sidebar div {
+  padding-bottom: 15px;
+}
+.sidebar div i {
+  font-size: 25px;
+}
+.sidebar div i:hover {
+  cursor: pointer;
+}
+@media ((max-width:768px)) {
+  .sidebar div i {
+    font-size: 20px;
+  }
+}
+
 .comment {
   position: relative;
   margin-bottom: 15px;

@@ -1,9 +1,8 @@
 <?php 
 namespace app\include;
-
-@session_start();
 class csrf {
     public static function create_token(){
+        @session_start();
         if(!isset($_SESSION["token"])){
             $_SESSION["token"] = md5(uniqid(mt_rand() , true));
         }
@@ -12,6 +11,7 @@ class csrf {
     }
 
     public static function check_form_token(){
+        @session_start();
         if(isset($_REQUEST["token"]) && $_REQUEST["token"] == $_SESSION["token"]){
             return true;
         }else{
