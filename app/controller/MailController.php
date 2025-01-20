@@ -23,7 +23,7 @@ class MailController {
             $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
             //Recipients
-            $mail->setFrom('dumydumy964@gmail.com', 'Mailer');
+            $mail->setFrom($_ENV["MAIL_ACCOUNT"], 'Mailer');
             $mail->addAddress($email , $name);     //Add a recipient            //Name is optional
 
             //Content
